@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 struct CombineHexagramModel: Hashable, Codable {
-    var id: Int
     var name: String
     var description: String
 }

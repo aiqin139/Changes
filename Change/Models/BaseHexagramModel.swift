@@ -9,7 +9,8 @@ import Foundation
 import SwiftUI
 
 struct BaseHexagramModel: Hashable, Codable {
-    var id: Int
     var name: String
+    var category: String
+    var part: String
     var description: String
 }
