@@ -9,8 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text(baseHexagrams[0].description)
-            .padding()
+        HexagramDetail(hexagram: hexagrams[0])
     }
 }
 

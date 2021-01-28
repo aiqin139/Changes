@@ -8,8 +8,7 @@
 import Foundation
 import Combine
 
-var baseHexagrams: [BaseHexagramModel] = load("baseHexagramData.json")
-var combineHexagrams: [CombineHexagramModel] = load("combineHexagramData.json")
+var hexagrams: [Hexagram] = load("hexagramData.json")
 
 func load<T: Decodable>(_ filename: String) -> T
 {

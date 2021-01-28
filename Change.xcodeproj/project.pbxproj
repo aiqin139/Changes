@@ -12,20 +12,14 @@
 		1495399325C278C500F05BA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1495399225C278C500F05BA1 /* Assets.xcassets */; };
 		1495399625C278C500F05BA1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1495399525C278C500F05BA1 /* Preview Assets.xcassets */; };
 		149539A225C2795A00F05BA1 /* PredictionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539A125C2795A00F05BA1 /* PredictionView.swift */; };
-		149539AA25C27AB400F05BA1 /* Qian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539A925C27AB400F05BA1 /* Qian.swift */; };
-		149539AE25C27ACB00F05BA1 /* Kun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539AD25C27ACB00F05BA1 /* Kun.swift */; };
-		149539B125C27ADA00F05BA1 /* Xun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539B025C27ADA00F05BA1 /* Xun.swift */; };
-		149539B425C27AEC00F05BA1 /* Dui.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539B325C27AEC00F05BA1 /* Dui.swift */; };
-		149539B725C27AF800F05BA1 /* Gen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539B625C27AF700F05BA1 /* Gen.swift */; };
-		149539BA25C27B0900F05BA1 /* Zhen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539B925C27B0900F05BA1 /* Zhen.swift */; };
-		149539BD25C27B1B00F05BA1 /* Li.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539BC25C27B1B00F05BA1 /* Li.swift */; };
-		149539C025C27B2A00F05BA1 /* Kan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539BF25C27B2A00F05BA1 /* Kan.swift */; };
-		149539C425C27C6400F05BA1 /* PredictionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539C325C27C6400F05BA1 /* PredictionModel.swift */; };
-		149539C825C27F1C00F05BA1 /* baseHexagramData.json in Resources */ = {isa = PBXBuildFile; fileRef = 149539C725C27F1C00F05BA1 /* baseHexagramData.json */; };
-		149539CB25C27F2700F05BA1 /* combineHexagramData.json in Resources */ = {isa = PBXBuildFile; fileRef = 149539CA25C27F2700F05BA1 /* combineHexagramData.json */; };
-		149539CF25C2800900F05BA1 /* BaseHexagramModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539CE25C2800900F05BA1 /* BaseHexagramModel.swift */; };
-		149539D325C2802400F05BA1 /* CombineHexagramModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539D225C2802400F05BA1 /* CombineHexagramModel.swift */; };
+		149539C425C27C6400F05BA1 /* Prediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539C325C27C6400F05BA1 /* Prediction.swift */; };
+		149539C825C27F1C00F05BA1 /* hexagramData.json in Resources */ = {isa = PBXBuildFile; fileRef = 149539C725C27F1C00F05BA1 /* hexagramData.json */; };
+		149539CF25C2800900F05BA1 /* Hexagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539CE25C2800900F05BA1 /* Hexagram.swift */; };
 		149539D625C2DB8400F05BA1 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539D525C2DB8400F05BA1 /* ModelData.swift */; };
+		149539D925C2EB8900F05BA1 /* HexagramDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539D825C2EB8900F05BA1 /* HexagramDetail.swift */; };
+		149539E325C2F01100F05BA1 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539E225C2F01100F05BA1 /* CircleImage.swift */; };
+		149539EF25C2F93C00F05BA1 /* HexagramItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539EE25C2F93C00F05BA1 /* HexagramItem.swift */; };
+		149539F225C2F99000F05BA1 /* HexagramMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539F125C2F99000F05BA1 /* HexagramMatrix.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,20 +30,14 @@
 		1495399525C278C500F05BA1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1495399725C278C500F05BA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		149539A125C2795A00F05BA1 /* PredictionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionView.swift; sourceTree = "<group>"; };
-		149539A925C27AB400F05BA1 /* Qian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Qian.swift; sourceTree = "<group>"; };
-		149539AD25C27ACB00F05BA1 /* Kun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kun.swift; sourceTree = "<group>"; };
-		149539B025C27ADA00F05BA1 /* Xun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xun.swift; sourceTree = "<group>"; };
-		149539B325C27AEC00F05BA1 /* Dui.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dui.swift; sourceTree = "<group>"; };
-		149539B625C27AF700F05BA1 /* Gen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gen.swift; sourceTree = "<group>"; };
-		149539B925C27B0900F05BA1 /* Zhen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zhen.swift; sourceTree = "<group>"; };
-		149539BC25C27B1B00F05BA1 /* Li.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Li.swift; sourceTree = "<group>"; };
-		149539BF25C27B2A00F05BA1 /* Kan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kan.swift; sourceTree = "<group>"; };
-		149539C325C27C6400F05BA1 /* PredictionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionModel.swift; sourceTree = "<group>"; };
-		149539C725C27F1C00F05BA1 /* baseHexagramData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = baseHexagramData.json; sourceTree = "<group>"; };
-		149539CA25C27F2700F05BA1 /* combineHexagramData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = combineHexagramData.json; sourceTree = "<group>"; };
-		149539CE25C2800900F05BA1 /* BaseHexagramModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHexagramModel.swift; sourceTree = "<group>"; };
-		149539D225C2802400F05BA1 /* CombineHexagramModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineHexagramModel.swift; sourceTree = "<group>"; };
+		149539C325C27C6400F05BA1 /* Prediction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prediction.swift; sourceTree = "<group>"; };
+		149539C725C27F1C00F05BA1 /* hexagramData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hexagramData.json; sourceTree = "<group>"; };
+		149539CE25C2800900F05BA1 /* Hexagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hexagram.swift; sourceTree = "<group>"; };
 		149539D525C2DB8400F05BA1 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		149539D825C2EB8900F05BA1 /* HexagramDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramDetail.swift; sourceTree = "<group>"; };
+		149539E225C2F01100F05BA1 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		149539EE25C2F93C00F05BA1 /* HexagramItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramItem.swift; sourceTree = "<group>"; };
+		149539F125C2F99000F05BA1 /* HexagramMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramMatrix.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +95,7 @@
 				1495399025C278C500F05BA1 /* ContentView.swift */,
 				149539A825C279FF00F05BA1 /* HexagramViews */,
 				149539A725C279D000F05BA1 /* PredictionViews */,
+				149539E025C2EFA500F05BA1 /* Helpers */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -114,9 +103,8 @@
 		1495399F25C278EA00F05BA1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				149539C325C27C6400F05BA1 /* PredictionModel.swift */,
-				149539CE25C2800900F05BA1 /* BaseHexagramModel.swift */,
-				149539D225C2802400F05BA1 /* CombineHexagramModel.swift */,
+				149539C325C27C6400F05BA1 /* Prediction.swift */,
+				149539CE25C2800900F05BA1 /* Hexagram.swift */,
 				149539D525C2DB8400F05BA1 /* ModelData.swift */,
 			);
 			path = Models;
@@ -133,14 +121,9 @@
 		149539A825C279FF00F05BA1 /* HexagramViews */ = {
 			isa = PBXGroup;
 			children = (
-				149539A925C27AB400F05BA1 /* Qian.swift */,
-				149539AD25C27ACB00F05BA1 /* Kun.swift */,
-				149539B025C27ADA00F05BA1 /* Xun.swift */,
-				149539B325C27AEC00F05BA1 /* Dui.swift */,
-				149539B625C27AF700F05BA1 /* Gen.swift */,
-				149539B925C27B0900F05BA1 /* Zhen.swift */,
-				149539BC25C27B1B00F05BA1 /* Li.swift */,
-				149539BF25C27B2A00F05BA1 /* Kan.swift */,
+				149539D825C2EB8900F05BA1 /* HexagramDetail.swift */,
+				149539EE25C2F93C00F05BA1 /* HexagramItem.swift */,
+				149539F125C2F99000F05BA1 /* HexagramMatrix.swift */,
 			);
 			path = HexagramViews;
 			sourceTree = "<group>";
@@ -148,10 +131,17 @@
 		149539C625C27CF200F05BA1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				149539C725C27F1C00F05BA1 /* baseHexagramData.json */,
-				149539CA25C27F2700F05BA1 /* combineHexagramData.json */,
+				149539C725C27F1C00F05BA1 /* hexagramData.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		149539E025C2EFA500F05BA1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				149539E225C2F01100F05BA1 /* CircleImage.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,9 +201,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				149539CB25C27F2700F05BA1 /* combineHexagramData.json in Resources */,
 				1495399625C278C500F05BA1 /* Preview Assets.xcassets in Resources */,
-				149539C825C27F1C00F05BA1 /* baseHexagramData.json in Resources */,
+				149539C825C27F1C00F05BA1 /* hexagramData.json in Resources */,
 				1495399325C278C500F05BA1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,21 +214,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				149539BA25C27B0900F05BA1 /* Zhen.swift in Sources */,
-				149539CF25C2800900F05BA1 /* BaseHexagramModel.swift in Sources */,
+				149539CF25C2800900F05BA1 /* Hexagram.swift in Sources */,
+				149539EF25C2F93C00F05BA1 /* HexagramItem.swift in Sources */,
 				149539D625C2DB8400F05BA1 /* ModelData.swift in Sources */,
-				149539C025C27B2A00F05BA1 /* Kan.swift in Sources */,
-				149539B425C27AEC00F05BA1 /* Dui.swift in Sources */,
-				149539D325C2802400F05BA1 /* CombineHexagramModel.swift in Sources */,
-				149539AE25C27ACB00F05BA1 /* Kun.swift in Sources */,
 				1495399125C278C500F05BA1 /* ContentView.swift in Sources */,
+				149539F225C2F99000F05BA1 /* HexagramMatrix.swift in Sources */,
 				149539A225C2795A00F05BA1 /* PredictionView.swift in Sources */,
-				149539B125C27ADA00F05BA1 /* Xun.swift in Sources */,
-				149539AA25C27AB400F05BA1 /* Qian.swift in Sources */,
-				149539B725C27AF800F05BA1 /* Gen.swift in Sources */,
-				149539BD25C27B1B00F05BA1 /* Li.swift in Sources */,
-				149539C425C27C6400F05BA1 /* PredictionModel.swift in Sources */,
+				149539C425C27C6400F05BA1 /* Prediction.swift in Sources */,
+				149539E325C2F01100F05BA1 /* CircleImage.swift in Sources */,
 				1495398F25C278C500F05BA1 /* ChangeApp.swift in Sources */,
+				149539D925C2EB8900F05BA1 /* HexagramDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
