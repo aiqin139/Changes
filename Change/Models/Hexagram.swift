@@ -10,7 +10,7 @@ import SwiftUI
 
 struct Hexagram: Hashable, Codable {
     var name: String
-    var explanations: [String]
+    var explanations: [[String]]
     
     private var imageName: String
     var image: Image {

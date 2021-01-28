@@ -23,9 +23,12 @@ struct HexagramDetail: View {
             }
             
             VStack(alignment: .leading) {
-                ForEach(hexagram.explanations, id: \.self) { explanation in
+                ForEach(hexagram.explanations, id: \.self) { contents in
                     Divider()
-                    Text(explanation).padding()
+                    ForEach(contents, id: \.self) { content in
+                        Text(content)
+                            .padding(.leading)
+                    }
                 }
             }
         }

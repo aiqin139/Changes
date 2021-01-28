@@ -20,6 +20,7 @@
 		149539E325C2F01100F05BA1 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539E225C2F01100F05BA1 /* CircleImage.swift */; };
 		149539EF25C2F93C00F05BA1 /* HexagramItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539EE25C2F93C00F05BA1 /* HexagramItem.swift */; };
 		149539F225C2F99000F05BA1 /* HexagramMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539F125C2F99000F05BA1 /* HexagramMatrix.swift */; };
+		149539FB25C3151D00F05BA1 /* HexagramRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539FA25C3151D00F05BA1 /* HexagramRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		149539E225C2F01100F05BA1 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		149539EE25C2F93C00F05BA1 /* HexagramItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramItem.swift; sourceTree = "<group>"; };
 		149539F125C2F99000F05BA1 /* HexagramMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramMatrix.swift; sourceTree = "<group>"; };
+		149539FA25C3151D00F05BA1 /* HexagramRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			children = (
 				149539D825C2EB8900F05BA1 /* HexagramDetail.swift */,
 				149539EE25C2F93C00F05BA1 /* HexagramItem.swift */,
+				149539FA25C3151D00F05BA1 /* HexagramRow.swift */,
 				149539F125C2F99000F05BA1 /* HexagramMatrix.swift */,
 			);
 			path = HexagramViews;
@@ -223,6 +226,7 @@
 				149539C425C27C6400F05BA1 /* Prediction.swift in Sources */,
 				149539E325C2F01100F05BA1 /* CircleImage.swift in Sources */,
 				1495398F25C278C500F05BA1 /* ChangeApp.swift in Sources */,
+				149539FB25C3151D00F05BA1 /* HexagramRow.swift in Sources */,
 				149539D925C2EB8900F05BA1 /* HexagramDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

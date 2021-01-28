@@ -8,13 +8,25 @@
 import SwiftUI
 
 struct HexagramItem: View {
+    var hexagram: Hexagram
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .center) {
+            hexagram.image
+                .renderingMode(.original)
+                .resizable()
+                .frame(width: 150, height: 150)
+                .cornerRadius(5)
+            Text(hexagram.name)
+                .foregroundColor(.primary)
+                .font(.caption)
+        }
+        .padding([.top, .leading, .trailing], 15)
     }
 }
 
 struct HexagramItem_Previews: PreviewProvider {
     static var previews: some View {
-        HexagramItem()
+        HexagramItem(hexagram: hexagrams[0])
     }
 }
