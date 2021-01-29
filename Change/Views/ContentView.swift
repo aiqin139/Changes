@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        HexagramDetail(hexagram: hexagrams[0])
+        HexagramList()
     }
 }
 
