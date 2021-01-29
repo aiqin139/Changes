@@ -9,11 +9,9 @@ import Foundation
 import SwiftUI
 
 struct Hexagram: Hashable, Codable {
+    var id: Int
     var name: String
+    var pinyin: String
+    var image: Image { Image(name) }
     var explanations: [[String]]
-    
-    private var imageName: String
-    var image: Image {
-        Image(imageName)
-    }
 }

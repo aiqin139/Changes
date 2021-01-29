@@ -16,7 +16,10 @@ struct HexagramDetail: View {
                 .offset(y: 0)
                 .padding(.bottom, 0)
             
-            HStack {
+            VStack {
+                Text(hexagram.pinyin)
+                    .font(.title)
+                    .foregroundColor(.primary)
                 Text(hexagram.name)
                     .font(.title)
                     .foregroundColor(.primary)
