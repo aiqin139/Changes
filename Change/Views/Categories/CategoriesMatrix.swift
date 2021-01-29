@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct HexagramMatrix: View {
+struct CategoriesMatrix: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct HexagramMatrix_Previews: PreviewProvider {
+struct CategoriesMatrix_Previews: PreviewProvider {
     static var previews: some View {
-        HexagramMatrix()
+        CategoriesMatrix()
     }
 }

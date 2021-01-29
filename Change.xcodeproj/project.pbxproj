@@ -18,9 +18,9 @@
 		149539D625C2DB8400F05BA1 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539D525C2DB8400F05BA1 /* ModelData.swift */; };
 		149539D925C2EB8900F05BA1 /* HexagramDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539D825C2EB8900F05BA1 /* HexagramDetail.swift */; };
 		149539E325C2F01100F05BA1 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539E225C2F01100F05BA1 /* CircleImage.swift */; };
-		149539EF25C2F93C00F05BA1 /* HexagramItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539EE25C2F93C00F05BA1 /* HexagramItem.swift */; };
-		149539F225C2F99000F05BA1 /* HexagramMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539F125C2F99000F05BA1 /* HexagramMatrix.swift */; };
-		149539FB25C3151D00F05BA1 /* HexagramRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539FA25C3151D00F05BA1 /* HexagramRow.swift */; };
+		149539EF25C2F93C00F05BA1 /* CategoriesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539EE25C2F93C00F05BA1 /* CategoriesItem.swift */; };
+		149539F225C2F99000F05BA1 /* CategoriesMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539F125C2F99000F05BA1 /* CategoriesMatrix.swift */; };
+		149539FB25C3151D00F05BA1 /* CategoriesRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539FA25C3151D00F05BA1 /* CategoriesRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,9 +37,9 @@
 		149539D525C2DB8400F05BA1 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		149539D825C2EB8900F05BA1 /* HexagramDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramDetail.swift; sourceTree = "<group>"; };
 		149539E225C2F01100F05BA1 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
-		149539EE25C2F93C00F05BA1 /* HexagramItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramItem.swift; sourceTree = "<group>"; };
-		149539F125C2F99000F05BA1 /* HexagramMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramMatrix.swift; sourceTree = "<group>"; };
-		149539FA25C3151D00F05BA1 /* HexagramRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramRow.swift; sourceTree = "<group>"; };
+		149539EE25C2F93C00F05BA1 /* CategoriesItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesItem.swift; sourceTree = "<group>"; };
+		149539F125C2F99000F05BA1 /* CategoriesMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesMatrix.swift; sourceTree = "<group>"; };
+		149539FA25C3151D00F05BA1 /* CategoriesRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +53,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		140CE45625C4592000984B9D /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				149539EE25C2F93C00F05BA1 /* CategoriesItem.swift */,
+				149539FA25C3151D00F05BA1 /* CategoriesRow.swift */,
+				149539F125C2F99000F05BA1 /* CategoriesMatrix.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		1495398225C278C500F05BA1 = {
 			isa = PBXGroup;
 			children = (
@@ -73,8 +83,8 @@
 			isa = PBXGroup;
 			children = (
 				1495398E25C278C500F05BA1 /* ChangeApp.swift */,
-				1495399F25C278EA00F05BA1 /* Models */,
 				1495399E25C278CF00F05BA1 /* Views */,
+				1495399F25C278EA00F05BA1 /* Models */,
 				149539C625C27CF200F05BA1 /* Resources */,
 				1495399225C278C500F05BA1 /* Assets.xcassets */,
 				1495399725C278C500F05BA1 /* Info.plist */,
@@ -95,8 +105,9 @@
 			isa = PBXGroup;
 			children = (
 				1495399025C278C500F05BA1 /* ContentView.swift */,
-				149539A825C279FF00F05BA1 /* HexagramViews */,
-				149539A725C279D000F05BA1 /* PredictionViews */,
+				149539A825C279FF00F05BA1 /* Hexagram */,
+				140CE45625C4592000984B9D /* Categories */,
+				149539A725C279D000F05BA1 /* Prediction */,
 				149539E025C2EFA500F05BA1 /* Helpers */,
 			);
 			path = Views;
@@ -112,23 +123,20 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		149539A725C279D000F05BA1 /* PredictionViews */ = {
+		149539A725C279D000F05BA1 /* Prediction */ = {
 			isa = PBXGroup;
 			children = (
 				149539A125C2795A00F05BA1 /* PredictionView.swift */,
 			);
-			path = PredictionViews;
+			path = Prediction;
 			sourceTree = "<group>";
 		};
-		149539A825C279FF00F05BA1 /* HexagramViews */ = {
+		149539A825C279FF00F05BA1 /* Hexagram */ = {
 			isa = PBXGroup;
 			children = (
 				149539D825C2EB8900F05BA1 /* HexagramDetail.swift */,
-				149539EE25C2F93C00F05BA1 /* HexagramItem.swift */,
-				149539FA25C3151D00F05BA1 /* HexagramRow.swift */,
-				149539F125C2F99000F05BA1 /* HexagramMatrix.swift */,
 			);
-			path = HexagramViews;
+			path = Hexagram;
 			sourceTree = "<group>";
 		};
 		149539C625C27CF200F05BA1 /* Resources */ = {
@@ -218,15 +226,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				149539CF25C2800900F05BA1 /* Hexagram.swift in Sources */,
-				149539EF25C2F93C00F05BA1 /* HexagramItem.swift in Sources */,
+				149539EF25C2F93C00F05BA1 /* CategoriesItem.swift in Sources */,
 				149539D625C2DB8400F05BA1 /* ModelData.swift in Sources */,
 				1495399125C278C500F05BA1 /* ContentView.swift in Sources */,
-				149539F225C2F99000F05BA1 /* HexagramMatrix.swift in Sources */,
+				149539F225C2F99000F05BA1 /* CategoriesMatrix.swift in Sources */,
 				149539A225C2795A00F05BA1 /* PredictionView.swift in Sources */,
 				149539C425C27C6400F05BA1 /* Prediction.swift in Sources */,
 				149539E325C2F01100F05BA1 /* CircleImage.swift in Sources */,
 				1495398F25C278C500F05BA1 /* ChangeApp.swift in Sources */,
-				149539FB25C3151D00F05BA1 /* HexagramRow.swift in Sources */,
+				149539FB25C3151D00F05BA1 /* CategoriesRow.swift in Sources */,
 				149539D925C2EB8900F05BA1 /* HexagramDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

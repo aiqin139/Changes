@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HexagramItem: View {
+struct CategoriesItem: View {
     var hexagram: Hexagram
     
     var body: some View {
@@ -25,8 +25,8 @@ struct HexagramItem: View {
     }
 }
 
-struct HexagramItem_Previews: PreviewProvider {
+struct CategoriesItem_Previews: PreviewProvider {
     static var previews: some View {
-        HexagramItem(hexagram: hexagrams[0])
+        CategoriesItem(hexagram: hexagrams[0])
     }
 }

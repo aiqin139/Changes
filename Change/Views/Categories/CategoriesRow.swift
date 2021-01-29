@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HexagramRow: View {
+struct CategoriesRow: View {
     var items: [Hexagram]
     
     var body: some View {
@@ -16,7 +16,7 @@ struct HexagramRow: View {
                 HStack(alignment: .top, spacing: 0) {
                     ForEach(items, id: \.self) { hexagram in
                         NavigationLink(destination: HexagramDetail(hexagram:  hexagram)) {
-                            HexagramItem(hexagram: hexagram)
+                            CategoriesItem(hexagram: hexagram)
                         }
                     }
                 }
@@ -26,9 +26,9 @@ struct HexagramRow: View {
     }
 }
 
-struct HexagramRow_Previews: PreviewProvider {
+struct CategoriesRow_Previews: PreviewProvider {
     static var previews: some View {
-        HexagramRow(
+        CategoriesRow(
             items: Array(hexagrams.prefix(4))
         )
     }
