@@ -8,28 +8,28 @@
 import SwiftUI
 
 struct HexagramList: View {
-    @State private var selection: Tab = .basiclist
+    @State private var selection: Tab = .basic
     
     enum Tab {
-        case basiclist
-        case derivedlist
+        case basic
+        case derived
     }
     
     var selectedHexagrams: [Hexagram] {
-        if selection == Tab.basiclist {
+        if selection == Tab.basic {
             return basicHexagrams
         }
-        else if selection == Tab.derivedlist {
+        else if selection == Tab.derived {
             return derivedHexagrams
         }
         return [Hexagram]()
     }
     
     var selectedTitle: String {
-        if selection == Tab.basiclist {
+        if selection == Tab.basic {
             return "基本八卦"
         }
-        else if selection == Tab.derivedlist {
+        else if selection == Tab.derived {
             return "六十四卦"
         }
         return String()
@@ -39,8 +39,8 @@ struct HexagramList: View {
         NavigationView() {
             List {
                 Picker("卦象", selection: $selection) {
-                    Text("基本八卦").tag(Tab.basiclist)
-                    Text("六十四卦").tag(Tab.derivedlist)
+                    Text("基本八卦").tag(Tab.basic)
+                    Text("六十四卦").tag(Tab.derived)
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 
