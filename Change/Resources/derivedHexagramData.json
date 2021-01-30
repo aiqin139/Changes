@@ -281,7 +281,7 @@
     },
     {
         "id": 20,
-        "name": "噬瞌卦",
+        "name": "噬嗑卦",
         "pinyin": "shì kē guà",
         "explanations": [
         ]
@@ -337,8 +337,8 @@
     },
     {
         "id": 28,
-        "name": "习坎卦",
-        "pinyin": "xí kǎn guà",
+        "name": "坎卦",
+        "pinyin": "kǎn guà",
         "explanations": [
         ]
     },
@@ -393,14 +393,14 @@
     },
     {
         "id": 36,
-        "name": "明夷",
+        "name": "明夷卦",
         "pinyin": "míng yí",
         "explanations": [
         ]
     },
     {
         "id": 37,
-        "name": "家人",
+        "name": "家人卦",
         "pinyin": "jiā rén",
         "explanations": [
         ]

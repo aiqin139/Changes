@@ -10,9 +10,9 @@ import SwiftUI
 struct PredictionView: View {
     var body: some View {
         VStack {
-            CircleImage(image: Image("乾卦"))
-                .offset(y: 0)
-                .padding(.bottom, 0)
+            Image("先天八卦图")
+                .resizable()
+                .frame(width: 400, height: 400)
         }
     }
 }
