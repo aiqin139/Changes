@@ -3,6 +3,7 @@
         "id": 1,
         "name": "乾",
         "pinyin": "qián",
+        "description": "（天）三连",
         "explanations": [
             ["乾（qián）乾为天卦象：上乾下乾纯阳卦；"],
             
@@ -15,6 +16,7 @@
         "id": 2,
         "name": "坤",
         "pinyin": "kūn",
+        "description": "（地）六段",
         "explanations": [
             ["坤（kūn）坤为地卦象：上坤下坤纯阴卦；"],
             
@@ -27,6 +29,7 @@
         "id": 3,
         "name": "震",
         "pinyin": "zhèn",
+        "description": "（雷）仰孟",
         "explanations": [
             ["震（zhèn）震为雷卦象：上震下震八纯卦；"],
             
@@ -39,6 +42,7 @@
         "id": 4,
         "name": "巽",
         "pinyin": "xùn",
+        "description": "（风）下断",
         "explanations": [
             ["巽（xùn）巽为风卦象：上巽下巽八纯卦；"],
             
@@ -51,7 +55,8 @@
     {
         "id": 5,
         "name": "坎",
-        "pinyin": "xū",
+        "pinyin": "kǎn",
+        "description": "（水）中满",
         "explanations": [
             ["坎（kǎn）坎为水卦象：重坎八纯卦；"],
             
@@ -65,6 +70,7 @@
         "id": 6,
         "name": "离",
         "pinyin": "lí",
+        "description": "（火）中虚",
         "explanations": [
             ["离（lí）离为火卦象：重离八纯卦；"],
             
@@ -78,6 +84,7 @@
         "id": 7,
         "name": "艮",
         "pinyin": "gèn",
+        "description": "（山）覆盌",
         "explanations": [
             ["艮（gèn）艮为山卦象：上艮下艮八纯卦；"],
             
@@ -91,6 +98,7 @@
         "id": 8,
         "name": "兑",
         "pinyin": "duì",
+        "description": "（泽）上缺",
         "explanations": [
             ["兑（duì）兑为泽卦象：上兑下兑八纯卦；"],
             

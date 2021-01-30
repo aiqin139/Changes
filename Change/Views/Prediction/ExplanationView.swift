@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ExplanationView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image("先天八卦图")
+            .resizable()
+            .frame(width: 400, height: 400)
     }
 }
 

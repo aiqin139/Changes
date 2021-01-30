@@ -16,6 +16,7 @@ struct HexagramRow: View {
                 .resizable()
                 .frame(width: 50, height: 50)
             Text(hexagram.name)
+            Text(hexagram.description)
             
             Spacer()
         }
