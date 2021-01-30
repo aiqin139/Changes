@@ -9,7 +9,11 @@ import SwiftUI
 
 struct PredictionView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            CircleImage(image: Image("乾卦"))
+                .offset(y: 0)
+                .padding(.bottom, 0)
+        }
     }
 }
 

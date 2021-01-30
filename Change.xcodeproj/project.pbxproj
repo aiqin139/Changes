@@ -25,7 +25,6 @@
 		149539E325C2F01100F05BA1 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539E225C2F01100F05BA1 /* CircleImage.swift */; };
 		149539EF25C2F93C00F05BA1 /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539EE25C2F93C00F05BA1 /* CategoryItem.swift */; };
 		149539F225C2F99000F05BA1 /* CategoryMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539F125C2F99000F05BA1 /* CategoryMatrix.swift */; };
-		149539FB25C3151D00F05BA1 /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539FA25C3151D00F05BA1 /* CategoryRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +48,6 @@
 		149539E225C2F01100F05BA1 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		149539EE25C2F93C00F05BA1 /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		149539F125C2F99000F05BA1 /* CategoryMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMatrix.swift; sourceTree = "<group>"; };
-		149539FA25C3151D00F05BA1 /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +65,6 @@
 			isa = PBXGroup;
 			children = (
 				149539EE25C2F93C00F05BA1 /* CategoryItem.swift */,
-				149539FA25C3151D00F05BA1 /* CategoryRow.swift */,
 				149539F125C2F99000F05BA1 /* CategoryMatrix.swift */,
 			);
 			path = Categories;
@@ -253,7 +250,6 @@
 				149539C425C27C6400F05BA1 /* Prediction.swift in Sources */,
 				149539E325C2F01100F05BA1 /* CircleImage.swift in Sources */,
 				1495398F25C278C500F05BA1 /* ChangeApp.swift in Sources */,
-				149539FB25C3151D00F05BA1 /* CategoryRow.swift in Sources */,
 				149539D925C2EB8900F05BA1 /* HexagramDetail.swift in Sources */,
 				140CE47F25C46A9A00984B9D /* Explanation.swift in Sources */,
 			);

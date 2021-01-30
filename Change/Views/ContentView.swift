@@ -28,19 +28,19 @@ struct ContentView: View {
             
             ExplanationView()
                 .tabItem {
-                    Label("解卦", systemImage: "star")
+                    Label("解卦", systemImage: "safari")
                 }
                 .tag(Tab.explanation)
             
             CategoryMatrix()
                 .tabItem {
-                    Label("概览", systemImage: "list.bullet")
+                    Label("概览", systemImage: "xserve")
                 }
                 .tag(Tab.summary)
             
             HexagramList()
                 .tabItem {
-                    Label("卦象", systemImage: "list.bullet")
+                    Label("卦象", systemImage: "bonjour")
                 }
                 .tag(Tab.hexagram)
         }
