@@ -1,5 +1,5 @@
 //
-//  HexagramDetial.swift
+//  HexagramDetail.swift
 //  Change
 //
 //  Created by aiqin139 on 2021/1/28.
@@ -42,6 +42,6 @@ struct HexagramDetail: View {
 
 struct HexagramDetail_Previews: PreviewProvider {
     static var previews: some View {
-        HexagramDetail(hexagram: hexagrams[0])
+        HexagramDetail(hexagram: derivedHexagrams[0])
     }
 }

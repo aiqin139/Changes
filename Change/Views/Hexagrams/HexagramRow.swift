@@ -24,7 +24,7 @@ struct HexagramRow: View {
 
 struct HexagramRow_Previews: PreviewProvider {
     static var previews: some View {
-        HexagramRow(hexagram: hexagrams[0])
-            .previewLayout(.fixed(width: 300, height: 70))
+        HexagramRow(hexagram: derivedHexagrams[0])
+            .previewLayout(.fixed(width: 300, height: 50))
     }
 }

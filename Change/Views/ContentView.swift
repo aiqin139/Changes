@@ -8,8 +8,42 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selection: Tab = .prediction
+    
+    enum Tab {
+        case prediction
+        case explanation
+        case summary
+        case hexagram
+    }
+    
     var body: some View {
-        HexagramList()
+        TabView(selection: $selection) {
+            PredictionView()
+                .tabItem {
+                    Label("占卦", systemImage: "star")
+                }
+                .tag(Tab.prediction)
+
+            
+            ExplanationView()
+                .tabItem {
+                    Label("解卦", systemImage: "star")
+                }
+                .tag(Tab.explanation)
+            
+            CategoryMatrix()
+                .tabItem {
+                    Label("概览", systemImage: "list.bullet")
+                }
+                .tag(Tab.summary)
+            
+            HexagramList()
+                .tabItem {
+                    Label("卦象", systemImage: "list.bullet")
+                }
+                .tag(Tab.hexagram)
+        }
     }
 }
 

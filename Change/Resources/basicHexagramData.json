@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "name": "乾卦",
+        "pinyin": "qián guà",
+        "explanations": [
+        ]
+    },
+    {
+        "id": 2,
+        "name": "坤卦",
+        "pinyin": "kūn guà",
+        "explanations": [
+        ]
+    },
+    {
+        "id": 3,
+        "name": "震卦",
+        "pinyin": "zhèn guà",
+        "explanations": [
+        ]
+    },
+    {
+        "id": 4,
+        "name": "巽卦",
+        "pinyin": "xùn guà",
+        "explanations": [
+        ]
+    },
+    {
+        "id": 5,
+        "name": "坎卦",
+        "pinyin": "xū guà",
+        "explanations": [
+        ]
+    },
+    {
+        "id": 6,
+        "name": "离卦",
+        "pinyin": "lí guà",
+        "explanations": [
+        ]
+    },
+    {
+        "id": 7,
+        "name": "艮卦",
+        "pinyin": "gèn guà",
+        "explanations": [
+        ]
+    },
+    {
+        "id": 8,
+        "name": "兑卦",
+        "pinyin": "duì guà",
+        "explanations": [
+        ]
+    }
+]

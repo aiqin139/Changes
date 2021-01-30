@@ -1,5 +1,5 @@
 //
-//  HexagramRow.swift
+//  CategoryRow.swift
 //  Change
 //
 //  Created by aiqin139 on 2021/1/28.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CategoriesRow: View {
+struct CategoryRow: View {
     var items: [Hexagram]
     
     var body: some View {
@@ -16,7 +16,7 @@ struct CategoriesRow: View {
                 HStack(alignment: .top, spacing: 0) {
                     ForEach(items, id: \.self) { hexagram in
                         NavigationLink(destination: HexagramDetail(hexagram:  hexagram)) {
-                            CategoriesItem(hexagram: hexagram)
+                            CategoryItem(hexagram: hexagram)
                         }
                     }
                 }
@@ -26,10 +26,10 @@ struct CategoriesRow: View {
     }
 }
 
-struct CategoriesRow_Previews: PreviewProvider {
+struct CategoryRow_Previews: PreviewProvider {
     static var previews: some View {
-        CategoriesRow(
-            items: Array(hexagrams.prefix(4))
+        CategoryRow(
+            items: Array(derivedHexagrams.prefix(4))
         )
     }
 }

@@ -1,5 +1,5 @@
 //
-//  HexagramItem.swift
+//  CategoryItem.swift
 //  Change
 //
 //  Created by aiqin139 on 2021/1/28.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CategoriesItem: View {
+struct CategoryItem: View {
     var hexagram: Hexagram
     
     var body: some View {
@@ -25,8 +25,8 @@ struct CategoriesItem: View {
     }
 }
 
-struct CategoriesItem_Previews: PreviewProvider {
+struct CategoryItem_Previews: PreviewProvider {
     static var previews: some View {
-        CategoriesItem(hexagram: hexagrams[0])
+        CategoryItem(hexagram: derivedHexagrams[0])
     }
 }
