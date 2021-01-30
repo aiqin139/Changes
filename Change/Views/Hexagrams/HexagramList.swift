@@ -42,6 +42,7 @@ struct HexagramList: View {
                     Text("基本八卦").tag(Tab.basic)
                     Text("六十四卦").tag(Tab.derived)
                 }
+                .padding(.trailing, -10.0)
                 .pickerStyle(SegmentedPickerStyle())
                 
                 ForEach(selectedHexagrams, id: \.self) { hexagram in
@@ -50,6 +51,7 @@ struct HexagramList: View {
                     }
                 }
             }
+            .padding(.trailing, 25.0)
             .navigationTitle(selectedTitle)
         }
     }
