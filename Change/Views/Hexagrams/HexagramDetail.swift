@@ -30,8 +30,8 @@ struct HexagramDetail: View {
                     Divider()
                     ForEach(contents, id: \.self) { content in
                         Text(content)
-                            .lineSpacing(10)
-                            .padding()
+                            .padding(.horizontal, 10.0)
+                            .minimumScaleFactor(0.1)
                     }
                 }
             }
@@ -44,5 +44,6 @@ struct HexagramDetail: View {
 struct HexagramDetail_Previews: PreviewProvider {
     static var previews: some View {
         HexagramDetail(hexagram: basicHexagrams[0])
+        HexagramDetail(hexagram: derivedHexagrams[0])
     }
 }
