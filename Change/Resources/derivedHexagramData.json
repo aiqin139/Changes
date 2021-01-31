@@ -270,7 +270,7 @@
         "id": 16,
         "name": "豫卦",
         "pinyin": "yù guà",
-        "description": "",
+        "description": "「雷地豫」",
         "explanations": [
         ]
     },
@@ -278,7 +278,7 @@
         "id": 17,
         "name": "随卦",
         "pinyin": "suí guà",
-        "description": "",
+        "description": "「泽雷随」",
         "explanations": [
         ]
     },
@@ -286,7 +286,7 @@
         "id": 18,
         "name": "蛊卦",
         "pinyin": "gǔ guà",
-        "description": "",
+        "description": "「山风蛊」",
         "explanations": [
         ]
     },
@@ -294,87 +294,87 @@
         "id": 19,
         "name": "临卦",
         "pinyin": "lín guà",
-        "description": "",
+        "description": "「地泽临」",
         "explanations": [
         ]
     },
     {
         "id": 20,
-        "name": "噬嗑卦",
-        "pinyin": "shì kē guà",
-        "description": "",
+        "name": "观卦",
+        "pinyin": "guān guà",
+        "description": "「风地观」",
         "explanations": [
         ]
     },
     {
         "id": 21,
-        "name": "贲卦",
-        "pinyin": "bēn guà",
-        "description": "",
+        "name": "噬嗑卦",
+        "pinyin": "shì kē guà",
+        "description": "「火雷噬嗑」",
         "explanations": [
         ]
     },
     {
         "id": 22,
-        "name": "剥卦",
-        "pinyin": "bāo guà",
-        "description": "",
+        "name": "贲卦",
+        "pinyin": "bēn guà",
+        "description": "「山火贲」",
         "explanations": [
         ]
     },
     {
         "id": 23,
-        "name": "复卦",
-        "pinyin": "fù guà",
-        "description": "",
+        "name": "剥卦",
+        "pinyin": "bāo guà",
+        "description": "「山地剥」",
         "explanations": [
         ]
     },
     {
         "id": 24,
-        "name": "无妄卦",
-        "pinyin": "wú wàng guà",
-        "description": "",
+        "name": "复卦",
+        "pinyin": "fù guà",
+        "description": "「地雷复」",
         "explanations": [
         ]
     },
     {
         "id": 25,
-        "name": "大畜卦",
-        "pinyin": "dà chù guà",
-        "description": "",
+        "name": "无妄卦",
+        "pinyin": "wú wàng guà",
+        "description": "「天雷无妄」",
         "explanations": [
         ]
     },
     {
         "id": 26,
-        "name": "颐卦",
-        "pinyin": "yí guà",
-        "description": "",
+        "name": "大畜卦",
+        "pinyin": "dà chù guà",
+        "description": "「山天大畜」",
         "explanations": [
         ]
     },
     {
         "id": 27,
-        "name": "大过卦",
-        "pinyin": "dà guò guà",
-        "description": "",
+        "name": "颐卦",
+        "pinyin": "yí guà",
+        "description": "「山雷颐」",
         "explanations": [
         ]
     },
     {
         "id": 28,
-        "name": "坎卦",
-        "pinyin": "kǎn guà",
-        "description": "",
+        "name": "大过卦",
+        "pinyin": "dà guò guà",
+        "description": "「泽风大过」",
         "explanations": [
         ]
     },
     {
         "id": 29,
-        "name": "屯卦",
-        "pinyin": "tún guà",
-        "description": "",
+        "name": "坎卦",
+        "pinyin": "kǎn guà",
+        "description": "「坎为水」",
         "explanations": [
         ]
     },
@@ -382,7 +382,7 @@
         "id": 30,
         "name": "离卦",
         "pinyin": "lí guà",
-        "description": "",
+        "description": "「离为火」",
         "explanations": [
         ]
     },
@@ -390,7 +390,7 @@
         "id": 31,
         "name": "咸卦",
         "pinyin": "xián guà",
-        "description": "",
+        "description": "「泽山咸」",
         "explanations": [
         ]
     },
@@ -398,7 +398,7 @@
         "id": 32,
         "name": "恒卦",
         "pinyin": "héng guà",
-        "description": "",
+        "description": "「雷风恒」",
         "explanations": [
         ]
     },
@@ -406,7 +406,7 @@
         "id": 33,
         "name": "遁卦",
         "pinyin": "dùn guà",
-        "description": "",
+        "description": "「天山遁」",
         "explanations": [
         ]
     },
@@ -414,7 +414,7 @@
         "id": 34,
         "name": "大壮卦",
         "pinyin": "dà zhuàng guà",
-        "description": "",
+        "description": "「雷天大壮」",
         "explanations": [
         ]
     },
@@ -422,7 +422,7 @@
         "id": 35,
         "name": "晋卦",
         "pinyin": "jìn guà",
-        "description": "",
+        "description": "「火地晋」",
         "explanations": [
         ]
     },
@@ -430,7 +430,7 @@
         "id": 36,
         "name": "明夷卦",
         "pinyin": "míng yí",
-        "description": "",
+        "description": "「地火明夷」",
         "explanations": [
         ]
     },
@@ -438,7 +438,7 @@
         "id": 37,
         "name": "家人卦",
         "pinyin": "jiā rén",
-        "description": "",
+        "description": "「风火家人」",
         "explanations": [
         ]
     },
@@ -446,7 +446,7 @@
         "id": 38,
         "name": "睽卦",
         "pinyin": "kuí guà",
-        "description": "",
+        "description": "「火泽睽」",
         "explanations": [
         ]
     },
@@ -454,7 +454,7 @@
         "id": 39,
         "name": "蹇卦",
         "pinyin": "jiǎn guà",
-        "description": "",
+        "description": "「水山蹇」",
         "explanations": [
         ]
     },
@@ -462,7 +462,7 @@
         "id": 40,
         "name": "解卦",
         "pinyin": "jiě guà",
-        "description": "",
+        "description": "「雷火解」",
         "explanations": [
         ]
     },
@@ -470,7 +470,7 @@
         "id": 41,
         "name": "损卦",
         "pinyin": "sǔn guà",
-        "description": "",
+        "description": "「山泽损」",
         "explanations": [
         ]
     },
@@ -478,7 +478,7 @@
         "id": 42,
         "name": "益卦",
         "pinyin": "yì guà",
-        "description": "",
+        "description": "「风雷益」",
         "explanations": [
         ]
     },
@@ -486,7 +486,7 @@
         "id": 43,
         "name": "夬卦",
         "pinyin": "guài guà",
-        "description": "",
+        "description": "「泽天夬」",
         "explanations": [
         ]
     },
@@ -494,7 +494,7 @@
         "id": 44,
         "name": "姤卦",
         "pinyin": "gòu guà",
-        "description": "",
+        "description": "「天风姤」",
         "explanations": [
         ]
     },
@@ -502,7 +502,7 @@
         "id": 45,
         "name": "萃卦",
         "pinyin": "cuì guà",
-        "description": "",
+        "description": "「泽地萃」",
         "explanations": [
         ]
     },
@@ -510,7 +510,7 @@
         "id": 46,
         "name": "升卦",
         "pinyin": "shēng guà",
-        "description": "",
+        "description": "「地风升」",
         "explanations": [
         ]
     },
@@ -518,7 +518,7 @@
         "id": 47,
         "name": "困卦",
         "pinyin": "kùn guà",
-        "description": "",
+        "description": "「泽水困」",
         "explanations": [
         ]
     },
@@ -526,7 +526,7 @@
         "id": 48,
         "name": "井卦",
         "pinyin": "jǐng guà",
-        "description": "",
+        "description": "「水风井」",
         "explanations": [
         ]
     },
@@ -534,7 +534,7 @@
         "id": 49,
         "name": "革卦",
         "pinyin": "gé guà",
-        "description": "",
+        "description": "「泽火革」",
         "explanations": [
         ]
     },
@@ -542,7 +542,7 @@
         "id": 50,
         "name": "鼎卦",
         "pinyin": "dǐng guà",
-        "description": "",
+        "description": "「火风鼎」",
         "explanations": [
         ]
     },
@@ -550,7 +550,7 @@
         "id": 51,
         "name": "震卦",
         "pinyin": "zhèn guà",
-        "description": "",
+        "description": "「震为雷」",
         "explanations": [
         ]
     },
@@ -558,7 +558,7 @@
         "id": 52,
         "name": "艮卦",
         "pinyin": "gèn guà",
-        "description": "",
+        "description": "「艮为山」",
         "explanations": [
         ]
     },
@@ -566,7 +566,7 @@
         "id": 53,
         "name": "渐卦",
         "pinyin": "jiàn guà",
-        "description": "",
+        "description": "「风山渐」",
         "explanations": [
         ]
     },
@@ -574,7 +574,7 @@
         "id": 54,
         "name": "归妹卦",
         "pinyin": "guī mèi guà",
-        "description": "",
+        "description": "「雷泽归妹」",
         "explanations": [
         ]
     },
@@ -582,7 +582,7 @@
         "id": 55,
         "name": "丰卦",
         "pinyin": "fēng guà",
-        "description": "",
+        "description": "「雷火丰」",
         "explanations": [
         ]
     },
@@ -590,7 +590,7 @@
         "id": 56,
         "name": "旅卦",
         "pinyin": "lǚ guà",
-        "description": "",
+        "description": "「火山旅」",
         "explanations": [
         ]
     },
@@ -598,7 +598,7 @@
         "id": 57,
         "name": "巽卦",
         "pinyin": "xùn guà",
-        "description": "",
+        "description": "「巽为风」",
         "explanations": [
         ]
     },
@@ -606,7 +606,7 @@
         "id": 58,
         "name": "兑卦",
         "pinyin": "duì guà",
-        "description": "",
+        "description": "「兑为泽」",
         "explanations": [
         ]
     },
@@ -614,7 +614,7 @@
         "id": 59,
         "name": "涣卦",
         "pinyin": "huàn guà",
-        "description": "",
+        "description": "「风水涣」",
         "explanations": [
         ]
     },
@@ -622,7 +622,7 @@
         "id": 60,
         "name": "节卦",
         "pinyin": "jiē guà",
-        "description": "",
+        "description": "「水泽节」",
         "explanations": [
         ]
     },
@@ -630,7 +630,7 @@
         "id": 61,
         "name": "中孚卦",
         "pinyin": "zhōng fú guà",
-        "description": "",
+        "description": "「风泽中孚」",
         "explanations": [
         ]
     },
@@ -638,7 +638,7 @@
         "id": 62,
         "name": "小过卦",
         "pinyin": "xiǎo guò guà",
-        "description": "",
+        "description": "「雷山小过」",
         "explanations": [
         ]
     },
@@ -646,7 +646,7 @@
         "id": 63,
         "name": "既济卦",
         "pinyin": "jì jì guà",
-        "description": "",
+        "description": "「水火既济」",
         "explanations": [
         ]
     },
@@ -654,7 +654,7 @@
         "id": 64,
         "name": "未济卦",
         "pinyin": "wèi jì guà",
-        "description": "",
+        "description": "「火水未济」",
         "explanations": [
         ]
     }

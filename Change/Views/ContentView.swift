@@ -32,11 +32,11 @@ struct ContentView: View {
                 }
                 .tag(Tab.explanation)
             
-            CategoryMatrix()
+            /*CategoryMatrix()
                 .tabItem {
                     Label("概览", systemImage: "xserve")
                 }
-                .tag(Tab.summary)
+                .tag(Tab.summary)*/
             
             HexagramList()
                 .tabItem {

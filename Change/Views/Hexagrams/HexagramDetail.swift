@@ -13,7 +13,7 @@ struct HexagramDetail: View {
     var body: some View {
         ScrollView {
             CircleImage(image: hexagram.image)
-                .offset(y: 0)
+                .offset(y: 10)
                 .padding(.bottom, 0)
             
             VStack {
@@ -30,7 +30,8 @@ struct HexagramDetail: View {
                     Divider()
                     ForEach(contents, id: \.self) { content in
                         Text(content)
-                            .padding(.leading)
+                            .lineSpacing(10)
+                            .padding()
                     }
                 }
             }
@@ -42,6 +43,6 @@ struct HexagramDetail: View {
 
 struct HexagramDetail_Previews: PreviewProvider {
     static var previews: some View {
-        HexagramDetail(hexagram: derivedHexagrams[0])
+        HexagramDetail(hexagram: basicHexagrams[0])
     }
 }
