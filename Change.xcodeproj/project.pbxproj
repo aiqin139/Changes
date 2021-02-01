@@ -12,6 +12,7 @@
 		140CE47225C463EF00984B9D /* basicHexagramData.json in Resources */ = {isa = PBXBuildFile; fileRef = 140CE47125C463EF00984B9D /* basicHexagramData.json */; };
 		140CE47B25C46A4C00984B9D /* ExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE47A25C46A4C00984B9D /* ExplanationView.swift */; };
 		140CE47F25C46A9A00984B9D /* Explanation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE47E25C46A9A00984B9D /* Explanation.swift */; };
+		147D0AF225C7C2050069C826 /* NumberInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D0AF125C7C2050069C826 /* NumberInput.swift */; };
 		1495398F25C278C500F05BA1 /* ChangeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495398E25C278C500F05BA1 /* ChangeApp.swift */; };
 		1495399125C278C500F05BA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495399025C278C500F05BA1 /* ContentView.swift */; };
 		1495399325C278C500F05BA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1495399225C278C500F05BA1 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		140CE47125C463EF00984B9D /* basicHexagramData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = basicHexagramData.json; sourceTree = "<group>"; };
 		140CE47A25C46A4C00984B9D /* ExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplanationView.swift; sourceTree = "<group>"; };
 		140CE47E25C46A9A00984B9D /* Explanation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explanation.swift; sourceTree = "<group>"; };
+		147D0AF125C7C2050069C826 /* NumberInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberInput.swift; sourceTree = "<group>"; };
 		1495398B25C278C500F05BA1 /* Change.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Change.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1495398E25C278C500F05BA1 /* ChangeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeApp.swift; sourceTree = "<group>"; };
 		1495399025C278C500F05BA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				149539E225C2F01100F05BA1 /* CircleImage.swift */,
+				147D0AF125C7C2050069C826 /* NumberInput.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				149539EF25C2F93C00F05BA1 /* CategoryItem.swift in Sources */,
 				149539D625C2DB8400F05BA1 /* ModelData.swift in Sources */,
 				1495399125C278C500F05BA1 /* ContentView.swift in Sources */,
+				147D0AF225C7C2050069C826 /* NumberInput.swift in Sources */,
 				149539F225C2F99000F05BA1 /* CategoryMatrix.swift in Sources */,
 				140CE46025C45AE600984B9D /* HexagramRow.swift in Sources */,
 				149539A225C2795A00F05BA1 /* PredictionView.swift in Sources */,
