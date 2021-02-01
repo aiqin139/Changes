@@ -9,7 +9,8 @@ import Foundation
 import Combine
 
 final class ModelData: ObservableObject {
-    @Published var prediction: Prediction = Prediction()
+    @Published var digitalPrediction: DigitalPrediction = DigitalPrediction()
+    @Published var dayanPrediction: DayanPrediction = DayanPrediction()
     @Published var basicHexagrams: [Hexagram] = load("basicHexagramData.json")
     @Published var derivedHexagrams: [Hexagram] = load("derivedHexagramData.json")
 }

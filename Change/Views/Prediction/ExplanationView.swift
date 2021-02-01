@@ -12,19 +12,19 @@ struct ExplanationView: View {
 
     var body: some View {
         VStack {            
-            Text(modelData.prediction.hexagram.pinyin)
+            Text(modelData.digitalPrediction.hexagram.pinyin)
                 .font(.title)
                 .foregroundColor(.primary)
-            Text(modelData.prediction.hexagram.name)
+            Text(modelData.digitalPrediction.hexagram.name)
                 .font(.title)
                 .foregroundColor(.primary)
         
-            modelData.prediction.hexagram.image
+            modelData.digitalPrediction.hexagram.image
                 .resizable()
                 .frame(width: 400, height: 400)
             
             VStack(alignment: .leading) {
-                ForEach(modelData.prediction.explanation, id: \.self) { content in
+                ForEach(modelData.digitalPrediction.explanation, id: \.self) { content in
                     Text(content)
                         .padding(.horizontal, 10.0)
                         .minimumScaleFactor(0.1)

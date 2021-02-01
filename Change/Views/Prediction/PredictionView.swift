@@ -9,9 +9,9 @@ import SwiftUI
 
 struct PredictionView: View {
     @EnvironmentObject var modelData: ModelData
-    @State private var val1Str: String = "0"
-    @State private var val2Str: String = "0"
-    @State private var val3Str: String = "0"
+    @State private var val1Str: String = "000"
+    @State private var val2Str: String = "000"
+    @State private var val3Str: String = "000"
     
     var body: some View {
         VStack {
@@ -28,6 +28,8 @@ struct PredictionView: View {
                 NumberInput(labelText: "数字3:", value: $val3Str)
             }
             
+            Spacer()
+            
             Button(action: {
                 withAnimation {
                     DigitPrediction()
@@ -37,6 +39,8 @@ struct PredictionView: View {
                      .resizable()
                      .frame(width: 80, height: 80)
             })
+            
+            Spacer()
         }
     }
     
@@ -47,7 +51,9 @@ struct PredictionView: View {
         let val2 = Int(val2Str) ?? 0
         let val3 = Int(val3Str) ?? 0
         
-        modelData.prediction.DigitPrediction(hexagrams: hexagrams, value1: val1, value2: val2, value3: val3)
+        modelData.digitalPrediction.Execute(hexagrams: hexagrams, value1: val1, value2: val2, value3: val3)
+        
+        modelData.dayanPrediction.Execute(hexagrams: hexagrams)
     }
 }
 
