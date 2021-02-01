@@ -28,7 +28,11 @@ struct PredictionView: View {
                 NumberInput(labelText: "数字3:", value: $val3Str)
             }
             
-            Button(action: { DigitPrediction() }, label: {
+            Button(action: {
+                withAnimation {
+                    DigitPrediction()
+                }
+            }, label: {
                 Image("先天八卦图")
                      .resizable()
                      .frame(width: 80, height: 80)
