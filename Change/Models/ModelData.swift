@@ -8,8 +8,11 @@
 import Foundation
 import Combine
 
-var basicHexagrams: [Hexagram] = load("basicHexagramData.json")
-var derivedHexagrams: [Hexagram] = load("derivedHexagramData.json")
+final class ModelData: ObservableObject {
+    @Published var prediction: Prediction = Prediction()
+    @Published var basicHexagrams: [Hexagram] = load("basicHexagramData.json")
+    @Published var derivedHexagrams: [Hexagram] = load("derivedHexagramData.json")
+}
 
 func load<T: Decodable>(_ filename: String) -> T
 {

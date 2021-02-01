@@ -27,6 +27,6 @@ struct CategoryItem: View {
 
 struct CategoryItem_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryItem(hexagram: derivedHexagrams[0])
+        CategoryItem(hexagram: ModelData().derivedHexagrams[0])
     }
 }

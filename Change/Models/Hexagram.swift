@@ -15,4 +15,13 @@ struct Hexagram: Hashable, Codable {
     var image: Image { Image(name) }
     var description: String
     var explanations: [[String]]
+    
+    init()
+    {
+        id = 0
+        name = ""
+        pinyin = ""
+        description = ""
+        explanations = [[""]]
+    }
 }

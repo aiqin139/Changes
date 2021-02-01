@@ -22,10 +22,9 @@ struct NumberInput: View {
             
             TextField("0", text: $value)
                 .keyboardType(UIKeyboardType.numberPad)
-                .autocapitalization(.none)
-                .disableAutocorrection(true)
                 .border(Color(UIColor.separator))
-                .onTapGesture {}
+                .contentShape(Rectangle())
+                .onTapGesture { }
                 .onLongPressGesture(
                     pressing: { isPressed in if isPressed { self.EndEditing() } },
                     perform: {}

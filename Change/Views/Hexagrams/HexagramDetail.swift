@@ -43,7 +43,7 @@ struct HexagramDetail: View {
 
 struct HexagramDetail_Previews: PreviewProvider {
     static var previews: some View {
-        HexagramDetail(hexagram: basicHexagrams[0])
-        HexagramDetail(hexagram: derivedHexagrams[0])
+        HexagramDetail(hexagram: ModelData().basicHexagrams[0])
+        HexagramDetail(hexagram: ModelData().derivedHexagrams[0])
     }
 }

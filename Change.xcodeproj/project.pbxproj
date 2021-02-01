@@ -11,7 +11,6 @@
 		140CE46D25C4617500984B9D /* HexagramList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE46C25C4617500984B9D /* HexagramList.swift */; };
 		140CE47225C463EF00984B9D /* basicHexagramData.json in Resources */ = {isa = PBXBuildFile; fileRef = 140CE47125C463EF00984B9D /* basicHexagramData.json */; };
 		140CE47B25C46A4C00984B9D /* ExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE47A25C46A4C00984B9D /* ExplanationView.swift */; };
-		140CE47F25C46A9A00984B9D /* Explanation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE47E25C46A9A00984B9D /* Explanation.swift */; };
 		147D0AF225C7C2050069C826 /* NumberInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D0AF125C7C2050069C826 /* NumberInput.swift */; };
 		1495398F25C278C500F05BA1 /* ChangeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495398E25C278C500F05BA1 /* ChangeApp.swift */; };
 		1495399125C278C500F05BA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495399025C278C500F05BA1 /* ContentView.swift */; };
@@ -33,7 +32,6 @@
 		140CE46C25C4617500984B9D /* HexagramList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramList.swift; sourceTree = "<group>"; };
 		140CE47125C463EF00984B9D /* basicHexagramData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = basicHexagramData.json; sourceTree = "<group>"; };
 		140CE47A25C46A4C00984B9D /* ExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplanationView.swift; sourceTree = "<group>"; };
-		140CE47E25C46A9A00984B9D /* Explanation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explanation.swift; sourceTree = "<group>"; };
 		147D0AF125C7C2050069C826 /* NumberInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberInput.swift; sourceTree = "<group>"; };
 		1495398B25C278C500F05BA1 /* Change.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Change.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1495398E25C278C500F05BA1 /* ChangeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeApp.swift; sourceTree = "<group>"; };
@@ -136,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				149539C325C27C6400F05BA1 /* Prediction.swift */,
-				140CE47E25C46A9A00984B9D /* Explanation.swift */,
 				149539CE25C2800900F05BA1 /* Hexagram.swift */,
 				149539D525C2DB8400F05BA1 /* ModelData.swift */,
 			);
@@ -255,7 +252,6 @@
 				149539E325C2F01100F05BA1 /* CircleImage.swift in Sources */,
 				1495398F25C278C500F05BA1 /* ChangeApp.swift in Sources */,
 				149539D925C2EB8900F05BA1 /* HexagramDetail.swift in Sources */,
-				140CE47F25C46A9A00984B9D /* Explanation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

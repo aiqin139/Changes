@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct CategoryMatrix: View {
-    var hexagrams: [Hexagram] = derivedHexagrams
+    @EnvironmentObject var modelData: ModelData
     
     var body: some View {
+        
+        let hexagrams: [Hexagram] = modelData.derivedHexagrams
+        
         NavigationView() {
             ScrollView(.vertical, showsIndicators: false) {
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -36,5 +39,6 @@ struct CategoryMatrix: View {
 struct CategoryMatrix_Previews: PreviewProvider {
     static var previews: some View {
         CategoryMatrix()
+            .environmentObject(ModelData())
     }
 }

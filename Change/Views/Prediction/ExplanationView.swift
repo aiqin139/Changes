@@ -8,15 +8,35 @@
 import SwiftUI
 
 struct ExplanationView: View {
+    @EnvironmentObject var modelData: ModelData
+
     var body: some View {
-        Image("先天八卦图")
-            .resizable()
-            .frame(width: 400, height: 400)
+        VStack {            
+            Text(modelData.prediction.hexagram.pinyin)
+                .font(.title)
+                .foregroundColor(.primary)
+            Text(modelData.prediction.hexagram.name)
+                .font(.title)
+                .foregroundColor(.primary)
+        
+            modelData.prediction.hexagram.image
+                .resizable()
+                .frame(width: 400, height: 400)
+            
+            VStack(alignment: .leading) {
+                ForEach(modelData.prediction.explanation, id: \.self) { content in
+                    Text(content)
+                        .padding(.horizontal, 10.0)
+                        .minimumScaleFactor(0.1)
+                }
+            }
+        }
     }
 }
 
 struct ExplanationView_Previews: PreviewProvider {
     static var previews: some View {
         ExplanationView()
+            .environmentObject(ModelData())
     }
 }

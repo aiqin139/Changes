@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HexagramList: View {
+    @EnvironmentObject var modelData: ModelData
     @State private var selection: Tab = .basic
     
     enum Tab {
@@ -17,10 +18,10 @@ struct HexagramList: View {
     
     var selectedHexagrams: [Hexagram] {
         if selection == Tab.basic {
-            return basicHexagrams
+            return modelData.basicHexagrams
         }
         else if selection == Tab.derived {
-            return derivedHexagrams
+            return modelData.derivedHexagrams
         }
         return [Hexagram]()
     }
@@ -58,5 +59,6 @@ struct HexagramList: View {
 struct HexagramListList_Previews: PreviewProvider {
     static var previews: some View {
         HexagramList()
+            .environmentObject(ModelData())
     }
 }
