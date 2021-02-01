@@ -7,16 +7,14 @@
 
 import SwiftUI
 
-extension View {
-    func endEditing() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-}
-
 struct NumberInput: View {
     var labelText: String = "number:"
     @Binding var value: String
 
+    func EndEditing() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+    
     var body: some View {
         HStack {
             Label(labelText, systemImage: "bolt.fill")
@@ -29,7 +27,7 @@ struct NumberInput: View {
                 .border(Color(UIColor.separator))
                 .onTapGesture {}
                 .onLongPressGesture(
-                    pressing: { isPressed in if isPressed { self.endEditing() } },
+                    pressing: { isPressed in if isPressed { self.EndEditing() } },
                     perform: {}
                 )
         }
