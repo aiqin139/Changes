@@ -11,24 +11,24 @@ struct ExplanationView: View {
     @EnvironmentObject var modelData: ModelData
 
     var body: some View {
-        VStack {            
-            Text(modelData.digitalPrediction.hexagram.pinyin)
-                .font(.title)
-                .foregroundColor(.primary)
-            Text(modelData.digitalPrediction.hexagram.name)
-                .font(.title)
-                .foregroundColor(.primary)
-        
-            modelData.digitalPrediction.hexagram.image
-                .resizable()
-                .frame(width: 400, height: 400)
-            
-            VStack(alignment: .leading) {
-                ForEach(modelData.digitalPrediction.explanation, id: \.self) { content in
-                    Text(content)
-                        .padding(.horizontal, 10.0)
-                        .minimumScaleFactor(0.1)
-                }
+        PageView(pages: [ExplanationViews(digital: 1), ExplanationViews(digital: 0)])
+            .aspectRatio(1, contentMode: .fill)
+    }
+}
+
+struct ExplanationViews: View {
+    @EnvironmentObject var modelData: ModelData
+    var digital = 1
+    
+    var body: some View {
+        VStack {
+            if digital == 1 {
+                DigitalExplanationView()
+                    .environmentObject(modelData)
+            }
+            else {
+                DayanExplanationView()
+                    .environmentObject(modelData)
             }
         }
     }

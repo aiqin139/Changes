@@ -9,51 +9,35 @@ import SwiftUI
 
 struct PredictionView: View {
     @EnvironmentObject var modelData: ModelData
-    @State private var val1Str: String = "000"
-    @State private var val2Str: String = "000"
-    @State private var val3Str: String = "000"
     
     var body: some View {
         VStack {
-           Image("先天八卦图")
-                .resizable()
-                .frame(width: 400, height: 400)
             
-            Label("数字卦", systemImage: "bolt.fill")
-                .labelStyle(TitleOnlyLabelStyle())
-            
-            HStack(alignment: .center) {
-                NumberInput(labelText: "数字1:", value: $val1Str)
-                NumberInput(labelText: "数字2:", value: $val2Str)
-                NumberInput(labelText: "数字3:", value: $val3Str)
-            }
-            
-            Spacer()
-            
-            Button(action: {
-                withAnimation {
-                    DigitPrediction()
-                }
-            }, label: {
-                Image("先天八卦图")
-                     .resizable()
-                     .frame(width: 80, height: 80)
-            })
-            
-            Spacer()
+            PageView(pages: [PredictionViews(digital: 1), PredictionViews(digital: 0)])
+                .aspectRatio(1 / 1.8, contentMode: .fit)
         }
     }
+}
+
+struct PredictionViews: View {
+    @EnvironmentObject var modelData: ModelData
+    var digital = 1
     
-    func DigitPrediction() {
-        let hexagrams = modelData.derivedHexagrams
-        
-        let val1 = Int(val1Str) ?? 0
-        let val2 = Int(val2Str) ?? 0
-        let val3 = Int(val3Str) ?? 0
-        
-        modelData.digitalPrediction.Execute(hexagrams: hexagrams, value1: val1, value2: val2, value3: val3)
-        
-        modelData.dayanPrediction.Execute(hexagrams: hexagrams)
+    var body: some View {
+        VStack {
+            Image("先天八卦图")
+                 .resizable()
+                 .frame(width: 400, height: 400)
+
+            if digital == 1 {
+                DigitalPredictionView()
+                    .environmentObject(modelData)
+            }
+            else {
+                DayanPredictionView()
+                    .environmentObject(modelData)
+            }
+        }
     }
 }
 

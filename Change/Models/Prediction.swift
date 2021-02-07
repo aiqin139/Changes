@@ -27,6 +27,7 @@ struct DayanPrediction {
     var zhiHexagram: Hexagram = Hexagram()
     var explanation1: [String] = [""]
     var explanation2: [String] = [""]
+    var result: [Int] = [0, 0, 0, 0, 0, 0]
     
     private func BaseCalculate(d: Int, s: Int) ->Int {
         let a = s
@@ -36,9 +37,6 @@ struct DayanPrediction {
     }
     
     mutating func Execute(hexagrams: [Hexagram]) {
-        //six step result
-        var r: [Int] = [0, 0, 0, 0, 0, 0]
-        
         //six step
         for i in 0..<6 {
             var d = 50 - 1
@@ -49,7 +47,7 @@ struct DayanPrediction {
             }
             
             //store result
-            r[i] = d / 4
+            result[i] = d / 4
         }
         
         //calculate ben and zhi hexagram part1 and part2
@@ -58,10 +56,10 @@ struct DayanPrediction {
         var zhiPart1 = 0
         var zhiPart2 = 0
         for i in 0..<3 {
-            benPart1 |= (((r[i] == 6) || (r[i] == 8)) ? 1 : 0) << (2 - i)
-            zhiPart1 |= (((r[i] == 9) || (r[i] == 8)) ? 1 : 0) << (2 - i)
-            benPart2 |= (((r[i + 3] == 6) || (r[i + 3] == 8)) ? 1 : 0) << (2 - i)
-            zhiPart2 |= (((r[i + 3] == 9) || (r[i + 3] == 8)) ? 1 : 0) << (2 - i)
+            benPart1 |= (((result[i] == 6) || (result[i] == 8)) ? 1 : 0) << (2 - i)
+            zhiPart1 |= (((result[i] == 9) || (result[i] == 8)) ? 1 : 0) << (2 - i)
+            benPart2 |= (((result[i + 3] == 6) || (result[i + 3] == 8)) ? 1 : 0) << (2 - i)
+            zhiPart2 |= (((result[i + 3] == 9) || (result[i + 3] == 8)) ? 1 : 0) << (2 - i)
         }
         
         //gets the ben hexagram and zhi hexagram
@@ -71,7 +69,7 @@ struct DayanPrediction {
         //calculate the number of change
         var change = 0
         for i in 0..<6 {
-            if r[i] == 9 || r[i] == 6 {
+            if result[i] == 9 || result[i] == 6 {
                 change += 1
             }
         }
@@ -82,14 +80,14 @@ struct DayanPrediction {
             explanation2 = [""]
         } else if change == 1 {
             for i in 0..<6 {
-                if r[i] == 9 || r[i] == 6 {
-                    explanation1 = benHexagram.explanations[i + i]
+                if result[i] == 9 || result[i] == 6 {
+                    explanation1 = benHexagram.explanations[i + 1]
                 }
             }
             explanation2 = [""]
         } else if change == 2 {
             for i in 0..<6 {
-                if r[i] == 9 || r[i] == 6 {
+                if result[i] == 9 || result[i] == 6 {
                     if explanation1 == [""] {
                         explanation1 = benHexagram.explanations[i + 1]
                     } else {
@@ -102,18 +100,18 @@ struct DayanPrediction {
             explanation2 = zhiHexagram.explanations[0]
         } else if change == 4 {
             for i in 0..<6 {
-                if r[i] == 7 || r[i] == 8 {
+                if result[i] == 7 || result[i] == 8 {
                     if explanation2 == [""] {
-                        explanation2 = zhiHexagram.explanations[i + i]
+                        explanation2 = zhiHexagram.explanations[i + 1]
                     } else {
-                        explanation1 = zhiHexagram.explanations[i + i]
+                        explanation1 = zhiHexagram.explanations[i + 1]
                     }
                 }
             }
         } else if change == 5 {
             for i in 0..<6 {
-                if r[i] == 7 || r[i] == 8 {
-                    explanation1 = benHexagram.explanations[i + i]
+                if result[i] == 7 || result[i] == 8 {
+                    explanation1 = benHexagram.explanations[i + 1]
                 }
             }
             explanation2 = [""]
