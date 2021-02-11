@@ -37,16 +37,16 @@ struct DayanPrediction {
     }
     
     mutating func Execute(hexagrams: [Hexagram]) {
-        //six step
+        //six steps
         for i in 0..<6 {
             var d = 50 - 1
             
-            //three step
+            //three steps
             for _ in 0..<3 {
                 d = BaseCalculate(d: d, s: Int(arc4random()) % d)
             }
             
-            //store result
+            //store results
             result[i] = d / 4
         }
         

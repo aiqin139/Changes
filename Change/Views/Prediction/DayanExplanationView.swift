@@ -16,7 +16,7 @@ struct DayanExplanationView: View {
                 .font(.title)
                 .foregroundColor(.primary)
             
-            HStack {
+            HStack(alignment: .center) {
                 VStack {
                     Text(modelData.dayanPrediction.benHexagram.pinyin)
                         .font(.title)
@@ -31,10 +31,11 @@ struct DayanExplanationView: View {
                 }
                 
                 VStack {
-                    ForEach(modelData.dayanPrediction.result, id: \.self) { content in
+                    ForEach(modelData.dayanPrediction.result.reversed(), id: \.self) { content in
                         Text(String(content))
                             .padding(.horizontal)
-                            .minimumScaleFactor(0.3)
+                            .minimumScaleFactor(0.5)
+                            .offset(x: 0, y: 45)
                     }
                 }
                 

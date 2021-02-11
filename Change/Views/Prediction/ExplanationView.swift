@@ -13,6 +13,7 @@ struct ExplanationView: View {
     var body: some View {
         PageView(pages: [ExplanationViews(digital: 1), ExplanationViews(digital: 0)])
             .aspectRatio(1, contentMode: .fill)
+            .environmentObject(modelData)
     }
 }
 
