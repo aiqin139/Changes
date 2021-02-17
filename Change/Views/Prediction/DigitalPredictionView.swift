@@ -16,6 +16,8 @@ struct DigitalPredictionView: View {
     
     var body: some View {
         VStack {
+            Spacer()
+            
             Text("数字卦")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
             
@@ -23,19 +25,26 @@ struct DigitalPredictionView: View {
                 .resizable()
                 .frame(width: 350, height: 350)
             
-            HStack(alignment: .center) {
-                NumberInput(labelText: "数字1:", value: $val1Str)
-                NumberInput(labelText: "数字2:", value: $val2Str)
-                NumberInput(labelText: "数字3:", value: $val3Str)
+            Spacer()
+            
+            VStack(alignment: .center) {
+                NumberInput(labelText: "数字1（3位数）:", value: $val1Str)
+                NumberInput(labelText: "数字2（3位数）:", value: $val2Str)
+                NumberInput(labelText: "数字3（3位数）:", value: $val3Str)
             }
             
-            Button(action: DigitPrediction) {
-                VStack {
-                   Image("先天八卦图")
-                         .resizable()
-                         .frame(width: 80, height: 80)
-                    
-                    Text("按住开始占卦")
+            Spacer()
+            
+            Button(action: {}) {
+                withAnimation() {
+                    VStack {
+                       Image("先天八卦图")
+                             .resizable()
+                             .frame(width: 80, height: 80)
+                             .onLongPressGesture{ DigitPrediction() }
+                        
+                        Text("按住开始占卦")
+                    }
                 }
             }.sheet(isPresented: $isPresented, content: {
                 DigitalExplanationView(digitalPrediction: modelData.digitalPrediction)

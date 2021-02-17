@@ -19,8 +19,11 @@ struct NumberInput: View {
         HStack {
             Label(labelText, systemImage: "bolt.fill")
                 .labelStyle(TitleOnlyLabelStyle())
+                .font(.title2)
+                
             
             TextField("0", text: $value)
+                .font(.title2)
                 .keyboardType(UIKeyboardType.numberPad)
                 .border(Color(UIColor.separator))
                 .contentShape(Rectangle())

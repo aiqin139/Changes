@@ -13,6 +13,8 @@ struct DayanPredictionView: View {
     
     var body: some View {
         VStack {
+            Spacer()
+            
             Text("大衍卦")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
             
@@ -20,13 +22,18 @@ struct DayanPredictionView: View {
                 .resizable()
                 .frame(width: 350, height: 350)
             
-            Button(action: DayanPrediction) {
-                VStack {
-                   Image("先天八卦图")
-                         .resizable()
-                         .frame(width: 80, height: 80)
-                    
-                    Text("按住开始占卦")
+            Spacer()
+            
+            Button(action: {}) {
+                withAnimation() {
+                    VStack {
+                       Image("先天八卦图")
+                             .resizable()
+                             .frame(width: 80, height: 80)
+                             .onLongPressGesture{ DayanPrediction() }
+                        
+                        Text("按住开始占卦")
+                    }
                 }
             }.sheet(isPresented: $isPresented, content: {
                 DayanExplanationView(dayanPrediction: modelData.dayanPrediction)

@@ -25,12 +25,14 @@ struct PredictionView: View {
                     }.sheet(isPresented: $isDigitalPresented, content: {
                         DigitalPredictionView().environmentObject(modelData)
                     })
+                    .frame(height: 30)
                     
                     Button(action: { isDayanPresented = true }) {
                             Text("大衍卦（占大事）")
                     }.sheet(isPresented: $isDayanPresented, content: {
                         DayanPredictionView().environmentObject(modelData)
                     })
+                    .frame(height: 30)
                 }
             }
             .navigationTitle("占卦")
