@@ -12,6 +12,13 @@ struct DigitalExplanationView: View {
 
     var body: some View {
         VStack {
+            Spacer()
+            
+            Text("数字卦")
+                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+            
+            Spacer()
+            
             Text(digitalPrediction.hexagram.pinyin)
                 .font(.title)
                 .foregroundColor(.primary)
@@ -21,15 +28,19 @@ struct DigitalExplanationView: View {
         
             digitalPrediction.hexagram.image
                 .resizable()
-                .frame(width: 300, height: 300)
+                .frame(width: 250, height: 250)
             
             VStack(alignment: .leading) {
                 ForEach(digitalPrediction.explanation, id: \.self) { content in
                     Text(content)
+                        .font(.title3)
                         .padding(.horizontal, 10.0)
                         .minimumScaleFactor(0.1)
                 }
             }
+            
+            Spacer()
+            Spacer()
         }
     }
 }

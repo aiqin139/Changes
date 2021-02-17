@@ -37,6 +37,10 @@ struct DayanPrediction {
     }
     
     mutating func Execute(hexagrams: [Hexagram]) {
+        //clears explanations
+        explanation1 = [""]
+        explanation2 = [""]
+
         //six steps
         for i in 0..<6 {
             var d = 50 - 1
@@ -77,14 +81,12 @@ struct DayanPrediction {
         //gets the explanations
         if change == 0 {
             explanation1 = benHexagram.explanations[0]
-            explanation2 = [""]
         } else if change == 1 {
             for i in 0..<6 {
                 if result[i] == 9 || result[i] == 6 {
                     explanation1 = benHexagram.explanations[i + 1]
                 }
             }
-            explanation2 = [""]
         } else if change == 2 {
             for i in 0..<6 {
                 if result[i] == 9 || result[i] == 6 {
@@ -114,10 +116,8 @@ struct DayanPrediction {
                     explanation1 = benHexagram.explanations[i + 1]
                 }
             }
-            explanation2 = [""]
         } else if change == 6 {
             explanation1 = zhiHexagram.explanations[0]
-            explanation2 = [""]
         }
     }
 }

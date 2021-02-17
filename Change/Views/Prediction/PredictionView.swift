@@ -18,7 +18,7 @@ struct PredictionView: View {
                 Image("先天八卦图")
                      .resizable()
                      .frame(width: 350, height: 350)
-                
+   
                 List {
                     Button(action: { isDigitalPresented = true }) {
                             Text("数字卦（占小事）")

@@ -12,13 +12,20 @@ struct DayanExplanationView: View {
 
     var body: some View {
         VStack {
+            Spacer()
+            
+            Text("大衍卦")
+                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+            
+            Spacer()
+            
             HStack(alignment: .center) {
                 VStack {
                     Text(dayanPrediction.benHexagram.pinyin)
-                        .font(.subheadline)
+                        .font(.title3)
                         .foregroundColor(.primary)
                     Text(dayanPrediction.benHexagram.name)
-                        .font(.subheadline)
+                        .font(.title3)
                         .foregroundColor(.primary)
                 
                     dayanPrediction.benHexagram.image
@@ -31,16 +38,16 @@ struct DayanExplanationView: View {
                         Text(String(content))
                             .padding(.horizontal)
                             .minimumScaleFactor(0.5)
-                            .offset(x: 0, y: 22)
+                            .offset(x: 0, y: 25)
                     }
                 }
                 
                 VStack {
                     Text(dayanPrediction.zhiHexagram.pinyin)
-                        .font(.subheadline)
+                        .font(.title3)
                         .foregroundColor(.primary)
                     Text(dayanPrediction.zhiHexagram.name)
-                        .font(.subheadline)
+                        .font(.title3)
                         .foregroundColor(.primary)
                 
                     dayanPrediction.zhiHexagram.image
@@ -49,10 +56,12 @@ struct DayanExplanationView: View {
                 }
             }
             
+            Spacer()
+            
             VStack(alignment: .leading) {
                 ForEach(dayanPrediction.explanation1, id: \.self) { content in
                     Text(content)
-                        .font(.subheadline)
+                        .font(.title3)
                         .padding(.horizontal, 10.0)
                         .minimumScaleFactor(0.1)
                 }
@@ -61,11 +70,13 @@ struct DayanExplanationView: View {
                 
                 ForEach(dayanPrediction.explanation2, id: \.self) { content in
                     Text(content)
-                        .font(.subheadline)
+                        .font(.title3)
                         .padding(.horizontal, 10.0)
                         .minimumScaleFactor(0.1)
                 }
             }
+            
+            Spacer()
         }
     }
 }
