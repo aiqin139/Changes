@@ -15,9 +15,8 @@ struct PredictionView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Image("先天八卦图")
-                     .resizable()
-                     .frame(width: 350, height: 350)
+                RotateImage(image: "先天八卦图")
+                    .frame(width: 350, height: 350)
    
                 List {
                     Button(action: { isDigitalPresented = true }) {
