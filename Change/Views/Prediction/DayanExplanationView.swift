@@ -19,15 +19,15 @@ struct DayanExplanationView: View {
             HStack(alignment: .center) {
                 VStack {
                     Text(modelData.dayanPrediction.benHexagram.pinyin)
-                        .font(.title)
+                        .font(.subheadline)
                         .foregroundColor(.primary)
                     Text(modelData.dayanPrediction.benHexagram.name)
-                        .font(.title)
+                        .font(.subheadline)
                         .foregroundColor(.primary)
                 
                     modelData.dayanPrediction.benHexagram.image
                         .resizable()
-                        .frame(width: 200, height: 200)
+                        .frame(width: 150, height: 150)
                 }
                 
                 VStack {
@@ -35,33 +35,37 @@ struct DayanExplanationView: View {
                         Text(String(content))
                             .padding(.horizontal)
                             .minimumScaleFactor(0.5)
-                            .offset(x: 0, y: 45)
+                            .offset(x: 0, y: 22)
                     }
                 }
                 
                 VStack {
                     Text(modelData.dayanPrediction.zhiHexagram.pinyin)
-                        .font(.title)
+                        .font(.subheadline)
                         .foregroundColor(.primary)
                     Text(modelData.dayanPrediction.zhiHexagram.name)
-                        .font(.title)
+                        .font(.subheadline)
                         .foregroundColor(.primary)
                 
                     modelData.dayanPrediction.zhiHexagram.image
                         .resizable()
-                        .frame(width: 200, height: 200)
+                        .frame(width: 150, height: 150)
                 }
             }
             
-            VStack {
+            VStack(alignment: .leading) {
                 ForEach(modelData.dayanPrediction.explanation1, id: \.self) { content in
                     Text(content)
+                        .font(.subheadline)
                         .padding(.horizontal, 10.0)
                         .minimumScaleFactor(0.1)
                 }
                 
+                Text("").font(.title)
+                
                 ForEach(modelData.dayanPrediction.explanation2, id: \.self) { content in
                     Text(content)
+                        .font(.subheadline)
                         .padding(.horizontal, 10.0)
                         .minimumScaleFactor(0.1)
                 }

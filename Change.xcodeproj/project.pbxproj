@@ -10,7 +10,6 @@
 		140CE46025C45AE600984B9D /* HexagramRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE45F25C45AE600984B9D /* HexagramRow.swift */; };
 		140CE46D25C4617500984B9D /* HexagramList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE46C25C4617500984B9D /* HexagramList.swift */; };
 		140CE47225C463EF00984B9D /* basicHexagramData.json in Resources */ = {isa = PBXBuildFile; fileRef = 140CE47125C463EF00984B9D /* basicHexagramData.json */; };
-		140CE47B25C46A4C00984B9D /* ExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE47A25C46A4C00984B9D /* ExplanationView.swift */; };
 		147D0AF225C7C2050069C826 /* NumberInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D0AF125C7C2050069C826 /* NumberInput.swift */; };
 		147D0AFA25C842A50069C826 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D0AF625C842A50069C826 /* PageViewController.swift */; };
 		147D0AFC25C842A50069C826 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D0AF825C842A50069C826 /* PageView.swift */; };
@@ -39,7 +38,6 @@
 		140CE45F25C45AE600984B9D /* HexagramRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramRow.swift; sourceTree = "<group>"; };
 		140CE46C25C4617500984B9D /* HexagramList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramList.swift; sourceTree = "<group>"; };
 		140CE47125C463EF00984B9D /* basicHexagramData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = basicHexagramData.json; sourceTree = "<group>"; };
-		140CE47A25C46A4C00984B9D /* ExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplanationView.swift; sourceTree = "<group>"; };
 		147D0AF125C7C2050069C826 /* NumberInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberInput.swift; sourceTree = "<group>"; };
 		147D0AF625C842A50069C826 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		147D0AF825C842A50069C826 /* PageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
@@ -172,7 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				149539A125C2795A00F05BA1 /* PredictionView.swift */,
-				140CE47A25C46A4C00984B9D /* ExplanationView.swift */,
 				147D0AFF25C845E00069C826 /* DigitalPredictionView.swift */,
 				147D0B0225C8464E0069C826 /* DayanPredictionView.swift */,
 				147D0B0925C84D860069C826 /* DigitalExplanationView.swift */,
@@ -283,7 +280,6 @@
 				140CE46025C45AE600984B9D /* HexagramRow.swift in Sources */,
 				149539A225C2795A00F05BA1 /* PredictionView.swift in Sources */,
 				140CE46D25C4617500984B9D /* HexagramList.swift in Sources */,
-				140CE47B25C46A4C00984B9D /* ExplanationView.swift in Sources */,
 				147D0B0D25C84D950069C826 /* DayanExplanationView.swift in Sources */,
 				147D0B0725C849D30069C826 /* FeatureCard.swift in Sources */,
 				149539C425C27C6400F05BA1 /* Prediction.swift in Sources */,

@@ -25,7 +25,7 @@ struct DigitalExplanationView: View {
         
             modelData.digitalPrediction.hexagram.image
                 .resizable()
-                .frame(width: 400, height: 400)
+                .frame(width: 300, height: 300)
             
             VStack(alignment: .leading) {
                 ForEach(modelData.digitalPrediction.explanation, id: \.self) { content in

@@ -9,31 +9,29 @@ import SwiftUI
 
 struct DayanPredictionView: View {
     @EnvironmentObject var modelData: ModelData
+    @State private var isPresented = false
     
     var body: some View {
         VStack {
-            Label("大衍卦", systemImage: "bolt.fill")
-                .labelStyle(TitleOnlyLabelStyle())
-            
-            Spacer()
-            
-            Button(action: {
-                withAnimation {
-                    DayanPrediction()
+            Button(action: DayanPrediction) {
+                VStack {
+                   Image("先天八卦图")
+                         .resizable()
+                         .frame(width: 80, height: 80)
+                    
+                    Text("按住开始占卦")
                 }
-            }, label: {
-                Image("先天八卦图")
-                     .resizable()
-                     .frame(width: 80, height: 80)
+            }.sheet(isPresented: $isPresented, content: {
+                DayanExplanationView()
+                    .environmentObject(modelData)
             })
-            
-            Spacer()
         }
     }
     
     func DayanPrediction() {
         let hexagrams = modelData.derivedHexagrams
         modelData.dayanPrediction.Execute(hexagrams: hexagrams)
+        self.isPresented = true
     }
 }
 

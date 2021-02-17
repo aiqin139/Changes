@@ -11,35 +11,29 @@ struct PredictionView: View {
     @EnvironmentObject var modelData: ModelData
     
     var body: some View {
-        VStack {
-            
-            PageView(pages: [PredictionViews(digital: 1), PredictionViews(digital: 0)])
-                .aspectRatio(1 / 1.8, contentMode: .fit)
+        NavigationView {
+            VStack {
+                Image("先天八卦图")
+                     .resizable()
+                     .frame(width: 350, height: 350)
+                
+                List {
+                    NavigationLink(destination: DigitalPredictionView().environmentObject(modelData)) {
+                        Text("数字卦（占小事）")
+                            .navigationTitle("数字卦")
+                    }
+                    
+                    NavigationLink(destination: DayanPredictionView().environmentObject(modelData)) {
+                        Text("大衍卦（占大事）")
+                            .navigationTitle("大衍卦")
+                    }
+                }
+            }
+            .navigationTitle("占卦")
         }
     }
 }
 
-struct PredictionViews: View {
-    @EnvironmentObject var modelData: ModelData
-    var digital = 1
-    
-    var body: some View {
-        VStack {
-            Image("先天八卦图")
-                 .resizable()
-                 .frame(width: 400, height: 400)
-
-            if digital == 1 {
-                DigitalPredictionView()
-                    .environmentObject(modelData)
-            }
-            else {
-                DayanPredictionView()
-                    .environmentObject(modelData)
-            }
-        }
-    }
-}
 
 struct PredictionView_Previews: PreviewProvider {
     static var previews: some View {

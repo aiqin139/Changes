@@ -12,8 +12,6 @@ struct ContentView: View {
     
     enum Tab {
         case prediction
-        case explanation
-        case summary
         case hexagram
     }
     
@@ -24,19 +22,6 @@ struct ContentView: View {
                     Label("占卦", systemImage: "star")
                 }
                 .tag(Tab.prediction)
-
-            
-            ExplanationView()
-                .tabItem {
-                    Label("解卦", systemImage: "safari")
-                }
-                .tag(Tab.explanation)
-            
-            /*CategoryMatrix()
-                .tabItem {
-                    Label("概览", systemImage: "xserve")
-                }
-                .tag(Tab.summary)*/
             
             HexagramList()
                 .tabItem {
