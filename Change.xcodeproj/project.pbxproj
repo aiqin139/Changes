@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		140557A925DD567F004681EE /* RotateImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140557A825DD567F004681EE /* RotateImage.swift */; };
+		140557AD25DD580B004681EE /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140557AC25DD580B004681EE /* LocationProvider.swift */; };
 		140CE46025C45AE600984B9D /* HexagramRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE45F25C45AE600984B9D /* HexagramRow.swift */; };
 		140CE46D25C4617500984B9D /* HexagramList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE46C25C4617500984B9D /* HexagramList.swift */; };
 		140CE47225C463EF00984B9D /* basicHexagramData.json in Resources */ = {isa = PBXBuildFile; fileRef = 140CE47125C463EF00984B9D /* basicHexagramData.json */; };
@@ -35,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		140557A825DD567F004681EE /* RotateImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateImage.swift; sourceTree = "<group>"; };
+		140557AC25DD580B004681EE /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
 		140CE45F25C45AE600984B9D /* HexagramRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramRow.swift; sourceTree = "<group>"; };
 		140CE46C25C4617500984B9D /* HexagramList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramList.swift; sourceTree = "<group>"; };
 		140CE47125C463EF00984B9D /* basicHexagramData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = basicHexagramData.json; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 			children = (
 				149539E225C2F01100F05BA1 /* CircleImage.swift */,
 				147D0AF125C7C2050069C826 /* NumberInput.swift */,
+				140557A825DD567F004681EE /* RotateImage.swift */,
+				140557AC25DD580B004681EE /* LocationProvider.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -273,10 +279,12 @@
 				147D0AFD25C842A50069C826 /* PageControl.swift in Sources */,
 				147D0B0025C845E00069C826 /* DigitalPredictionView.swift in Sources */,
 				149539D625C2DB8400F05BA1 /* ModelData.swift in Sources */,
+				140557AD25DD580B004681EE /* LocationProvider.swift in Sources */,
 				1495399125C278C500F05BA1 /* ContentView.swift in Sources */,
 				147D0AF225C7C2050069C826 /* NumberInput.swift in Sources */,
 				149539F225C2F99000F05BA1 /* CategoryMatrix.swift in Sources */,
 				147D0AFA25C842A50069C826 /* PageViewController.swift in Sources */,
+				140557A925DD567F004681EE /* RotateImage.swift in Sources */,
 				140CE46025C45AE600984B9D /* HexagramRow.swift in Sources */,
 				149539A225C2795A00F05BA1 /* PredictionView.swift in Sources */,
 				140CE46D25C4617500984B9D /* HexagramList.swift in Sources */,
