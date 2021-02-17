@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PredictionView: View {
     @EnvironmentObject var modelData: ModelData
+    @State private var isDigitalPresented = false
+    @State private var isDayanPresented = false
     
     var body: some View {
         NavigationView {
@@ -18,15 +20,17 @@ struct PredictionView: View {
                      .frame(width: 350, height: 350)
                 
                 List {
-                    NavigationLink(destination: DigitalPredictionView().environmentObject(modelData)) {
-                        Text("数字卦（占小事）")
-                            .navigationTitle("数字卦")
-                    }
+                    Button(action: { isDigitalPresented = true }) {
+                            Text("数字卦（占小事）")
+                    }.sheet(isPresented: $isDigitalPresented, content: {
+                        DigitalPredictionView().environmentObject(modelData)
+                    })
                     
-                    NavigationLink(destination: DayanPredictionView().environmentObject(modelData)) {
-                        Text("大衍卦（占大事）")
-                            .navigationTitle("大衍卦")
-                    }
+                    Button(action: { isDayanPresented = true }) {
+                            Text("大衍卦（占大事）")
+                    }.sheet(isPresented: $isDayanPresented, content: {
+                        DayanPredictionView().environmentObject(modelData)
+                    })
                 }
             }
             .navigationTitle("占卦")

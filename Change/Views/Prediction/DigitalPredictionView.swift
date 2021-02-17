@@ -16,6 +16,9 @@ struct DigitalPredictionView: View {
     
     var body: some View {
         VStack {
+            Text("数字卦")
+                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+            
             Image("先天八卦图")
                 .resizable()
                 .frame(width: 350, height: 350)
@@ -35,8 +38,7 @@ struct DigitalPredictionView: View {
                     Text("按住开始占卦")
                 }
             }.sheet(isPresented: $isPresented, content: {
-                DigitalExplanationView()
-                    .environmentObject(modelData)
+                DigitalExplanationView(digitalPrediction: modelData.digitalPrediction)
             })
         }
     }

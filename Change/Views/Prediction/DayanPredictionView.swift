@@ -13,6 +13,13 @@ struct DayanPredictionView: View {
     
     var body: some View {
         VStack {
+            Text("大衍卦")
+                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+            
+            Image("先天八卦图")
+                .resizable()
+                .frame(width: 350, height: 350)
+            
             Button(action: DayanPrediction) {
                 VStack {
                    Image("先天八卦图")
@@ -22,10 +29,10 @@ struct DayanPredictionView: View {
                     Text("按住开始占卦")
                 }
             }.sheet(isPresented: $isPresented, content: {
-                DayanExplanationView()
-                    .environmentObject(modelData)
+                DayanExplanationView(dayanPrediction: modelData.dayanPrediction)
             })
         }
+        .navigationTitle("大衍卦")
     }
     
     func DayanPrediction() {

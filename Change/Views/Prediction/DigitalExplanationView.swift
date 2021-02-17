@@ -8,27 +8,23 @@
 import SwiftUI
 
 struct DigitalExplanationView: View {
-    @EnvironmentObject var modelData: ModelData
+    var digitalPrediction: DigitalPrediction
 
     var body: some View {
         VStack {
-            Text("数字卦")
+            Text(digitalPrediction.hexagram.pinyin)
                 .font(.title)
                 .foregroundColor(.primary)
-            
-            Text(modelData.digitalPrediction.hexagram.pinyin)
-                .font(.title)
-                .foregroundColor(.primary)
-            Text(modelData.digitalPrediction.hexagram.name)
+            Text(digitalPrediction.hexagram.name)
                 .font(.title)
                 .foregroundColor(.primary)
         
-            modelData.digitalPrediction.hexagram.image
+            digitalPrediction.hexagram.image
                 .resizable()
                 .frame(width: 300, height: 300)
             
             VStack(alignment: .leading) {
-                ForEach(modelData.digitalPrediction.explanation, id: \.self) { content in
+                ForEach(digitalPrediction.explanation, id: \.self) { content in
                     Text(content)
                         .padding(.horizontal, 10.0)
                         .minimumScaleFactor(0.1)
@@ -40,7 +36,6 @@ struct DigitalExplanationView: View {
 
 struct DigitalExplanationView_Previews: PreviewProvider {
     static var previews: some View {
-        DigitalExplanationView()
-            .environmentObject(ModelData())
+        DigitalExplanationView(digitalPrediction: DigitalPrediction())
     }
 }
