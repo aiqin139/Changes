@@ -10,6 +10,7 @@ import SwiftUI
 struct DayanPredictionView: View {
     @EnvironmentObject var modelData: ModelData
     @State private var isPresented = false
+    @State private var opcity: Double = 1
     
     var body: some View {
         VStack {
@@ -24,16 +25,17 @@ struct DayanPredictionView: View {
             Spacer()
             
             Button(action: {}) {
-                withAnimation() {
-                    VStack {
-                        RotateImage(image: "先天八卦图")
-                             .frame(width: 80, height: 80)
-                             .onLongPressGesture{ DayanPrediction() }
-                        
-                        Text("按住开始占卦")
-                    }
+                VStack {
+                    RotateImage(image: "先天八卦图")
+                         .frame(width: 80, height: 80)
+                    
+                    Text("按住开始占卦")
                 }
-            }.sheet(isPresented: $isPresented, content: {
+                .opacity(self.opcity)
+                .onTapGesture { opcity = 0.8 }
+                .onLongPressGesture { DayanPrediction() }
+            }
+            .sheet(isPresented: $isPresented, content: {
                 DayanExplanationView(dayanPrediction: modelData.dayanPrediction)
             })
         }
@@ -43,6 +45,10 @@ struct DayanPredictionView: View {
     func DayanPrediction() {
         let hexagrams = modelData.derivedHexagrams
         modelData.dayanPrediction.Execute(hexagrams: hexagrams)
+        
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+        
         self.isPresented = true
     }
 }

@@ -13,6 +13,7 @@ struct DigitalPredictionView: View {
     @State private var val2Str: String = "000"
     @State private var val3Str: String = "000"
     @State private var isPresented = false
+    @State private var opcity: Double = 1
     
     var body: some View {
         VStack {
@@ -35,16 +36,17 @@ struct DigitalPredictionView: View {
             Spacer()
             
             Button(action: {}) {
-                withAnimation() {
-                    VStack {
-                        RotateImage(image: "先天八卦图")
-                             .frame(width: 80, height: 80)
-                             .onLongPressGesture{ DigitPrediction() }
-                        
-                        Text("按住开始占卦")
-                    }
+                VStack {
+                    RotateImage(image: "先天八卦图")
+                         .frame(width: 80, height: 80)
+                    
+                    Text("按住开始占卦")
                 }
-            }.sheet(isPresented: $isPresented, content: {
+                .opacity(self.opcity)
+                .onTapGesture { opcity = 0.8 }
+                .onLongPressGesture { DigitPrediction() }
+            }
+            .sheet(isPresented: $isPresented, content: {
                 DigitalExplanationView(digitalPrediction: modelData.digitalPrediction)
             })
         }
@@ -58,6 +60,9 @@ struct DigitalPredictionView: View {
         let val3 = Int(val3Str) ?? 0
         
         modelData.digitalPrediction.Execute(hexagrams: hexagrams, value1: val1, value2: val2, value3: val3)
+        
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
         
         self.isPresented = true
     }
