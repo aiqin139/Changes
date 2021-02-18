@@ -9,9 +9,9 @@ import SwiftUI
 
 struct DigitalPredictionView: View {
     @EnvironmentObject var modelData: ModelData
-    @State private var value1: Int = 111
-    @State private var value2: Int = 111
-    @State private var value3: Int = 111
+    @State private var value1: Int = 500
+    @State private var value2: Int = 500
+    @State private var value3: Int = 500
     @State private var isPresented = false
     @State private var opcity: Double = 1
     
