@@ -21,10 +21,9 @@ struct NumberInput: View {
                 .labelStyle(TitleOnlyLabelStyle())
                 .font(.title2)
                 
-            
-            TextField("0", text: $value)
+            TextField("000", text: $value)
                 .font(.title2)
-                .keyboardType(UIKeyboardType.numberPad)
+                .keyboardType(UIKeyboardType.numbersAndPunctuation)
                 .border(Color(UIColor.separator))
                 .contentShape(Rectangle())
                 .onTapGesture { }
@@ -37,7 +36,7 @@ struct NumberInput: View {
 }
 
 struct NumberInput_Previews: PreviewProvider {
-    @State static private var value: String = "0"
+    @State static private var value: String = "000"
 
     static var previews: some View {
         NumberInput(labelText: "number", value: $value)
