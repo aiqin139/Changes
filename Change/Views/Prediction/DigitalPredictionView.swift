@@ -42,7 +42,7 @@ struct DigitalPredictionView: View {
                     RotateImage(image: "先天八卦图")
                          .frame(width: 80, height: 80)
                     
-                    Text("按住开始占卦")
+                    Text("按住开始解卦")
                 }
                 .opacity(self.opcity)
                 .onTapGesture { opcity = 0.8 }

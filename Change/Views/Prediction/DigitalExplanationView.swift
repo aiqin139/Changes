@@ -30,6 +30,21 @@ struct DigitalExplanationView: View {
                 .resizable()
                 .frame(width: 250, height: 250)
             
+            HStack {
+                ForEach(digitalPrediction.result, id: \.self) { content in
+                    Text(String(content))
+                        .font(.title)
+                        .padding(.horizontal)
+                        .border(Color(UIColor.separator))
+                        .contentShape(Rectangle())
+                        .frame(width: 50, height: 50)
+                        .animation(.easeInOut(duration: 1.0))
+                        .shadow(radius: 15)
+                }
+            }
+            
+            Spacer()
+            
             VStack(alignment: .leading) {
                 ForEach(digitalPrediction.explanation, id: \.self) { content in
                     Text(content)
@@ -39,7 +54,6 @@ struct DigitalExplanationView: View {
                 }
             }
             
-            Spacer()
             Spacer()
         }
     }

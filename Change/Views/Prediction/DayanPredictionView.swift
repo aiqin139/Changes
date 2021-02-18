@@ -25,38 +25,50 @@ struct DayanPredictionView: View {
             Spacer()
             
             HStack {
-                ForEach(modelData.dayanPrediction.result, id: \.self) { content in
-                    Text(String(content))
+                ForEach(0...5, id: \.self) { index in
+                    NumberPicker(start: 6, end: 9, value: $modelData.dayanPrediction.result[index])
                         .font(.title)
-                        .padding(.horizontal)
                         .border(Color(UIColor.separator))
                         .contentShape(Rectangle())
-                        .frame(width: 50, height: 50)
-                        .animation(.easeInOut(duration: 1.0))
                         .shadow(radius: 15)
                 }
             }
-            .onLongPressGesture { DayanParser() }
-            .sheet(isPresented: $isPresented, content: {
-                DayanExplanationView(dayanPrediction: modelData.dayanPrediction)
-                    .animation(.easeInOut(duration: 1.0))
-            })
             
-            Text("长按查看解析")
-                .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                
             Spacer()
             
-            Button(action: {}) {
-                VStack {
-                    RotateImage(image: "先天八卦图")
-                         .frame(width: 80, height: 80)
-                    
-                    Text("按住开始占卦")
+            HStack {
+                Spacer()
+                
+                Button(action: {}) {
+                    VStack {
+                        RotateImage(image: "先天八卦图")
+                             .frame(width: 80, height: 80)
+                        
+                        Text("按住开始占卦")
+                    }
+                    .opacity(self.opcity)
+                    .onTapGesture { opcity = 0.8 }
+                    .onLongPressGesture { DayanPrediction() }
                 }
-                .opacity(self.opcity)
-                .onTapGesture { opcity = 0.8 }
-                .onLongPressGesture { DayanPrediction() }
+                
+                Spacer()
+                
+                Button(action: {}) {
+                    VStack {
+                        RotateImage(image: "先天八卦图")
+                             .frame(width: 80, height: 80)
+                        
+                        Text("按住开始解卦")
+                    }
+                    .opacity(self.opcity)
+                    .onTapGesture { opcity = 0.8 }
+                    .onLongPressGesture { DayanParser() }
+                }
+                .sheet(isPresented: $isPresented, content: {
+                     DayanExplanationView(dayanPrediction: modelData.dayanPrediction)
+                 })
+                
+                Spacer()
             }
         }
         .navigationTitle("大衍卦")
