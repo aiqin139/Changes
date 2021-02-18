@@ -32,6 +32,7 @@ struct DigitalPredictionView: View {
                 NumberInput(labelText: "数字2（3位数）:", value: $val2Str)
                 NumberInput(labelText: "数字3（3位数）:", value: $val3Str)
             }
+            .padding()
             
             Spacer()
             
