@@ -24,6 +24,28 @@ struct DayanPredictionView: View {
             
             Spacer()
             
+            HStack {
+                ForEach(modelData.dayanPrediction.result, id: \.self) { content in
+                    Text(String(content))
+                        .font(.title)
+                        .padding(.horizontal)
+                        .border(Color(UIColor.separator))
+                        .contentShape(Rectangle())
+                        .frame(width: 50, height: 50)
+                        .animation(.easeInOut(duration: 1.0))
+                        .shadow(radius: 15)
+                }
+            }
+            .onLongPressGesture { DayanParser() }
+            .sheet(isPresented: $isPresented, content: {
+                DayanExplanationView(dayanPrediction: modelData.dayanPrediction)
+            })
+            
+            Text("长按查看解析")
+                .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                
+            Spacer()
+            
             Button(action: {}) {
                 VStack {
                     RotateImage(image: "先天八卦图")
@@ -35,16 +57,20 @@ struct DayanPredictionView: View {
                 .onTapGesture { opcity = 0.8 }
                 .onLongPressGesture { DayanPrediction() }
             }
-            .sheet(isPresented: $isPresented, content: {
-                DayanExplanationView(dayanPrediction: modelData.dayanPrediction)
-            })
         }
         .navigationTitle("大衍卦")
     }
     
     func DayanPrediction() {
+        modelData.dayanPrediction.Execute()
+        
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+    }
+    
+    func DayanParser() {
         let hexagrams = modelData.derivedHexagrams
-        modelData.dayanPrediction.Execute(hexagrams: hexagrams)
+        modelData.dayanPrediction.Parser(hexagrams: hexagrams)
         
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
