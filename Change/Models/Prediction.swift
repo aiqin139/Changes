@@ -47,7 +47,11 @@ struct DayanPrediction {
             
             //three steps
             for _ in 0..<3 {
-                d = BaseCalculate(d: d, s: Int(arc4random()) % d)
+                var s = 0
+                while s == 0 {
+                    s = Int(arc4random()) % d
+                }
+                d = BaseCalculate(d: d, s: s)
             }
             
             //store results
