@@ -34,6 +34,7 @@
 		149539E325C2F01100F05BA1 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539E225C2F01100F05BA1 /* CircleImage.swift */; };
 		149539EF25C2F93C00F05BA1 /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539EE25C2F93C00F05BA1 /* CategoryItem.swift */; };
 		149539F225C2F99000F05BA1 /* CategoryMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539F125C2F99000F05BA1 /* CategoryMatrix.swift */; };
+		14F63FDF25DE65C800C76246 /* NumberPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F63FDE25DE65C800C76246 /* NumberPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		149539E225C2F01100F05BA1 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		149539EE25C2F93C00F05BA1 /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		149539F125C2F99000F05BA1 /* CategoryMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMatrix.swift; sourceTree = "<group>"; };
+		14F63FDE25DE65C800C76246 /* NumberPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 				147D0AF125C7C2050069C826 /* NumberInput.swift */,
 				140557A825DD567F004681EE /* RotateImage.swift */,
 				140557AC25DD580B004681EE /* LocationProvider.swift */,
+				14F63FDE25DE65C800C76246 /* NumberPicker.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				147D0B0325C8464E0069C826 /* DayanPredictionView.swift in Sources */,
 				149539EF25C2F93C00F05BA1 /* CategoryItem.swift in Sources */,
 				147D0AFD25C842A50069C826 /* PageControl.swift in Sources */,
+				14F63FDF25DE65C800C76246 /* NumberPicker.swift in Sources */,
 				147D0B0025C845E00069C826 /* DigitalPredictionView.swift in Sources */,
 				149539D625C2DB8400F05BA1 /* ModelData.swift in Sources */,
 				140557AD25DD580B004681EE /* LocationProvider.swift in Sources */,
