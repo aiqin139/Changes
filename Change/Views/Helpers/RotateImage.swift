@@ -21,6 +21,7 @@ struct RotateImage: View {
                 Image(image)
                     .resizable()
                     .clipShape(Circle())
+                    .animation(.linear)
                     .onReceive(self.location.heading) { heading in
                         withAnimation(.easeInOut(duration: 0.2)) {
                             self.angle += self.angleDiff(to: heading)
