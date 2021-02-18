@@ -39,6 +39,7 @@ struct DayanPredictionView: View {
             .onLongPressGesture { DayanParser() }
             .sheet(isPresented: $isPresented, content: {
                 DayanExplanationView(dayanPrediction: modelData.dayanPrediction)
+                    .animation(.easeInOut(duration: 1.0))
             })
             
             Text("长按查看解析")

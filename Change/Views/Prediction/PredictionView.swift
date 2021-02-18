@@ -22,14 +22,18 @@ struct PredictionView: View {
                     Button(action: { isDigitalPresented = true }) {
                             Text("数字卦（占小事）")
                     }.sheet(isPresented: $isDigitalPresented, content: {
-                        DigitalPredictionView().environmentObject(modelData)
+                        DigitalPredictionView()
+                            .environmentObject(modelData)
+                            .animation(.easeInOut(duration: 1.0))
                     })
                     .frame(height: 30)
                     
                     Button(action: { isDayanPresented = true }) {
                             Text("大衍卦（占大事）")
                     }.sheet(isPresented: $isDayanPresented, content: {
-                        DayanPredictionView().environmentObject(modelData)
+                        DayanPredictionView()
+                            .environmentObject(modelData)
+                            .animation(.easeInOut(duration: 1.0))
                     })
                     .frame(height: 30)
                 }

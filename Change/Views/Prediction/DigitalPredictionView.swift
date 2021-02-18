@@ -49,6 +49,7 @@ struct DigitalPredictionView: View {
             }
             .sheet(isPresented: $isPresented, content: {
                 DigitalExplanationView(digitalPrediction: modelData.digitalPrediction)
+                    .animation(.easeInOut(duration: 1.0))
             })
         }
     }
