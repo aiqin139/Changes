@@ -27,7 +27,7 @@ struct DayanPrediction {
     var zhiHexagram: Hexagram = Hexagram()
     var explanation1: [String] = [""]
     var explanation2: [String] = [""]
-    var result: [Int] = [0, 0, 0, 0, 0, 0]
+    var result: [Int] = [6, 6, 8, 8, 9, 9]
     
     private func BaseCalculate(d: Int, s: Int) ->Int {
         let a = s
@@ -36,11 +36,7 @@ struct DayanPrediction {
         return d - c
     }
     
-    mutating func Execute(hexagrams: [Hexagram]) {
-        //clears explanations
-        explanation1 = [""]
-        explanation2 = [""]
-
+    mutating func Execute() {
         //six steps
         for i in 0..<6 {
             var d = 50 - 1
@@ -57,6 +53,12 @@ struct DayanPrediction {
             //store results
             result[i] = d / 4
         }
+    }
+    
+    mutating func Parser(hexagrams:[Hexagram]) {
+        //clears explanations
+        explanation1 = [""]
+        explanation2 = [""]
         
         //calculate ben and zhi hexagram part1 and part2
         var benPart1 = 0
