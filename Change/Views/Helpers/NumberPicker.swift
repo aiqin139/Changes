@@ -16,14 +16,17 @@ struct NumberPicker: View {
     var body: some View {
         GeometryReader { geometry in
             HStack {
-                Text(label)
+                if label != "" {
+                    Text(label)
+                }
+                
                 Picker("Number", selection: $value) {
                     ForEach(start...end, id: \.self) { number in
                         Text(String(number))
                             .tag(number)
                     }
                 }
-                .frame(maxWidth: geometry.size.width / 2)
+                .frame(maxWidth: geometry.size.width / (label == "" ? 1 : 2))
                 .clipped()
             }
         }
