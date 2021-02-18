@@ -10,14 +10,15 @@ import Foundation
 struct DigitalPrediction {
     var hexagram: Hexagram = Hexagram()
     var explanation: [String] = [""]
+    var result: [Int] = [0, 0, 0]
     
     mutating func Execute(hexagrams: [Hexagram], value1: Int, value2: Int, value3: Int) {
-        let part1 = (value1 % 8) != 0 ? (value1 % 8) : 8
-        let part2 = (value2 % 8) != 0 ? (value2 % 8) : 8
-        let index = (value3 % 6) != 0 ? (value3 % 6) : 6
+        result[0] = (value1 % 8) != 0 ? (value1 % 8) : 8
+        result[1] = (value2 % 8) != 0 ? (value2 % 8) : 8
+        result[2] = (value3 % 6) != 0 ? (value3 % 6) : 6
         
-        self.hexagram = hexagrams.filter { $0.id == (8 * (part1 - 1)) + part2 }[0]
-        self.explanation = hexagram.explanations[index]
+        self.hexagram = hexagrams.filter { $0.id == (8 * (result[0] - 1)) + result[1] }[0]
+        self.explanation = hexagram.explanations[result[2]]
     }
 }
 
@@ -27,7 +28,7 @@ struct DayanPrediction {
     var zhiHexagram: Hexagram = Hexagram()
     var explanation1: [String] = [""]
     var explanation2: [String] = [""]
-    var result: [Int] = [6, 6, 8, 8, 9, 9]
+    var result: [Int] = [6, 6, 7, 8, 9, 9]
     
     private func BaseCalculate(d: Int, s: Int) ->Int {
         let a = s
