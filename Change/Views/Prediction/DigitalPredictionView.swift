@@ -9,11 +9,13 @@ import SwiftUI
 
 struct DigitalPredictionView: View {
     @EnvironmentObject var modelData: ModelData
-    @State private var val1Str: String = "000"
-    @State private var val2Str: String = "000"
-    @State private var val3Str: String = "000"
+    @State private var value1: Int = 111
+    @State private var value2: Int = 111
+    @State private var value3: Int = 111
     @State private var isPresented = false
     @State private var opcity: Double = 1
+    
+    @State private var number: Int = 3
     
     var body: some View {
         VStack {
@@ -27,12 +29,11 @@ struct DigitalPredictionView: View {
             
             Spacer()
             
-            VStack(alignment: .center) {
-                NumberInput(labelText: "数字1（3位数）:", value: $val1Str)
-                NumberInput(labelText: "数字2（3位数）:", value: $val2Str)
-                NumberInput(labelText: "数字3（3位数）:", value: $val3Str)
+            HStack {
+                NumberPicker(label: "数字1:", start: 100, end: 999, value: $value1)
+                NumberPicker(label: "数字2:", start: 100, end: 999, value: $value2)
+                NumberPicker(label: "数字3:", start: 100, end: 999, value: $value3)
             }
-            .padding()
             
             Spacer()
             
@@ -57,11 +58,7 @@ struct DigitalPredictionView: View {
     func DigitPrediction() {
         let hexagrams = modelData.derivedHexagrams
         
-        let val1 = Int(val1Str) ?? 0
-        let val2 = Int(val2Str) ?? 0
-        let val3 = Int(val3Str) ?? 0
-        
-        modelData.digitalPrediction.Execute(hexagrams: hexagrams, value1: val1, value2: val2, value3: val3)
+        modelData.digitalPrediction.Execute(hexagrams: hexagrams, value1: value1, value2: value2, value3: value3)
         
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
