@@ -97,10 +97,10 @@ struct DayanPrediction {
         } else if change == 2 {
             for i in 0..<6 {
                 if result[i] == 9 || result[i] == 6 {
-                    if explanation1 == [""] {
-                        explanation1 = benHexagram.explanations[i + 1]
-                    } else {
+                    if explanation2 == [""] {
                         explanation2 = benHexagram.explanations[i + 1]
+                    } else {
+                        explanation1 = benHexagram.explanations[i + 1]
                     }
                 }
             }
@@ -110,10 +110,10 @@ struct DayanPrediction {
         } else if change == 4 {
             for i in 0..<6 {
                 if result[i] == 7 || result[i] == 8 {
-                    if explanation2 == [""] {
-                        explanation2 = zhiHexagram.explanations[i + 1]
-                    } else {
+                    if explanation1 == [""] {
                         explanation1 = zhiHexagram.explanations[i + 1]
+                    } else {
+                        explanation2 = zhiHexagram.explanations[i + 1]
                     }
                 }
             }
