@@ -10,6 +10,7 @@ import SwiftUI
 struct HexagramList: View {
     @EnvironmentObject var modelData: ModelData
     @State private var selection: Tab = .basic
+    @State private var searchText = ""
     
     enum Tab {
         case basic
@@ -24,6 +25,12 @@ struct HexagramList: View {
             return modelData.derivedHexagrams
         }
         return [Hexagram]()
+    }
+    
+    var filteredHexagrams: [Hexagram] {
+        selectedHexagrams.filter {
+            ($0.name.hasPrefix(searchText) || searchText == "")
+        }
     }
     
     var selectedTitle: String {
@@ -45,7 +52,10 @@ struct HexagramList: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 
-                ForEach(selectedHexagrams, id: \.self) { hexagram in
+                TextField("🔍 查找卦象", text: $searchText)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+
+                ForEach(filteredHexagrams, id: \.self) { hexagram in
                     NavigationLink(destination: HexagramDetail(hexagram: hexagram)) {
                         HexagramRow(hexagram: hexagram)
                     }
