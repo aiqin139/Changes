@@ -9,13 +9,8 @@ import SwiftUI
 
 struct DigitalPredictionView: View {
     @EnvironmentObject var modelData: ModelData
-    @State private var value1: Int = 500
-    @State private var value2: Int = 500
-    @State private var value3: Int = 500
     @State private var isPresented = false
     @State private var opcity: Double = 1
-    
-    @State private var number: Int = 3
     
     var body: some View {
         VStack {
@@ -30,35 +25,61 @@ struct DigitalPredictionView: View {
             Spacer()
             
             HStack {
-                NumberPicker(label: "数字1:", start: 100, end: 999, value: $value1)
-                NumberPicker(label: "数字2:", start: 100, end: 999, value: $value2)
-                NumberPicker(label: "数字3:", start: 100, end: 999, value: $value3)
+                NumberPicker(label: "数字1:", start: 100, end: 999, value: $modelData.digitalPrediction.values[0])
+                NumberPicker(label: "数字2:", start: 100, end: 999, value: $modelData.digitalPrediction.values[1])
+                NumberPicker(label: "数字3:", start: 100, end: 999, value: $modelData.digitalPrediction.values[2])
             }
             
             Spacer()
             
-            Button(action: {}) {
-                VStack {
-                    RotateImage(image: "先天八卦图")
-                         .frame(width: 80, height: 80)
-                    
-                    Text("按住开始解卦")
+            HStack {
+                Spacer()
+                
+                Button(action: {}) {
+                    VStack {
+                        RotateImage(image: "先天八卦图")
+                             .frame(width: 80, height: 80)
+                        
+                        Text("按住开始占卦")
+                    }
+                    .opacity(self.opcity)
+                    .onTapGesture { opcity = 0.8 }
+                    .onLongPressGesture { DigitPrediction() }
                 }
-                .opacity(self.opcity)
-                .onTapGesture { opcity = 0.8 }
-                .onLongPressGesture { DigitPrediction() }
+                
+                Spacer()
+                
+                Button(action: {}) {
+                    VStack {
+                        RotateImage(image: "先天八卦图")
+                             .frame(width: 80, height: 80)
+                        
+                        Text("按住开始解卦")
+                    }
+                    .opacity(self.opcity)
+                    .onTapGesture { opcity = 0.8 }
+                    .onLongPressGesture { DigitParser() }
+                }
+                .sheet(isPresented: $isPresented, content: {
+                    DigitalExplanationView(digitalPrediction: modelData.digitalPrediction)
+                        .animation(.easeInOut(duration: 1.0))
+                })
+                
+                Spacer()
             }
-            .sheet(isPresented: $isPresented, content: {
-                DigitalExplanationView(digitalPrediction: modelData.digitalPrediction)
-                    .animation(.easeInOut(duration: 1.0))
-            })
         }
     }
     
     func DigitPrediction() {
-        let hexagrams = modelData.derivedHexagrams
+        modelData.digitalPrediction.Execute()
         
-        modelData.digitalPrediction.Execute(hexagrams: hexagrams, value1: value1, value2: value2, value3: value3)
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+    }
+    
+    func DigitParser() {
+        let hexagrams = modelData.derivedHexagrams
+        modelData.digitalPrediction.Parser(hexagrams: hexagrams)
         
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)

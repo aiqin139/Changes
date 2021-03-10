@@ -11,11 +11,26 @@ struct DigitalPrediction {
     var hexagram: Hexagram = Hexagram()
     var explanation: [String] = [""]
     var result: [Int] = [0, 0, 0]
+    var values: [Int] = [500, 500, 500]
     
-    mutating func Execute(hexagrams: [Hexagram], value1: Int, value2: Int, value3: Int) {
-        result[0] = (value1 % 8) != 0 ? (value1 % 8) : 8
-        result[1] = (value2 % 8) != 0 ? (value2 % 8) : 8
-        result[2] = (value3 % 6) != 0 ? (value3 % 6) : 6
+    private func Random() -> Int {
+        var s = 0
+        while s < 100 {
+            s = Int(arc4random()) % 999
+        }
+        return s
+    }
+    
+    mutating func Execute() {
+        self.values[0] = Random()
+        self.values[1] = Random()
+        self.values[2] = Random()
+    }
+    
+    mutating func Parser(hexagrams: [Hexagram]) {
+        result[0] = (values[0] % 8) != 0 ? (values[0] % 8) : 8
+        result[1] = (values[1] % 8) != 0 ? (values[1] % 8) : 8
+        result[2] = (values[2] % 6) != 0 ? (values[2] % 6) : 6
         
         self.hexagram = hexagrams.filter { $0.id == (8 * (result[0] - 1)) + result[1] }[0]
         self.explanation = hexagram.explanations[result[2]]
