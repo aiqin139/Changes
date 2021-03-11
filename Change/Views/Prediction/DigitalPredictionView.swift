@@ -37,10 +37,9 @@ struct DigitalPredictionView: View {
                 
                 Button(action: {}) {
                     VStack {
-                        RotateImage(image: "先天八卦图")
-                             .frame(width: 80, height: 80)
-                        
-                        Text("按住开始占卦")
+                        Image("占")
+                            .resizable()
+                            .frame(width: 80, height: 80)
                     }
                     .opacity(self.opcity)
                     .onTapGesture { opcity = 0.8 }
@@ -51,10 +50,9 @@ struct DigitalPredictionView: View {
                 
                 Button(action: {}) {
                     VStack {
-                        RotateImage(image: "先天八卦图")
-                             .frame(width: 80, height: 80)
-                        
-                        Text("按住开始解卦")
+                        Image("解")
+                            .resizable()
+                            .frame(width: 80, height: 80)
                     }
                     .opacity(self.opcity)
                     .onTapGesture { opcity = 0.8 }
