@@ -43,6 +43,7 @@ struct DayanPredictionView: View {
                     VStack {
                         Image("占")
                             .resizable()
+                            .clipShape(Circle())
                             .frame(width: 80, height: 80)
                     }
                     .opacity(self.opcity)
@@ -56,6 +57,7 @@ struct DayanPredictionView: View {
                     VStack {
                         Image("解")
                             .resizable()
+                            .clipShape(Circle())
                             .frame(width: 80, height: 80)
                     }
                     .opacity(self.opcity)

@@ -29,6 +29,7 @@ struct DigitalPredictionView: View {
                 NumberPicker(label: "数字2:", start: 100, end: 999, value: $modelData.digitalPrediction.values[1])
                 NumberPicker(label: "数字3:", start: 100, end: 999, value: $modelData.digitalPrediction.values[2])
             }
+            .animation(nil)
             
             Spacer()
             
@@ -39,6 +40,7 @@ struct DigitalPredictionView: View {
                     VStack {
                         Image("占")
                             .resizable()
+                            .clipShape(Circle())
                             .frame(width: 80, height: 80)
                     }
                     .opacity(self.opcity)
@@ -52,6 +54,7 @@ struct DigitalPredictionView: View {
                     VStack {
                         Image("解")
                             .resizable()
+                            .clipShape(Circle())
                             .frame(width: 80, height: 80)
                     }
                     .opacity(self.opcity)

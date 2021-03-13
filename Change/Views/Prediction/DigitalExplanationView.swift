@@ -61,6 +61,9 @@ struct DigitalExplanationView: View {
 
 struct DigitalExplanationView_Previews: PreviewProvider {
     static var previews: some View {
-        DigitalExplanationView(digitalPrediction: DigitalPrediction())
+        DigitalExplanationView(digitalPrediction: DigitalPrediction(
+            hexagram: ModelData().derivedHexagrams[0],
+            explanation: ModelData().derivedHexagrams[0].explanations[0]
+        ))
     }
 }
