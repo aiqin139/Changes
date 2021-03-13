@@ -9,10 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selection: Tab = .prediction
-    
+
     enum Tab {
         case prediction
         case hexagram
+        case myself
     }
     
     var body: some View {
@@ -28,6 +29,12 @@ struct ContentView: View {
                     Label("卦象", systemImage: "bonjour")
                 }
                 .tag(Tab.hexagram)
+            
+            MySelfView()
+                .tabItem {
+                    Label("我", systemImage: "person")
+                }
+                .tag(Tab.myself)
         }
     }
 }

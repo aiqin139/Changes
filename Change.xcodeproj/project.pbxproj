@@ -12,6 +12,10 @@
 		140CE46025C45AE600984B9D /* HexagramRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE45F25C45AE600984B9D /* HexagramRow.swift */; };
 		140CE46D25C4617500984B9D /* HexagramList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE46C25C4617500984B9D /* HexagramList.swift */; };
 		140CE47225C463EF00984B9D /* basicHexagramData.json in Resources */ = {isa = PBXBuildFile; fileRef = 140CE47125C463EF00984B9D /* basicHexagramData.json */; };
+		1476167525F8DE9C009F7578 /* MySelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1476167425F8DE9C009F7578 /* MySelfView.swift */; };
+		1476167A25F8E13D009F7578 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1476167925F8E13D009F7578 /* InfoView.swift */; };
+		1476168025F901F7009F7578 /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1476167F25F901F7009F7578 /* DailyView.swift */; };
+		1476168625F90255009F7578 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1476168525F90255009F7578 /* AboutView.swift */; };
 		147D0AF225C7C2050069C826 /* NumberInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D0AF125C7C2050069C826 /* NumberInput.swift */; };
 		147D0AFA25C842A50069C826 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D0AF625C842A50069C826 /* PageViewController.swift */; };
 		147D0AFC25C842A50069C826 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D0AF825C842A50069C826 /* PageView.swift */; };
@@ -34,6 +38,8 @@
 		149539E325C2F01100F05BA1 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539E225C2F01100F05BA1 /* CircleImage.swift */; };
 		149539EF25C2F93C00F05BA1 /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539EE25C2F93C00F05BA1 /* CategoryItem.swift */; };
 		149539F225C2F99000F05BA1 /* CategoryMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539F125C2F99000F05BA1 /* CategoryMatrix.swift */; };
+		14B800AC25FA54DF0041D4BF /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B800AB25FA54DF0041D4BF /* DetailView.swift */; };
+		14BE03F825FCCFB5004F0A6F /* ExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BE03F725FCCFB5004F0A6F /* ExplanationView.swift */; };
 		14F63FDF25DE65C800C76246 /* NumberPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F63FDE25DE65C800C76246 /* NumberPicker.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +49,10 @@
 		140CE45F25C45AE600984B9D /* HexagramRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramRow.swift; sourceTree = "<group>"; };
 		140CE46C25C4617500984B9D /* HexagramList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramList.swift; sourceTree = "<group>"; };
 		140CE47125C463EF00984B9D /* basicHexagramData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = basicHexagramData.json; sourceTree = "<group>"; };
+		1476167425F8DE9C009F7578 /* MySelfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySelfView.swift; sourceTree = "<group>"; };
+		1476167925F8E13D009F7578 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		1476167F25F901F7009F7578 /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
+		1476168525F90255009F7578 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		147D0AF125C7C2050069C826 /* NumberInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberInput.swift; sourceTree = "<group>"; };
 		147D0AF625C842A50069C826 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		147D0AF825C842A50069C826 /* PageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
@@ -67,6 +77,8 @@
 		149539E225C2F01100F05BA1 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		149539EE25C2F93C00F05BA1 /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		149539F125C2F99000F05BA1 /* CategoryMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMatrix.swift; sourceTree = "<group>"; };
+		14B800AB25FA54DF0041D4BF /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		14BE03F725FCCFB5004F0A6F /* ExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplanationView.swift; sourceTree = "<group>"; };
 		14F63FDE25DE65C800C76246 /* NumberPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +110,19 @@
 				140CE46C25C4617500984B9D /* HexagramList.swift */,
 			);
 			path = Hexagrams;
+			sourceTree = "<group>";
+		};
+		1476167325F8DE75009F7578 /* MySelf */ = {
+			isa = PBXGroup;
+			children = (
+				1476167425F8DE9C009F7578 /* MySelfView.swift */,
+				1476167925F8E13D009F7578 /* InfoView.swift */,
+				1476167F25F901F7009F7578 /* DailyView.swift */,
+				1476168525F90255009F7578 /* AboutView.swift */,
+				14B800AB25FA54DF0041D4BF /* DetailView.swift */,
+				14BE03F725FCCFB5004F0A6F /* ExplanationView.swift */,
+			);
+			path = MySelf;
 			sourceTree = "<group>";
 		};
 		147D0AF525C842660069C826 /* PageViews */ = {
@@ -157,6 +182,7 @@
 				140CE46825C460E700984B9D /* Hexagrams */,
 				140CE45625C4592000984B9D /* Categories */,
 				147D0AF525C842660069C826 /* PageViews */,
+				1476167325F8DE75009F7578 /* MySelf */,
 				149539E025C2EFA500F05BA1 /* Helpers */,
 			);
 			path = Views;
@@ -279,20 +305,26 @@
 				149539CF25C2800900F05BA1 /* Hexagram.swift in Sources */,
 				147D0B0325C8464E0069C826 /* DayanPredictionView.swift in Sources */,
 				149539EF25C2F93C00F05BA1 /* CategoryItem.swift in Sources */,
+				1476168625F90255009F7578 /* AboutView.swift in Sources */,
 				147D0AFD25C842A50069C826 /* PageControl.swift in Sources */,
 				14F63FDF25DE65C800C76246 /* NumberPicker.swift in Sources */,
+				1476167525F8DE9C009F7578 /* MySelfView.swift in Sources */,
 				147D0B0025C845E00069C826 /* DigitalPredictionView.swift in Sources */,
+				14BE03F825FCCFB5004F0A6F /* ExplanationView.swift in Sources */,
 				149539D625C2DB8400F05BA1 /* ModelData.swift in Sources */,
 				140557AD25DD580B004681EE /* LocationProvider.swift in Sources */,
 				1495399125C278C500F05BA1 /* ContentView.swift in Sources */,
 				147D0AF225C7C2050069C826 /* NumberInput.swift in Sources */,
+				14B800AC25FA54DF0041D4BF /* DetailView.swift in Sources */,
 				149539F225C2F99000F05BA1 /* CategoryMatrix.swift in Sources */,
 				147D0AFA25C842A50069C826 /* PageViewController.swift in Sources */,
 				140557A925DD567F004681EE /* RotateImage.swift in Sources */,
 				140CE46025C45AE600984B9D /* HexagramRow.swift in Sources */,
+				1476168025F901F7009F7578 /* DailyView.swift in Sources */,
 				149539A225C2795A00F05BA1 /* PredictionView.swift in Sources */,
 				140CE46D25C4617500984B9D /* HexagramList.swift in Sources */,
 				147D0B0D25C84D950069C826 /* DayanExplanationView.swift in Sources */,
+				1476167A25F8E13D009F7578 /* InfoView.swift in Sources */,
 				147D0B0725C849D30069C826 /* FeatureCard.swift in Sources */,
 				149539C425C27C6400F05BA1 /* Prediction.swift in Sources */,
 				149539E325C2F01100F05BA1 /* CircleImage.swift in Sources */,
