@@ -40,6 +40,7 @@
 		149539F225C2F99000F05BA1 /* CategoryMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539F125C2F99000F05BA1 /* CategoryMatrix.swift */; };
 		14B800AC25FA54DF0041D4BF /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B800AB25FA54DF0041D4BF /* DetailView.swift */; };
 		14BE03F825FCCFB5004F0A6F /* ExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BE03F725FCCFB5004F0A6F /* ExplanationView.swift */; };
+		14CC3E5E25FE3CB9004106FF /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CC3E5D25FE3CB9004106FF /* SearchBar.swift */; };
 		14F63FDF25DE65C800C76246 /* NumberPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F63FDE25DE65C800C76246 /* NumberPicker.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		149539F125C2F99000F05BA1 /* CategoryMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMatrix.swift; sourceTree = "<group>"; };
 		14B800AB25FA54DF0041D4BF /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		14BE03F725FCCFB5004F0A6F /* ExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplanationView.swift; sourceTree = "<group>"; };
+		14CC3E5D25FE3CB9004106FF /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		14F63FDE25DE65C800C76246 /* NumberPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -227,6 +229,7 @@
 				140557A825DD567F004681EE /* RotateImage.swift */,
 				140557AC25DD580B004681EE /* LocationProvider.swift */,
 				14F63FDE25DE65C800C76246 /* NumberPicker.swift */,
+				14CC3E5D25FE3CB9004106FF /* SearchBar.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				140CE46025C45AE600984B9D /* HexagramRow.swift in Sources */,
 				1476168025F901F7009F7578 /* DailyView.swift in Sources */,
 				149539A225C2795A00F05BA1 /* PredictionView.swift in Sources */,
+				14CC3E5E25FE3CB9004106FF /* SearchBar.swift in Sources */,
 				140CE46D25C4617500984B9D /* HexagramList.swift in Sources */,
 				147D0B0D25C84D950069C826 /* DayanExplanationView.swift in Sources */,
 				1476167A25F8E13D009F7578 /* InfoView.swift in Sources */,
