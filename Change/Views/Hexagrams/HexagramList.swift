@@ -46,14 +46,13 @@ struct HexagramList: View {
     var body: some View {
         NavigationView() {
             List {
+                SearchBar(text: $searchText)
+                
                 Picker("卦象", selection: $selection) {
                     Text("基本八卦").tag(Tab.basic)
                     Text("六十四卦").tag(Tab.derived)
                 }
                 .pickerStyle(SegmentedPickerStyle())
-                
-                TextField("🔍 查找卦象", text: $searchText)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
 
                 ForEach(filteredHexagrams, id: \.self) { hexagram in
                     NavigationLink(destination: HexagramDetail(hexagram: hexagram)) {
