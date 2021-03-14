@@ -11,14 +11,14 @@ struct PredictionView: View {
     @EnvironmentObject var modelData: ModelData
     @State private var isDigitalPresented = false
     @State private var isDayanPresented = false
-    
+
     var body: some View {
         NavigationView {
             VStack {
                 RotateImage(image: "先天八卦图")
                     .frame(width: 350, height: 350)
    
-                List {
+                Form {
                     Button(action: { isDigitalPresented = true }) {
                             Text("数字卦（占小事）")
                     }.sheet(isPresented: $isDigitalPresented, content: {
@@ -37,6 +37,7 @@ struct PredictionView: View {
                     })
                     .frame(height: 30)
                 }
+                .foregroundColor(.black)
             }
             .navigationTitle("占卦")
         }
