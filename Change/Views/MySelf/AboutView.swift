@@ -9,11 +9,9 @@ import SwiftUI
 
 struct AboutView: View {
     var body: some View {
-        ScrollView {
-            Text("本软件由aicodeone开发，版权所有！")
-        }
-        .navigationTitle("关于")
-        .navigationBarTitleDisplayMode(.inline)
+        Text("本软件由aicodeone开发，版权所有！")
+            .navigationTitle("关于")
+            .navigationBarTitleDisplayMode(.inline)
     }
 }
 

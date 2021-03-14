@@ -10,16 +10,17 @@ import SwiftUI
 struct MySelfView: View {
     init() {
         UITableView.appearance().sectionHeaderHeight = .zero
+        
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().tintColor = .black
     }
     
     var body: some View {
         NavigationView {
             Form {
-                Section {
-                    NavigationLink(destination: DetailView()) {
-                        InfoView()
-                            .frame(height: 150)
-                    }
+                NavigationLink(destination: DetailView()) {
+                    InfoView()
+                        .frame(height: 150)
                 }
                 
                 Section {
@@ -39,10 +40,11 @@ struct MySelfView: View {
                         Label("关于", systemImage: "message")
                     }
                 }
-                
             }
+            .padding(.horizontal, -20.0)
             .navigationTitle("")
             .navigationBarHidden(true)
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
@@ -52,4 +54,3 @@ struct MySelfView_Previews: PreviewProvider {
         MySelfView()
     }
 }
-
