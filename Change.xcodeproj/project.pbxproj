@@ -41,6 +41,8 @@
 		14B800AC25FA54DF0041D4BF /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B800AB25FA54DF0041D4BF /* DetailView.swift */; };
 		14BE03F825FCCFB5004F0A6F /* ExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BE03F725FCCFB5004F0A6F /* ExplanationView.swift */; };
 		14CC3E5E25FE3CB9004106FF /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CC3E5D25FE3CB9004106FF /* SearchBar.swift */; };
+		14CC3E6425FE438C004106FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CC3E6225FE438C004106FF /* AppDelegate.swift */; };
+		14CC3E6525FE438C004106FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CC3E6325FE438C004106FF /* SceneDelegate.swift */; };
 		14F63FDF25DE65C800C76246 /* NumberPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F63FDE25DE65C800C76246 /* NumberPicker.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +83,8 @@
 		14B800AB25FA54DF0041D4BF /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		14BE03F725FCCFB5004F0A6F /* ExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplanationView.swift; sourceTree = "<group>"; };
 		14CC3E5D25FE3CB9004106FF /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		14CC3E6225FE438C004106FF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		14CC3E6325FE438C004106FF /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		14F63FDE25DE65C800C76246 /* NumberPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				1495398E25C278C500F05BA1 /* ChangeApp.swift */,
+				14CC3E6225FE438C004106FF /* AppDelegate.swift */,
+				14CC3E6325FE438C004106FF /* SceneDelegate.swift */,
 				1495399E25C278CF00F05BA1 /* Views */,
 				1495399F25C278EA00F05BA1 /* Models */,
 				149539C625C27CF200F05BA1 /* Resources */,
@@ -313,6 +319,7 @@
 				14F63FDF25DE65C800C76246 /* NumberPicker.swift in Sources */,
 				1476167525F8DE9C009F7578 /* MySelfView.swift in Sources */,
 				147D0B0025C845E00069C826 /* DigitalPredictionView.swift in Sources */,
+				14CC3E6425FE438C004106FF /* AppDelegate.swift in Sources */,
 				14BE03F825FCCFB5004F0A6F /* ExplanationView.swift in Sources */,
 				149539D625C2DB8400F05BA1 /* ModelData.swift in Sources */,
 				140557AD25DD580B004681EE /* LocationProvider.swift in Sources */,
@@ -333,6 +340,7 @@
 				149539C425C27C6400F05BA1 /* Prediction.swift in Sources */,
 				149539E325C2F01100F05BA1 /* CircleImage.swift in Sources */,
 				1495398F25C278C500F05BA1 /* ChangeApp.swift in Sources */,
+				14CC3E6525FE438C004106FF /* SceneDelegate.swift in Sources */,
 				147D0B0A25C84D860069C826 /* DigitalExplanationView.swift in Sources */,
 				147D0AFC25C842A50069C826 /* PageView.swift in Sources */,
 				149539D925C2EB8900F05BA1 /* HexagramDetail.swift in Sources */,
