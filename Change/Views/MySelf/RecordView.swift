@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct DailyView: View {
+struct RecordView: View {
     var body: some View {
         ScrollView {
             
         }
-        .navigationTitle("每日一卦")
+        .navigationTitle("占卦记录")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
 
-struct DailyView_Previews: PreviewProvider {
+struct RecordView_Previews: PreviewProvider {
     static var previews: some View {
-        DailyView()
+        RecordView()
     }
 }

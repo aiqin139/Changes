@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RTFReader: UIViewRepresentable {
     typealias uiTextView = UITextView
-    var configuration = { (view: uiTextView) in }
+    fileprivate var configuration = { (view: uiTextView) in }
     var fileName: String
 
     func makeUIView(context: UIViewRepresentableContext<Self>) -> uiTextView { uiTextView() }
@@ -19,5 +19,19 @@ struct RTFReader: UIViewRepresentable {
         uiView.attributedText = try? NSAttributedString(url: url, options: [.documentType : NSAttributedString.DocumentType.rtf], documentAttributes: nil)
         uiView.isEditable = false
         configuration(uiView)
+    }
+}
+
+struct RTFView: View {
+    var fileName: String
+    
+    var body: some View {
+        RTFReader(fileName: fileName)
+    }
+}
+
+struct RTFView_Previews: PreviewProvider {
+    static var previews: some View {
+        RTFView(fileName: "license_cn")
     }
 }
