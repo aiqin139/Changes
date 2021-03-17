@@ -9,9 +9,11 @@ import SwiftUI
 
 struct AboutView: View {
     var body: some View {
-        Text("本软件由aicodeone开发，版权所有！")
-            .navigationTitle("关于")
-            .navigationBarTitleDisplayMode(.inline)
+        VStack {
+            RTFReader(fileName: "license_cn")
+        }
+        .navigationTitle("关于")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

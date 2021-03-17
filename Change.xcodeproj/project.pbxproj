@@ -12,6 +12,8 @@
 		140CE46025C45AE600984B9D /* HexagramRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE45F25C45AE600984B9D /* HexagramRow.swift */; };
 		140CE46D25C4617500984B9D /* HexagramList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE46C25C4617500984B9D /* HexagramList.swift */; };
 		140CE47225C463EF00984B9D /* basicHexagramData.json in Resources */ = {isa = PBXBuildFile; fileRef = 140CE47125C463EF00984B9D /* basicHexagramData.json */; };
+		1441B23C260225FB00833DEC /* license_cn.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1441B23B260225FB00833DEC /* license_cn.rtf */; };
+		1441B23F26022FFA00833DEC /* RTFReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441B23E26022FFA00833DEC /* RTFReader.swift */; };
 		1476167525F8DE9C009F7578 /* MySelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1476167425F8DE9C009F7578 /* MySelfView.swift */; };
 		1476167A25F8E13D009F7578 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1476167925F8E13D009F7578 /* InfoView.swift */; };
 		1476168025F901F7009F7578 /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1476167F25F901F7009F7578 /* DailyView.swift */; };
@@ -52,6 +54,8 @@
 		140CE45F25C45AE600984B9D /* HexagramRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramRow.swift; sourceTree = "<group>"; };
 		140CE46C25C4617500984B9D /* HexagramList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramList.swift; sourceTree = "<group>"; };
 		140CE47125C463EF00984B9D /* basicHexagramData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = basicHexagramData.json; sourceTree = "<group>"; };
+		1441B23B260225FB00833DEC /* license_cn.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = license_cn.rtf; sourceTree = "<group>"; };
+		1441B23E26022FFA00833DEC /* RTFReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTFReader.swift; sourceTree = "<group>"; };
 		1476167425F8DE9C009F7578 /* MySelfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySelfView.swift; sourceTree = "<group>"; };
 		1476167925F8E13D009F7578 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		1476167F25F901F7009F7578 /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
@@ -221,6 +225,7 @@
 		149539C625C27CF200F05BA1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1441B23B260225FB00833DEC /* license_cn.rtf */,
 				140CE47125C463EF00984B9D /* basicHexagramData.json */,
 				149539C725C27F1C00F05BA1 /* derivedHexagramData.json */,
 			);
@@ -236,6 +241,7 @@
 				140557AC25DD580B004681EE /* LocationProvider.swift */,
 				14F63FDE25DE65C800C76246 /* NumberPicker.swift */,
 				14CC3E5D25FE3CB9004106FF /* SearchBar.swift */,
+				1441B23E26022FFA00833DEC /* RTFReader.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -300,6 +306,7 @@
 				1495399625C278C500F05BA1 /* Preview Assets.xcassets in Resources */,
 				149539C825C27F1C00F05BA1 /* derivedHexagramData.json in Resources */,
 				1495399325C278C500F05BA1 /* Assets.xcassets in Resources */,
+				1441B23C260225FB00833DEC /* license_cn.rtf in Resources */,
 				140CE47225C463EF00984B9D /* basicHexagramData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,6 +337,7 @@
 				147D0AFA25C842A50069C826 /* PageViewController.swift in Sources */,
 				140557A925DD567F004681EE /* RotateImage.swift in Sources */,
 				140CE46025C45AE600984B9D /* HexagramRow.swift in Sources */,
+				1441B23F26022FFA00833DEC /* RTFReader.swift in Sources */,
 				1476168025F901F7009F7578 /* DailyView.swift in Sources */,
 				149539A225C2795A00F05BA1 /* PredictionView.swift in Sources */,
 				14CC3E5E25FE3CB9004106FF /* SearchBar.swift in Sources */,
