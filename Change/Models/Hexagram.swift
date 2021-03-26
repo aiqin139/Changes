@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Hexagram: Hashable, Codable {
+struct Hexagram: Hashable, Codable, Identifiable {
     var id: Int
     var name: String
     var pinyin: String
