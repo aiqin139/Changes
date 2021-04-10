@@ -18,7 +18,7 @@ struct MySelfView: View {
     var body: some View {
         NavigationView {
             Form {
-                NavigationLink(destination: DetailView()) {
+                Section {
                     InfoView()
                         .frame(height: 150)
                 }
