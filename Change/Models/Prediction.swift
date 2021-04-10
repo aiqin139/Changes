@@ -14,11 +14,7 @@ struct DigitalPrediction {
     var values: [Int] = [500, 500, 500]
     
     private func Random() -> Int {
-        var s = 0
-        while s < 100 {
-            s = Int(arc4random()) % 999
-        }
-        return s
+        return Int(arc4random()) % 999
     }
     
     mutating func Execute() {
