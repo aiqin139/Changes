@@ -49,6 +49,7 @@ struct DayanPredictionView: View {
                     .opacity(self.opcity)
                     .onTapGesture { opcity = 0.8 }
                     .onLongPressGesture { DayanPrediction() }
+                    .shadow(radius: 5)
                 }
                 
                 Spacer()
@@ -63,6 +64,7 @@ struct DayanPredictionView: View {
                     .opacity(self.opcity)
                     .onTapGesture { opcity = 0.8 }
                     .onLongPressGesture { DayanParser() }
+                    .shadow(radius: 5)
                 }
                 .sheet(isPresented: $isPresented, content: {
                      DayanExplanationView(dayanPrediction: modelData.dayanPrediction)

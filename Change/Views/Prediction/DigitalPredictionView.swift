@@ -46,6 +46,7 @@ struct DigitalPredictionView: View {
                     .opacity(self.opcity)
                     .onTapGesture { opcity = 0.8 }
                     .onLongPressGesture { DigitPrediction() }
+                    .shadow(radius: 5)
                 }
                 
                 Spacer()
@@ -60,6 +61,7 @@ struct DigitalPredictionView: View {
                     .opacity(self.opcity)
                     .onTapGesture { opcity = 0.8 }
                     .onLongPressGesture { DigitParser() }
+                    .shadow(radius: 5)
                 }
                 .sheet(isPresented: $isPresented, content: {
                     DigitalExplanationView(digitalPrediction: modelData.digitalPrediction)
