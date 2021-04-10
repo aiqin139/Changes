@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NumberPicker: View {
     var label: String = ""
+    var format: String = "%d"
     var start: Int = 0
     var end: Int = 9
     @Binding var value: Int
@@ -22,11 +23,12 @@ struct NumberPicker: View {
                 
                 Picker("Number", selection: $value) {
                     ForEach(start...end, id: \.self) { number in
-                        Text(String(number))
+                        Text(String(format: format, number))
                             .tag(number)
                     }
                 }
                 .frame(maxWidth: geometry.size.width / (label == "" ? 1 : 2))
+                .shadow(color: .black, radius: 50)
                 .clipped()
             }
         }
@@ -40,9 +42,9 @@ struct NumberPicker_Previews: PreviewProvider {
     
     static var previews: some View {
         HStack {
-            NumberPicker(label: "数字1:", start: 100, end: 999, value: $value1)
-            NumberPicker(label: "数字2:", start: 100, end: 999, value: $value2)
-            NumberPicker(label: "数字3:", start: 100, end: 999, value: $value3)
+            NumberPicker(label: "数字1:", format: "%03d", start: 0, end: 999, value: $value1)
+            NumberPicker(label: "数字2:", format: "%03d", start: 0, end: 999, value: $value2)
+            NumberPicker(label: "数字3:", format: "%03d", start: 0, end: 999, value: $value3)
         }
     }
 }

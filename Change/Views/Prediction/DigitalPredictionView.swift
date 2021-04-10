@@ -25,9 +25,9 @@ struct DigitalPredictionView: View {
             Spacer()
             
             HStack {
-                NumberPicker(label: "数字1:", start: 0, end: 999, value: $modelData.digitalPrediction.values[0])
-                NumberPicker(label: "数字2:", start: 0, end: 999, value: $modelData.digitalPrediction.values[1])
-                NumberPicker(label: "数字3:", start: 0, end: 999, value: $modelData.digitalPrediction.values[2])
+                NumberPicker(label: "数字1:", format: "%03d", start: 0, end: 999, value: $modelData.digitalPrediction.values[0])
+                NumberPicker(label: "数字2:", format: "%03d", start: 0, end: 999, value: $modelData.digitalPrediction.values[1])
+                NumberPicker(label: "数字3:", format: "%03d", start: 0, end: 999, value: $modelData.digitalPrediction.values[2])
             }
             .animation(nil)
             
