@@ -9,9 +9,14 @@ import SwiftUI
 
 struct PredictionView: View {
     @EnvironmentObject var modelData: ModelData
+    @Environment(\.colorScheme) var colorScheme
     @State private var isDigitalPresented = false
     @State private var isDayanPresented = false
 
+    var accentColor: Color {
+        return (colorScheme == .dark) ? .white : .black
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -27,6 +32,7 @@ struct PredictionView: View {
                             .animation(.easeInOut(duration: 1.0))
                     })
                     .frame(height: 30)
+                    .accentColor(accentColor)
                     
                     Button(action: { isDayanPresented = true }) {
                             Text("大衍卦（占大事）")
@@ -36,8 +42,8 @@ struct PredictionView: View {
                             .animation(.easeInOut(duration: 1.0))
                     })
                     .frame(height: 30)
+                    .accentColor(accentColor)
                 }
-                .foregroundColor(.black)
             }
             .navigationTitle("占卦")
         }
