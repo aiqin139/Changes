@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MySelfView: View {
+    @EnvironmentObject var modelData: ModelData
+    
     init() {
         UITableView.appearance().sectionHeaderHeight = 10
         
@@ -24,7 +26,7 @@ struct MySelfView: View {
                 }
                 
                 Section {
-                    NavigationLink(destination:  RecordView()) {
+                    NavigationLink(destination:  RecordView().environmentObject(modelData)) {
                         Text("占卦记录")
                     }
                 }
@@ -91,5 +93,6 @@ struct MySelfView: View {
 struct MySelfView_Previews: PreviewProvider {
     static var previews: some View {
         MySelfView()
+            .environmentObject(ModelData())
     }
 }

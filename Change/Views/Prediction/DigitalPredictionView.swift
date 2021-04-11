@@ -89,6 +89,9 @@ struct DigitalPredictionView: View {
         let hexagrams = modelData.derivedHexagrams
         modelData.digitalPrediction.Parser(hexagrams: hexagrams)
         
+        let recordData = RecordData(type: RecordType.Digital.rawValue, digit: modelData.digitalPrediction.data, date: Date())
+        modelData.hexagramRecord.append(recordData)
+        
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
         

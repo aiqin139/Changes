@@ -12,8 +12,8 @@ struct InfoView: View {
         HStack(alignment: .center) {
             Image("先天八卦图")
                 .resizable()
-                .clipShape(Circle())
-                .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                .clipShape(HexagramShape())
+                .overlay(HexagramShape().stroke(Color.white, lineWidth: 4))
                 .frame(width: 80, height: 80)
             
             VStack(alignment: .leading) {

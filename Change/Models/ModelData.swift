@@ -13,6 +13,7 @@ final class ModelData: ObservableObject {
     @Published var dayanPrediction: DayanPrediction = DayanPrediction()
     @Published var basicHexagrams: [Hexagram] = load("basicHexagramData.json")
     @Published var derivedHexagrams: [Hexagram] = load("derivedHexagramData.json")
+    @Published var hexagramRecord: [RecordData] = []
 }
 
 func load<T: Decodable>(_ filename: String) -> T

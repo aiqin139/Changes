@@ -96,6 +96,9 @@ struct DayanPredictionView: View {
         let hexagrams = modelData.derivedHexagrams
         modelData.dayanPrediction.Parser(hexagrams: hexagrams)
         
+        let recordData = RecordData(type: RecordType.Dayan.rawValue, dayan: modelData.dayanPrediction.data, date: Date())
+        modelData.hexagramRecord.append(recordData)
+        
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
         

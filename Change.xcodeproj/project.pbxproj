@@ -36,6 +36,7 @@
 		147D0B0725C849D30069C826 /* FeatureCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D0B0625C849D30069C826 /* FeatureCard.swift */; };
 		147D0B0A25C84D860069C826 /* DigitalExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D0B0925C84D860069C826 /* DigitalExplanationView.swift */; };
 		147D0B0D25C84D950069C826 /* DayanExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D0B0C25C84D950069C826 /* DayanExplanationView.swift */; };
+		148D71412622C31300324517 /* RecordCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D71402622C31300324517 /* RecordCard.swift */; };
 		1495398F25C278C500F05BA1 /* ChangeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495398E25C278C500F05BA1 /* ChangeApp.swift */; };
 		1495399125C278C500F05BA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495399025C278C500F05BA1 /* ContentView.swift */; };
 		1495399325C278C500F05BA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1495399225C278C500F05BA1 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		149539E325C2F01100F05BA1 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539E225C2F01100F05BA1 /* CircleImage.swift */; };
 		149539EF25C2F93C00F05BA1 /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539EE25C2F93C00F05BA1 /* CategoryItem.swift */; };
 		149539F225C2F99000F05BA1 /* CategoryMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539F125C2F99000F05BA1 /* CategoryMatrix.swift */; };
+		149FEB5E2621EA2D00AE6380 /* RecordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149FEB5D2621EA2D00AE6380 /* RecordData.swift */; };
 		14B800AC25FA54DF0041D4BF /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B800AB25FA54DF0041D4BF /* DetailView.swift */; };
 		14CC3E5E25FE3CB9004106FF /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CC3E5D25FE3CB9004106FF /* SearchBar.swift */; };
 		14CC3E6425FE438C004106FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CC3E6225FE438C004106FF /* AppDelegate.swift */; };
@@ -86,6 +88,7 @@
 		147D0B0625C849D30069C826 /* FeatureCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureCard.swift; sourceTree = "<group>"; };
 		147D0B0925C84D860069C826 /* DigitalExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalExplanationView.swift; sourceTree = "<group>"; };
 		147D0B0C25C84D950069C826 /* DayanExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayanExplanationView.swift; sourceTree = "<group>"; };
+		148D71402622C31300324517 /* RecordCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCard.swift; sourceTree = "<group>"; };
 		1495398B25C278C500F05BA1 /* Change.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Change.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1495398E25C278C500F05BA1 /* ChangeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeApp.swift; sourceTree = "<group>"; };
 		1495399025C278C500F05BA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 		149539E225C2F01100F05BA1 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		149539EE25C2F93C00F05BA1 /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		149539F125C2F99000F05BA1 /* CategoryMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMatrix.swift; sourceTree = "<group>"; };
+		149FEB5D2621EA2D00AE6380 /* RecordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordData.swift; sourceTree = "<group>"; };
 		14B800AB25FA54DF0041D4BF /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		14CC3E5D25FE3CB9004106FF /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		14CC3E6225FE438C004106FF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 				1476167925F8E13D009F7578 /* InfoView.swift */,
 				1476167F25F901F7009F7578 /* RecordView.swift */,
 				14B800AB25FA54DF0041D4BF /* DetailView.swift */,
+				148D71402622C31300324517 /* RecordCard.swift */,
 			);
 			path = MySelf;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 				149539C325C27C6400F05BA1 /* Prediction.swift */,
 				149539CE25C2800900F05BA1 /* Hexagram.swift */,
 				149539D525C2DB8400F05BA1 /* ModelData.swift */,
+				149FEB5D2621EA2D00AE6380 /* RecordData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -360,6 +366,7 @@
 				1476167525F8DE9C009F7578 /* MySelfView.swift in Sources */,
 				147D0B0025C845E00069C826 /* DigitalPredictionView.swift in Sources */,
 				14CC3E6425FE438C004106FF /* AppDelegate.swift in Sources */,
+				148D71412622C31300324517 /* RecordCard.swift in Sources */,
 				149539D625C2DB8400F05BA1 /* ModelData.swift in Sources */,
 				140557AD25DD580B004681EE /* LocationProvider.swift in Sources */,
 				1495399125C278C500F05BA1 /* ContentView.swift in Sources */,
@@ -369,6 +376,7 @@
 				147D0AFA25C842A50069C826 /* PageViewController.swift in Sources */,
 				140557A925DD567F004681EE /* RotateImage.swift in Sources */,
 				140CE46025C45AE600984B9D /* HexagramRow.swift in Sources */,
+				149FEB5E2621EA2D00AE6380 /* RecordData.swift in Sources */,
 				1441B23F26022FFA00833DEC /* RTFView.swift in Sources */,
 				1476168025F901F7009F7578 /* RecordView.swift in Sources */,
 				149539A225C2795A00F05BA1 /* PredictionView.swift in Sources */,
