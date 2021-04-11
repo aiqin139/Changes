@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DayanExplanationView: View {
-    var dayanPrediction: DayanPrediction
+    var dayanData: DayanData
 
     var body: some View {
         VStack {
@@ -22,10 +22,10 @@ struct DayanExplanationView: View {
             VStack(alignment: .center) {
                 HStack {
                     VStack {
-                        Text(dayanPrediction.benHexagram.pinyin)
+                        Text(dayanData.benHexagram.pinyin)
                             .font(.title3)
                             .foregroundColor(.primary)
-                        Text(dayanPrediction.benHexagram.name)
+                        Text(dayanData.benHexagram.name)
                             .font(.title3)
                             .foregroundColor(.primary)
                     }
@@ -36,10 +36,10 @@ struct DayanExplanationView: View {
                     .frame(width: 50)
                     
                     VStack {
-                        Text(dayanPrediction.zhiHexagram.pinyin)
+                        Text(dayanData.zhiHexagram.pinyin)
                             .font(.title3)
                             .foregroundColor(.primary)
-                        Text(dayanPrediction.zhiHexagram.name)
+                        Text(dayanData.zhiHexagram.name)
                             .font(.title3)
                             .foregroundColor(.primary)
                     }
@@ -47,12 +47,12 @@ struct DayanExplanationView: View {
                 }
                 
                 HStack {
-                    dayanPrediction.benHexagram.image
+                    dayanData.benHexagram.image
                         .resizable()
                         .frame(width: 150, height: 150)
                     
                     VStack {
-                        ForEach(dayanPrediction.result.reversed(), id: \.self) { content in
+                        ForEach(dayanData.result.reversed(), id: \.self) { content in
                             Text(String(content))
                                 .font(.title3)
                                 .padding(.horizontal)
@@ -63,7 +63,7 @@ struct DayanExplanationView: View {
                     }
                     .frame(width: 50)
                     
-                    dayanPrediction.zhiHexagram.image
+                    dayanData.zhiHexagram.image
                         .resizable()
                         .frame(width: 150, height: 150)
                 }
@@ -72,7 +72,7 @@ struct DayanExplanationView: View {
             Spacer()
             
             VStack(alignment: .leading) {
-                ForEach(dayanPrediction.explanation1, id: \.self) { content in
+                ForEach(dayanData.explanation1, id: \.self) { content in
                     Text(content)
                         .font(.title3)
                         .padding(.horizontal, 10.0)
@@ -81,7 +81,7 @@ struct DayanExplanationView: View {
                 
                 Text("").font(.title)
                 
-                ForEach(dayanPrediction.explanation2, id: \.self) { content in
+                ForEach(dayanData.explanation2, id: \.self) { content in
                     Text(content)
                         .font(.title3)
                         .padding(.horizontal, 10.0)
@@ -96,7 +96,7 @@ struct DayanExplanationView: View {
 
 struct DayanExplanationView_Previews: PreviewProvider {
     static var previews: some View {
-        DayanExplanationView(dayanPrediction: DayanPrediction(
+        DayanExplanationView(dayanData: DayanData(
             benHexagram: ModelData().derivedHexagrams[0],
             zhiHexagram: ModelData().derivedHexagrams[1],
             explanation1: ModelData().derivedHexagrams[0].explanations[0],

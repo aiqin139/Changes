@@ -28,14 +28,14 @@ struct DayanPredictionView: View {
             HStack {
                 ForEach(0...5, id: \.self) { index in
                     VStack {
-                        let name = (((modelData.dayanPrediction.result[index] % 2) == 0) ? "六" : "九")
+                        let name = (((modelData.dayanPrediction.data.result[index] % 2) == 0) ? "六" : "九")
                         if (index == 0 || index == 5) {
                             Text(yao[index] + name)
                         }
                         else {
                             Text(name + yao[index])
                         }
-                        NumberPicker(start: 6, end: 9, value: $modelData.dayanPrediction.result[index])
+                        NumberPicker(start: 6, end: 9, value: $modelData.dayanPrediction.data.result[index])
                             .font(.title)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2))
@@ -76,7 +76,7 @@ struct DayanPredictionView: View {
                     .onLongPressGesture { DayanParser() }
                 }
                 .sheet(isPresented: $isPresented, content: {
-                     DayanExplanationView(dayanPrediction: modelData.dayanPrediction)
+                    DayanExplanationView(dayanData: modelData.dayanPrediction.data)
                  })
                 
                 Spacer()

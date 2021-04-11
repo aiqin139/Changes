@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DigitalExplanationView: View {
-    var digitalPrediction: DigitalPrediction
+    var digitalData: DigitalData
 
     var body: some View {
         VStack {
@@ -19,19 +19,19 @@ struct DigitalExplanationView: View {
             
             Spacer()
             
-            Text(digitalPrediction.hexagram.pinyin)
+            Text(digitalData.hexagram.pinyin)
                 .font(.title)
                 .foregroundColor(.primary)
-            Text(digitalPrediction.hexagram.name)
+            Text(digitalData.hexagram.name)
                 .font(.title)
                 .foregroundColor(.primary)
         
-            digitalPrediction.hexagram.image
+            digitalData.hexagram.image
                 .resizable()
                 .frame(width: 250, height: 250)
             
             HStack {
-                ForEach(digitalPrediction.result, id: \.self) { content in
+                ForEach(digitalData.result, id: \.self) { content in
                     Text(String(content))
                         .font(.title)
                         .padding(.horizontal)
@@ -46,7 +46,7 @@ struct DigitalExplanationView: View {
             Spacer()
             
             VStack(alignment: .leading) {
-                ForEach(digitalPrediction.explanation, id: \.self) { content in
+                ForEach(digitalData.explanation, id: \.self) { content in
                     Text(content)
                         .font(.title3)
                         .padding(.horizontal, 10.0)
@@ -61,7 +61,7 @@ struct DigitalExplanationView: View {
 
 struct DigitalExplanationView_Previews: PreviewProvider {
     static var previews: some View {
-        DigitalExplanationView(digitalPrediction: DigitalPrediction(
+        DigitalExplanationView(digitalData: DigitalData(
             hexagram: ModelData().derivedHexagrams[0],
             explanation: ModelData().derivedHexagrams[0].explanations[0]
         ))

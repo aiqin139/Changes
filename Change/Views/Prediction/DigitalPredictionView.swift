@@ -28,7 +28,7 @@ struct DigitalPredictionView: View {
                 ForEach(0...2, id: \.self) { index in
                     VStack {
                         Text("数字" + String(index + 1))
-                        NumberPicker(format: "%03d", start: 0, end: 999, value: $modelData.digitalPrediction.values[index])
+                        NumberPicker(format: "%03d", start: 0, end: 999, value: $modelData.digitalPrediction.data.values[index])
                             .font(.title)
                             .clipShape(HexagramShape())
                             .overlay(HexagramShape().stroke(Color.black, lineWidth: 2))
@@ -69,7 +69,7 @@ struct DigitalPredictionView: View {
                     .onLongPressGesture { DigitParser() }
                 }
                 .sheet(isPresented: $isPresented, content: {
-                    DigitalExplanationView(digitalPrediction: modelData.digitalPrediction)
+                    DigitalExplanationView(digitalData: modelData.digitalPrediction.data)
                 })
                 
                 Spacer()
