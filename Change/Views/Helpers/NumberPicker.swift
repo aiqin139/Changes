@@ -19,6 +19,7 @@ struct NumberPicker: View {
             HStack {
                 if label != "" {
                     Text(label)
+                        .shadow(color: .black, radius: 10)
                 }
                 
                 Picker("Number", selection: $value) {
@@ -29,8 +30,8 @@ struct NumberPicker: View {
                 }
                 .frame(maxWidth: geometry.size.width / (label == "" ? 1 : 2))
                 .clipped()
+                .shadow(color: .black, radius: 10)
             }
-            .shadow(color: .black, radius: 10)
         }
     }
 }

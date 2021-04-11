@@ -19,17 +19,22 @@ struct DigitalPredictionView: View {
             Text("数字卦")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
             
-            RotateImage(image: "先天八卦图", lineWidth: 3)
+            RotateImage(image: "先天八卦图", lineWidth: 2)
                 .frame(width: 350, height: 350)
             
             Spacer()
             
             HStack {
-                NumberPicker(label: "数字1:", format: "%03d", start: 0, end: 999, value: $modelData.digitalPrediction.values[0])
-                NumberPicker(label: "数字2:", format: "%03d", start: 0, end: 999, value: $modelData.digitalPrediction.values[1])
-                NumberPicker(label: "数字3:", format: "%03d", start: 0, end: 999, value: $modelData.digitalPrediction.values[2])
+                ForEach(0...2, id: \.self) { index in
+                    VStack {
+                        Text("数字" + String(index + 1))
+                        NumberPicker(format: "%03d", start: 0, end: 999, value: $modelData.digitalPrediction.values[index])
+                            .font(.title)
+                            .clipShape(HexagramShape())
+                            .overlay(HexagramShape().stroke(Color.black, lineWidth: 2))
+                    }
+                }
             }
-            .animation(Animation.spring(dampingFraction: 0.1))
             
             Spacer()
             
@@ -65,13 +70,12 @@ struct DigitalPredictionView: View {
                 }
                 .sheet(isPresented: $isPresented, content: {
                     DigitalExplanationView(digitalPrediction: modelData.digitalPrediction)
-                        .animation(.easeInOut(duration: 1.0))
                 })
                 
                 Spacer()
             }
         }
-        .shadow(radius: 10)
+        .shadow(radius: 20)
     }
     
     func DigitPrediction() {

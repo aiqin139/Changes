@@ -20,7 +20,7 @@ struct DayanPredictionView: View {
             Text("大衍卦")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
             
-            RotateImage(image: "先天八卦图", lineWidth: 3)
+            RotateImage(image: "先天八卦图", lineWidth: 2)
                 .frame(width: 350, height: 350)
             
             Spacer()
@@ -37,12 +37,11 @@ struct DayanPredictionView: View {
                         }
                         NumberPicker(start: 6, end: 9, value: $modelData.dayanPrediction.result[index])
                             .font(.title)
-                            .border(Color.black)
-                            .contentShape(Rectangle())
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2))
                     }
                 }
             }
-            .animation(Animation.spring(dampingFraction: 0.1))
             
             Spacer()
             

@@ -29,7 +29,7 @@ struct PredictionView: View {
                     }.sheet(isPresented: $isDigitalPresented, content: {
                         DigitalPredictionView()
                             .environmentObject(modelData)
-                            .animation(.easeInOut(duration: 1.0))
+                            .animation(.linear(duration: 1.0))
                     })
                     .frame(height: 30)
                     .accentColor(accentColor)
@@ -39,7 +39,7 @@ struct PredictionView: View {
                     }.sheet(isPresented: $isDayanPresented, content: {
                         DayanPredictionView()
                             .environmentObject(modelData)
-                            .animation(.easeInOut(duration: 1.0))
+                            .animation(.linear(duration: 1.0))
                     })
                     .frame(height: 30)
                     .accentColor(accentColor)
