@@ -11,6 +11,7 @@ struct DayanPredictionView: View {
     @EnvironmentObject var modelData: ModelData
     @State private var isPresented = false
     @State private var opcity: Double = 1
+    private var yao: [String] = ["初", "二", "三", "四", "五", "上"]
     
     var body: some View {
         VStack {
@@ -19,20 +20,29 @@ struct DayanPredictionView: View {
             Text("大衍卦")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
             
-            RotateImage(image: "先天八卦图")
+            RotateImage(image: "先天八卦图", lineWidth: 3)
                 .frame(width: 350, height: 350)
             
             Spacer()
             
             HStack {
                 ForEach(0...5, id: \.self) { index in
-                    NumberPicker(start: 6, end: 9, value: $modelData.dayanPrediction.result[index])
-                        .font(.title)
-                        .border(Color(UIColor.separator))
-                        .contentShape(Rectangle())
-                        .shadow(radius: 15)
+                    VStack {
+                        let name = (((modelData.dayanPrediction.result[index] % 2) == 0) ? "六" : "九")
+                        if (index == 0 || index == 5) {
+                            Text(yao[index] + name)
+                        }
+                        else {
+                            Text(name + yao[index])
+                        }
+                        NumberPicker(start: 6, end: 9, value: $modelData.dayanPrediction.result[index])
+                            .font(.title)
+                            .border(Color.black)
+                            .contentShape(Rectangle())
+                    }
                 }
             }
+            .animation(Animation.spring(dampingFraction: 0.1))
             
             Spacer()
             
@@ -43,13 +53,13 @@ struct DayanPredictionView: View {
                     VStack {
                         Image("占")
                             .resizable()
-                            .clipShape(Circle())
                             .frame(width: 80, height: 80)
+                            .clipShape(HexagramShape())
+                            .overlay(HexagramShape().stroke(Color.black, lineWidth: 2))
                     }
                     .opacity(self.opcity)
                     .onTapGesture { opcity = 0.8 }
                     .onLongPressGesture { DayanPrediction() }
-                    .shadow(radius: 5)
                 }
                 
                 Spacer()
@@ -58,13 +68,13 @@ struct DayanPredictionView: View {
                     VStack {
                         Image("解")
                             .resizable()
-                            .clipShape(Circle())
                             .frame(width: 80, height: 80)
+                            .clipShape(HexagramShape())
+                            .overlay(HexagramShape().stroke(Color.black, lineWidth: 2))
                     }
                     .opacity(self.opcity)
                     .onTapGesture { opcity = 0.8 }
                     .onLongPressGesture { DayanParser() }
-                    .shadow(radius: 5)
                 }
                 .sheet(isPresented: $isPresented, content: {
                      DayanExplanationView(dayanPrediction: modelData.dayanPrediction)
@@ -73,7 +83,7 @@ struct DayanPredictionView: View {
                 Spacer()
             }
         }
-        .navigationTitle("大衍卦")
+        .shadow(radius: 20)
     }
     
     func DayanPrediction() {

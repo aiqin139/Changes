@@ -19,7 +19,7 @@ struct DigitalPredictionView: View {
             Text("数字卦")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
             
-            RotateImage(image: "先天八卦图")
+            RotateImage(image: "先天八卦图", lineWidth: 3)
                 .frame(width: 350, height: 350)
             
             Spacer()
@@ -29,7 +29,7 @@ struct DigitalPredictionView: View {
                 NumberPicker(label: "数字2:", format: "%03d", start: 0, end: 999, value: $modelData.digitalPrediction.values[1])
                 NumberPicker(label: "数字3:", format: "%03d", start: 0, end: 999, value: $modelData.digitalPrediction.values[2])
             }
-            .animation(nil)
+            .animation(Animation.spring(dampingFraction: 0.1))
             
             Spacer()
             
@@ -40,13 +40,13 @@ struct DigitalPredictionView: View {
                     VStack {
                         Image("占")
                             .resizable()
-                            .clipShape(Circle())
                             .frame(width: 80, height: 80)
+                            .clipShape(HexagramShape())
+                            .overlay(HexagramShape().stroke(Color.black, lineWidth: 2))
                     }
                     .opacity(self.opcity)
                     .onTapGesture { opcity = 0.8 }
                     .onLongPressGesture { DigitPrediction() }
-                    .shadow(radius: 5)
                 }
                 
                 Spacer()
@@ -55,13 +55,13 @@ struct DigitalPredictionView: View {
                     VStack {
                         Image("解")
                             .resizable()
-                            .clipShape(Circle())
                             .frame(width: 80, height: 80)
+                            .clipShape(HexagramShape())
+                            .overlay(HexagramShape().stroke(Color.black, lineWidth: 2))
                     }
                     .opacity(self.opcity)
                     .onTapGesture { opcity = 0.8 }
                     .onLongPressGesture { DigitParser() }
-                    .shadow(radius: 5)
                 }
                 .sheet(isPresented: $isPresented, content: {
                     DigitalExplanationView(digitalPrediction: modelData.digitalPrediction)
@@ -71,6 +71,7 @@ struct DigitalPredictionView: View {
                 Spacer()
             }
         }
+        .shadow(radius: 10)
     }
     
     func DigitPrediction() {

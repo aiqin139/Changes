@@ -8,9 +8,28 @@
 import SwiftUI
 import CoreLocation
 
+struct HexagramShape: Shape {
+    var scale1: CGFloat = 0.2929
+    var scale2: CGFloat = 0.7071
+    
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        path.move(to: CGPoint(x: rect.width * scale1, y: 0))
+        path.addLine(to: CGPoint(x: rect.width * scale2, y: 0))
+        path.addLine(to: CGPoint(x: rect.width, y: rect.height * scale1))
+        path.addLine(to: CGPoint(x: rect.width, y: rect.height * scale2))
+        path.addLine(to: CGPoint(x: rect.width * scale2, y: rect.height))
+        path.addLine(to: CGPoint(x: rect.width * scale1, y: rect.height))
+        path.addLine(to: CGPoint(x: 0, y: rect.height * scale2))
+        path.addLine(to: CGPoint(x: 0, y: rect.height * scale1))
+        path.closeSubpath()
+        return path
+    }
+}
 
 struct RotateImage: View {
     var image: String
+    var lineWidth: CGFloat = 0
     var locationManager = CLLocationManager()
     @ObservedObject var location: LocationProvider = LocationProvider()
     @State var angle: CGFloat = 0
@@ -20,7 +39,8 @@ struct RotateImage: View {
             VStack {
                 Image(image)
                     .resizable()
-                    .clipShape(Circle())
+                    .clipShape(HexagramShape())
+                    .overlay(HexagramShape().stroke(Color.black, lineWidth: lineWidth))
                     .animation(.linear)
                     .onReceive(self.location.heading) { heading in
                         withAnimation(.easeInOut(duration: 0.2)) {
@@ -84,5 +104,6 @@ struct RotateImage_Previews: PreviewProvider {
     static var previews: some View {
         RotateImage(image: "先天八卦图")
             .frame(width: 350, height: 350)
+            .shadow(radius: 10)
     }
 }
