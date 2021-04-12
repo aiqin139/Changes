@@ -12,7 +12,7 @@ struct RecordCard: View {
     
     private func Dateformat(date: Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-yy HH:mm:ss"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return dateFormatter.string(from: date)
     }
     
@@ -39,14 +39,17 @@ struct RecordCard_Previews: PreviewProvider {
     static var previews: some View {
         RecordCard(recordData: RecordData(
             type: RecordType.Digital.rawValue, digit: DigitalData(
-                hexagram: ModelData().derivedHexagrams[0],
+                name: ModelData().derivedHexagrams[0].name,
+                pinyin: ModelData().derivedHexagrams[0].pinyin,
                 explanation: ModelData().derivedHexagrams[0].explanations[0]
             ), date: Date()
         ))
         RecordCard(recordData: RecordData(
             type: RecordType.Dayan.rawValue, dayan: DayanData(
-                benHexagram: ModelData().derivedHexagrams[0],
-                zhiHexagram: ModelData().derivedHexagrams[1],
+                benName: ModelData().derivedHexagrams[0].name,
+                benPinyin: ModelData().derivedHexagrams[0].pinyin,
+                zhiName: ModelData().derivedHexagrams[1].name,
+                zhiPinyin: ModelData().derivedHexagrams[1].pinyin,
                 explanation1: ModelData().derivedHexagrams[0].explanations[0],
                 explanation2: ModelData().derivedHexagrams[1].explanations[1]
             ), date: Date()

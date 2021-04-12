@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HexagramList: View {
     @EnvironmentObject var modelData: ModelData
-    @State private var selection: Tab = .basic
+    @State private var selection: Tab = .derived
     @State private var searchText = ""
     
     enum Tab {
