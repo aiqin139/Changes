@@ -19,14 +19,14 @@ struct DigitalExplanationView: View {
             
             Spacer()
             
-            Text(digitalData.hexagram.pinyin)
+            Text(digitalData.pinyin)
                 .font(.title)
                 .foregroundColor(.primary)
-            Text(digitalData.hexagram.name)
+            Text(digitalData.name)
                 .font(.title)
                 .foregroundColor(.primary)
         
-            digitalData.hexagram.image
+            Image(digitalData.name)
                 .resizable()
                 .frame(width: 250, height: 250)
             
@@ -62,7 +62,8 @@ struct DigitalExplanationView: View {
 struct DigitalExplanationView_Previews: PreviewProvider {
     static var previews: some View {
         DigitalExplanationView(digitalData: DigitalData(
-            hexagram: ModelData().derivedHexagrams[0],
+            name: ModelData().derivedHexagrams[0].name,
+            pinyin: ModelData().derivedHexagrams[0].pinyin,
             explanation: ModelData().derivedHexagrams[0].explanations[0]
         ))
     }

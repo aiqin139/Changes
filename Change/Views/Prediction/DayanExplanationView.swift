@@ -22,10 +22,10 @@ struct DayanExplanationView: View {
             VStack(alignment: .center) {
                 HStack {
                     VStack {
-                        Text(dayanData.benHexagram.pinyin)
+                        Text(dayanData.benPinyin)
                             .font(.title3)
                             .foregroundColor(.primary)
-                        Text(dayanData.benHexagram.name)
+                        Text(dayanData.benName)
                             .font(.title3)
                             .foregroundColor(.primary)
                     }
@@ -36,10 +36,10 @@ struct DayanExplanationView: View {
                     .frame(width: 50)
                     
                     VStack {
-                        Text(dayanData.zhiHexagram.pinyin)
+                        Text(dayanData.zhiPinyin)
                             .font(.title3)
                             .foregroundColor(.primary)
-                        Text(dayanData.zhiHexagram.name)
+                        Text(dayanData.zhiName)
                             .font(.title3)
                             .foregroundColor(.primary)
                     }
@@ -47,7 +47,7 @@ struct DayanExplanationView: View {
                 }
                 
                 HStack {
-                    dayanData.benHexagram.image
+                    Image(dayanData.benName)
                         .resizable()
                         .frame(width: 150, height: 150)
                     
@@ -63,7 +63,7 @@ struct DayanExplanationView: View {
                     }
                     .frame(width: 50)
                     
-                    dayanData.zhiHexagram.image
+                    Image(dayanData.zhiName)
                         .resizable()
                         .frame(width: 150, height: 150)
                 }
@@ -97,8 +97,10 @@ struct DayanExplanationView: View {
 struct DayanExplanationView_Previews: PreviewProvider {
     static var previews: some View {
         DayanExplanationView(dayanData: DayanData(
-            benHexagram: ModelData().derivedHexagrams[0],
-            zhiHexagram: ModelData().derivedHexagrams[1],
+            benName: ModelData().derivedHexagrams[0].name,
+            benPinyin: ModelData().derivedHexagrams[0].pinyin,
+            zhiName: ModelData().derivedHexagrams[1].name,
+            zhiPinyin: ModelData().derivedHexagrams[1].pinyin,
             explanation1: ModelData().derivedHexagrams[0].explanations[0],
             explanation2: ModelData().derivedHexagrams[1].explanations[1]
         ))
