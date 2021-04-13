@@ -26,8 +26,10 @@ struct RecordCard: View {
                     DayanExplanationView(dayanData: recordData.dayan)
                 }
                 
-                Text(Dateformat(date: recordData.date))
-                    .font(.title2)
+                if (RecordType.None.rawValue != recordData.type) {
+                    Text(Dateformat(date: recordData.date))
+                        .font(.title2)
+                }
             }
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black, lineWidth: 2))

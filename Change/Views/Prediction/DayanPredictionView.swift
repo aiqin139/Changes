@@ -99,6 +99,8 @@ struct DayanPredictionView: View {
         if modelData.dayanPrediction.data != modelData.hexagramRecord.last?.dayan {
             let recordData = RecordData(type: RecordType.Dayan.rawValue, dayan: modelData.dayanPrediction.data, date: Date())
             modelData.hexagramRecord.append(recordData)
+            
+            saveRecord(modelData.hexagramRecord)
         }
         
         let generator = UINotificationFeedbackGenerator()
