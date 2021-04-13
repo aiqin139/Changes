@@ -12,7 +12,7 @@ struct HexagramRow: View {
     
     var body: some View {
         HStack {
-            hexagram.image
+            Image(hexagram.name)
                 .resizable()
                 .frame(width: 50, height: 50)
             Text(hexagram.name)

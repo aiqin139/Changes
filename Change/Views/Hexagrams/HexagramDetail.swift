@@ -12,7 +12,7 @@ struct HexagramDetail: View {
 
     var body: some View {
         ScrollView {
-            CircleImage(image: hexagram.image)
+            CircleImage(image: hexagram.name)
                 .offset(y: 10)
                 .padding(.bottom, 0)
             

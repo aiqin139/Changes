@@ -12,7 +12,6 @@ struct Hexagram: Hashable, Codable, Identifiable {
     var id: Int
     var name: String
     var pinyin: String
-    var image: Image { Image(name) }
     var description: String
     var explanations: [[String]]
     

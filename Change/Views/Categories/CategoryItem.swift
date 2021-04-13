@@ -12,7 +12,7 @@ struct CategoryItem: View {
     
     var body: some View {
         VStack(alignment: .center) {
-            hexagram.image
+            Image(hexagram.name)
                 .renderingMode(.original)
                 .resizable()
                 .frame(width: 150, height: 150)
