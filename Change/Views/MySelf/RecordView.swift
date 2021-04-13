@@ -18,6 +18,13 @@ struct RecordView: View {
                 Spacer()
             }
         }
+        .navigationBarItems(trailing:
+            Button(action: {
+            clearRecord()
+            modelData.hexagramRecord = loadRecord()
+        }) {
+            Text("清除")
+        })
         .navigationTitle("占卦记录")
         .navigationBarTitleDisplayMode(.inline)
     }
