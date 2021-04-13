@@ -12,38 +12,37 @@ struct DigitalExplanationView: View {
 
     var body: some View {
         VStack {
-            Spacer()
-            
             Text("数字卦")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                .frame(width: 350)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2))
+                .padding(.vertical, 15.0)
             
-            Spacer()
+            VStack {
+                Text(digitalData.pinyin)
+                    .font(.title)
+                Text(digitalData.name)
+                    .font(.title)
             
-            Text(digitalData.pinyin)
-                .font(.title)
-                .foregroundColor(.primary)
-            Text(digitalData.name)
-                .font(.title)
-                .foregroundColor(.primary)
-        
-            Image(digitalData.name)
-                .resizable()
-                .frame(width: 250, height: 250)
-            
-            HStack {
-                ForEach(digitalData.result, id: \.self) { content in
-                    Text(String(content))
-                        .font(.title)
-                        .padding(.horizontal)
-                        .border(Color(UIColor.separator))
-                        .contentShape(Rectangle())
-                        .frame(width: 50, height: 50)
-                        .animation(.easeInOut(duration: 1.0))
-                        .shadow(radius: 15)
+                Image(digitalData.name)
+                    .resizable()
+                    .frame(width: 200, height: 200)
+                
+                HStack {
+                    ForEach(digitalData.result, id: \.self) { content in
+                        Text(String(content))
+                            .font(.title)
+                            .padding(.horizontal)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2))
+                    }
                 }
             }
-            
-            Spacer()
+            .frame(width: 350, height: 350)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2))
+            .padding(.vertical, -5.0)
             
             VStack(alignment: .leading) {
                 ForEach(digitalData.explanation, id: \.self) { content in
@@ -53,9 +52,14 @@ struct DigitalExplanationView: View {
                         .minimumScaleFactor(0.1)
                 }
             }
-            
-            Spacer()
+            .frame(width: 350)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2))
+            .padding(.vertical, 15.0)
         }
+        .frame(width: 370)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2))
     }
 }
 

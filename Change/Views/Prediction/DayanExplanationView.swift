@@ -12,13 +12,13 @@ struct DayanExplanationView: View {
 
     var body: some View {
         VStack {
-            Spacer()
-            
             Text("大衍卦")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-            
-            Spacer()
-            
+                .frame(width: 350)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2))
+                .padding(.vertical, 15.0)
+
             VStack(alignment: .center) {
                 HStack {
                     VStack {
@@ -56,9 +56,8 @@ struct DayanExplanationView: View {
                             Text(String(content))
                                 .font(.title3)
                                 .padding(.horizontal)
-                                .border(Color(UIColor.separator))
-                                .contentShape(Rectangle())
-                                .shadow(radius: 15)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2))
                         }
                     }
                     .frame(width: 50)
@@ -68,8 +67,11 @@ struct DayanExplanationView: View {
                         .frame(width: 150, height: 150)
                 }
             }
+            .frame(width: 350, height: 250)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2))
+            .padding(.vertical, -5.0)
             
-            Spacer()
             
             VStack(alignment: .leading) {
                 ForEach(dayanData.explanation1, id: \.self) { content in
@@ -88,9 +90,14 @@ struct DayanExplanationView: View {
                         .minimumScaleFactor(0.1)
                 }
             }
-            
-            Spacer()
+            .frame(width: 350, height: 350)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2))
+            .padding(.vertical, 15.0)
         }
+        .frame(width: 370)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2))
     }
 }
 
