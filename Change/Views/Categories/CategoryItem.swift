@@ -15,11 +15,10 @@ struct CategoryItem: View {
             Image(hexagram.name)
                 .renderingMode(.original)
                 .resizable()
-                .frame(width: 150, height: 150)
+                .frame(width: 100, height: 100)
                 .cornerRadius(5)
             Text(hexagram.name)
-                .foregroundColor(.primary)
-                .font(.caption)
+            Text(hexagram.description)
         }
         .padding([.top, .leading, .trailing], 15)
     }

@@ -11,12 +11,12 @@ struct HexagramList: View {
     @EnvironmentObject var modelData: ModelData
     @State private var selection: Tab = .derived
     @State private var searchText = ""
-    
+
     enum Tab {
         case basic
         case derived
     }
-    
+
     var selectedHexagrams: [Hexagram] {
         if selection == Tab.basic {
             return modelData.basicHexagrams
@@ -26,13 +26,13 @@ struct HexagramList: View {
         }
         return [Hexagram]()
     }
-    
+
     var filteredHexagrams: [Hexagram] {
         selectedHexagrams.filter {
             ($0.name.hasPrefix(searchText) || searchText == "")
         }
     }
-    
+
     var selectedTitle: String {
         if selection == Tab.basic {
             return "基本八卦"
@@ -42,12 +42,12 @@ struct HexagramList: View {
         }
         return String()
     }
-    
+
     var body: some View {
         NavigationView() {
             List {
                 SearchBar(text: $searchText)
-                
+
                 Picker("卦象", selection: $selection) {
                     Text("基本八卦").tag(Tab.basic)
                     Text("六十四卦").tag(Tab.derived)

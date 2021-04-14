@@ -8,17 +8,14 @@
 import SwiftUI
 
 struct RTFReader: UIViewRepresentable {
-    typealias uiTextView = UITextView
-    fileprivate var configuration = { (view: uiTextView) in }
     var fileName: String
 
-    func makeUIView(context: UIViewRepresentableContext<Self>) -> uiTextView { uiTextView() }
+    func makeUIView(context: Context) -> UITextView { UITextView() }
     
-    func updateUIView(_ uiView: uiTextView, context: UIViewRepresentableContext<Self>) {
+    func updateUIView(_ uiView: UITextView, context: Context) {
         let url = Bundle.main.url(forResource: fileName, withExtension: "rtf")!
         uiView.attributedText = try? NSAttributedString(url: url, options: [.documentType : NSAttributedString.DocumentType.rtf], documentAttributes: nil)
         uiView.isEditable = false
-        configuration(uiView)
     }
 }
 
