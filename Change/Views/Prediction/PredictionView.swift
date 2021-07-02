@@ -10,9 +10,7 @@ import SwiftUI
 struct PredictionView: View {
     @EnvironmentObject var modelData: ModelData
     @Environment(\.colorScheme) var colorScheme
-    @State private var isDigitalPresented = false
-    @State private var isDayanPresented = false
-
+    
     var accentColor: Color {
         return (colorScheme == .dark) ? .white : .black
     }
@@ -24,9 +22,9 @@ struct PredictionView: View {
                     .frame(width: 350, height: 350)
    
                 Form {
-                    Button(action: { isDigitalPresented = true }) {
+                    Button(action: { modelData.isDigitalPresented = true }) {
                             Text("数字卦（占小事）")
-                    }.sheet(isPresented: $isDigitalPresented, content: {
+                    }.sheet(isPresented: $modelData.isDigitalPresented, content: {
                         DigitalPredictionView()
                             .environmentObject(modelData)
                             .animation(.linear(duration: 1.0))
@@ -34,9 +32,9 @@ struct PredictionView: View {
                     .frame(height: 30)
                     .accentColor(accentColor)
                     
-                    Button(action: { isDayanPresented = true }) {
+                    Button(action: { modelData.isDayanPresented = true }) {
                             Text("大衍卦（占大事）")
-                    }.sheet(isPresented: $isDayanPresented, content: {
+                    }.sheet(isPresented: $modelData.isDayanPresented, content: {
                         DayanPredictionView()
                             .environmentObject(modelData)
                             .animation(.linear(duration: 1.0))

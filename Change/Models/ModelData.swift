@@ -14,6 +14,9 @@ final class ModelData: ObservableObject {
     @Published var basicHexagrams: [Hexagram] = load("basicHexagramData.json")
     @Published var derivedHexagrams: [Hexagram] = load("derivedHexagramData.json")
     @Published var hexagramRecord: [RecordData] = loadRecord()
+    @Published var isTabBarHidden : Bool = false
+    @Published var isDigitalPresented: Bool = false
+    @Published var isDayanPresented: Bool = false
 }
 
 func load<T: Decodable>(_ filename: String) -> T

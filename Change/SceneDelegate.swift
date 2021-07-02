@@ -5,11 +5,14 @@
 //  Created by aiqin139 on 2021/3/14.
 //
 
+import SwiftUI
 import UIKit
+import Combine
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     var savedShortCutItem: UIApplicationShortcutItem!
+    var modelData = ModelData()
     
     /// - Tag: willConnectTo
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -20,18 +23,50 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             // Save it off for later when we become active.
             savedShortCutItem = shortcutItem
         }
+        
+        // Create the SwiftUI view that provides the window contents.
+         let contentView = ContentView()
+         // Use a UIHostingController as window root view controller.
+         if let windowScene = scene as? UIWindowScene {
+             let window = UIWindow(windowScene: windowScene)
+             window.rootViewController = UIHostingController(rootView: contentView.environmentObject(modelData))
+             self.window = window
+             window.makeKeyAndVisible()
+
+             //Listen TabBar State
+             modelData.$isTabBarHidden.receive(subscriber: AnySubscriber(receiveSubscription: { (sub) in
+                 sub.request(.unlimited)
+             }, receiveValue: { (value) -> Subscribers.Demand in
+                 self.tabBarHidden(hidden: value)
+                 return .none
+             }))
+         }
     }
 
+    func tabBarHidden(hidden:Bool){
+        for viewController in self.window!.rootViewController!.children {
+            if viewController.isKind(of: UITabBarController.self) {
+                let tabBarController = viewController as! UITabBarController
+                if tabBarController.tabBar.isHidden != hidden {
+                    tabBarController.tabBar.isHidden = hidden
+                }
+                return
+            }
+        }
+    }
+    
     // MARK: - Application Shortcut Support
     func handleShortCutItem(shortcutItem: UIApplicationShortcutItem) -> Bool {
         /** In this sample an alert is being shown to indicate that the action has been triggered,
             but in real code the functionality for the quick action would be triggered.
         */
         if shortcutItem.type == "Digital" {
-            print("digital triggered")
+            self.modelData.isDayanPresented = false
+            self.modelData.isDigitalPresented = true
         }
         else if  shortcutItem.type ==  "Dayan" {
-            print("dayan triggered")
+            self.modelData.isDigitalPresented = false
+            self.modelData.isDayanPresented = true
         }
         return true
     }

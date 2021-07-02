@@ -12,14 +12,18 @@ struct HexagramDetail: View {
 
     var body: some View {
         ScrollView {
-            CircleImage(image: hexagram.name)
-                .offset(y: 10)
-                .padding(.bottom, 0)
+            Image(hexagram.name)
+                .resizable()
+                .clipShape(Circle())
+                .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                .shadow(radius: 7)
+                .frame(width: 200, height: 200)
             
             VStack {
                 Text(hexagram.pinyin)
                     .font(.title)
                     .foregroundColor(.primary)
+                    
                 Text(hexagram.name)
                     .font(.title)
                     .foregroundColor(.primary)

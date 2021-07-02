@@ -60,7 +60,6 @@ struct HexagramList: View {
                     }
                 }
             }
-            .id(UUID())
             .navigationTitle(selectedTitle)
         }
     }

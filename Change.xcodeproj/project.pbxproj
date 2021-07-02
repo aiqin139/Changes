@@ -524,7 +524,7 @@
 				DEVELOPMENT_TEAM = G49LF2K9N4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Change/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -546,7 +546,7 @@
 				DEVELOPMENT_TEAM = G49LF2K9N4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Change/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
