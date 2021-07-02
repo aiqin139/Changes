@@ -11,7 +11,7 @@ struct MySelfView: View {
     @EnvironmentObject var modelData: ModelData
     
     init() {
-        UITableView.appearance().sectionHeaderHeight = 10
+        //UITableView.appearance().sectionHeaderHeight = 20
         
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().tintColor = .black

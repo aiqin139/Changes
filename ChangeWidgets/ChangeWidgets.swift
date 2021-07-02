@@ -44,7 +44,8 @@ struct ChangeWidgetsEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        Text(entry.date, style: .time)
+        //Text(entry.date, style: .time)
+        Image("先天八卦图")
     }
 }
 
@@ -56,7 +57,7 @@ struct ChangeWidgets: Widget {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
             ChangeWidgetsEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
+        .configurationDisplayName("易经")
         .description("This is an example widget.")
     }
 }

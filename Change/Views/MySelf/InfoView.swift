@@ -20,7 +20,7 @@ struct InfoView: View {
                 Text("易经占卦")
                     .bold()
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                    .padding(.bottom, 1.0)
+                    .padding(.bottom, 2.0)
                 
                 Text("信则有，不信则无")
                     .foregroundColor(.gray)
