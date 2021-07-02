@@ -17,7 +17,7 @@ struct InfoView: View {
                 .frame(width: 80, height: 80)
             
             VStack(alignment: .leading) {
-                Text("溪江月")
+                Text("易经占卦")
                     .bold()
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .padding(.bottom, 1.0)
