@@ -11,7 +11,7 @@ struct SearchBar: View {
     @Binding var text: String
     
     var body: some View {
-        TextField("Search ...", text: $text)
+        TextField("查找...", text: $text)
             .padding(7)
             .padding(.horizontal, 25)
             .background(Color(.systemGray6))
