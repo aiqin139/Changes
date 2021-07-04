@@ -13,8 +13,8 @@ struct MySelfView: View {
     init() {
         //UITableView.appearance().sectionHeaderHeight = 20
         
-        UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().tintColor = .black
+        //UINavigationBar.appearance().shadowImage = UIImage()
+        //UINavigationBar.appearance().tintColor = .black
     }
     
     var body: some View {

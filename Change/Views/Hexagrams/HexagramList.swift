@@ -46,16 +46,14 @@ struct HexagramList: View {
     var body: some View {
         NavigationView() {
             List {
-                Section {
-                    SearchBar(text: $searchText)
+                SearchBar(text: $searchText)
 
-                    Picker("卦象", selection: $selection) {
-                        Text("基本八卦").tag(Tab.basic)
-                        Text("六十四卦").tag(Tab.derived)
-                    }
-                    .pickerStyle(SegmentedPickerStyle())
+                Picker("卦象", selection: $selection) {
+                    Text("基本八卦").tag(Tab.basic)
+                    Text("六十四卦").tag(Tab.derived)
                 }
-                
+                .pickerStyle(SegmentedPickerStyle())
+            
                 let row = (selection == Tab.basic) ? 0 : 7
                     
                 ForEach(0...row, id: \.self) { vindex in
