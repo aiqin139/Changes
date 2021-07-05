@@ -16,7 +16,9 @@ struct InfoView: View {
                 .overlay(HexagramShape().stroke(Color.white, lineWidth: 4))
                 .frame(width: 80, height: 80)
             
-            VStack(alignment: .leading) {
+            Spacer()
+            
+            VStack(alignment: .center) {
                 Text("易经占卦")
                     .bold()
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
@@ -25,7 +27,8 @@ struct InfoView: View {
                 Text("信则有，不信则无")
                     .foregroundColor(.gray)
             }
-            .padding()
+            
+            Spacer()
         }
     }
 }

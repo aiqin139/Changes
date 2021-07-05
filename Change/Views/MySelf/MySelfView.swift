@@ -10,19 +10,13 @@ import SwiftUI
 struct MySelfView: View {
     @EnvironmentObject var modelData: ModelData
     
-    init() {
-        //UITableView.appearance().sectionHeaderHeight = 20
-        
-        //UINavigationBar.appearance().shadowImage = UIImage()
-        //UINavigationBar.appearance().tintColor = .black
-    }
-    
     var body: some View {
         NavigationView {
             Form {
                 Section {
                     InfoView()
                         .frame(height: 150)
+                        .shadow(radius: 10)
                 }
                 
                 Section {
