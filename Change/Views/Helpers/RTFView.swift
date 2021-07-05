@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RTFReader: UIViewRepresentable {
+    @Environment(\.colorScheme) var colorScheme
+    
     var fileName: String
 
     func makeUIView(context: Context) -> UITextView { UITextView() }
@@ -16,6 +18,7 @@ struct RTFReader: UIViewRepresentable {
         let url = Bundle.main.url(forResource: fileName, withExtension: "rtf")!
         uiView.attributedText = try? NSAttributedString(url: url, options: [.documentType : NSAttributedString.DocumentType.rtf], documentAttributes: nil)
         uiView.isEditable = false
+        uiView.textColor = (colorScheme == .dark) ? .white : .black
     }
 }
 
