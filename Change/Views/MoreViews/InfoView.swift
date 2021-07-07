@@ -24,7 +24,7 @@ struct InfoView: View {
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .padding(.bottom, 2.0)
                 
-                Text("信则有，不信则无")
+                Text("逢凶化吉，遇难成祥")
                     .foregroundColor(.gray)
             }
             

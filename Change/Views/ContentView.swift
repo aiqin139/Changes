@@ -13,7 +13,7 @@ struct ContentView: View {
     enum Tab {
         case prediction
         case hexagram
-        case myself
+        case more
     }
     
     var body: some View {
@@ -30,11 +30,11 @@ struct ContentView: View {
                 }
                 .tag(Tab.hexagram)
             
-            MySelfView()
+            MoreView()
                 .tabItem {
-                    Label("我", systemImage: "person")
+                    Label("更多", systemImage: "ellipsis.circle")
                 }
-                .tag(Tab.myself)
+                .tag(Tab.more)
         }
     }
 }

@@ -46,6 +46,11 @@ struct ChangeWidgetsEntryView : View {
     var body: some View {
         //Text(entry.date, style: .time)
         Image("先天八卦图")
+            .resizable()
+            .clipShape(Circle())
+            .overlay(Circle().stroke(Color.white, lineWidth: 4))
+            .shadow(radius: 7)
+            .frame(width: 200, height: 200)
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  MySelf.swift
+//  MoreView.swift
 //  Change
 //
 //  Created by aiqin139 on 2021/3/10.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MySelfView: View {
+struct MoreView: View {
     @EnvironmentObject var modelData: ModelData
     
     var body: some View {
@@ -84,9 +84,9 @@ struct MySelfView: View {
     }
 }
 
-struct MySelfView_Previews: PreviewProvider {
+struct MoreView_Previews: PreviewProvider {
     static var previews: some View {
-        MySelfView()
+        MoreView()
             .environmentObject(ModelData())
     }
 }

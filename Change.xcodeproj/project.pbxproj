@@ -31,7 +31,7 @@
 		1468B4D7268F079C000C0A33 /* ChangeWidgets.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 1468B4D3268F079A000C0A33 /* ChangeWidgets.intentdefinition */; };
 		1468B4D8268F079C000C0A33 /* ChangeWidgets.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 1468B4D3268F079A000C0A33 /* ChangeWidgets.intentdefinition */; };
 		1468B4DB268F079C000C0A33 /* ChangeWidgetsExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1468B4CA268F079A000C0A33 /* ChangeWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		1476167525F8DE9C009F7578 /* MySelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1476167425F8DE9C009F7578 /* MySelfView.swift */; };
+		1476167525F8DE9C009F7578 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1476167425F8DE9C009F7578 /* MoreView.swift */; };
 		1476167A25F8E13D009F7578 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1476167925F8E13D009F7578 /* InfoView.swift */; };
 		1476168025F901F7009F7578 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1476167F25F901F7009F7578 /* RecordView.swift */; };
 		147D0AF225C7C2050069C826 /* NumberInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D0AF125C7C2050069C826 /* NumberInput.swift */; };
@@ -114,7 +114,7 @@
 		1468B4D3268F079A000C0A33 /* ChangeWidgets.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = ChangeWidgets.intentdefinition; sourceTree = "<group>"; };
 		1468B4D4268F079C000C0A33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1468B4D6268F079C000C0A33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1476167425F8DE9C009F7578 /* MySelfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySelfView.swift; sourceTree = "<group>"; };
+		1476167425F8DE9C009F7578 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		1476167925F8E13D009F7578 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		1476167F25F901F7009F7578 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		147D0AF125C7C2050069C826 /* NumberInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberInput.swift; sourceTree = "<group>"; };
@@ -209,16 +209,16 @@
 			path = ChangeWidgets;
 			sourceTree = "<group>";
 		};
-		1476167325F8DE75009F7578 /* MySelf */ = {
+		1476167325F8DE75009F7578 /* MoreViews */ = {
 			isa = PBXGroup;
 			children = (
-				1476167425F8DE9C009F7578 /* MySelfView.swift */,
+				1476167425F8DE9C009F7578 /* MoreView.swift */,
 				1476167925F8E13D009F7578 /* InfoView.swift */,
 				1476167F25F901F7009F7578 /* RecordView.swift */,
 				14B800AB25FA54DF0041D4BF /* DetailView.swift */,
 				148D71402622C31300324517 /* RecordCard.swift */,
 			);
-			path = MySelf;
+			path = MoreViews;
 			sourceTree = "<group>";
 		};
 		147D0AF525C842660069C826 /* PageViews */ = {
@@ -283,7 +283,7 @@
 				140CE46825C460E700984B9D /* Hexagrams */,
 				140CE45625C4592000984B9D /* Categories */,
 				147D0AF525C842660069C826 /* PageViews */,
-				1476167325F8DE75009F7578 /* MySelf */,
+				1476167325F8DE75009F7578 /* MoreViews */,
 				149539E025C2EFA500F05BA1 /* Helpers */,
 			);
 			path = Views;
@@ -473,7 +473,7 @@
 				149539EF25C2F93C00F05BA1 /* CategoryItem.swift in Sources */,
 				147D0AFD25C842A50069C826 /* PageControl.swift in Sources */,
 				14F63FDF25DE65C800C76246 /* NumberPicker.swift in Sources */,
-				1476167525F8DE9C009F7578 /* MySelfView.swift in Sources */,
+				1476167525F8DE9C009F7578 /* MoreView.swift in Sources */,
 				147D0B0025C845E00069C826 /* DigitalPredictionView.swift in Sources */,
 				14CC3E6425FE438C004106FF /* AppDelegate.swift in Sources */,
 				148D71412622C31300324517 /* RecordCard.swift in Sources */,
@@ -688,7 +688,7 @@
 				DEVELOPMENT_TEAM = G49LF2K9N4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Change/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -711,7 +711,7 @@
 				DEVELOPMENT_TEAM = G49LF2K9N4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Change/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
