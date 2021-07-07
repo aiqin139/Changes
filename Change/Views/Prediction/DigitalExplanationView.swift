@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct DigitalExplanationView: View {
+    @Environment(\.colorScheme) var colorScheme
+    
+    var strokeColor: Color {
+        return (colorScheme == .dark) ? .white : .black
+    }
+    
     var digitalData: DigitalData
 
     var body: some View {
@@ -16,7 +22,7 @@ struct DigitalExplanationView: View {
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .frame(width: 350)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2))
+                .overlay(RoundedRectangle(cornerRadius: 10).stroke(strokeColor, lineWidth: 2))
                 .padding(.vertical, 15.0)
             
             VStack {
@@ -35,13 +41,13 @@ struct DigitalExplanationView: View {
                             .font(.title)
                             .padding(.horizontal)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2))
+                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(strokeColor, lineWidth: 2))
                     }
                 }
             }
             .frame(width: 350, height: 350)
             .clipShape(RoundedRectangle(cornerRadius: 10))
-            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2))
+            .overlay(RoundedRectangle(cornerRadius: 10).stroke(strokeColor, lineWidth: 2))
             .padding(.vertical, -5.0)
             
             VStack(alignment: .leading) {
@@ -54,12 +60,12 @@ struct DigitalExplanationView: View {
             }
             .frame(width: 350)
             .clipShape(RoundedRectangle(cornerRadius: 10))
-            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2))
+            .overlay(RoundedRectangle(cornerRadius: 10).stroke(strokeColor, lineWidth: 2))
             .padding(.vertical, 15.0)
         }
         .frame(width: 370)
         .clipShape(RoundedRectangle(cornerRadius: 10))
-        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2))
+        .overlay(RoundedRectangle(cornerRadius: 10).stroke(strokeColor, lineWidth: 2))
     }
 }
 
