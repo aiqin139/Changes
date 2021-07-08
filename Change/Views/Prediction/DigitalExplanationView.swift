@@ -33,7 +33,19 @@ struct DigitalExplanationView: View {
             
                 Image(digitalData.name)
                     .resizable()
-                    .frame(width: 200, height: 200)
+                    .frame(width: 180, height: 180)
+                
+                HStack {
+                    ForEach(digitalData.values, id: \.self) { content in
+                        Text(String(content))
+                            .font(.title)
+                            .padding(.horizontal)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(strokeColor, lineWidth: 2))
+                    }
+                }
+                
+                Spacer()
                 
                 HStack {
                     ForEach(digitalData.result, id: \.self) { content in
@@ -44,6 +56,8 @@ struct DigitalExplanationView: View {
                             .overlay(RoundedRectangle(cornerRadius: 10).stroke(strokeColor, lineWidth: 2))
                     }
                 }
+                
+                Spacer()
             }
             .frame(width: 350, height: 350)
             .clipShape(RoundedRectangle(cornerRadius: 10))
