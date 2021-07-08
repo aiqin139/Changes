@@ -14,6 +14,10 @@ struct DayanExplanationView: View {
         return (colorScheme == .dark) ? .white : .black
     }
     
+    var backgroundColor: Color {
+        return (colorScheme == .dark) ? .black : .white
+    }
+    
     var dayanData: DayanData
 
     var body: some View {
@@ -87,16 +91,18 @@ struct DayanExplanationView: View {
                         .minimumScaleFactor(0.1)
                 }
                 
-                Text("").font(.title)
-                
-                ForEach(dayanData.explanation2, id: \.self) { content in
-                    Text(content)
-                        .font(.title3)
-                        .padding(.horizontal, 10.0)
-                        .minimumScaleFactor(0.1)
+                if dayanData.explanation2[0] != "" {
+                    Text("").font(.title)
+                                
+                    ForEach(dayanData.explanation2, id: \.self) { content in
+                        Text(content)
+                            .font(.title3)
+                            .padding(.horizontal, 10.0)
+                            .minimumScaleFactor(0.1)
+                    }
                 }
             }
-            .frame(width: 350, height: 350)
+            .frame(width: 350)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .overlay(RoundedRectangle(cornerRadius: 10).stroke(strokeColor, lineWidth: 2))
             .padding(.vertical, 15.0)
@@ -104,6 +110,7 @@ struct DayanExplanationView: View {
         .frame(width: 370)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .overlay(RoundedRectangle(cornerRadius: 10).stroke(strokeColor, lineWidth: 2))
+        .background(backgroundColor)
     }
 }
 

@@ -14,6 +14,10 @@ struct DigitalExplanationView: View {
         return (colorScheme == .dark) ? .white : .black
     }
     
+    var backgroundColor: Color {
+        return (colorScheme == .dark) ? .black : .white
+    }
+    
     var digitalData: DigitalData
 
     var body: some View {
@@ -80,6 +84,7 @@ struct DigitalExplanationView: View {
         .frame(width: 370)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .overlay(RoundedRectangle(cornerRadius: 10).stroke(strokeColor, lineWidth: 2))
+        .background(backgroundColor)
     }
 }
 

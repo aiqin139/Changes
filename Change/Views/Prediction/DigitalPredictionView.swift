@@ -9,70 +9,87 @@ import SwiftUI
 
 struct DigitalPredictionView: View {
     @EnvironmentObject var modelData: ModelData
-    @State private var isPresented = false
+    @Environment(\.colorScheme) var colorScheme
+    @State private var isSolve = false
     @State private var opcity: Double = 1
-    
+        
     var body: some View {
-        VStack {
-            Spacer()
-            
-            Text("数字卦")
-                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-            
-            RotateImage(image: "先天八卦图", lineWidth: 2)
-                .frame(width: 350, height: 350)
-            
-            Spacer()
-            
-            HStack {
-                ForEach(0...2, id: \.self) { index in
-                    VStack {
-                        Text("数字" + String(index + 1))
-                        NumberPicker(format: "%03d", start: 0, end: 999, value: $modelData.digitalPrediction.data.values[index])
-                            .font(.title)
-                            .clipShape(HexagramShape())
-                            .overlay(HexagramShape().stroke(Color.black, lineWidth: 2))
+        ZStack {
+            VStack {
+                Spacer()
+                
+                Text("数字卦")
+                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                
+                RotateImage(image: "先天八卦图", lineWidth: 2)
+                    .frame(width: 350, height: 350)
+                
+                Spacer()
+                
+                HStack {
+                    ForEach(0...2, id: \.self) { index in
+                        VStack {
+                            Text("数字" + String(index + 1))
+                            NumberPicker(format: "%03d", start: 0, end: 999, value: $modelData.digitalPrediction.data.values[index])
+                                .font(.title)
+                                .clipShape(HexagramShape())
+                                .overlay(HexagramShape().stroke(Color.black, lineWidth: 2))
+                        }
                     }
+                }
+                
+                Spacer()
+                
+                HStack {
+                    Spacer()
+                    
+                    Button(action: {}) {
+                        VStack {
+                            Image("占")
+                                .resizable()
+                                .frame(width: 80, height: 80)
+                                .clipShape(HexagramShape())
+                                .overlay(HexagramShape().stroke(Color.black, lineWidth: 2))
+                        }
+                        .opacity(self.opcity)
+                        .onTapGesture { opcity = 0.8 }
+                        .onLongPressGesture { DigitPrediction() }
+                    }
+                    
+                    Spacer()
+                    
+                    Button(action: {}) {
+                        VStack {
+                            Image("解")
+                                .resizable()
+                                .frame(width: 80, height: 80)
+                                .clipShape(HexagramShape())
+                                .overlay(HexagramShape().stroke(Color.black, lineWidth: 2))
+                        }
+                        .opacity(self.opcity)
+                        .onTapGesture { opcity = 0.8 }
+                        .onLongPressGesture { DigitParser() }
+                    }
+                                    
+                    Spacer()
                 }
             }
+            .blur(radius: isSolve ? 15 : 0)
             
-            Spacer()
-            
-            HStack {
-                Spacer()
-                
-                Button(action: {}) {
-                    VStack {
-                        Image("占")
-                            .resizable()
-                            .frame(width: 80, height: 80)
-                            .clipShape(HexagramShape())
-                            .overlay(HexagramShape().stroke(Color.black, lineWidth: 2))
-                    }
-                    .opacity(self.opcity)
-                    .onTapGesture { opcity = 0.8 }
-                    .onLongPressGesture { DigitPrediction() }
-                }
-                
-                Spacer()
-                
-                Button(action: {}) {
-                    VStack {
-                        Image("解")
-                            .resizable()
-                            .frame(width: 80, height: 80)
-                            .clipShape(HexagramShape())
-                            .overlay(HexagramShape().stroke(Color.black, lineWidth: 2))
-                    }
-                    .opacity(self.opcity)
-                    .onTapGesture { opcity = 0.8 }
-                    .onLongPressGesture { DigitParser() }
-                }
-                .sheet(isPresented: $isPresented, content: {
+            if $isSolve.wrappedValue {
+                VStack {
                     DigitalExplanationView(digitalData: modelData.digitalPrediction.data)
-                })
-                
-                Spacer()
+                        .cornerRadius(10).shadow(radius: 20)
+
+                    Button(action: {
+                        self.isSolve = false
+                    }) {
+                        Image(systemName: "xmark.seal")
+                            .resizable()
+                            .foregroundColor((colorScheme == .dark) ? .white : .black)
+                            .frame(width: 50, height: 50)
+                    }
+                }
             }
         }
         .shadow(radius: 20)
@@ -101,7 +118,7 @@ struct DigitalPredictionView: View {
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
         
-        self.isPresented = true
+        self.isSolve = true
     }
 }
 
