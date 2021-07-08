@@ -17,6 +17,11 @@ final class ModelData: ObservableObject {
     @Published var isTabBarHidden : Bool = false
     @Published var isDigitalPresented: Bool = false
     @Published var isDayanPresented: Bool = false
+    
+    init() {
+        digitalPrediction.data = hexagramRecord.filter{ $0.type == RecordType.Digital.rawValue }.last?.digit ?? DigitalData()
+        dayanPrediction.data = hexagramRecord.filter{ $0.type == RecordType.Dayan.rawValue }.last?.dayan ?? DayanData()
+    }
 }
 
 func load<T: Decodable>(_ filename: String) -> T

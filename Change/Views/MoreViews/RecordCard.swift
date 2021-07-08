@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct RecordCard: View {
+    @Environment(\.colorScheme) var colorScheme
+    
+    var strokeColor: Color {
+        return (colorScheme == .dark) ? .white : .black
+    }
+    
     var recordData: RecordData
     
     private func Dateformat(date: Date) -> String {
@@ -32,7 +38,7 @@ struct RecordCard: View {
                 }
             }
             .clipShape(RoundedRectangle(cornerRadius: 20))
-            .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black, lineWidth: 2))
+            .overlay(RoundedRectangle(cornerRadius: 20).stroke(strokeColor, lineWidth: 2))
         }
     }
 }

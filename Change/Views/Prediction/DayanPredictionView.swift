@@ -96,7 +96,9 @@ struct DayanPredictionView: View {
         let hexagrams = modelData.derivedHexagrams
         modelData.dayanPrediction.Parser(hexagrams: hexagrams)
         
-        if modelData.dayanPrediction.data != modelData.hexagramRecord.last?.dayan {
+        let records = modelData.hexagramRecord.filter{ $0.type == RecordType.Dayan.rawValue }
+        
+        if modelData.dayanPrediction.data != records.last?.dayan {
             let recordData = RecordData(type: RecordType.Dayan.rawValue, dayan: modelData.dayanPrediction.data, date: Date())
             modelData.hexagramRecord.append(recordData)
             

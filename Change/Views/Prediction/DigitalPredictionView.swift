@@ -88,8 +88,10 @@ struct DigitalPredictionView: View {
     func DigitParser() {
         let hexagrams = modelData.derivedHexagrams
         modelData.digitalPrediction.Parser(hexagrams: hexagrams)
-        
-        if modelData.digitalPrediction.data != modelData.hexagramRecord.last?.digit {
+
+        let records = modelData.hexagramRecord.filter{ $0.type == RecordType.Digital.rawValue }
+
+        if modelData.digitalPrediction.data != records.last?.digit {
             let recordData = RecordData(type: RecordType.Digital.rawValue, digit: modelData.digitalPrediction.data, date: Date())
             modelData.hexagramRecord.append(recordData)
             
