@@ -14,7 +14,7 @@ struct MoreView: View {
         NavigationView {
             Form {
                 Section {
-                    InfoView()
+                    LogoView()
                         .frame(height: 150)
                         .shadow(radius: 10)
                 }

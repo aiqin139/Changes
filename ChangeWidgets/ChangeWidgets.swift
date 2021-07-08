@@ -44,13 +44,7 @@ struct ChangeWidgetsEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        //Text(entry.date, style: .time)
-        Image("先天八卦图")
-            .resizable()
-            .clipShape(Circle())
-            .overlay(Circle().stroke(Color.white, lineWidth: 4))
-            .shadow(radius: 7)
-            .frame(width: 200, height: 200)
+        Text("先天八卦图")
     }
 }
 
@@ -71,5 +65,11 @@ struct ChangeWidgets_Previews: PreviewProvider {
     static var previews: some View {
         ChangeWidgetsEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
+        
+        ChangeWidgetsEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+        
+        ChangeWidgetsEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
+            .previewContext(WidgetPreviewContext(family: .systemLarge))
     }
 }

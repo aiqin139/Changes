@@ -1,5 +1,5 @@
 //
-//  InfoView.swift
+//  LogoView.swift
 //  Change
 //
 //  Created by aiqin139 on 2021/3/10.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct InfoView: View {
+struct LogoView: View {
     var body: some View {
         HStack(alignment: .center) {
             Image("先天八卦图")
@@ -33,8 +33,8 @@ struct InfoView: View {
     }
 }
 
-struct InfoView_Previews: PreviewProvider {
+struct LogoView_Previews: PreviewProvider {
     static var previews: some View {
-        InfoView()
+        LogoView()
     }
 }
