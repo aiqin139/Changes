@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PredictionView: View {
+    private var uiWidth = UIScreen.main.nativeBounds.width
+    private var uiHeight = UIScreen.main.nativeBounds.height
     @EnvironmentObject var modelData: ModelData
     @Environment(\.colorScheme) var colorScheme
     
@@ -19,7 +21,7 @@ struct PredictionView: View {
         NavigationView {
             VStack {
                 RotateImage(image: "先天八卦图")
-                    .frame(width: 350, height: 350)
+                    .frame(width: uiWidth * 0.32, height: uiWidth * 0.32)
    
                 Form {
                     Button(action: { modelData.isDigitalPresented = true }) {

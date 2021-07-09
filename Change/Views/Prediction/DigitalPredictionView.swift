@@ -12,6 +12,8 @@ struct DigitalPredictionView: View {
     @Environment(\.colorScheme) var colorScheme
     @State private var isSolve = false
     @State private var opcity: Double = 1
+    private var uiWidth = UIScreen.main.nativeBounds.width
+    private var uiHeight = UIScreen.main.nativeBounds.height
         
     var body: some View {
         ZStack {
@@ -22,7 +24,7 @@ struct DigitalPredictionView: View {
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 
                 RotateImage(image: "先天八卦图", lineWidth: 2)
-                    .frame(width: 350, height: 350)
+                    .frame(width: uiWidth * 0.32, height: uiWidth * 0.32)
                 
                 Spacer()
                 

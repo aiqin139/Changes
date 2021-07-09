@@ -77,7 +77,7 @@ struct MoreView: View {
                     }
                 }
             }
-            .navigationTitle("")
+            .navigationTitle("更多")
             .navigationBarHidden(true)
             .navigationBarTitleDisplayMode(.inline)
         }

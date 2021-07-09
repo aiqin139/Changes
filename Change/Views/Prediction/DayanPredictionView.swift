@@ -13,6 +13,8 @@ struct DayanPredictionView: View {
     @State private var isSolve = false
     @State private var opcity: Double = 1
     private var yao: [String] = ["初", "二", "三", "四", "五", "上"]
+    private var uiWidth = UIScreen.main.nativeBounds.width
+    private var uiHeight = UIScreen.main.nativeBounds.height
         
     var body: some View {
         ZStack {
@@ -23,7 +25,7 @@ struct DayanPredictionView: View {
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 
                 RotateImage(image: "先天八卦图", lineWidth: 2)
-                    .frame(width: 350, height: 350)
+                    .frame(width: uiWidth * 0.32, height: uiWidth * 0.32)
                 
                 Spacer()
                 
