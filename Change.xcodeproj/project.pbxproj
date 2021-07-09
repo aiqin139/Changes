@@ -12,6 +12,7 @@
 		140CE46025C45AE600984B9D /* HexagramRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE45F25C45AE600984B9D /* HexagramRow.swift */; };
 		140CE46D25C4617500984B9D /* HexagramList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE46C25C4617500984B9D /* HexagramList.swift */; };
 		140CE47225C463EF00984B9D /* basicHexagramData.json in Resources */ = {isa = PBXBuildFile; fileRef = 140CE47125C463EF00984B9D /* basicHexagramData.json */; };
+		141E7C702697FAF900EDB364 /* HexagramCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E7C6F2697FAF900EDB364 /* HexagramCard.swift */; };
 		1441B23C260225FB00833DEC /* license_cn.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1441B23B260225FB00833DEC /* license_cn.rtf */; };
 		1441B23F26022FFA00833DEC /* RTFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441B23E26022FFA00833DEC /* RTFView.swift */; };
 		1441B24626023C5100833DEC /* 占卦须知.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1441B24526023C5100833DEC /* 占卦须知.rtf */; };
@@ -58,7 +59,6 @@
 		149539EF25C2F93C00F05BA1 /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539EE25C2F93C00F05BA1 /* CategoryItem.swift */; };
 		149539F225C2F99000F05BA1 /* CategoryMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539F125C2F99000F05BA1 /* CategoryMatrix.swift */; };
 		149FEB5E2621EA2D00AE6380 /* RecordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149FEB5D2621EA2D00AE6380 /* RecordData.swift */; };
-		14B800AC25FA54DF0041D4BF /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B800AB25FA54DF0041D4BF /* DetailView.swift */; };
 		14CC3E5E25FE3CB9004106FF /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CC3E5D25FE3CB9004106FF /* SearchBar.swift */; };
 		14CC3E6425FE438C004106FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CC3E6225FE438C004106FF /* AppDelegate.swift */; };
 		14CC3E6525FE438C004106FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CC3E6325FE438C004106FF /* SceneDelegate.swift */; };
@@ -95,6 +95,7 @@
 		140CE45F25C45AE600984B9D /* HexagramRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramRow.swift; sourceTree = "<group>"; };
 		140CE46C25C4617500984B9D /* HexagramList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramList.swift; sourceTree = "<group>"; };
 		140CE47125C463EF00984B9D /* basicHexagramData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = basicHexagramData.json; sourceTree = "<group>"; };
+		141E7C6F2697FAF900EDB364 /* HexagramCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramCard.swift; sourceTree = "<group>"; };
 		1441B23B260225FB00833DEC /* license_cn.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = license_cn.rtf; sourceTree = "<group>"; };
 		1441B23E26022FFA00833DEC /* RTFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTFView.swift; sourceTree = "<group>"; };
 		1441B24526023C5100833DEC /* 占卦须知.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "占卦须知.rtf"; sourceTree = "<group>"; };
@@ -143,7 +144,6 @@
 		149539EE25C2F93C00F05BA1 /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		149539F125C2F99000F05BA1 /* CategoryMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMatrix.swift; sourceTree = "<group>"; };
 		149FEB5D2621EA2D00AE6380 /* RecordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordData.swift; sourceTree = "<group>"; };
-		14B800AB25FA54DF0041D4BF /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		14CC3E5D25FE3CB9004106FF /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		14CC3E6225FE438C004106FF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14CC3E6325FE438C004106FF /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +185,7 @@
 				149539D825C2EB8900F05BA1 /* HexagramDetail.swift */,
 				140CE45F25C45AE600984B9D /* HexagramRow.swift */,
 				140CE46C25C4617500984B9D /* HexagramList.swift */,
+				141E7C6F2697FAF900EDB364 /* HexagramCard.swift */,
 			);
 			path = Hexagrams;
 			sourceTree = "<group>";
@@ -215,7 +216,6 @@
 				1476167425F8DE9C009F7578 /* MoreView.swift */,
 				1476167925F8E13D009F7578 /* LogoView.swift */,
 				1476167F25F901F7009F7578 /* RecordView.swift */,
-				14B800AB25FA54DF0041D4BF /* DetailView.swift */,
 				148D71402622C31300324517 /* RecordCard.swift */,
 			);
 			path = MoreViews;
@@ -473,6 +473,7 @@
 				149539EF25C2F93C00F05BA1 /* CategoryItem.swift in Sources */,
 				147D0AFD25C842A50069C826 /* PageControl.swift in Sources */,
 				14F63FDF25DE65C800C76246 /* NumberPicker.swift in Sources */,
+				141E7C702697FAF900EDB364 /* HexagramCard.swift in Sources */,
 				1476167525F8DE9C009F7578 /* MoreView.swift in Sources */,
 				147D0B0025C845E00069C826 /* DigitalPredictionView.swift in Sources */,
 				14CC3E6425FE438C004106FF /* AppDelegate.swift in Sources */,
@@ -481,7 +482,6 @@
 				140557AD25DD580B004681EE /* LocationProvider.swift in Sources */,
 				1495399125C278C500F05BA1 /* ContentView.swift in Sources */,
 				147D0AF225C7C2050069C826 /* NumberInput.swift in Sources */,
-				14B800AC25FA54DF0041D4BF /* DetailView.swift in Sources */,
 				149539F225C2F99000F05BA1 /* CategoryMatrix.swift in Sources */,
 				147D0AFA25C842A50069C826 /* PageViewController.swift in Sources */,
 				140557A925DD567F004681EE /* RotateImage.swift in Sources */,

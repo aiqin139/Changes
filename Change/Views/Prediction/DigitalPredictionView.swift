@@ -37,6 +37,7 @@ struct DigitalPredictionView: View {
                         }
                     }
                 }
+                .padding(.horizontal, 5.0)
                 
                 Spacer()
                 

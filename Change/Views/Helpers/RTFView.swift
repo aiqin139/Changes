@@ -23,10 +23,22 @@ struct RTFReader: UIViewRepresentable {
 }
 
 struct RTFView: View {
+    @Environment(\.colorScheme) var colorScheme
+        
+    var backgroundColor: Color {
+        return (colorScheme == .dark) ? .black : .white
+    }
+    
     var fileName: String
     
     var body: some View {
         RTFReader(fileName: fileName)
+        .frame(width: 350)
+        .background(backgroundColor)
+        .cornerRadius(10)
+        .shadow(color: .gray, radius: 10, x: 0, y: 3)
+        .animation(.easeInOut)
+        .padding()
     }
 }
 

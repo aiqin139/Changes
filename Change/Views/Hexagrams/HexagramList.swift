@@ -54,14 +54,9 @@ struct HexagramList: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
             
-                let row = (selection == Tab.basic) ? 0 : 7
-                    
-                ForEach(0...row, id: \.self) { vindex in
-                    ForEach(0...7, id: \.self) { hindex in
-                        let hexagram = filteredHexagrams[vindex * 8 + hindex]
-                        NavigationLink(destination: HexagramDetail(hexagram: hexagram)) {
-                            HexagramRow(hexagram: hexagram)
-                        }
+                ForEach(filteredHexagrams, id: \.self) { hexagram in
+                    NavigationLink(destination: HexagramDetail(hexagram: hexagram)) {
+                        HexagramRow(hexagram: hexagram)
                     }
                 }
             }

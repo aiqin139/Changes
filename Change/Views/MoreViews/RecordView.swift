@@ -1,5 +1,5 @@
 //
-//  HexagramPerDayView.swift
+//  RecordView.swift
 //  Change
 //
 //  Created by aiqin139 on 2021/3/10.
@@ -12,10 +12,10 @@ struct RecordView: View {
     
     var body: some View {
         ScrollView {
-            ForEach(modelData.hexagramRecord.reversed(), id: \.self) { record in
-                Spacer()
-                RecordCard(recordData: record)
-                Spacer()
+            VStack(alignment: .center, spacing: 10) {
+                ForEach(modelData.hexagramRecord.reversed(), id: \.self) { record in
+                    RecordCard(recordData: record)
+                }
             }
         }
         .navigationBarItems(trailing:

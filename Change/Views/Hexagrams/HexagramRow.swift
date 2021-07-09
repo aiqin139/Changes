@@ -15,6 +15,7 @@ struct HexagramRow: View {
             Image(hexagram.name)
                 .resizable()
                 .frame(width: 50, height: 50)
+                .aspectRatio(contentMode: .fit)
             Text(hexagram.name)
             Text(hexagram.description)
             

@@ -14,6 +14,10 @@ struct RecordCard: View {
         return (colorScheme == .dark) ? .white : .black
     }
     
+    var backgroundColor: Color {
+        return (colorScheme == .dark) ? .black : .white
+    }
+    
     var recordData: RecordData
     
     private func Dateformat(date: Date) -> String {
@@ -37,9 +41,9 @@ struct RecordCard: View {
                         .font(.title2)
                 }
             }
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .overlay(RoundedRectangle(cornerRadius: 20).stroke(strokeColor, lineWidth: 2))
+            .clipShape(RoundedRectangle(cornerRadius: 10))
         }
+        .padding()
     }
 }
 

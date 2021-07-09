@@ -44,6 +44,7 @@ struct DayanPredictionView: View {
                         }
                     }
                 }
+                .padding(.horizontal, 5.0)
                 
                 Spacer()
                 

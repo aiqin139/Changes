@@ -8,18 +8,22 @@
 import SwiftUI
 
 struct HexagramDetail: View {
+    @Environment(\.colorScheme) var colorScheme
+        
+    var backgroundColor: Color {
+        return (colorScheme == .dark) ? .black : .white
+    }
+    
     var hexagram: Hexagram
 
     var body: some View {
-        ScrollView {
-            Image(hexagram.name)
-                .resizable()
-                .clipShape(Circle())
-                .overlay(Circle().stroke(Color.white, lineWidth: 4))
-                .shadow(radius: 7)
-                .frame(width: 150, height: 150)
-            
+        VStack {
             VStack {
+                Image(hexagram.name)
+                    .resizable()
+                    .frame(width: 150, height: 150)
+                    .aspectRatio(contentMode: .fit)
+            
                 Text(hexagram.pinyin)
                     .font(.title)
                     .foregroundColor(.primary)
@@ -28,20 +32,29 @@ struct HexagramDetail: View {
                     .font(.title)
                     .foregroundColor(.primary)
             }
-            
-            VStack(alignment: .leading) {
-                ForEach(hexagram.explanations, id: \.self) { contents in
-                    Divider()
-                    ForEach(contents, id: \.self) { content in
-                        Text(content)
-                            .padding(.horizontal, 10.0)
-                            .minimumScaleFactor(0.1)
+            .padding()
+
+            ScrollView {
+                VStack(alignment: .leading) {
+                    ForEach(hexagram.explanations, id: \.self) { contents in
+                        Divider()
+                        ForEach(contents, id: \.self) { content in
+                            Text(content)
+                                .padding(.horizontal, 10.0)
+                                .minimumScaleFactor(0.1)
+                        }
                     }
                 }
             }
         }
+        .frame(width: 350)
+        .background(backgroundColor)
+        .cornerRadius(10)
+        .shadow(color: .gray, radius: 10, x: 0, y: 3)
+        .animation(.easeInOut)
         .navigationTitle(hexagram.name)
         .navigationBarTitleDisplayMode(.inline)
+        .padding()
     }
 }
 
