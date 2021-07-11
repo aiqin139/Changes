@@ -21,7 +21,7 @@ struct PredictionView: View {
         NavigationView {
             VStack {
                 RotateImage(image: "先天八卦图")
-                    .frame(width: uiWidth * 0.32, height: uiWidth * 0.32)
+                    .frame(width: uiWidth * 0.3, height: uiWidth * 0.3)
    
                 Form {
                     Button(action: { modelData.isDigitalPresented = true }) {

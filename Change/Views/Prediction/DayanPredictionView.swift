@@ -25,7 +25,7 @@ struct DayanPredictionView: View {
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 
                 RotateImage(image: "先天八卦图", lineWidth: 2)
-                    .frame(width: uiWidth * 0.32, height: uiWidth * 0.32)
+                    .frame(width: uiWidth * 0.3, height: uiWidth * 0.3)
                 
                 Spacer()
                 
