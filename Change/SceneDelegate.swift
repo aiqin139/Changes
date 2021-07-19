@@ -24,35 +24,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             savedShortCutItem = shortcutItem
         }
         
-        // Create the SwiftUI view that provides the window contents.
-         let contentView = ContentView()
-         // Use a UIHostingController as window root view controller.
-         if let windowScene = scene as? UIWindowScene {
-             let window = UIWindow(windowScene: windowScene)
-             window.rootViewController = UIHostingController(rootView: contentView.environmentObject(modelData))
-             self.window = window
-             window.makeKeyAndVisible()
-
-             //Listen TabBar State
-             modelData.$isTabBarHidden.receive(subscriber: AnySubscriber(receiveSubscription: { (sub) in
-                 sub.request(.unlimited)
-             }, receiveValue: { (value) -> Subscribers.Demand in
-                 self.tabBarHidden(hidden: value)
-                 return .none
-             }))
-         }
-    }
-
-    func tabBarHidden(hidden:Bool){
-        for viewController in self.window!.rootViewController!.children {
-            if viewController.isKind(of: UITabBarController.self) {
-                let tabBarController = viewController as! UITabBarController
-                if tabBarController.tabBar.isHidden != hidden {
-                    tabBarController.tabBar.isHidden = hidden
-                }
-                return
-            }
+//        // Create the SwiftUI view that provides the window contents.
+//        let contentView = ContentView().environmentObject(modelData)
+//        // Use a UIHostingController as window root view controller.
+//        if let windowScene = scene as? UIWindowScene {
+//            let window = UIWindow(windowScene: windowScene)
+//            window.rootViewController = UIHostingController(rootView: contentView)
+//            self.window = window
+//            window.makeKeyAndVisible()
+//        }
+        
+        // Create the UIKit view that provides the window contents.
+        if let windowScene = scene as? UIWindowScene {
+            let window = UIWindow(windowScene: windowScene)
+            window.rootViewController = CustomTabBarController(self.modelData)
+            self.window = window
+            window.makeKeyAndVisible()
         }
+        
+        //guard let _ = (scene as? UIWindowScene) else { return }
     }
     
     // MARK: - Application Shortcut Support

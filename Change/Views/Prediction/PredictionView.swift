@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PredictionView: View {
+struct PredictionNavigationView: View {
     private var uiWidth = UIScreen.main.nativeBounds.width
     private var uiHeight = UIScreen.main.nativeBounds.height
     @EnvironmentObject var modelData: ModelData
@@ -18,38 +18,46 @@ struct PredictionView: View {
     }
     
     var body: some View {
-        NavigationView {
-            VStack {
-                RotateImage(image: "先天八卦图")
-                    .frame(width: uiWidth * 0.3, height: uiWidth * 0.3)
-   
-                Form {
-                    Button(action: { modelData.isDigitalPresented = true }) {
-                            Text("数字卦（占小事）")
-                    }.sheet(isPresented: $modelData.isDigitalPresented, content: {
-                        DigitalPredictionView()
-                            .environmentObject(modelData)
-                            .animation(.easeInOut(duration: 0.3))
-                    })
-                    .frame(height: 30)
-                    .accentColor(accentColor)
-                    
-                    Button(action: { modelData.isDayanPresented = true }) {
-                            Text("大衍卦（占大事）")
-                    }.sheet(isPresented: $modelData.isDayanPresented, content: {
-                        DayanPredictionView()
-                            .environmentObject(modelData)
-                            .animation(.easeInOut(duration: 0.3))
-                    })
-                    .frame(height: 30)
-                    .accentColor(accentColor)
-                }
+        VStack {
+            RotateImage(image: "先天八卦图")
+                .frame(width: uiWidth * 0.3, height: uiWidth * 0.3)
+
+            Form {
+                Button(action: { modelData.isDigitalPresented = true }) {
+                        Text("数字卦（占小事）")
+                }.sheet(isPresented: $modelData.isDigitalPresented, content: {
+                    DigitalPredictionView()
+                        .environmentObject(modelData)
+                        .animation(.easeInOut(duration: 0.3))
+                })
+                .frame(height: 30)
+                .accentColor(accentColor)
+                
+                Button(action: { modelData.isDayanPresented = true }) {
+                        Text("大衍卦（占大事）")
+                }.sheet(isPresented: $modelData.isDayanPresented, content: {
+                    DayanPredictionView()
+                        .environmentObject(modelData)
+                        .animation(.easeInOut(duration: 0.3))
+                })
+                .frame(height: 30)
+                .accentColor(accentColor)
             }
-            .navigationTitle("占卦")
         }
+        .navigationTitle("占卦")
     }
 }
 
+struct PredictionView: View {
+    @EnvironmentObject var modelData: ModelData
+    
+    var body: some View {
+        NavigationView {
+            PredictionNavigationView()
+                .environmentObject(modelData)
+        }
+    }
+}
 
 struct PredictionView_Previews: PreviewProvider {
     static var previews: some View {

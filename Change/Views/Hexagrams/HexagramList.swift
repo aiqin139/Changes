@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HexagramList: View {
+struct HexagramNavigationView: View {
     @EnvironmentObject var modelData: ModelData
     @State private var selection: Tab = .derived
     @State private var searchText = ""
@@ -44,28 +44,37 @@ struct HexagramList: View {
     }
 
     var body: some View {
-        NavigationView() {
-            List {
-                SearchBar(text: $searchText)
+        List {
+            SearchBar(text: $searchText)
 
-                Picker("卦象", selection: $selection) {
-                    Text("基本八卦").tag(Tab.basic)
-                    Text("六十四卦").tag(Tab.derived)
-                }
-                .pickerStyle(SegmentedPickerStyle())
-            
-                ForEach(filteredHexagrams, id: \.self) { hexagram in
-                    NavigationLink(destination: HexagramDetail(hexagram: hexagram)) {
-                        HexagramRow(hexagram: hexagram)
-                    }
+            Picker("卦象", selection: $selection) {
+                Text("基本八卦").tag(Tab.basic)
+                Text("六十四卦").tag(Tab.derived)
+            }
+            .pickerStyle(SegmentedPickerStyle())
+        
+            ForEach(filteredHexagrams, id: \.self) { hexagram in
+                NavigationLink(destination: HexagramDetail(hexagram: hexagram)) {
+                    HexagramRow(hexagram: hexagram)
                 }
             }
-            .navigationTitle(selectedTitle)
+        }
+        .navigationTitle(selectedTitle)
+    }
+}
+
+struct HexagramList: View {
+    @EnvironmentObject var modelData: ModelData
+
+    var body: some View {
+        NavigationView() {
+            HexagramNavigationView()
+                .environmentObject(modelData)
         }
     }
 }
 
-struct HexagramListList_Previews: PreviewProvider {
+struct HexagramList_Previews: PreviewProvider {
     static var previews: some View {
         HexagramList()
             .environmentObject(ModelData())

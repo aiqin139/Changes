@@ -44,6 +44,9 @@
 		147D0B0725C849D30069C826 /* FeatureCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D0B0625C849D30069C826 /* FeatureCard.swift */; };
 		147D0B0A25C84D860069C826 /* DigitalExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D0B0925C84D860069C826 /* DigitalExplanationView.swift */; };
 		147D0B0D25C84D950069C826 /* DayanExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D0B0C25C84D950069C826 /* DayanExplanationView.swift */; };
+		148A397C26A50F4100972C12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148A397B26A50F4100972C12 /* Main.storyboard */; };
+		148BC39026A423A100E83678 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BC38E26A423A100E83678 /* CustomTabBarController.swift */; };
+		148BC39126A423A100E83678 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BC38F26A423A100E83678 /* CustomNavigationController.swift */; };
 		148D71412622C31300324517 /* RecordCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D71402622C31300324517 /* RecordCard.swift */; };
 		1495398F25C278C500F05BA1 /* ChangeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495398E25C278C500F05BA1 /* ChangeApp.swift */; };
 		1495399125C278C500F05BA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495399025C278C500F05BA1 /* ContentView.swift */; };
@@ -127,6 +130,9 @@
 		147D0B0625C849D30069C826 /* FeatureCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureCard.swift; sourceTree = "<group>"; };
 		147D0B0925C84D860069C826 /* DigitalExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalExplanationView.swift; sourceTree = "<group>"; };
 		147D0B0C25C84D950069C826 /* DayanExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayanExplanationView.swift; sourceTree = "<group>"; };
+		148A397B26A50F4100972C12 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		148BC38E26A423A100E83678 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		148BC38F26A423A100E83678 /* CustomNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		148D71402622C31300324517 /* RecordCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCard.swift; sourceTree = "<group>"; };
 		1495398B25C278C500F05BA1 /* Change.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Change.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1495398E25C278C500F05BA1 /* ChangeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeApp.swift; sourceTree = "<group>"; };
@@ -254,9 +260,12 @@
 		1495398D25C278C500F05BA1 /* Change */ = {
 			isa = PBXGroup;
 			children = (
+				148A397B26A50F4100972C12 /* Main.storyboard */,
 				1495398E25C278C500F05BA1 /* ChangeApp.swift */,
 				14CC3E6225FE438C004106FF /* AppDelegate.swift */,
 				14CC3E6325FE438C004106FF /* SceneDelegate.swift */,
+				148BC38E26A423A100E83678 /* CustomTabBarController.swift */,
+				148BC38F26A423A100E83678 /* CustomNavigationController.swift */,
 				1495399E25C278CF00F05BA1 /* Views */,
 				1495399F25C278EA00F05BA1 /* Models */,
 				149539C625C27CF200F05BA1 /* Resources */,
@@ -281,9 +290,9 @@
 				1495399025C278C500F05BA1 /* ContentView.swift */,
 				149539A725C279D000F05BA1 /* Prediction */,
 				140CE46825C460E700984B9D /* Hexagrams */,
+				1476167325F8DE75009F7578 /* MoreViews */,
 				140CE45625C4592000984B9D /* Categories */,
 				147D0AF525C842660069C826 /* PageViews */,
-				1476167325F8DE75009F7578 /* MoreViews */,
 				149539E025C2EFA500F05BA1 /* Helpers */,
 			);
 			path = Views;
@@ -445,6 +454,7 @@
 				1495399325C278C500F05BA1 /* Assets.xcassets in Resources */,
 				1441B23C260225FB00833DEC /* license_cn.rtf in Resources */,
 				1441B24F26023F2700833DEC /* 数字占法.rtf in Resources */,
+				148A397C26A50F4100972C12 /* Main.storyboard in Resources */,
 				1441B25526023F6B00833DEC /* 占卦三不.rtf in Resources */,
 				1441B26126023FBF00833DEC /* 元亨之意.rtf in Resources */,
 				140CE47225C463EF00984B9D /* basicHexagramData.json in Resources */,
@@ -486,6 +496,7 @@
 				147D0AFA25C842A50069C826 /* PageViewController.swift in Sources */,
 				140557A925DD567F004681EE /* RotateImage.swift in Sources */,
 				140CE46025C45AE600984B9D /* HexagramRow.swift in Sources */,
+				148BC39126A423A100E83678 /* CustomNavigationController.swift in Sources */,
 				149FEB5E2621EA2D00AE6380 /* RecordData.swift in Sources */,
 				1468B4D8268F079C000C0A33 /* ChangeWidgets.intentdefinition in Sources */,
 				1441B23F26022FFA00833DEC /* RTFView.swift in Sources */,
@@ -494,6 +505,7 @@
 				14CC3E5E25FE3CB9004106FF /* SearchBar.swift in Sources */,
 				140CE46D25C4617500984B9D /* HexagramList.swift in Sources */,
 				147D0B0D25C84D950069C826 /* DayanExplanationView.swift in Sources */,
+				148BC39026A423A100E83678 /* CustomTabBarController.swift in Sources */,
 				1476167A25F8E13D009F7578 /* LogoView.swift in Sources */,
 				147D0B0725C849D30069C826 /* FeatureCard.swift in Sources */,
 				149539C425C27C6400F05BA1 /* Prediction.swift in Sources */,
