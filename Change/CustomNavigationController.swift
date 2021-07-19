@@ -49,10 +49,26 @@ class HexagramNavigationController: CustomNavigationController {
         
         let hostVC = UIHostingController(rootView: HexagramNavigationView().environmentObject(self.modelData))
         
+        let searchController: UISearchController = UISearchController(searchResultsController: nil)
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "搜索"
+        searchController.searchBar.setValue("取消", forKey: "cancelButtonText")
+        hostVC.navigationItem.searchController = searchController
+        
         self.setViewControllers([hostVC], animated: true)
         
         self.navigationBar.prefersLargeTitles = true
     }
+}
+
+
+extension HexagramNavigationController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+    if let searchBarText = searchController.searchBar.text {
+        self.modelData.searchBarText = searchBarText
+    }
+  }
 }
 
 

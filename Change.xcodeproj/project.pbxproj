@@ -44,7 +44,8 @@
 		147D0B0725C849D30069C826 /* FeatureCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D0B0625C849D30069C826 /* FeatureCard.swift */; };
 		147D0B0A25C84D860069C826 /* DigitalExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D0B0925C84D860069C826 /* DigitalExplanationView.swift */; };
 		147D0B0D25C84D950069C826 /* DayanExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D0B0C25C84D950069C826 /* DayanExplanationView.swift */; };
-		148A397C26A50F4100972C12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148A397B26A50F4100972C12 /* Main.storyboard */; };
+		148A398426A525C200972C12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148A398326A525C200972C12 /* Main.storyboard */; };
+		148A398626A5261600972C12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148A398526A5261600972C12 /* LaunchScreen.storyboard */; };
 		148BC39026A423A100E83678 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BC38E26A423A100E83678 /* CustomTabBarController.swift */; };
 		148BC39126A423A100E83678 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BC38F26A423A100E83678 /* CustomNavigationController.swift */; };
 		148D71412622C31300324517 /* RecordCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D71402622C31300324517 /* RecordCard.swift */; };
@@ -130,7 +131,8 @@
 		147D0B0625C849D30069C826 /* FeatureCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureCard.swift; sourceTree = "<group>"; };
 		147D0B0925C84D860069C826 /* DigitalExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalExplanationView.swift; sourceTree = "<group>"; };
 		147D0B0C25C84D950069C826 /* DayanExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayanExplanationView.swift; sourceTree = "<group>"; };
-		148A397B26A50F4100972C12 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		148A398326A525C200972C12 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		148A398526A5261600972C12 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		148BC38E26A423A100E83678 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		148BC38F26A423A100E83678 /* CustomNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		148D71402622C31300324517 /* RecordCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCard.swift; sourceTree = "<group>"; };
@@ -260,7 +262,8 @@
 		1495398D25C278C500F05BA1 /* Change */ = {
 			isa = PBXGroup;
 			children = (
-				148A397B26A50F4100972C12 /* Main.storyboard */,
+				148A398326A525C200972C12 /* Main.storyboard */,
+				148A398526A5261600972C12 /* LaunchScreen.storyboard */,
 				1495398E25C278C500F05BA1 /* ChangeApp.swift */,
 				14CC3E6225FE438C004106FF /* AppDelegate.swift */,
 				14CC3E6325FE438C004106FF /* SceneDelegate.swift */,
@@ -450,11 +453,12 @@
 				149539C825C27F1C00F05BA1 /* derivedHexagramData.json in Resources */,
 				1441B24C26023F2100833DEC /* 大衍占法.rtf in Resources */,
 				1441B25E26023F9B00833DEC /* 不疑不占.rtf in Resources */,
+				148A398626A5261600972C12 /* LaunchScreen.storyboard in Resources */,
 				1441B25B26023F8B00833DEC /* 不义不占.rtf in Resources */,
 				1495399325C278C500F05BA1 /* Assets.xcassets in Resources */,
 				1441B23C260225FB00833DEC /* license_cn.rtf in Resources */,
 				1441B24F26023F2700833DEC /* 数字占法.rtf in Resources */,
-				148A397C26A50F4100972C12 /* Main.storyboard in Resources */,
+				148A398426A525C200972C12 /* Main.storyboard in Resources */,
 				1441B25526023F6B00833DEC /* 占卦三不.rtf in Resources */,
 				1441B26126023FBF00833DEC /* 元亨之意.rtf in Resources */,
 				140CE47225C463EF00984B9D /* basicHexagramData.json in Resources */,
@@ -537,7 +541,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G49LF2K9N4;
 				INFOPLIST_FILE = ChangeWidgets/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -559,7 +563,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G49LF2K9N4;
 				INFOPLIST_FILE = ChangeWidgets/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -700,7 +704,7 @@
 				DEVELOPMENT_TEAM = G49LF2K9N4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Change/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -723,7 +727,7 @@
 				DEVELOPMENT_TEAM = G49LF2K9N4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Change/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

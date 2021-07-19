@@ -12,12 +12,10 @@ struct MoreNavigationView: View {
     
     var body: some View {
         Form {
-            Section {
-                LogoView()
-                    .frame(height: 150)
-                    .shadow(radius: 10)
-            }
-            
+            LogoView()
+                .frame(height: 150)
+                .shadow(radius: 10)
+
             Section {
                 NavigationLink(destination:  RecordView().environmentObject(modelData)) {
                     Text("占卦记录")

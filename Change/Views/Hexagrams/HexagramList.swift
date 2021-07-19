@@ -9,57 +9,44 @@ import SwiftUI
 
 struct HexagramNavigationView: View {
     @EnvironmentObject var modelData: ModelData
-    @State private var selection: Tab = .derived
-    @State private var searchText = ""
-
-    enum Tab {
-        case basic
-        case derived
+    
+    var allHexagrams: [Hexagram] {
+        modelData.basicHexagrams + modelData.derivedHexagrams
     }
-
-    var selectedHexagrams: [Hexagram] {
-        if selection == Tab.basic {
-            return modelData.basicHexagrams
-        }
-        else if selection == Tab.derived {
-            return modelData.derivedHexagrams
-        }
-        return [Hexagram]()
-    }
-
+    
     var filteredHexagrams: [Hexagram] {
-        selectedHexagrams.filter {
-            ($0.name.hasPrefix(searchText) || searchText == "")
+        allHexagrams.filter {
+            ($0.name.hasPrefix(modelData.searchBarText) || modelData.searchBarText.isEmpty)
         }
     }
-
-    var selectedTitle: String {
-        if selection == Tab.basic {
-            return "基本八卦"
-        }
-        else if selection == Tab.derived {
-            return "六十四卦"
-        }
-        return String()
-    }
-
+    
     var body: some View {
-        List {
-            SearchBar(text: $searchText)
-
-            Picker("卦象", selection: $selection) {
-                Text("基本八卦").tag(Tab.basic)
-                Text("六十四卦").tag(Tab.derived)
-            }
-            .pickerStyle(SegmentedPickerStyle())
-        
-            ForEach(filteredHexagrams, id: \.self) { hexagram in
-                NavigationLink(destination: HexagramDetail(hexagram: hexagram)) {
-                    HexagramRow(hexagram: hexagram)
+        Form {
+            if modelData.searchBarText.isEmpty {
+                Section(header: Text("   基本八卦").font(.title2)) {
+                    ForEach(modelData.basicHexagrams, id: \.self) { hexagram in
+                        NavigationLink(destination: HexagramDetail(hexagram: hexagram)) {
+                            HexagramRow(hexagram: hexagram)
+                        }
+                    }
+                }
+                
+                Section(header: Text("   六十四卦").font(.title2)) {
+                    ForEach(modelData.derivedHexagrams, id: \.self) { hexagram in
+                        NavigationLink(destination: HexagramDetail(hexagram: hexagram)) {
+                            HexagramRow(hexagram: hexagram)
+                        }
+                    }
+                }
+            } else {
+                ForEach(filteredHexagrams, id: \.self) { hexagram in
+                    NavigationLink(destination: HexagramDetail(hexagram: hexagram)) {
+                        HexagramRow(hexagram: hexagram)
+                    }
                 }
             }
         }
-        .navigationTitle(selectedTitle)
+        .navigationTitle("卦象")
     }
 }
 
