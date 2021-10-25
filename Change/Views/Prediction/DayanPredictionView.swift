@@ -13,96 +13,96 @@ struct DayanPredictionView: View {
     @State private var isSolve = false
     @State private var opcity: Double = 1
     private var yao: [String] = ["初", "二", "三", "四", "五", "上"]
-    private var uiWidth = UIScreen.main.nativeBounds.width
-    private var uiHeight = UIScreen.main.nativeBounds.height
         
     var body: some View {
-        ZStack {
-            VStack {
-                Spacer()
-                
-                Text("大衍卦")
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                
-                RotateImage(image: "先天八卦图", lineWidth: 2)
-                    .frame(width: uiWidth * 0.3, height: uiWidth * 0.3)
-                
-                Spacer()
-                
-                HStack {
-                    ForEach(0...5, id: \.self) { index in
-                        VStack {
-                            let name = (((modelData.dayanPrediction.data.result[index] % 2) == 0) ? "六" : "九")
-                            if (index == 0 || index == 5) {
-                                Text(yao[index] + name)
-                            }
-                            else {
-                                Text(name + yao[index])
-                            }
-                            NumberPicker(start: 6, end: 9, value: $modelData.dayanPrediction.data.result[index])
-                                .font(.title)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
-                                .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2))
-                        }
-                    }
-                }
-                .padding(.horizontal, 5.0)
-                
-                Spacer()
-                
-                HStack {
-                    Spacer()
-                    
-                    Button(action: {}) {
-                        VStack {
-                            Image("占")
-                                .resizable()
-                                .frame(width: 80, height: 80)
-                                .clipShape(HexagramShape())
-                                .overlay(HexagramShape().stroke(Color.black, lineWidth: 2))
-                        }
-                        .opacity(self.opcity)
-                        .onTapGesture { opcity = 0.8 }
-                        .onLongPressGesture { DayanPrediction() }
-                    }
-                    
-                    Spacer()
-                    
-                    Button(action: {}) {
-                        VStack {
-                            Image("解")
-                                .resizable()
-                                .frame(width: 80, height: 80)
-                                .clipShape(HexagramShape())
-                                .overlay(HexagramShape().stroke(Color.black, lineWidth: 2))
-                        }
-                        .opacity(self.opcity)
-                        .onTapGesture { opcity = 0.8 }
-                        .onLongPressGesture { DayanParser() }
-                    }
-                    
-                    Spacer()
-                }
-            }
-            .blur(radius: isSolve ? 15 : 0)
-            
-            if $isSolve.wrappedValue {
+        GeometryReader { geometry in
+            ZStack {
                 VStack {
-                    DayanExplanationView(dayanData: modelData.dayanPrediction.data)
-                        .cornerRadius(10).shadow(radius: 20)
+                    Spacer()
+                    
+                    Text("大衍卦")
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    
+                    RotateImage(image: "先天八卦图", lineWidth: 2)
+                        .frame(width: geometry.size.height * 0.45, height: geometry.size.height * 0.45)
+                    
+                    Spacer()
+                    
+                    HStack {
+                        ForEach(0...5, id: \.self) { index in
+                            VStack {
+                                let name = (((modelData.dayanPrediction.data.result[index] % 2) == 0) ? "六" : "九")
+                                if (index == 0 || index == 5) {
+                                    Text(yao[index] + name)
+                                }
+                                else {
+                                    Text(name + yao[index])
+                                }
+                                NumberPicker(start: 6, end: 9, value: $modelData.dayanPrediction.data.result[index])
+                                    .font(.title)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2))
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 5.0)
+                    
+                    Spacer()
+                    
+                    HStack {
+                        Spacer()
+                        
+                        Button(action: {}) {
+                            VStack {
+                                Image("占")
+                                    .resizable()
+                                    .frame(width: geometry.size.height * 0.1, height: geometry.size.height * 0.1)
+                                    .clipShape(HexagramShape())
+                                    .overlay(HexagramShape().stroke(Color.black, lineWidth: 2))
+                            }
+                            .opacity(self.opcity)
+                            .onTapGesture { opcity = 0.8 }
+                            .onLongPressGesture { DayanPrediction() }
+                        }
+                        
+                        Spacer()
+                        
+                        Button(action: {}) {
+                            VStack {
+                                Image("解")
+                                    .resizable()
+                                    .frame(width: geometry.size.height * 0.1, height: geometry.size.height * 0.1)
+                                    .clipShape(HexagramShape())
+                                    .overlay(HexagramShape().stroke(Color.black, lineWidth: 2))
+                            }
+                            .opacity(self.opcity)
+                            .onTapGesture { opcity = 0.8 }
+                            .onLongPressGesture { DayanParser() }
+                        }
+                        
+                        Spacer()
+                    }
+                }
+                .blur(radius: isSolve ? 15 : 0)
+                
+                if $isSolve.wrappedValue {
+                    VStack {
+                        DayanExplanationView(dayanData: modelData.dayanPrediction.data)
+                            .cornerRadius(10).shadow(radius: 20)
 
-                    Button(action: {
-                        self.isSolve = false
-                    }) {
-                        Image(systemName: "xmark.seal")
-                            .resizable()
-                            .foregroundColor((colorScheme == .dark) ? .white : .black)
-                            .frame(width: 50, height: 50)
+                        Button(action: {
+                            self.isSolve = false
+                        }) {
+                            Image(systemName: "xmark.seal")
+                                .resizable()
+                                .foregroundColor((colorScheme == .dark) ? .white : .black)
+                                .frame(width: 50, height: 50)
+                        }
                     }
                 }
             }
+            .shadow(radius: 20)
         }
-        .shadow(radius: 20)
     }
     
     func DayanPrediction() {

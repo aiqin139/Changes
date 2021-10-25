@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct PredictionNavigationView: View {
-    private var uiWidth = UIScreen.main.nativeBounds.width
-    private var uiHeight = UIScreen.main.nativeBounds.height
     @EnvironmentObject var modelData: ModelData
     @Environment(\.colorScheme) var colorScheme
     
@@ -18,33 +16,35 @@ struct PredictionNavigationView: View {
     }
     
     var body: some View {
-        VStack {
-            RotateImage(image: "先天八卦图")
-                .frame(width: uiWidth * 0.3, height: uiWidth * 0.3)
+        GeometryReader { geometry in
+            VStack {
+                RotateImage(image: "先天八卦图")
+                    .frame(width: geometry.size.height * 0.45, height: geometry.size.height * 0.45)
 
-            Form {
-                Button(action: { modelData.isDigitalPresented = true }) {
-                        Text("数字卦（占小事）")
-                }.sheet(isPresented: $modelData.isDigitalPresented, content: {
-                    DigitalPredictionView()
-                        .environmentObject(modelData)
-                        .animation(.easeInOut(duration: 0.3))
-                })
-                .frame(height: 30)
-                .accentColor(accentColor)
-                
-                Button(action: { modelData.isDayanPresented = true }) {
-                        Text("大衍卦（占大事）")
-                }.sheet(isPresented: $modelData.isDayanPresented, content: {
-                    DayanPredictionView()
-                        .environmentObject(modelData)
-                        .animation(.easeInOut(duration: 0.3))
-                })
-                .frame(height: 30)
-                .accentColor(accentColor)
+                Form {
+                    Button(action: { modelData.isDigitalPresented = true }) {
+                            Text("数字卦（占小事）")
+                    }.sheet(isPresented: $modelData.isDigitalPresented, content: {
+                        DigitalPredictionView()
+                            .environmentObject(modelData)
+                            .animation(.easeInOut(duration: 0.3))
+                    })
+                    .frame(height: 30)
+                    .accentColor(accentColor)
+                    
+                    Button(action: { modelData.isDayanPresented = true }) {
+                            Text("大衍卦（占大事）")
+                    }.sheet(isPresented: $modelData.isDayanPresented, content: {
+                        DayanPredictionView()
+                            .environmentObject(modelData)
+                            .animation(.easeInOut(duration: 0.3))
+                    })
+                    .frame(height: 30)
+                    .accentColor(accentColor)
+                }
             }
+            .navigationTitle("占卦")
         }
-        .navigationTitle("占卦")
     }
 }
 

@@ -29,8 +29,10 @@ struct NumberPicker: View {
                     }
                 }
                 .frame(maxWidth: geometry.size.width / (label == "" ? 1 : 2))
-                .clipped()
                 .shadow(color: .black, radius: 10)
+                .compositingGroup()
+                .clipped(antialiased: true)
+                .pickerStyle(.wheel)
             }
         }
     }
