@@ -17,9 +17,12 @@ struct PredictionNavigationView: View {
     
     var body: some View {
         GeometryReader { geometry in
+            let imageWidth = geometry.size.height * 0.55
+            let imageHeight = geometry.size.height * 0.55
+            
             VStack {
                 RotateImage(image: "先天八卦图")
-                    .frame(width: geometry.size.height * 0.45, height: geometry.size.height * 0.45)
+                    .frame(width: imageWidth, height: imageHeight)
 
                 Form {
                     Button(action: { modelData.isDigitalPresented = true }) {
@@ -43,8 +46,8 @@ struct PredictionNavigationView: View {
                     .accentColor(accentColor)
                 }
             }
-            .navigationTitle("占卦")
         }
+        .navigationTitle("占卦")
     }
 }
 

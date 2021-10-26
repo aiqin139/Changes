@@ -16,6 +16,11 @@ struct DayanPredictionView: View {
         
     var body: some View {
         GeometryReader { geometry in
+            let imageWidth = geometry.size.height * 0.45
+            let imageHeight = geometry.size.height * 0.45
+            let buttonWidth = geometry.size.height * 0.1
+            let buttonHeight = geometry.size.height * 0.1
+            
             ZStack {
                 VStack {
                     Spacer()
@@ -24,7 +29,7 @@ struct DayanPredictionView: View {
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     
                     RotateImage(image: "先天八卦图", lineWidth: 2)
-                        .frame(width: geometry.size.height * 0.45, height: geometry.size.height * 0.45)
+                        .frame(width: imageWidth, height: imageHeight)
                     
                     Spacer()
                     
@@ -56,7 +61,7 @@ struct DayanPredictionView: View {
                             VStack {
                                 Image("占")
                                     .resizable()
-                                    .frame(width: geometry.size.height * 0.1, height: geometry.size.height * 0.1)
+                                    .frame(width: buttonWidth, height: buttonHeight)
                                     .clipShape(HexagramShape())
                                     .overlay(HexagramShape().stroke(Color.black, lineWidth: 2))
                             }
@@ -71,7 +76,7 @@ struct DayanPredictionView: View {
                             VStack {
                                 Image("解")
                                     .resizable()
-                                    .frame(width: geometry.size.height * 0.1, height: geometry.size.height * 0.1)
+                                    .frame(width: buttonWidth, height: buttonHeight)
                                     .clipShape(HexagramShape())
                                     .overlay(HexagramShape().stroke(Color.black, lineWidth: 2))
                             }
