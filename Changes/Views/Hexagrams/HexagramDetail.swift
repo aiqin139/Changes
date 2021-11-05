@@ -47,7 +47,6 @@ struct HexagramDetail: View {
                 }
             }
         }
-        .frame(width: 350)
         .background(backgroundColor)
         .cornerRadius(10)
         .shadow(color: .gray, radius: 10, x: 0, y: 3)
