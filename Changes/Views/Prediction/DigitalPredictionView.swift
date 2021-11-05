@@ -12,7 +12,11 @@ struct DigitalPredictionView: View {
     @Environment(\.colorScheme) var colorScheme
     @State private var isSolve = false
     @State private var opcity: Double = 1
-        
+    
+    var accentColor: Color {
+        return (colorScheme == .dark) ? .white : .black
+    }
+    
     var body: some View {
         GeometryReader { geometry in
             let imageWidth = geometry.size.height * 0.45
@@ -23,9 +27,6 @@ struct DigitalPredictionView: View {
             ZStack {
                 VStack {
                     Spacer()
-                    
-                    Text("数字卦")
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     
                     RotateImage(image: "先天八卦图", lineWidth: 2)
                         .frame(width: imageWidth, height: imageHeight)
@@ -39,7 +40,7 @@ struct DigitalPredictionView: View {
                                 NumberPicker(format: "%03d", start: 0, end: 999, value: $modelData.digitalPrediction.data.values[index])
                                     .font(.title)
                                     .clipShape(HexagramShape())
-                                    .overlay(HexagramShape().stroke(Color.black, lineWidth: 2))
+                                    .overlay(HexagramShape().stroke(accentColor, lineWidth: 2))
                             }
                         }
                     }
@@ -56,7 +57,7 @@ struct DigitalPredictionView: View {
                                     .resizable()
                                     .frame(width: buttonWidth, height: buttonHeight)
                                     .clipShape(HexagramShape())
-                                    .overlay(HexagramShape().stroke(Color.black, lineWidth: 2))
+                                    .overlay(HexagramShape().stroke(accentColor, lineWidth: 2))
                             }
                             .opacity(self.opcity)
                             .onTapGesture { opcity = 0.8 }
@@ -71,7 +72,7 @@ struct DigitalPredictionView: View {
                                     .resizable()
                                     .frame(width: buttonWidth, height: buttonHeight)
                                     .clipShape(HexagramShape())
-                                    .overlay(HexagramShape().stroke(Color.black, lineWidth: 2))
+                                    .overlay(HexagramShape().stroke(accentColor, lineWidth: 2))
                             }
                             .opacity(self.opcity)
                             .onTapGesture { opcity = 0.8 }
@@ -83,7 +84,7 @@ struct DigitalPredictionView: View {
                     
                     Spacer()
                 }
-                .blur(radius: isSolve ? 15 : 0)
+                .blur(radius: isSolve ? 10 : 0)
                 
                 if $isSolve.wrappedValue {
                     VStack {
@@ -95,13 +96,15 @@ struct DigitalPredictionView: View {
                         }) {
                             Image(systemName: "xmark.seal")
                                 .resizable()
-                                .foregroundColor((colorScheme == .dark) ? .white : .black)
+                                .foregroundColor(accentColor)
                                 .frame(width: 50, height: 50)
                         }
                     }
                 }
             }
             .shadow(radius: 20)
+            .navigationTitle("数字卦")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
     

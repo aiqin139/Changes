@@ -25,25 +25,15 @@ struct PredictionNavigationView: View {
                     .frame(width: imageWidth, height: imageHeight)
 
                 Form {
-                    Button(action: { modelData.isDigitalPresented = true }) {
-                            Text("数字卦（占小事）")
-                    }.sheet(isPresented: $modelData.isDigitalPresented, content: {
-                        DigitalPredictionView()
-                            .environmentObject(modelData)
-                            .animation(.easeInOut(duration: 0.3))
-                    })
-                    .frame(height: 30)
-                    .accentColor(accentColor)
-                    
-                    Button(action: { modelData.isDayanPresented = true }) {
-                            Text("大衍卦（占大事）")
-                    }.sheet(isPresented: $modelData.isDayanPresented, content: {
-                        DayanPredictionView()
-                            .environmentObject(modelData)
-                            .animation(.easeInOut(duration: 0.3))
-                    })
-                    .frame(height: 30)
-                    .accentColor(accentColor)
+                    NavigationLink(destination: DigitalPredictionView().environmentObject(modelData),
+                                   isActive: $modelData.isDigitalPresented){
+                        Text("数字卦（占小事）")
+                    }
+
+                    NavigationLink(destination: DayanPredictionView().environmentObject(modelData),
+                                   isActive: $modelData.isDayanPresented){
+                        Text("大衍卦（占大事）")
+                    }
                 }
             }
         }

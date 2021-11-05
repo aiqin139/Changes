@@ -24,7 +24,8 @@ struct DigitalExplanationView: View {
         VStack {
             Text("数字卦")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                .frame(width: 330)
+                .frame(width: 350)
+                .background(backgroundColor)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .overlay(RoundedRectangle(cornerRadius: 10).stroke(strokeColor, lineWidth: 2))
                 .padding(.vertical, 15.0)
@@ -63,7 +64,8 @@ struct DigitalExplanationView: View {
                 
                 Spacer()
             }
-            .frame(width: 330, height: 350)
+            .frame(width: 350, height: 350)
+            .background(backgroundColor)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .overlay(RoundedRectangle(cornerRadius: 10).stroke(strokeColor, lineWidth: 2))
             .padding(.vertical, -5.0)
@@ -76,15 +78,14 @@ struct DigitalExplanationView: View {
                         .minimumScaleFactor(0.1)
                 }
             }
-            .frame(width: 330)
+            .frame(width: 350)
+            .background(backgroundColor)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .overlay(RoundedRectangle(cornerRadius: 10).stroke(strokeColor, lineWidth: 2))
             .padding(.vertical, 15.0)
         }
         .frame(width: 350)
-        .background(backgroundColor)
-        .cornerRadius(10)
-        .shadow(color: .gray, radius: 10, x: 0, y: 3)
+        .shadow(color: .gray, radius: 10)
         .padding()
     }
 }

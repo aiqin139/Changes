@@ -13,6 +13,10 @@ struct DayanPredictionView: View {
     @State private var isSolve = false
     @State private var opcity: Double = 1
     private var yao: [String] = ["初", "二", "三", "四", "五", "上"]
+    
+    var accentColor: Color {
+        return (colorScheme == .dark) ? .white : .black
+    }
         
     var body: some View {
         GeometryReader { geometry in
@@ -24,9 +28,6 @@ struct DayanPredictionView: View {
             ZStack {
                 VStack {
                     Spacer()
-                    
-                    Text("大衍卦")
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     
                     RotateImage(image: "先天八卦图", lineWidth: 2)
                         .frame(width: imageWidth, height: imageHeight)
@@ -46,7 +47,7 @@ struct DayanPredictionView: View {
                                 NumberPicker(start: 6, end: 9, value: $modelData.dayanPrediction.data.result[index])
                                     .font(.title)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
-                                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2))
+                                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(accentColor, lineWidth: 2))
                             }
                         }
                     }
@@ -63,7 +64,7 @@ struct DayanPredictionView: View {
                                     .resizable()
                                     .frame(width: buttonWidth, height: buttonHeight)
                                     .clipShape(HexagramShape())
-                                    .overlay(HexagramShape().stroke(Color.black, lineWidth: 2))
+                                    .overlay(HexagramShape().stroke(accentColor, lineWidth: 2))
                             }
                             .opacity(self.opcity)
                             .onTapGesture { opcity = 0.8 }
@@ -78,7 +79,7 @@ struct DayanPredictionView: View {
                                     .resizable()
                                     .frame(width: buttonWidth, height: buttonHeight)
                                     .clipShape(HexagramShape())
-                                    .overlay(HexagramShape().stroke(Color.black, lineWidth: 2))
+                                    .overlay(HexagramShape().stroke(accentColor, lineWidth: 2))
                             }
                             .opacity(self.opcity)
                             .onTapGesture { opcity = 0.8 }
@@ -87,8 +88,10 @@ struct DayanPredictionView: View {
                         
                         Spacer()
                     }
+                    
+                    Spacer()
                 }
-                .blur(radius: isSolve ? 15 : 0)
+                .blur(radius: isSolve ? 10 : 0)
                 
                 if $isSolve.wrappedValue {
                     VStack {
@@ -100,13 +103,15 @@ struct DayanPredictionView: View {
                         }) {
                             Image(systemName: "xmark.seal")
                                 .resizable()
-                                .foregroundColor((colorScheme == .dark) ? .white : .black)
+                                .foregroundColor(accentColor)
                                 .frame(width: 50, height: 50)
                         }
                     }
                 }
             }
             .shadow(radius: 20)
+            .navigationTitle("大衍卦")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
     
