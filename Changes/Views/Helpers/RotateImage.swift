@@ -30,6 +30,7 @@ struct HexagramShape: Shape {
 struct RotateImage: View {
     var image: String
     var lineWidth: CGFloat = 0
+    var lineColor: Color = Color.black
     var locationManager = CLLocationManager()
     @ObservedObject var location: LocationProvider = LocationProvider()
     @State var angle: CGFloat = 0
