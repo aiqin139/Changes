@@ -80,6 +80,8 @@ struct DigitalPredictionView: View {
                         
                         Spacer()
                     }
+                    
+                    Spacer()
                 }
                 .blur(radius: isSolve ? 15 : 0)
                 
