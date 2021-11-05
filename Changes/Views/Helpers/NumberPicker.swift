@@ -7,33 +7,52 @@
 
 import SwiftUI
 
-struct NumberPicker: View {
-    var label: String = ""
+struct NumberPicker: UIViewRepresentable {
     var format: String = "%d"
     var start: Int = 0
     var end: Int = 9
-    @Binding var value: Int
+    var value: Binding<Int>
     
-    var body: some View {
-        GeometryReader { geometry in
-            HStack {
-                if label != "" {
-                    Text(label)
-                        .shadow(color: .black, radius: 10)
-                }
-                
-                Picker("Number", selection: $value) {
-                    ForEach(start...end, id: \.self) { number in
-                        Text(String(format: format, number))
-                            .tag(number)
-                    }
-                }
-                .frame(maxWidth: geometry.size.width / (label == "" ? 1 : 2))
-                .shadow(color: .black, radius: 10)
-                .compositingGroup()
-                .clipped(antialiased: true)
-                .pickerStyle(.wheel)
-            }
+    func makeCoordinator() -> NumberPicker.Coordinator {
+        Coordinator(self)
+    }
+    
+    func makeUIView(context: UIViewRepresentableContext<NumberPicker>) -> UIPickerView {
+        let picker = UIPickerView()
+        
+        picker.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        
+        picker.dataSource = context.coordinator
+        picker.delegate = context.coordinator
+        
+        return picker
+    }
+    
+    func updateUIView(_ view: UIPickerView, context: UIViewRepresentableContext<NumberPicker>) {
+        view.selectRow(value.wrappedValue - start, inComponent: 0, animated: false)
+    }
+    
+    class Coordinator: NSObject, UIPickerViewDataSource, UIPickerViewDelegate {
+        var parent: NumberPicker
+      
+        init(_ pickerView: NumberPicker) {
+            parent = pickerView
+        }
+        
+        func numberOfComponents(in pickerView: UIPickerView) -> Int {
+            return 1
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+            return parent.end - parent.start + 1
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+            return String(format: parent.format, parent.start + row)
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+            parent.value.wrappedValue = Int(parent.start + row)
         }
     }
 }
@@ -45,9 +64,9 @@ struct NumberPicker_Previews: PreviewProvider {
     
     static var previews: some View {
         HStack {
-            NumberPicker(label: "数字1:", format: "%03d", start: 0, end: 999, value: $value1)
-            NumberPicker(label: "数字2:", format: "%03d", start: 0, end: 999, value: $value2)
-            NumberPicker(label: "数字3:", format: "%03d", start: 0, end: 999, value: $value3)
+            NumberPicker(format: "%03d", start: 0, end: 999, value: $value1)
+            NumberPicker(format: "%03d", start: 0, end: 999, value: $value2)
+            NumberPicker(format: "%03d", start: 0, end: 999, value: $value3)
         }
     }
 }
