@@ -41,7 +41,7 @@ struct DigitalPredictionView: View {
                                     .clipShape(HexagramShape())
                                     .overlay(HexagramShape().stroke(Color.black, lineWidth: 2))
                             }
-                        }.id(UUID())
+                        }
                     }
                     .padding(.horizontal, 5.0)
                     
