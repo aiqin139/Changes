@@ -24,16 +24,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             savedShortCutItem = shortcutItem
         }
         
-//        // Create the SwiftUI view that provides the window contents.
-//        let contentView = ContentView().environmentObject(modelData)
-//        // Use a UIHostingController as window root view controller.
-//        if let windowScene = scene as? UIWindowScene {
-//            let window = UIWindow(windowScene: windowScene)
-//            window.rootViewController = UIHostingController(rootView: contentView)
-//            self.window = window
-//            window.makeKeyAndVisible()
-//        }
-        
         // Create the UIKit view that provides the window contents.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
@@ -41,8 +31,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             window.makeKeyAndVisible()
         }
-        
-        //guard let _ = (scene as? UIWindowScene) else { return }
     }
     
     // MARK: - Application Shortcut Support

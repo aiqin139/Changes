@@ -43,7 +43,6 @@
 		148BC39126A423A100E83678 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BC38F26A423A100E83678 /* CustomNavigationController.swift */; };
 		148D71412622C31300324517 /* RecordCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D71402622C31300324517 /* RecordCard.swift */; };
 		1495398F25C278C500F05BA1 /* ChangesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495398E25C278C500F05BA1 /* ChangesApp.swift */; };
-		1495399125C278C500F05BA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495399025C278C500F05BA1 /* ContentView.swift */; };
 		1495399325C278C500F05BA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1495399225C278C500F05BA1 /* Assets.xcassets */; };
 		1495399625C278C500F05BA1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1495399525C278C500F05BA1 /* Preview Assets.xcassets */; };
 		149539A225C2795A00F05BA1 /* PredictionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539A125C2795A00F05BA1 /* PredictionView.swift */; };
@@ -113,7 +112,6 @@
 		148D71402622C31300324517 /* RecordCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCard.swift; sourceTree = "<group>"; };
 		1495398B25C278C500F05BA1 /* Changes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Changes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1495398E25C278C500F05BA1 /* ChangesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangesApp.swift; sourceTree = "<group>"; };
-		1495399025C278C500F05BA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1495399225C278C500F05BA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1495399525C278C500F05BA1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1495399725C278C500F05BA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -233,7 +231,6 @@
 		1495399E25C278CF00F05BA1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1495399025C278C500F05BA1 /* ContentView.swift */,
 				149539A725C279D000F05BA1 /* Prediction */,
 				140CE46825C460E700984B9D /* Hexagrams */,
 				1476167325F8DE75009F7578 /* MoreViews */,
@@ -398,7 +395,6 @@
 				148D71412622C31300324517 /* RecordCard.swift in Sources */,
 				149539D625C2DB8400F05BA1 /* ModelData.swift in Sources */,
 				140557AD25DD580B004681EE /* LocationProvider.swift in Sources */,
-				1495399125C278C500F05BA1 /* ContentView.swift in Sources */,
 				147D0AF225C7C2050069C826 /* NumberInput.swift in Sources */,
 				149539F225C2F99000F05BA1 /* CategoryMatrix.swift in Sources */,
 				147D0AFA25C842A50069C826 /* PageViewController.swift in Sources */,
