@@ -125,6 +125,7 @@
 		149539EE25C2F93C00F05BA1 /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		149539F125C2F99000F05BA1 /* CategoryMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMatrix.swift; sourceTree = "<group>"; };
 		149FEB5D2621EA2D00AE6380 /* RecordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordData.swift; sourceTree = "<group>"; };
+		14B10B6F27352CFC0036F3FF /* Changes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Changes.entitlements; sourceTree = "<group>"; };
 		14CC3E5D25FE3CB9004106FF /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		14CC3E6225FE438C004106FF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14CC3E6325FE438C004106FF /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +204,7 @@
 		1495398D25C278C500F05BA1 /* Changes */ = {
 			isa = PBXGroup;
 			children = (
+				14B10B6F27352CFC0036F3FF /* Changes.entitlements */,
 				148A398326A525C200972C12 /* Main.storyboard */,
 				148A398526A5261600972C12 /* LaunchScreen.storyboard */,
 				1495398E25C278C500F05BA1 /* ChangesApp.swift */,
@@ -546,6 +548,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Changes/Changes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Changes/Preview Content\"";
 				DEVELOPMENT_TEAM = G49LF2K9N4;
@@ -558,8 +561,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = aicodeone.Changes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -569,6 +573,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Changes/Changes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Changes/Preview Content\"";
 				DEVELOPMENT_TEAM = G49LF2K9N4;
@@ -581,8 +586,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = aicodeone.Changes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
