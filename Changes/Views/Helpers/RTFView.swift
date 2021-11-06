@@ -33,7 +33,6 @@ struct RTFView: View {
     
     var body: some View {
         RTFReader(fileName: fileName)
-        .frame(width: 350)
         .background(backgroundColor)
         .cornerRadius(10)
         .shadow(color: .gray, radius: 10, x: 0, y: 3)
