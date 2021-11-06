@@ -36,9 +36,16 @@ struct DigitalExplanationView: View {
                 Text(digitalData.name)
                     .font(.title)
             
-                Image(digitalData.name)
-                    .resizable()
-                    .frame(width: 180, height: 180)
+                if (colorScheme == .dark) {
+                    Image(digitalData.name)
+                        .resizable()
+                        .frame(width: 160, height: 160)
+                        .colorInvert()
+                } else {
+                    Image(digitalData.name)
+                        .resizable()
+                        .frame(width: 160, height: 160)
+                }
                 
                 HStack {
                     ForEach(digitalData.values, id: \.self) { content in
@@ -64,7 +71,7 @@ struct DigitalExplanationView: View {
                 
                 Spacer()
             }
-            .frame(width: 350, height: 350)
+            .frame(width: 350)
             .background(backgroundColor)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .overlay(RoundedRectangle(cornerRadius: 10).stroke(strokeColor, lineWidth: 2))

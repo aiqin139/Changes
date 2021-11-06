@@ -95,6 +95,7 @@ struct DigitalPredictionView: View {
 
                         Button(action: {
                             self.isSolve = false
+                            Notifiy()
                         }) {
                             Image(systemName: "xmark.seal")
                                 .resizable()
@@ -110,6 +111,7 @@ struct DigitalPredictionView: View {
                         
                         Button(action: {
                             self.isQuestion = false
+                            Notifiy()
                         }) {
                             Image(systemName: "xmark.seal")
                                 .resizable()
@@ -131,11 +133,14 @@ struct DigitalPredictionView: View {
         }
     }
     
-    func DigitPrediction() {
-        modelData.digitalPrediction.Execute()
-        
+    func Notifiy() {
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
+    }
+    
+    func DigitPrediction() {
+        modelData.digitalPrediction.Execute()
+        Notifiy()
     }
     
     func DigitParser() {

@@ -102,6 +102,7 @@ struct DayanPredictionView: View {
 
                         Button(action: {
                             self.isSolve = false
+                            Notifiy()
                         }) {
                             Image(systemName: "xmark.seal")
                                 .resizable()
@@ -117,6 +118,7 @@ struct DayanPredictionView: View {
                         
                         Button(action: {
                             self.isQuestion = false
+                            Notifiy()
                         }) {
                             Image(systemName: "xmark.seal")
                                 .resizable()
@@ -138,11 +140,14 @@ struct DayanPredictionView: View {
         }
     }
     
-    func DayanPrediction() {
-        modelData.dayanPrediction.Execute()
-        
+    func Notifiy() {
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
+    }
+    
+    func DayanPrediction() {
+        modelData.dayanPrediction.Execute()
+        Notifiy()
     }
     
     func DayanParser() {

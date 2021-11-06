@@ -54,9 +54,16 @@ struct DayanExplanationView: View {
                 .foregroundColor(.primary)
                 
                 HStack {
-                    Image(dayanData.benName)
-                        .resizable()
-                        .frame(width: 150, height: 150)
+                    if (colorScheme == .dark) {
+                        Image(dayanData.benName)
+                            .resizable()
+                            .frame(width: 150, height: 150)
+                            .colorInvert()
+                    } else {
+                        Image(dayanData.benName)
+                            .resizable()
+                            .frame(width: 150, height: 150)
+                    }
                     
                     VStack {
                         ForEach(dayanData.result.reversed(), id: \.self) { content in
@@ -70,12 +77,19 @@ struct DayanExplanationView: View {
                     }
                     .frame(width: 50)
                     
-                    Image(dayanData.zhiName)
-                        .resizable()
-                        .frame(width: 150, height: 150)
+                    if (colorScheme == .dark) {
+                        Image(dayanData.zhiName)
+                            .resizable()
+                            .frame(width: 150, height: 150)
+                            .colorInvert()
+                    } else {
+                        Image(dayanData.zhiName)
+                            .resizable()
+                            .frame(width: 150, height: 150)
+                    }
                 }
             }
-            .frame(width: 350, height: 250)
+            .frame(width: 350)
             .background(backgroundColor)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .overlay(RoundedRectangle(cornerRadius: 10).stroke(strokeColor, lineWidth: 2))
