@@ -81,7 +81,7 @@ struct DayanExplanationView: View {
             .overlay(RoundedRectangle(cornerRadius: 10).stroke(strokeColor, lineWidth: 2))
             .padding(.vertical, -5.0)
             
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading) {
                     ForEach(dayanData.explanation1, id: \.self) { content in
                         Text(content)
