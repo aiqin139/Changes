@@ -34,28 +34,24 @@ struct DayanExplanationView: View {
                 HStack {
                     VStack {
                         Text(dayanData.benPinyin)
-                            .font(.title2)
-                            .foregroundColor(.primary)
                         Text(dayanData.benName)
-                            .font(.title2)
-                            .foregroundColor(.primary)
+                        Text("(本)")
                     }
                     .frame(maxWidth: .infinity)
-                    
+
                     VStack {
                     }
                     .frame(width: 50)
                     
                     VStack {
                         Text(dayanData.zhiPinyin)
-                            .font(.title2)
-                            .foregroundColor(.primary)
                         Text(dayanData.zhiName)
-                            .font(.title2)
-                            .foregroundColor(.primary)
+                        Text("(之)")
                     }
                     .frame(maxWidth: .infinity)
                 }
+                .font(.title2)
+                .foregroundColor(.primary)
                 
                 HStack {
                     Image(dayanData.benName)
