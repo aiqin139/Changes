@@ -23,7 +23,7 @@ struct HexagramNavigationView: View {
     var body: some View {
         Form {
             if modelData.searchBarText.isEmpty {
-                Section(header: Text("   基本八卦").font(.title2)) {
+                Section(header: Text("基本八卦").font(.title2)) {
                     ForEach(modelData.basicHexagrams, id: \.self) { hexagram in
                         NavigationLink(destination: HexagramDetail(hexagram: hexagram)) {
                             HexagramRow(hexagram: hexagram)
@@ -31,7 +31,7 @@ struct HexagramNavigationView: View {
                     }
                 }
                 
-                Section(header: Text("   六十四卦").font(.title2)) {
+                Section(header: Text("六十四卦").font(.title2)) {
                     ForEach(modelData.derivedHexagrams, id: \.self) { hexagram in
                         NavigationLink(destination: HexagramDetail(hexagram: hexagram)) {
                             HexagramRow(hexagram: hexagram)
