@@ -69,7 +69,7 @@ struct MoreNavigationView: View {
             }
             
             Section {
-                NavigationLink(destination:  RTFView(fileName: "license_cn").navigationTitle("关于软件")) {
+                NavigationLink(destination:  RTFView(fileName: "软件许可").navigationTitle("关于软件")) {
                     Text("关于软件")
                 }
             }
