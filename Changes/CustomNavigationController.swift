@@ -21,6 +21,15 @@ class CustomNavigationController: UINavigationController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationBar.tintColor = (UITraitCollection.current.userInterfaceStyle == .dark) ? .white : .black
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        self.navigationBar.tintColor = (UITraitCollection.current.userInterfaceStyle == .dark) ? .white : .black
+    }
+    
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if viewControllers.count > 0 {
             viewController.hidesBottomBarWhenPushed = true

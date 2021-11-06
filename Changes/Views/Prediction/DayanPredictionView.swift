@@ -133,6 +133,7 @@ struct DayanPredictionView: View {
                 self.isQuestion = true
             }) {
                     Image(systemName: "questionmark.circle")
+                        .foregroundColor(accentColor)
             })
         }
     }

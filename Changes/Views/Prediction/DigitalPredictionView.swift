@@ -125,7 +125,8 @@ struct DigitalPredictionView: View {
             .navigationBarItems(trailing: Button(action: {
                 self.isQuestion = true
             }) {
-                    Image(systemName: "questionmark.circle")
+                Image(systemName: "questionmark.circle")
+                    .foregroundColor(accentColor)
             })
         }
     }
