@@ -24,3 +24,12 @@ struct Hexagram: Hashable, Codable, Identifiable {
         explanations = [[""]]
     }
 }
+
+enum Purposes: String, CaseIterable, Identifiable {
+    case fortune = "时运"
+    case Wealth = "财运"
+    case Homestead = "家宅"
+    case body = "身体"
+    
+    var id: String { self.rawValue }
+}

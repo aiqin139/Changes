@@ -11,6 +11,7 @@ struct DayanPredictionView: View {
     @EnvironmentObject var modelData: ModelData
     @Environment(\.colorScheme) var colorScheme
     @State private var isSolve = false
+    @State private var isQuestion = false
     @State private var opcity: Double = 1
     private var yao: [String] = ["初", "二", "三", "四", "五", "上"]
     
@@ -91,7 +92,8 @@ struct DayanPredictionView: View {
                     
                     Spacer()
                 }
-                .blur(radius: isSolve ? 10 : 0)
+                .blur(radius: (isSolve || isQuestion) ? 10 : 0)
+                .disabled((isSolve || isQuestion) ? true : false)
                 
                 if $isSolve.wrappedValue {
                     VStack {
@@ -108,10 +110,26 @@ struct DayanPredictionView: View {
                         }
                     }
                 }
+                
+                if $isQuestion.wrappedValue {
+                    VStack {
+                        Text("自定占法：")
+                        Text("滑动六个数字滑轮数字，长按“解”进行解卦。")
+                        Text("")
+                        Text("随机占法：")
+                        Text("长按“占”进行随机占卦，长按“解”进行解卦。")
+                    }
+                }
             }
             .shadow(radius: 20)
             .navigationTitle("大衍卦")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(trailing: Button(action: {
+                if self.isSolve == false { self.isQuestion = true }
+            }) {
+                    Image(systemName: "questionmark.circle")
+            })
+            .onTapGesture { self.isQuestion = false }
         }
     }
     
@@ -124,6 +142,7 @@ struct DayanPredictionView: View {
     
     func DayanParser() {
         let hexagrams = modelData.derivedHexagrams
+        modelData.dayanPrediction.data.purpose = modelData.fortuneTellingPurpose
         modelData.dayanPrediction.Parser(hexagrams: hexagrams)
         
         let records = modelData.hexagramRecord.filter{ $0.type == RecordType.Dayan.rawValue }

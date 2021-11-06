@@ -8,6 +8,7 @@
 import Foundation
 
 struct DigitalData : Hashable, Codable {
+    var purpose: String = ""
     var name: String = ""
     var pinyin: String = ""
     var explanation: [String] = [""]
@@ -17,6 +18,7 @@ struct DigitalData : Hashable, Codable {
 
 
 struct DayanData : Hashable, Codable {
+    var purpose: String = ""
     var benName: String = ""
     var benPinyin: String = ""
     var zhiName: String = ""

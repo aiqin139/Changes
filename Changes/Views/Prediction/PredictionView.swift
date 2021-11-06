@@ -25,6 +25,17 @@ struct PredictionNavigationView: View {
                     .frame(width: imageWidth, height: imageHeight)
 
                 Form {
+                    VStack(alignment: .center, spacing: 10) {
+                        Text("所占何事").bold()
+                        
+                        Picker("Purpose", selection: $modelData.fortuneTellingPurpose) {
+                            ForEach(Purposes.allCases) { purpose in
+                                Text(purpose.rawValue).tag(purpose)
+                            }
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
+                    }
+                    
                     NavigationLink(destination: DigitalPredictionView().environmentObject(modelData),
                                    isActive: $modelData.isDigitalPresented){
                         Text("数字卦（占小事）")

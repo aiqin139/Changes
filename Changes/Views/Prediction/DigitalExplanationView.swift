@@ -70,13 +70,17 @@ struct DigitalExplanationView: View {
             .overlay(RoundedRectangle(cornerRadius: 10).stroke(strokeColor, lineWidth: 2))
             .padding(.vertical, -5.0)
             
-            VStack(alignment: .leading) {
-                ForEach(digitalData.explanation, id: \.self) { content in
-                    Text(content)
-                        .font(.title3)
-                        .padding(.horizontal, 10.0)
-                        .minimumScaleFactor(0.1)
+            ScrollView {
+                VStack(alignment: .leading) {
+                    ForEach(digitalData.explanation, id: \.self) { content in
+                        Text(content)
+                            .font(.title3)
+                            .padding(.horizontal, 10.0)
+                            .minimumScaleFactor(0.1)
+                            .foregroundColor(content.range(of: digitalData.purpose) != nil ? .red : strokeColor)
+                    }
                 }
+                .padding(.vertical, 15.0)
             }
             .frame(width: 350)
             .background(backgroundColor)

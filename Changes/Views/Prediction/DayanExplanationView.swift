@@ -34,10 +34,10 @@ struct DayanExplanationView: View {
                 HStack {
                     VStack {
                         Text(dayanData.benPinyin)
-                            .font(.title3)
+                            .font(.title2)
                             .foregroundColor(.primary)
                         Text(dayanData.benName)
-                            .font(.title3)
+                            .font(.title2)
                             .foregroundColor(.primary)
                     }
                     .frame(maxWidth: .infinity)
@@ -48,10 +48,10 @@ struct DayanExplanationView: View {
                     
                     VStack {
                         Text(dayanData.zhiPinyin)
-                            .font(.title3)
+                            .font(.title2)
                             .foregroundColor(.primary)
                         Text(dayanData.zhiName)
-                            .font(.title3)
+                            .font(.title2)
                             .foregroundColor(.primary)
                     }
                     .frame(maxWidth: .infinity)
@@ -69,6 +69,7 @@ struct DayanExplanationView: View {
                                 .padding(.horizontal)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                                 .overlay(RoundedRectangle(cornerRadius: 10).stroke(strokeColor, lineWidth: 2))
+                                .foregroundColor((content == 6 || content == 9) ? .red : strokeColor)
                         }
                     }
                     .frame(width: 50)
@@ -84,25 +85,29 @@ struct DayanExplanationView: View {
             .overlay(RoundedRectangle(cornerRadius: 10).stroke(strokeColor, lineWidth: 2))
             .padding(.vertical, -5.0)
             
-            
-            VStack(alignment: .leading) {
-                ForEach(dayanData.explanation1, id: \.self) { content in
-                    Text(content)
-                        .font(.title3)
-                        .padding(.horizontal, 10.0)
-                        .minimumScaleFactor(0.1)
-                }
-                
-                if dayanData.explanation2[0] != "" {
-                    Text("").font(.title)
-                                
-                    ForEach(dayanData.explanation2, id: \.self) { content in
+            ScrollView {
+                VStack(alignment: .leading) {
+                    ForEach(dayanData.explanation1, id: \.self) { content in
                         Text(content)
                             .font(.title3)
                             .padding(.horizontal, 10.0)
                             .minimumScaleFactor(0.1)
+                            .foregroundColor(content.range(of: dayanData.purpose) != nil ? .red : strokeColor)
+                    }
+                    
+                    if dayanData.explanation2[0] != "" {
+                        Text("").font(.title)
+                                    
+                        ForEach(dayanData.explanation2, id: \.self) { content in
+                            Text(content)
+                                .font(.title3)
+                                .padding(.horizontal, 10.0)
+                                .minimumScaleFactor(0.1)
+                                .foregroundColor(content.range(of: dayanData.purpose) != nil ? .red : strokeColor)
+                        }
                     }
                 }
+                .padding(.vertical, 15.0)
             }
             .frame(width: 350)
             .background(backgroundColor)
