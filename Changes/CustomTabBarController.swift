@@ -22,10 +22,14 @@ class CustomTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tabBar.tintColor = (UITraitCollection.current.userInterfaceStyle == .dark) ? .white : .black
         addChildViewControllers()
     }
-
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        self.tabBar.tintColor = (UITraitCollection.current.userInterfaceStyle == .dark) ? .white : .black
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
