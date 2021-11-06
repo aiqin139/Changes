@@ -106,11 +106,16 @@ struct DigitalPredictionView: View {
 
                 if $isQuestion.wrappedValue {
                     VStack {
-                        Text("自定占法：")
-                        Text("滑动三个数字滑轮数字，长按“解”进行解卦。")
-                        Text("")
-                        Text("随机占法：")
-                        Text("长按“占”进行随机占卦，长按“解”进行解卦。")
+                        RTFView(fileName: "数字占法")
+                        
+                        Button(action: {
+                            self.isQuestion = false
+                        }) {
+                            Image(systemName: "xmark.seal")
+                                .resizable()
+                                .foregroundColor(accentColor)
+                                .frame(width: 50, height: 50)
+                        }
                     }
                 }
             }
@@ -118,11 +123,10 @@ struct DigitalPredictionView: View {
             .navigationTitle("数字卦")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing: Button(action: {
-                if self.isSolve == false { self.isQuestion = true }
+                self.isQuestion = true
             }) {
                     Image(systemName: "questionmark.circle")
             })
-            .onTapGesture { self.isQuestion = false }
         }
     }
     
