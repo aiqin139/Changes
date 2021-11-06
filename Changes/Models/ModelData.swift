@@ -23,6 +23,13 @@ final class ModelData: ObservableObject {
     init() {
         digitalPrediction.data = hexagramRecord.filter{ $0.type == RecordType.Digital.rawValue }.last?.digit ?? DigitalData()
         dayanPrediction.data = hexagramRecord.filter{ $0.type == RecordType.Dayan.rawValue }.last?.dayan ?? DayanData()
+        
+        if (RecordType.Digital.rawValue == hexagramRecord.last?.type) {
+            fortuneTellingPurpose = hexagramRecord.last?.digit.purpose ?? "时运"
+        }
+        else if (RecordType.Dayan.rawValue == hexagramRecord.last?.type) {
+            fortuneTellingPurpose = hexagramRecord.last?.dayan.purpose ?? "时运"
+        }
     }
 }
 
