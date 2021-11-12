@@ -12,7 +12,6 @@
 		140CE46025C45AE600984B9D /* HexagramRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE45F25C45AE600984B9D /* HexagramRow.swift */; };
 		140CE46D25C4617500984B9D /* HexagramList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE46C25C4617500984B9D /* HexagramList.swift */; };
 		140CE47225C463EF00984B9D /* basicHexagramData.json in Resources */ = {isa = PBXBuildFile; fileRef = 140CE47125C463EF00984B9D /* basicHexagramData.json */; };
-		141E7C702697FAF900EDB364 /* HexagramCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E7C6F2697FAF900EDB364 /* HexagramCard.swift */; };
 		1441B23C260225FB00833DEC /* 软件许可.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1441B23B260225FB00833DEC /* 软件许可.rtf */; };
 		1441B23F26022FFA00833DEC /* RTFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441B23E26022FFA00833DEC /* RTFView.swift */; };
 		1441B24626023C5100833DEC /* 占卦须知.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1441B24526023C5100833DEC /* 占卦须知.rtf */; };
@@ -74,7 +73,6 @@
 		140CE45F25C45AE600984B9D /* HexagramRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramRow.swift; sourceTree = "<group>"; };
 		140CE46C25C4617500984B9D /* HexagramList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramList.swift; sourceTree = "<group>"; };
 		140CE47125C463EF00984B9D /* basicHexagramData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = basicHexagramData.json; sourceTree = "<group>"; };
-		141E7C6F2697FAF900EDB364 /* HexagramCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramCard.swift; sourceTree = "<group>"; };
 		1441B23B260225FB00833DEC /* 软件许可.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "软件许可.rtf"; sourceTree = "<group>"; };
 		1441B23E26022FFA00833DEC /* RTFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTFView.swift; sourceTree = "<group>"; };
 		1441B24526023C5100833DEC /* 占卦须知.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "占卦须知.rtf"; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 				149539D825C2EB8900F05BA1 /* HexagramDetail.swift */,
 				140CE45F25C45AE600984B9D /* HexagramRow.swift */,
 				140CE46C25C4617500984B9D /* HexagramList.swift */,
-				141E7C6F2697FAF900EDB364 /* HexagramCard.swift */,
 			);
 			path = Hexagrams;
 			sourceTree = "<group>";
@@ -354,7 +351,6 @@
 				149539CF25C2800900F05BA1 /* Hexagram.swift in Sources */,
 				147D0B0325C8464E0069C826 /* DayanPredictionView.swift in Sources */,
 				14F63FDF25DE65C800C76246 /* NumberPicker.swift in Sources */,
-				141E7C702697FAF900EDB364 /* HexagramCard.swift in Sources */,
 				1476167525F8DE9C009F7578 /* MoreView.swift in Sources */,
 				147D0B0025C845E00069C826 /* DigitalPredictionView.swift in Sources */,
 				14CC3E6425FE438C004106FF /* AppDelegate.swift in Sources */,
