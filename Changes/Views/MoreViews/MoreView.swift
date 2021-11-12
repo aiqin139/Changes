@@ -13,8 +13,7 @@ struct MoreNavigationView: View {
     var body: some View {
         Form {
             LogoView()
-                .frame(height: 150)
-                .shadow(radius: 10)
+                .frame(height: 100)
 
             Section {
                 NavigationLink(destination:  RecordView().environmentObject(modelData)) {

@@ -13,7 +13,6 @@ struct LogoView: View {
             Image("先天八卦图")
                 .resizable()
                 .clipShape(HexagramShape())
-                .overlay(HexagramShape().stroke(Color.white, lineWidth: 4))
                 .frame(width: 80, height: 80)
             
             Spacer()
@@ -24,7 +23,7 @@ struct LogoView: View {
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .padding(.bottom, 2.0)
                 
-                Text("逢凶化吉，遇难成祥")
+                Text("逢凶化吉，遇难呈祥")
                     .foregroundColor(.gray)
             }
             
