@@ -43,6 +43,6 @@ struct RTFView: View {
 
 struct RTFView_Previews: PreviewProvider {
     static var previews: some View {
-        RTFView(fileName: "license_cn")
+        RTFView(fileName: "软件许可")
     }
 }
