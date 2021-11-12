@@ -20,14 +20,21 @@ class CustomTabBarController: UITabBarController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func customTabBar() {
+        self.tabBar.tintColor = (UITraitCollection.current.userInterfaceStyle == .dark) ? .white : .black
+        self.tabBar.backgroundColor = (UITraitCollection.current.userInterfaceStyle == .dark) ? .black : .white
+        self.tabBar.backgroundImage = UIImage()
+        self.tabBar.alpha = 0.95
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBar.tintColor = (UITraitCollection.current.userInterfaceStyle == .dark) ? .white : .black
+        customTabBar()
         addChildViewControllers()
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        self.tabBar.tintColor = (UITraitCollection.current.userInterfaceStyle == .dark) ? .white : .black
+        customTabBar()
     }
     
     override func didReceiveMemoryWarning() {
