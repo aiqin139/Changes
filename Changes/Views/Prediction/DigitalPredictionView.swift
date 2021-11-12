@@ -10,7 +10,7 @@ import SwiftUI
 struct DigitalPredictionView: View {
     @EnvironmentObject var modelData: ModelData
     @Environment(\.colorScheme) var colorScheme
-    @State private var isSolve = false
+    @State private var isParser = false
     @State private var isQuestion = false
     @State private var opcity: Double = 1
     
@@ -85,16 +85,16 @@ struct DigitalPredictionView: View {
                     
                     Spacer()
                 }
-                .blur(radius: (isSolve || isQuestion) ? 10 : 0)
-                .disabled((isSolve || isQuestion) ? true : false)
+                .blur(radius: (isParser || isQuestion) ? 10 : 0)
+                .disabled((isParser || isQuestion) ? true : false)
                 
-                if $isSolve.wrappedValue {
+                if $isParser.wrappedValue {
                     VStack {
                         DigitalExplanationView(digitalData: modelData.digitalPrediction.data)
                             .cornerRadius(10).shadow(radius: 20)
 
                         Button(action: {
-                            self.isSolve = false
+                            self.isParser = false
                             Notifiy()
                         }) {
                             Image(systemName: "xmark.seal")
@@ -159,10 +159,9 @@ struct DigitalPredictionView: View {
             saveRecord(modelData.hexagramRecord)
         }
         
-        let generator = UINotificationFeedbackGenerator()
-        generator.notificationOccurred(.success)
+        self.isParser = true
         
-        self.isSolve = true
+        Notifiy()
     }
 }
 

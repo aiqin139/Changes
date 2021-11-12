@@ -9,23 +9,18 @@ import SwiftUI
 
 struct PredictionNavigationView: View {
     @EnvironmentObject var modelData: ModelData
-    @Environment(\.colorScheme) var colorScheme
-    
-    var accentColor: Color {
-        return (colorScheme == .dark) ? .white : .black
-    }
     
     var body: some View {
         GeometryReader { geometry in
-            let imageWidth = geometry.size.height * 0.55
-            let imageHeight = geometry.size.height * 0.55
+            let imageWidth = geometry.size.height * 0.5
+            let imageHeight = geometry.size.height * 0.5
             
             VStack {
                 RotateImage(image: "先天八卦图")
                     .frame(width: imageWidth, height: imageHeight)
 
                 Form {
-                    VStack(alignment: .center, spacing: 10) {
+                    VStack(alignment: .center) {
                         Text("所占何事").bold()
                         
                         Picker("Purpose", selection: $modelData.fortuneTellingPurpose) {
