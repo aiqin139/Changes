@@ -21,13 +21,17 @@ class CustomNavigationController: UINavigationController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func customNavigation() {
         self.navigationBar.tintColor = (UITraitCollection.current.userInterfaceStyle == .dark) ? .white : .black
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        customNavigation()
+    }
+    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        self.navigationBar.tintColor = (UITraitCollection.current.userInterfaceStyle == .dark) ? .white : .black
+        customNavigation()
     }
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
