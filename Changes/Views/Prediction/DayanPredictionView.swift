@@ -110,6 +110,7 @@ struct DayanPredictionView: View {
                                 .frame(width: 50, height: 50)
                         }
                     }
+                    .padding(.bottom, 15.0)
                 }
                 
                 if $isQuestion.wrappedValue {
@@ -126,6 +127,7 @@ struct DayanPredictionView: View {
                                 .frame(width: 50, height: 50)
                         }
                     }
+                    .padding(.bottom, 15.0)
                 }
             }
             .shadow(radius: 20)
