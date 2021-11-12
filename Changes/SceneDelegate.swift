@@ -39,11 +39,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             but in real code the functionality for the quick action would be triggered.
         */
         if shortcutItem.type == "Digital" {
-            self.modelData.isDayanPresented = false
             self.modelData.isDigitalPresented = true
         }
         else if  shortcutItem.type ==  "Dayan" {
-            self.modelData.isDigitalPresented = false
             self.modelData.isDayanPresented = true
         }
         return true
