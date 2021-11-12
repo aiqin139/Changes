@@ -41,6 +41,7 @@ func loadRecord<T: Decodable>() -> T {
         let decoder = JSONDecoder()
         return try decoder.decode(T.self, from: data)
     } catch {
+        clearRecord()
         fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
     }
 }
