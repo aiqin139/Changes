@@ -11,32 +11,31 @@ struct NumberPicker: UIViewRepresentable {
     var format: String = "%d"
     var start: Int = 0
     var end: Int = 9
-    var value: Binding<Int>
+    @Binding var value: Int
     
     func makeCoordinator() -> NumberPicker.Coordinator {
         Coordinator(self)
     }
     
-    func makeUIView(context: UIViewRepresentableContext<NumberPicker>) -> UIPickerView {
+    func makeUIView(context: Context) -> UIPickerView {
         let picker = UIPickerView()
         
         picker.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-        
         picker.dataSource = context.coordinator
         picker.delegate = context.coordinator
         
         return picker
     }
     
-    func updateUIView(_ view: UIPickerView, context: UIViewRepresentableContext<NumberPicker>) {
-        view.selectRow(value.wrappedValue - start, inComponent: 0, animated: false)
+    func updateUIView(_ uiView: UIPickerView, context: Context) {
+        uiView.selectRow($value.wrappedValue - start, inComponent: 0, animated: false)
     }
     
     class Coordinator: NSObject, UIPickerViewDataSource, UIPickerViewDelegate {
-        var parent: NumberPicker
+        var picker: NumberPicker
       
         init(_ pickerView: NumberPicker) {
-            parent = pickerView
+            picker = pickerView
         }
         
         func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -44,15 +43,15 @@ struct NumberPicker: UIViewRepresentable {
         }
         
         func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-            return parent.end - parent.start + 1
+            return picker.end - picker.start + 1
         }
         
         func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-            return String(format: parent.format, parent.start + row)
+            return String(format: picker.format, picker.start + row)
         }
         
         func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-            parent.value.wrappedValue = Int(parent.start + row)
+            picker.$value.wrappedValue = Int(picker.start + row)
         }
     }
 }
