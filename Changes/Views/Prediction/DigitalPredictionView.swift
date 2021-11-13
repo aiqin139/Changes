@@ -108,7 +108,7 @@ struct DigitalPredictionView: View {
 
                 if $isQuestion.wrappedValue {
                     VStack {
-                        RTFView(fileName: "数字占法")
+                        RTFReader(fileName: "数字占法")
                         
                         Button(action: {
                             self.isQuestion = false

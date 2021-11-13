@@ -19,18 +19,17 @@ struct HexagramDetail: View {
     var body: some View {
         VStack {
             VStack {
-                Image(hexagram.name)
-                    .resizable()
-                    .frame(width: 100, height: 100)
-                    .aspectRatio(contentMode: .fit)
-            
                 Text(hexagram.pinyin)
                     .font(.title)
                     .foregroundColor(.primary)
-                    
+                
                 Text(hexagram.name)
                     .font(.title)
                     .foregroundColor(.primary)
+                
+                Image(hexagram.name)
+                    .resizable()
+                    .frame(width: 100, height: 100)
             }
             .padding()
 

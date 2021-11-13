@@ -115,7 +115,7 @@ struct DayanPredictionView: View {
                 
                 if $isQuestion.wrappedValue {
                     VStack {
-                        RTFView(fileName: "大衍占法")
+                        RTFReader(fileName: "大衍占法")
                         
                         Button(action: {
                             self.isQuestion = false

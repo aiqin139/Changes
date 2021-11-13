@@ -7,10 +7,12 @@
 
 import SwiftUI
 
-struct RTFReader: UIViewRepresentable {
+struct UIRTFView: UIViewRepresentable {
     var fileName: String
 
-    func makeUIView(context: Context) -> UITextView { UITextView() }
+    func makeUIView(context: Context) -> UITextView {
+        UITextView()
+    }
     
     func updateUIView(_ uiView: UITextView, context: Context) {
         let url = Bundle.main.url(forResource: fileName, withExtension: "rtf")!
@@ -21,20 +23,19 @@ struct RTFReader: UIViewRepresentable {
     }
 }
 
-struct RTFView: View {
+struct RTFReader: View {
     var fileName: String
     
     var body: some View {
-        RTFReader(fileName: fileName)
+        UIRTFView(fileName: fileName)
             .cornerRadius(10)
             .shadow(color: .gray, radius: 10, x: 0, y: 0)
-            .animation(.easeInOut)
             .padding()
     }
 }
 
-struct RTFView_Previews: PreviewProvider {
+struct RTFReader_Previews: PreviewProvider {
     static var previews: some View {
-        RTFView(fileName: "软件许可")
+        RTFReader(fileName: "软件许可")
     }
 }
