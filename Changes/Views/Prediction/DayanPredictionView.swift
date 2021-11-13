@@ -102,7 +102,6 @@ struct DayanPredictionView: View {
 
                         Button(action: {
                             self.isParser = false
-                            Notifiy()
                         }) {
                             Image(systemName: "xmark.seal")
                                 .resizable()
@@ -119,7 +118,6 @@ struct DayanPredictionView: View {
                         
                         Button(action: {
                             self.isQuestion = false
-                            Notifiy()
                         }) {
                             Image(systemName: "xmark.seal")
                                 .resizable()
