@@ -122,45 +122,51 @@ struct DayanPrediction {
         }
         
         //gets the explanations
-        if change == 0 {
-            data.explanation1 = benHexagram.explanations[0]
-        } else if change == 1 {
-            for i in 0..<6 {
-                if data.result[i] == 9 || data.result[i] == 6 {
-                    data.explanation1 = benHexagram.explanations[i + 1]
-                }
-            }
-        } else if change == 2 {
-            for i in 0..<6 {
-                if data.result[i] == 9 || data.result[i] == 6 {
-                    if data.explanation2 == [""] {
-                        data.explanation2 = benHexagram.explanations[i + 1]
-                    } else {
+        switch change {
+            case 0:
+                data.explanation1 = benHexagram.explanations[0]
+            case 1:
+                for i in 0..<6 {
+                    if data.result[i] == 9 || data.result[i] == 6 {
                         data.explanation1 = benHexagram.explanations[i + 1]
+                        break
                     }
                 }
-            }
-        } else if change == 3 {
-            data.explanation1 = benHexagram.explanations[0]
-            data.explanation2 = zhiHexagram.explanations[0]
-        } else if change == 4 {
-            for i in 0..<6 {
-                if data.result[i] == 7 || data.result[i] == 8 {
-                    if data.explanation1 == [""] {
-                        data.explanation1 = zhiHexagram.explanations[i + 1]
-                    } else {
-                        data.explanation2 = zhiHexagram.explanations[i + 1]
+            case 2:
+                for i in 0..<6 {
+                    if data.result[i] == 9 || data.result[i] == 6 {
+                        if data.explanation2 == [""] {
+                            data.explanation2 = benHexagram.explanations[i + 1]
+                        } else {
+                            data.explanation1 = benHexagram.explanations[i + 1]
+                        }
                     }
                 }
-            }
-        } else if change == 5 {
-            for i in 0..<6 {
-                if data.result[i] == 7 || data.result[i] == 8 {
-                    data.explanation1 = benHexagram.explanations[i + 1]
+            case 3:
+                data.explanation1 = benHexagram.explanations[0]
+                data.explanation2 = zhiHexagram.explanations[0]
+            case 4:
+                for i in 0..<6 {
+                    if data.result[i] == 7 || data.result[i] == 8 {
+                        if data.explanation1 == [""] {
+                            data.explanation1 = zhiHexagram.explanations[i + 1]
+                        } else {
+                            data.explanation2 = zhiHexagram.explanations[i + 1]
+                        }
+                    }
                 }
-            }
-        } else if change == 6 {
-            data.explanation1 = zhiHexagram.explanations[0]
+            case 5:
+                for i in 0..<6 {
+                    if data.result[i] == 7 || data.result[i] == 8 {
+                        data.explanation1 = benHexagram.explanations[i + 1]
+                        break
+                    }
+                }
+            case 6:
+                data.explanation1 = zhiHexagram.explanations[0]
+            default:
+                data.explanation1 = ["error"]
+                data.explanation2 = ["error"]
         }
     }
 }
