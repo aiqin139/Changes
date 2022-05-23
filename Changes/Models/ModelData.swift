@@ -11,8 +11,8 @@ import Combine
 final class ModelData: ObservableObject {
     @Published var digitalPrediction: DigitalPrediction = DigitalPrediction()
     @Published var dayanPrediction: DayanPrediction = DayanPrediction()
-    @Published var basicHexagrams: [Hexagram] = load("basicHexagramData.json")
-    @Published var derivedHexagrams: [Hexagram] = load("derivedHexagramData.json")
+    @Published var basicHexagrams: [Hexagram] = load("基本八卦.json")
+    @Published var derivedHexagrams: [Hexagram] = load("六十四卦.json")
     @Published var hexagramRecord: [RecordData] = loadRecord()
     @Published var fortuneTellingPurpose: String = "时运"
     @Published var searchBarText: String = ""
