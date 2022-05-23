@@ -10,6 +10,7 @@ import SwiftUI
 
 struct Hexagram: Hashable, Codable, Identifiable {
     var id: Int
+    var type: String
     var name: String
     var pinyin: String
     var description: String
@@ -18,6 +19,7 @@ struct Hexagram: Hashable, Codable, Identifiable {
     init()
     {
         id = 0
+        type = ""
         name = ""
         pinyin = ""
         description = ""

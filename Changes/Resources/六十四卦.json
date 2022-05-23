@@ -1,6 +1,7 @@
 [
     {
         "id": 1,
+        "type": "derived",
         "name": "乾卦",
         "pinyin": "qián guà",
         "description": "「乾为天」",
@@ -58,6 +59,7 @@
     },
     {
         "id": 64,
+        "type": "derived",
         "name": "坤卦",
         "pinyin": "kūn guà",
         "description": "「坤为地」",
@@ -115,6 +117,7 @@
     },
     {
         "id": 30,
+        "type": "derived",
         "name": "屯卦",
         "pinyin": "tún guà",
         "description": "「水雷屯」",
@@ -172,6 +175,7 @@
     },
     {
         "id": 47,
+        "type": "derived",
         "name": "蒙卦",
         "pinyin": "méng guà",
         "description": "「山水蒙」",
@@ -229,6 +233,7 @@
     },
     {
         "id": 6,
+        "type": "derived",
         "name": "需卦",
         "pinyin": "xū guà",
         "description": "「水天需」",
@@ -286,6 +291,7 @@
     },
     {
         "id": 41,
+        "type": "derived",
         "name": "讼卦",
         "pinyin": "sòng guà",
         "description": "「天水讼」",
@@ -343,6 +349,7 @@
     },
     {
         "id": 48,
+        "type": "derived",
         "name": "师卦",
         "pinyin": "shī guà",
         "description": "「地水师」",
@@ -400,6 +407,7 @@
     },
     {
         "id": 62,
+        "type": "derived",
         "name": "比卦",
         "pinyin": "bǐ guà",
         "description": "「水地比」",
@@ -457,6 +465,7 @@
     },
     {
         "id": 5,
+        "type": "derived",
         "name": "小畜卦",
         "pinyin": "xiǎo chù guà",
         "description": "「风天小畜」",
@@ -514,6 +523,7 @@
     },
     {
         "id": 9,
+        "type": "derived",
         "name": "履卦",
         "pinyin": "lǚ guà",
         "description": "「天泽履」",
@@ -571,6 +581,7 @@
     },
     {
         "id": 8,
+        "type": "derived",
         "name": "泰卦",
         "pinyin": "tài guà",
         "description": "「地天泰」",
@@ -628,6 +639,7 @@
     },
     {
         "id": 57,
+        "type": "derived",
         "name": "否卦",
         "pinyin": "pǐ guà",
         "description": "「天地否」",
@@ -685,6 +697,7 @@
     },
     {
         "id": 17,
+        "type": "derived",
         "name": "同人卦",
         "pinyin": "tóng rén guà",
         "description": "「天火同人」",
@@ -742,6 +755,7 @@
     },
     {
         "id": 3,
+        "type": "derived",
         "name": "大有卦",
         "pinyin": "dà yǒu guà",
         "description": "「火天大有」",
@@ -799,6 +813,7 @@
     },
     {
         "id": 56,
+        "type": "derived",
         "name": "谦卦",
         "pinyin": "qiān guà",
         "description": "「地山谦」",
@@ -856,6 +871,7 @@
     },
     {
         "id": 60,
+        "type": "derived",
         "name": "豫卦",
         "pinyin": "yù guà",
         "description": "「雷地豫」",
@@ -913,6 +929,7 @@
     },
     {
         "id": 26,
+        "type": "derived",
         "name": "随卦",
         "pinyin": "suí guà",
         "description": "「泽雷随」",
@@ -970,6 +987,7 @@
     },
     {
         "id": 39,
+        "type": "derived",
         "name": "蛊卦",
         "pinyin": "gǔ guà",
         "description": "「山风蛊」",
@@ -1027,6 +1045,7 @@
     },
     {
         "id": 16,
+        "type": "derived",
         "name": "临卦",
         "pinyin": "lín guà",
         "description": "「地泽临」",
@@ -1084,6 +1103,7 @@
     },
     {
         "id": 61,
+        "type": "derived",
         "name": "观卦",
         "pinyin": "guān guà",
         "description": "「风地观」",
@@ -1141,6 +1161,7 @@
     },
     {
         "id": 27,
+        "type": "derived",
         "name": "噬嗑卦",
         "pinyin": "shì kē guà",
         "description": "「火雷噬嗑」",
@@ -1198,6 +1219,7 @@
     },
     {
         "id": 23,
+        "type": "derived",
         "name": "贲卦",
         "pinyin": "bēn guà",
         "description": "「山火贲」",
@@ -1255,6 +1277,7 @@
     },
     {
         "id": 63,
+        "type": "derived",
         "name": "剥卦",
         "pinyin": "bāo guà",
         "description": "「山地剥」",
@@ -1312,6 +1335,7 @@
     },
     {
         "id": 32,
+        "type": "derived",
         "name": "复卦",
         "pinyin": "fù guà",
         "description": "「地雷复」",
@@ -1369,6 +1393,7 @@
     },
     {
         "id": 25,
+        "type": "derived",
         "name": "无妄卦",
         "pinyin": "wú wàng guà",
         "description": "「天雷无妄」",
@@ -1426,6 +1451,7 @@
     },
     {
         "id": 7,
+        "type": "derived",
         "name": "大畜卦",
         "pinyin": "dà chù guà",
         "description": "「山天大畜」",
@@ -1483,6 +1509,7 @@
     },
     {
         "id": 31,
+        "type": "derived",
         "name": "颐卦",
         "pinyin": "yí guà",
         "description": "「山雷颐」",
@@ -1540,6 +1567,7 @@
     },
     {
         "id": 34,
+        "type": "derived",
         "name": "大过卦",
         "pinyin": "dà guò guà",
         "description": "「泽风大过」",
@@ -1597,6 +1625,7 @@
     },
     {
         "id": 46,
+        "type": "derived",
         "name": "坎卦",
         "pinyin": "kǎn guà",
         "description": "「坎为水」",
@@ -1654,6 +1683,7 @@
     },
     {
         "id": 19,
+        "type": "derived",
         "name": "离卦",
         "pinyin": "lí guà",
         "description": "「离为火」",
@@ -1711,6 +1741,7 @@
     },
     {
         "id": 50,
+        "type": "derived",
         "name": "咸卦",
         "pinyin": "xián guà",
         "description": "「泽山咸」",
@@ -1768,6 +1799,7 @@
     },
     {
         "id": 36,
+        "type": "derived",
         "name": "恒卦",
         "pinyin": "héng guà",
         "description": "「雷风恒」",
@@ -1825,6 +1857,7 @@
     },
     {
         "id": 49,
+        "type": "derived",
         "name": "遁卦",
         "pinyin": "dùn guà",
         "description": "「天山遁」",
@@ -1882,6 +1915,7 @@
     },
     {
         "id": 4,
+        "type": "derived",
         "name": "大壮卦",
         "pinyin": "dà zhuàng guà",
         "description": "「雷天大壮」",
@@ -1939,6 +1973,7 @@
     },
     {
         "id": 59,
+        "type": "derived",
         "name": "晋卦",
         "pinyin": "jìn guà",
         "description": "「火地晋」",
@@ -1996,6 +2031,7 @@
     },
     {
         "id": 24,
+        "type": "derived",
         "name": "明夷卦",
         "pinyin": "míng yí",
         "description": "「地火明夷」",
@@ -2053,6 +2089,7 @@
     },
     {
         "id": 21,
+        "type": "derived",
         "name": "家人卦",
         "pinyin": "jiā rén",
         "description": "「风火家人」",
@@ -2110,6 +2147,7 @@
     },
     {
         "id": 11,
+        "type": "derived",
         "name": "睽卦",
         "pinyin": "kuí guà",
         "description": "「火泽睽」",
@@ -2167,6 +2205,7 @@
     },
     {
         "id": 54,
+        "type": "derived",
         "name": "蹇卦",
         "pinyin": "jiǎn guà",
         "description": "「水山蹇」",
@@ -2224,6 +2263,7 @@
     },
     {
         "id": 44,
+        "type": "derived",
         "name": "解卦",
         "pinyin": "jiě guà",
         "description": "「雷火解」",
@@ -2281,6 +2321,7 @@
     },
     {
         "id": 15,
+        "type": "derived",
         "name": "损卦",
         "pinyin": "sǔn guà",
         "description": "「山泽损」",
@@ -2338,6 +2379,7 @@
     },
     {
         "id": 29,
+        "type": "derived",
         "name": "益卦",
         "pinyin": "yì guà",
         "description": "「风雷益」",
@@ -2395,6 +2437,7 @@
     },
     {
         "id": 2,
+        "type": "derived",
         "name": "夬卦",
         "pinyin": "guài guà",
         "description": "「泽天夬」",
@@ -2452,6 +2495,7 @@
     },
     {
         "id": 33,
+        "type": "derived",
         "name": "姤卦",
         "pinyin": "gòu guà",
         "description": "「天风姤」",
@@ -2509,6 +2553,7 @@
     },
     {
         "id": 58,
+        "type": "derived",
         "name": "萃卦",
         "pinyin": "cuì guà",
         "description": "「泽地萃」",
@@ -2566,6 +2611,7 @@
     },
     {
         "id": 40,
+        "type": "derived",
         "name": "升卦",
         "pinyin": "shēng guà",
         "description": "「地风升」",
@@ -2623,6 +2669,7 @@
     },
     {
         "id": 42,
+        "type": "derived",
         "name": "困卦",
         "pinyin": "kùn guà",
         "description": "「泽水困」",
@@ -2680,6 +2727,7 @@
     },
     {
         "id": 38,
+        "type": "derived",
         "name": "井卦",
         "pinyin": "jǐng guà",
         "description": "「水风井」",
@@ -2737,6 +2785,7 @@
     },
     {
         "id": 18,
+        "type": "derived",
         "name": "革卦",
         "pinyin": "gé guà",
         "description": "「泽火革」",
@@ -2794,6 +2843,7 @@
     },
     {
         "id": 35,
+        "type": "derived",
         "name": "鼎卦",
         "pinyin": "dǐng guà",
         "description": "「火风鼎」",
@@ -2851,6 +2901,7 @@
     },
     {
         "id": 28,
+        "type": "derived",
         "name": "震卦",
         "pinyin": "zhèn guà",
         "description": "「震为雷」",
@@ -2908,6 +2959,7 @@
     },
     {
         "id": 55,
+        "type": "derived",
         "name": "艮卦",
         "pinyin": "gèn guà",
         "description": "「艮为山」",
@@ -2965,6 +3017,7 @@
     },
     {
         "id": 53,
+        "type": "derived",
         "name": "渐卦",
         "pinyin": "jiàn guà",
         "description": "「风山渐」",
@@ -3022,6 +3075,7 @@
     },
     {
         "id": 12,
+        "type": "derived",
         "name": "归妹卦",
         "pinyin": "guī mèi guà",
         "description": "「雷泽归妹」",
@@ -3079,6 +3133,7 @@
     },
     {
         "id": 20,
+        "type": "derived",
         "name": "丰卦",
         "pinyin": "fēng guà",
         "description": "「雷火丰」",
@@ -3136,6 +3191,7 @@
     },
     {
         "id": 51,
+        "type": "derived",
         "name": "旅卦",
         "pinyin": "lǚ guà",
         "description": "「火山旅」",
@@ -3193,6 +3249,7 @@
     },
     {
         "id": 37,
+        "type": "derived",
         "name": "巽卦",
         "pinyin": "xùn guà",
         "description": "「巽为风」",
@@ -3250,6 +3307,7 @@
     },
     {
         "id": 10,
+        "type": "derived",
         "name": "兑卦",
         "pinyin": "duì guà",
         "description": "「兑为泽」",
@@ -3307,6 +3365,7 @@
     },
     {
         "id": 45,
+        "type": "derived",
         "name": "涣卦",
         "pinyin": "huàn guà",
         "description": "「风水涣」",
@@ -3364,6 +3423,7 @@
     },
     {
         "id": 14,
+        "type": "derived",
         "name": "节卦",
         "pinyin": "jiē guà",
         "description": "「水泽节」",
@@ -3421,6 +3481,7 @@
     },
     {
         "id": 13,
+        "type": "derived",
         "name": "中孚卦",
         "pinyin": "zhōng fú guà",
         "description": "「风泽中孚」",
@@ -3478,6 +3539,7 @@
     },
     {
         "id": 52,
+        "type": "derived",
         "name": "小过卦",
         "pinyin": "xiǎo guò guà",
         "description": "「雷山小过」",
@@ -3535,6 +3597,7 @@
     },
     {
         "id": 22,
+        "type": "derived",
         "name": "既济卦",
         "pinyin": "jì jì guà",
         "description": "「水火既济」",
@@ -3592,6 +3655,7 @@
     },
     {
         "id": 43,
+        "type": "derived",
         "name": "未济卦",
         "pinyin": "wèi jì guà",
         "description": "「火水未济」",

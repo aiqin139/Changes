@@ -1,6 +1,7 @@
 [
     {
         "id": 1,
+        "type": "base",
         "name": "乾",
         "pinyin": "qián",
         "description": "（天）三连",
@@ -16,7 +17,8 @@
         ]
     },
     {
-        "id": 2,
+        "id": 8,
+        "type": "base",
         "name": "坤",
         "pinyin": "kūn",
         "description": "（地）六段",
@@ -32,7 +34,8 @@
         ]
     },
     {
-        "id": 3,
+        "id": 4,
+        "type": "base",
         "name": "震",
         "pinyin": "zhèn",
         "description": "（雷）仰孟",
@@ -48,7 +51,8 @@
         ]
     },
     {
-        "id": 4,
+        "id": 5,
+        "type": "base",
         "name": "巽",
         "pinyin": "xùn",
         "description": "（风）下断",
@@ -64,7 +68,8 @@
         ]
     },
     {
-        "id": 5,
+        "id": 6,
+        "type": "base",
         "name": "坎",
         "pinyin": "kǎn",
         "description": "（水）中满",
@@ -80,7 +85,8 @@
         ]
     },
     {
-        "id": 6,
+        "id": 3,
+        "type": "base",
         "name": "离",
         "pinyin": "lí",
         "description": "（火）中虚",
@@ -97,6 +103,7 @@
     },
     {
         "id": 7,
+        "type": "base",
         "name": "艮",
         "pinyin": "gèn",
         "description": "（山）覆盌",
@@ -112,7 +119,8 @@
         ]
     },
     {
-        "id": 8,
+        "id": 2,
+        "type": "base",
         "name": "兑",
         "pinyin": "duì",
         "description": "（泽）上缺",
