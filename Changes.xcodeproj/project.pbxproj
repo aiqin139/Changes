@@ -48,6 +48,7 @@
 		149539D925C2EB8900F05BA1 /* HexagramDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539D825C2EB8900F05BA1 /* HexagramDetail.swift */; };
 		149539E325C2F01100F05BA1 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539E225C2F01100F05BA1 /* CircleImage.swift */; };
 		149FEB5E2621EA2D00AE6380 /* RecordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149FEB5D2621EA2D00AE6380 /* RecordData.swift */; };
+		14BCD62D283B75110003BDD6 /* HexagramSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BCD62C283B75110003BDD6 /* HexagramSymbol.swift */; };
 		14CC3E5E25FE3CB9004106FF /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CC3E5D25FE3CB9004106FF /* SearchBar.swift */; };
 		14CC3E6425FE438C004106FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CC3E6225FE438C004106FF /* AppDelegate.swift */; };
 		14CC3E6525FE438C004106FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CC3E6325FE438C004106FF /* SceneDelegate.swift */; };
@@ -112,6 +113,7 @@
 		149539E225C2F01100F05BA1 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		149FEB5D2621EA2D00AE6380 /* RecordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordData.swift; sourceTree = "<group>"; };
 		14B10B6F27352CFC0036F3FF /* Changes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Changes.entitlements; sourceTree = "<group>"; };
+		14BCD62C283B75110003BDD6 /* HexagramSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramSymbol.swift; sourceTree = "<group>"; };
 		14CC3E5D25FE3CB9004106FF /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		14CC3E6225FE438C004106FF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14CC3E6325FE438C004106FF /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				140CE46825C460E700984B9D /* Hexagrams */,
 				1476167325F8DE75009F7578 /* MoreViews */,
 				149539E025C2EFA500F05BA1 /* Helpers */,
+				14BCD62B283B745B0003BDD6 /* Symbols */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -261,6 +264,14 @@
 				1441B23E26022FFA00833DEC /* RTFReader.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		14BCD62B283B745B0003BDD6 /* Symbols */ = {
+			isa = PBXGroup;
+			children = (
+				14BCD62C283B75110003BDD6 /* HexagramSymbol.swift */,
+			);
+			path = Symbols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,6 +362,7 @@
 				149539CF25C2800900F05BA1 /* Hexagram.swift in Sources */,
 				147D0B0325C8464E0069C826 /* DayanPredictionView.swift in Sources */,
 				14F63FDF25DE65C800C76246 /* NumberPicker.swift in Sources */,
+				14BCD62D283B75110003BDD6 /* HexagramSymbol.swift in Sources */,
 				1476167525F8DE9C009F7578 /* MoreView.swift in Sources */,
 				147D0B0025C845E00069C826 /* DigitalPredictionView.swift in Sources */,
 				14CC3E6425FE438C004106FF /* AppDelegate.swift in Sources */,
