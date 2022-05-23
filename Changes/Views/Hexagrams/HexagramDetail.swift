@@ -27,9 +27,8 @@ struct HexagramDetail: View {
                     .font(.title)
                     .foregroundColor(.primary)
                 
-                Image(hexagram.name)
-                    .resizable()
-                    .frame(width: 100, height: 100)
+                HexagramSymbol(id: hexagram.id, type: hexagram.type)
+                    .frame(width: 110, height: 100)
             }
             .padding()
 

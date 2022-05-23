@@ -12,9 +12,9 @@ struct HexagramRow: View {
     
     var body: some View {
         HStack {
-            Image(hexagram.name)
-                .resizable()
-                .frame(width: 50, height: 50)
+            HexagramSymbol(id: hexagram.id, type: hexagram.type)
+                .padding(8)
+                .frame(width: 55, height: 50)
                 .aspectRatio(contentMode: .fit)
             Text(hexagram.name)
             Text(hexagram.description)
