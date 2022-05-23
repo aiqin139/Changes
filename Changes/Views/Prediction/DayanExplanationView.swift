@@ -49,16 +49,9 @@ struct DayanExplanationView: View {
 
             VStack(alignment: .center) {
                 HStack {
-                    if (colorScheme == .dark) {
-                        Image(dayanData.benName)
-                            .resizable()
-                            .frame(width: 150, height: 150)
-                            .colorInvert()
-                    } else {
-                        Image(dayanData.benName)
-                            .resizable()
-                            .frame(width: 150, height: 150)
-                    }
+                    HexagramSymbol(id: dayanData.benId, type: dayanData.benType)
+                        .frame(width: 110, height: 140)
+                        .padding()
                     
                     VStack {
                         ForEach(dayanData.result.reversed(), id: \.self) { content in
@@ -72,16 +65,9 @@ struct DayanExplanationView: View {
                     }
                     .frame(width: 50)
                     
-                    if (colorScheme == .dark) {
-                        Image(dayanData.zhiName)
-                            .resizable()
-                            .frame(width: 150, height: 150)
-                            .colorInvert()
-                    } else {
-                        Image(dayanData.zhiName)
-                            .resizable()
-                            .frame(width: 150, height: 150)
-                    }
+                    HexagramSymbol(id: dayanData.zhiId, type: dayanData.zhiType)
+                        .frame(width: 110, height: 140)
+                        .padding()
                 }
             }
             .frame(width: 350)

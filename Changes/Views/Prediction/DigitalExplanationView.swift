@@ -46,16 +46,9 @@ struct DigitalExplanationView: View {
                     }
                 }
                 
-                if (colorScheme == .dark) {
-                    Image(digitalData.name)
-                        .resizable()
-                        .frame(width: 160, height: 160)
-                        .colorInvert()
-                } else {
-                    Image(digitalData.name)
-                        .resizable()
-                        .frame(width: 160, height: 160)
-                }
+                HexagramSymbol(id: digitalData.id, type: digitalData.type)
+                    .frame(width: 160, height: 160)
+                    .padding()
                 
                 HStack {
                     ForEach(digitalData.result, id: \.self) { content in

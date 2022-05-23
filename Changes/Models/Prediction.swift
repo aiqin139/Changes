@@ -9,6 +9,8 @@ import Foundation
 
 struct DigitalData : Hashable, Codable {
     var purpose: String = ""
+    var id: Int = 0
+    var type: String = ""
     var name: String = ""
     var pinyin: String = ""
     var explanation: [String] = [""]
@@ -19,6 +21,10 @@ struct DigitalData : Hashable, Codable {
 
 struct DayanData : Hashable, Codable {
     var purpose: String = ""
+    var benId: Int = 0
+    var zhiId: Int = 0
+    var benType: String = ""
+    var zhiType: String = ""
     var benName: String = ""
     var benPinyin: String = ""
     var zhiName: String = ""
@@ -48,6 +54,8 @@ struct DigitalPrediction {
         data.result[2] = (data.values[2] % 6) != 0 ? (data.values[2] % 6) : 6
         
         let hexagram = hexagrams.filter { $0.id == (8 * (data.result[0] - 1)) + data.result[1] }[0]
+        data.id = hexagram.id
+        data.type = hexagram.type
         data.name = hexagram.name
         data.pinyin = hexagram.pinyin
         data.explanation = hexagram.explanations[data.result[2]]
@@ -105,11 +113,15 @@ struct DayanPrediction {
         let benHexagram = hexagrams.filter { $0.id == (8 * benPart1) + (benPart2 + 1) }[0]
         let zhiHexagram = hexagrams.filter { $0.id == (8 * zhiPart1) + (zhiPart2 + 1) }[0]
         
-        //gets the ben hexagram name and pinyin
+        //gets the ben hexagram id, type, name and pinyin
+        data.benId = benHexagram.id
+        data.benType = benHexagram.type
         data.benName = benHexagram.name
         data.benPinyin = benHexagram.pinyin
         
-        //gets the zhi hexagram name and pinyin
+        //gets the zhi hexagram id, type, name and pinyin
+        data.zhiId = zhiHexagram.id
+        data.zhiType = zhiHexagram.type
         data.zhiName = zhiHexagram.name
         data.zhiPinyin = zhiHexagram.pinyin
         
