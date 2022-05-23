@@ -22,7 +22,10 @@ struct DigitalExplanationView: View {
 
     var body: some View {
         VStack {
-            Text("数字卦")
+            VStack {
+                Text(digitalData.pinyin)
+                Text(digitalData.name)
+            }
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .frame(width: 350)
                 .background(backgroundColor)
@@ -31,21 +34,7 @@ struct DigitalExplanationView: View {
                 .padding(.vertical, 15.0)
             
             VStack {
-                Text(digitalData.pinyin)
-                    .font(.title)
-                Text(digitalData.name)
-                    .font(.title)
-            
-                if (colorScheme == .dark) {
-                    Image(digitalData.name)
-                        .resizable()
-                        .frame(width: 160, height: 160)
-                        .colorInvert()
-                } else {
-                    Image(digitalData.name)
-                        .resizable()
-                        .frame(width: 160, height: 160)
-                }
+                Spacer()
                 
                 HStack {
                     ForEach(digitalData.values, id: \.self) { content in
@@ -57,7 +46,16 @@ struct DigitalExplanationView: View {
                     }
                 }
                 
-                Spacer()
+                if (colorScheme == .dark) {
+                    Image(digitalData.name)
+                        .resizable()
+                        .frame(width: 160, height: 160)
+                        .colorInvert()
+                } else {
+                    Image(digitalData.name)
+                        .resizable()
+                        .frame(width: 160, height: 160)
+                }
                 
                 HStack {
                     ForEach(digitalData.result, id: \.self) { content in

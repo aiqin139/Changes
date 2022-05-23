@@ -22,8 +22,25 @@ struct DayanExplanationView: View {
 
     var body: some View {
         VStack {
-            Text("大衍卦")
-                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+            HStack {
+                VStack {
+                    Text(dayanData.benPinyin)
+                    Text(dayanData.benName + "(本)")
+                }
+                .frame(maxWidth: .infinity)
+
+                VStack {
+                }
+                .frame(width: 50)
+                
+                VStack {
+                    Text(dayanData.zhiPinyin)
+                    Text(dayanData.zhiName + "(之)")
+                }
+                .frame(maxWidth: .infinity)
+            }
+                .font(.title2)
+                .foregroundColor(.primary)
                 .frame(width: 350)
                 .background(backgroundColor)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -31,28 +48,6 @@ struct DayanExplanationView: View {
                 .padding(.vertical, 15.0)
 
             VStack(alignment: .center) {
-                HStack {
-                    VStack {
-                        Text(dayanData.benPinyin)
-                        Text(dayanData.benName)
-                        Text("(本)")
-                    }
-                    .frame(maxWidth: .infinity)
-
-                    VStack {
-                    }
-                    .frame(width: 50)
-                    
-                    VStack {
-                        Text(dayanData.zhiPinyin)
-                        Text(dayanData.zhiName)
-                        Text("(之)")
-                    }
-                    .frame(maxWidth: .infinity)
-                }
-                .font(.title2)
-                .foregroundColor(.primary)
-                
                 HStack {
                     if (colorScheme == .dark) {
                         Image(dayanData.benName)
