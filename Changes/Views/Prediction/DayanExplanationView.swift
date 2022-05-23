@@ -19,6 +19,18 @@ struct DayanExplanationView: View {
     }
     
     var dayanData: DayanData
+    
+    var strokeYaos: Int {
+        var yaos: Int = 0
+        
+        for i in 0..<6 {
+            if (dayanData.result[i] == 6 || dayanData.result[i] == 9) {
+                yaos = yaos | (1 << i)
+            }
+        }
+        
+        return yaos
+    }
 
     var body: some View {
         VStack {
@@ -49,11 +61,11 @@ struct DayanExplanationView: View {
 
             VStack(alignment: .center) {
                 HStack {
-                    HexagramSymbol(id: dayanData.benId, type: dayanData.benType)
+                    HexagramSymbol(id: dayanData.benId, type: dayanData.benType, strokeYaos: strokeYaos, strokeColor: .red)
                         .frame(width: 110, height: 140)
                         .padding()
                     
-                    VStack {
+                    VStack(spacing: 5) {
                         ForEach(dayanData.result.reversed(), id: \.self) { content in
                             Text(String(content))
                                 .font(.title3)
@@ -65,7 +77,7 @@ struct DayanExplanationView: View {
                     }
                     .frame(width: 50)
                     
-                    HexagramSymbol(id: dayanData.zhiId, type: dayanData.zhiType)
+                    HexagramSymbol(id: dayanData.zhiId, type: dayanData.zhiType, strokeYaos: strokeYaos, strokeColor: .red)
                         .frame(width: 110, height: 140)
                         .padding()
                 }

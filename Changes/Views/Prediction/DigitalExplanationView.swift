@@ -46,7 +46,9 @@ struct DigitalExplanationView: View {
                     }
                 }
                 
-                HexagramSymbol(id: digitalData.id, type: digitalData.type)
+                let strokeYaos = 1 << (digitalData.result[2] - 1)
+                
+                HexagramSymbol(id: digitalData.id, type: digitalData.type, strokeYaos: strokeYaos, strokeColor: .red)
                     .frame(width: 160, height: 160)
                     .padding()
                 
