@@ -16,6 +16,7 @@ struct DigitalData : Hashable, Codable {
     var explanation: [String] = [""]
     var result: [Int] = [0, 0, 0]
     var values: [Int] = [500, 500, 500]
+    var changeYao: Int = 0
 }
 
 
@@ -32,6 +33,7 @@ struct DayanData : Hashable, Codable {
     var explanation1: [String] = [""]
     var explanation2: [String] = [""]
     var result: [Int] = [6, 6, 7, 8, 9, 9]
+    var changeYaos: Int = 0
 }
 
 
@@ -59,6 +61,7 @@ struct DigitalPrediction {
         data.name = hexagram.name
         data.pinyin = hexagram.pinyin
         data.explanation = hexagram.explanations[data.result[2]]
+        data.changeYao = 1 << (data.result[2] - 1)
     }
 }
 
@@ -126,12 +129,18 @@ struct DayanPrediction {
         data.zhiPinyin = zhiHexagram.pinyin
         
         //calculate the number of change
+        //calculate the change yaos
         var change = 0
+        var changeYaos = 0
         for i in 0..<6 {
             if data.result[i] == 9 || data.result[i] == 6 {
                 change += 1
+                changeYaos = changeYaos | (1 << i)
             }
         }
+        
+        //gets the change yaos
+        data.changeYaos = changeYaos
         
         //gets the explanations
         switch change {

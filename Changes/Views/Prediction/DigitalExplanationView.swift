@@ -45,10 +45,8 @@ struct DigitalExplanationView: View {
                             .overlay(RoundedRectangle(cornerRadius: 10).stroke(strokeColor, lineWidth: 2))
                     }
                 }
-                
-                let strokeYaos = 1 << (digitalData.result[2] - 1)
-                
-                HexagramSymbol(id: digitalData.id, type: digitalData.type, strokeYaos: strokeYaos, strokeColor: .red)
+
+                HexagramSymbol(id: digitalData.id, type: digitalData.type, strokeYaos: digitalData.changeYao, strokeColor: .red)
                     .frame(width: 160, height: 160)
                     .padding()
                 
