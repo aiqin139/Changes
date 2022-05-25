@@ -8,16 +8,6 @@
 import SwiftUI
 
 struct RecordCard: View {
-    @Environment(\.colorScheme) var colorScheme
-    
-    var strokeColor: Color {
-        return (colorScheme == .dark) ? .white : .black
-    }
-    
-    var backgroundColor: Color {
-        return (colorScheme == .dark) ? .black : .white
-    }
-    
     var recordData: RecordData
     
     private func Dateformat(date: Date) -> String {
@@ -27,23 +17,19 @@ struct RecordCard: View {
     }
     
     var body: some View {
-        VStack(alignment: .center) {
-            VStack {
-                if (RecordType.Digital.rawValue == recordData.type) {
-                    DigitalExplanationView(digitalData: recordData.digit)
-                }
-                else if (RecordType.Dayan.rawValue == recordData.type) {
-                    DayanExplanationView(dayanData: recordData.dayan)
-                }
-                
-                if (RecordType.None.rawValue != recordData.type) {
-                    Text(Dateformat(date: recordData.date))
-                        .font(.title2)
-                }
+        VStack {
+            if (RecordType.Digital.rawValue == recordData.type) {
+                DigitalExplanationView(digitalData: recordData.digit)
             }
-            .clipShape(RoundedRectangle(cornerRadius: 10))
+            else if (RecordType.Dayan.rawValue == recordData.type) {
+                DayanExplanationView(dayanData: recordData.dayan)
+            }
+            
+            if (RecordType.None.rawValue != recordData.type) {
+                Text(Dateformat(date: recordData.date))
+                    .font(.title2)
+            }
         }
-        .padding()
     }
 }
 
