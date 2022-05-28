@@ -12,7 +12,7 @@
 		140CE46025C45AE600984B9D /* HexagramRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE45F25C45AE600984B9D /* HexagramRow.swift */; };
 		140CE46D25C4617500984B9D /* HexagramList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE46C25C4617500984B9D /* HexagramList.swift */; };
 		140CE47225C463EF00984B9D /* 基本八卦.json in Resources */ = {isa = PBXBuildFile; fileRef = 140CE47125C463EF00984B9D /* 基本八卦.json */; };
-		1441B23C260225FB00833DEC /* 软件许可.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1441B23B260225FB00833DEC /* 软件许可.rtf */; };
+		1441B23C260225FB00833DEC /* 关于软件.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1441B23B260225FB00833DEC /* 关于软件.rtf */; };
 		1441B23F26022FFA00833DEC /* RTFReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441B23E26022FFA00833DEC /* RTFReader.swift */; };
 		1441B24626023C5100833DEC /* 占卦须知.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1441B24526023C5100833DEC /* 占卦须知.rtf */; };
 		1441B24C26023F2100833DEC /* 大衍占法.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1441B24B26023F2100833DEC /* 大衍占法.rtf */; };
@@ -74,7 +74,7 @@
 		140CE45F25C45AE600984B9D /* HexagramRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramRow.swift; sourceTree = "<group>"; };
 		140CE46C25C4617500984B9D /* HexagramList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramList.swift; sourceTree = "<group>"; };
 		140CE47125C463EF00984B9D /* 基本八卦.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "基本八卦.json"; sourceTree = "<group>"; };
-		1441B23B260225FB00833DEC /* 软件许可.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "软件许可.rtf"; sourceTree = "<group>"; };
+		1441B23B260225FB00833DEC /* 关于软件.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "关于软件.rtf"; sourceTree = "<group>"; };
 		1441B23E26022FFA00833DEC /* RTFReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTFReader.swift; sourceTree = "<group>"; };
 		1441B24526023C5100833DEC /* 占卦须知.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "占卦须知.rtf"; sourceTree = "<group>"; };
 		1441B24B26023F2100833DEC /* 大衍占法.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "大衍占法.rtf"; sourceTree = "<group>"; };
@@ -245,7 +245,7 @@
 				1441B25D26023F9B00833DEC /* 不疑不占.rtf */,
 				1441B26026023FBF00833DEC /* 元亨之意.rtf */,
 				1441B26326023FCD00833DEC /* 利贞之意.rtf */,
-				1441B23B260225FB00833DEC /* 软件许可.rtf */,
+				1441B23B260225FB00833DEC /* 关于软件.rtf */,
 				140CE47125C463EF00984B9D /* 基本八卦.json */,
 				149539C725C27F1C00F05BA1 /* 六十四卦.json */,
 			);
@@ -342,7 +342,7 @@
 				148A398626A5261600972C12 /* LaunchScreen.storyboard in Resources */,
 				1441B25B26023F8B00833DEC /* 不义不占.rtf in Resources */,
 				1495399325C278C500F05BA1 /* Assets.xcassets in Resources */,
-				1441B23C260225FB00833DEC /* 软件许可.rtf in Resources */,
+				1441B23C260225FB00833DEC /* 关于软件.rtf in Resources */,
 				1441B24F26023F2700833DEC /* 数字占法.rtf in Resources */,
 				148A398426A525C200972C12 /* Main.storyboard in Resources */,
 				1441B25526023F6B00833DEC /* 占卦三不.rtf in Resources */,
