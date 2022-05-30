@@ -7,19 +7,21 @@
 
 import SwiftUI
 
-class MoreTableViewController: UITableViewController {
+class MoreTableViewController: UIViewController {
     var modelData: ModelData
-
-    var data = [["图标"],
-                ["占卦记录"],
+    
+    var data = [["占卦记录"],
                 ["占卦须知", "大衍占法", "数字占法", "念念有词"],
                 ["占卦三不", "不诚不占", "不义不占", "不疑不占"],
                 ["元亨之意", "利贞之意"],
                 ["关于软件"]]
 
+    var tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: UITableView.Style.insetGrouped)
+    var logo = UIViewController()
+
     init(_ modelData: ModelData) {
         self.modelData = modelData
-        super.init(style: .insetGrouped)
+        super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder: NSCoder) {
@@ -29,59 +31,76 @@ class MoreTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        logo = UIHostingController(rootView: LogoView())
+        
         tableView.register(HostingTableViewCell<LogoView>.self, forCellReuseIdentifier: "rowViewCell")
         tableView.separatorStyle = .singleLine
-        
+        tableView.dataSource = self
+        tableView.delegate = self
+
+        self.view.addSubview(logo.view)
+        self.view.addSubview(tableView)
         self.navigationItem.title = ""
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.prefersLargeTitles = false
         
         traitCollectionDidChange(nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let selectedRow: IndexPath? = tableView.indexPathForSelectedRow
+        if let selectedRowNotNill = selectedRow {
+            tableView.deselectRow(at: selectedRowNotNill, animated: animated)
+        }
+    }
+    
+    override func viewWillLayoutSubviews() {
+        let logoViewY = Int((self.navigationController?.navigationBar.frame.height)!)
+        let logoViewWidth = Int((self.parent?.view.frame.width)!)
+        let logoViewHeight = 100
+        let tableViewY = logoViewY + logoViewHeight
+        let tableViewWidth = Int((self.parent?.view.frame.width)!)
+        let tableViewHeight = Int(self.view.bounds.size.height) - tableViewY
+        
+        logo.view.frame = CGRect(x: 0, y: logoViewY, width: logoViewWidth, height: logoViewHeight)
+        tableView.frame = CGRect(x: 0, y: tableViewY, width: tableViewWidth, height: tableViewHeight)
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         if UITraitCollection.current.userInterfaceStyle == .dark {
             tableView.backgroundColor = .black
+            self.view.backgroundColor = .black
         } else {
             tableView.backgroundColor = UIColor(red: 0.9600, green: 0.9700, blue: 0.9800, alpha: 1.0)
+            self.view.backgroundColor = .white
         }
     }
 }
 
-extension MoreTableViewController {
-    override func numberOfSections(in tableView: UITableView) -> Int {
+extension MoreTableViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return data.count
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data[section].count
     }
 
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return 100
-        }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "rowViewCell") as! HostingTableViewCell<LogoView>
 
-        if indexPath.section == 0 {
-            cell.setView(LogoView(), parent: self)
-            cell.selectionStyle = .none
-        } else {
-            cell.textLabel?.text = data[indexPath.section][indexPath.row]
-            cell.accessoryType = .disclosureIndicator
-        }
+        cell.textLabel?.text = data[indexPath.section][indexPath.row]
+        cell.accessoryType = .disclosureIndicator
         
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let title = data[indexPath.section][indexPath.row]
-        
-        if indexPath.section == 0 { return }
-        
         if title == "占卦记录" {
             let view = RecordView().environmentObject(self.modelData)
             let hostVC = UIHostingController(rootView: view)
