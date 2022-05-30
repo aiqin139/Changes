@@ -47,7 +47,7 @@ class CustomTabBarController: UITabBarController {
         setChildrenController(title: "更多", image: UIImage(systemName: "ellipsis.circle")!, controller: MoreViewNavigationController(self.modelData))
     }
 
-    private func setChildrenController(title:String, image:UIImage, controller:CustomNavigationController) {
+    private func setChildrenController(title: String, image: UIImage, controller: CustomNavigationController) {
         controller.tabBarItem.title = title
         controller.tabBarItem.image = image
         controller.tabBarItem.selectedImage = image

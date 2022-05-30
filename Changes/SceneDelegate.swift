@@ -26,8 +26,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // Create the UIKit view that provides the window contents.
         if let windowScene = scene as? UIWindowScene {
+            let hostVC = UISplitViewController()
+            hostVC.viewControllers = [CustomTabBarController(self.modelData)]
+            hostVC.preferredDisplayMode = .oneBesideSecondary
+            
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = CustomTabBarController(self.modelData)
+            window.rootViewController = hostVC
             self.window = window
             window.makeKeyAndVisible()
         }

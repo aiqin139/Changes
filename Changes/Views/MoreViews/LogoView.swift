@@ -28,7 +28,7 @@ struct LogoView: View {
             }
             
             Spacer()
-        }
+        }.padding()
     }
 }
 

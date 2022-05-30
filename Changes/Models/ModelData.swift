@@ -16,7 +16,6 @@ final class ModelData: ObservableObject {
     @Published var hexagramRecord: [RecordData] = loadRecord()
     @Published var fortuneTellingPurpose: String = "时运"
     @Published var searchBarText: String = ""
-    @Published var isTabBarHidden: Bool = false
     @Published var isDigitalPresented: Bool = false
     @Published var isDayanPresented: Bool = false
     

@@ -7,92 +7,105 @@
 
 import SwiftUI
 
-struct MoreNavigationView: View {
-    @EnvironmentObject var modelData: ModelData
-    
-    var body: some View {
-        Form {
-            LogoView()
-                .frame(height: 100)
+class MoreTableViewController: UITableViewController {
+    var modelData: ModelData
 
-            Section {
-                NavigationLink(destination:  RecordView().environmentObject(modelData)) {
-                    Text("占卦记录")
-                }
-            }
-            
-            Section {
-                NavigationLink(destination:  RTFReader(fileName: "占卦须知").navigationTitle("占卦须知")) {
-                    Text("占卦须知")
-                }
+    var data = [["图标"],
+                ["占卦记录"],
+                ["占卦须知", "大衍占法", "数字占法", "念念有词"],
+                ["占卦三不", "不诚不占", "不义不占", "不疑不占"],
+                ["元亨之意", "利贞之意"],
+                ["关于软件"]]
 
-                NavigationLink(destination:  RTFReader(fileName: "大衍占法").navigationTitle("大衍占法")) {
-                    Text("大衍占法")
-                }
-                
-                NavigationLink(destination:  RTFReader(fileName: "数字占法").navigationTitle("数字占法")) {
-                    Text("数字占法")
-                }
+    init(_ modelData: ModelData) {
+        self.modelData = modelData
+        super.init(style: .insetGrouped)
+    }
 
-                NavigationLink(destination:  RTFReader(fileName: "念念有词").navigationTitle("念念有词")) {
-                    Text("念念有词")
-                }
-            }
-            
-            Section {
-                NavigationLink(destination:  RTFReader(fileName: "占卦三不").navigationTitle("占卦三不")) {
-                    Text("占卦三不")
-                }
-                
-                NavigationLink(destination:  RTFReader(fileName: "不诚不占").navigationTitle("不诚不占")) {
-                    Text("不诚不占")
-                }
-                
-                NavigationLink(destination:  RTFReader(fileName: "不义不占").navigationTitle("占卦三不")) {
-                    Text("不义不占")
-                }
-                
-                NavigationLink(destination:  RTFReader(fileName: "不疑不占").navigationTitle("不疑不占")) {
-                    Text("不疑不占")
-                }
-            }
-            
-            Section {
-                NavigationLink(destination:  RTFReader(fileName: "元亨之意").navigationTitle("元亨之意")) {
-                    Text("元亨之意")
-                }
-                
-                NavigationLink(destination:  RTFReader(fileName: "利贞之意").navigationTitle("利贞之意")) {
-                    Text("利贞之意")
-                }
-            }
-            
-            Section {
-                NavigationLink(destination:  RTFReader(fileName: "关于软件").navigationTitle("关于软件")) {
-                    Text("关于软件")
-                }
-            }
-        }
-        .navigationTitle("更多")
-        .navigationBarHidden(true)
-        .navigationBarTitleDisplayMode(.inline)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        tableView.register(HostingTableViewCell<LogoView>.self, forCellReuseIdentifier: "rowViewCell")
+        tableView.separatorStyle = .singleLine
+        
+        self.navigationItem.title = ""
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
 
-struct MoreView: View {
-    @EnvironmentObject var modelData: ModelData
-    
-    var body: some View {
-        NavigationView {
-            MoreNavigationView()
-                .environmentObject(modelData)
+extension MoreTableViewController {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return data.count
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data[section].count
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 100
+        }
+        return 50
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "rowViewCell") as! HostingTableViewCell<LogoView>
+
+        if indexPath.section == 0 {
+            cell.setView(LogoView(), parent: self)
+            cell.selectionStyle = .none
+        } else {
+            cell.textLabel?.text = data[indexPath.section][indexPath.row]
+            cell.accessoryType = .disclosureIndicator
+        }
+        
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let title = data[indexPath.section][indexPath.row]
+        
+        if indexPath.section == 0 { return }
+        
+        if title == "占卦记录" {
+            let view = RecordView().environmentObject(self.modelData)
+            let hostVC = UIHostingController(rootView: view)
+            pushOrShowDetailView(hostVC, title)
+        } else {
+            let view = RTFReader(fileName: title).navigationTitle(title)
+            let hostVC = UIHostingController(rootView: view)
+            pushOrShowDetailView(hostVC, title)
         }
     }
+}
+
+class MoreViewNavigationController: CustomNavigationController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let hostVC = MoreTableViewController(self.modelData)
+        
+        self.setViewControllers([hostVC], animated: true)
+    }
+}
+
+// MARK: SwiftUI Preview
+
+struct MoreViewToSwiftui: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> MoreViewNavigationController {
+        MoreViewNavigationController(ModelData())
+    }
+    
+    func updateUIViewController(_ uiViewController: MoreViewNavigationController, context: Context) {}
 }
 
 struct MoreView_Previews: PreviewProvider {
     static var previews: some View {
-        MoreView()
-            .environmentObject(ModelData())
+        MoreViewToSwiftui()
     }
 }

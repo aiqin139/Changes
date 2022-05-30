@@ -42,55 +42,43 @@ class CustomNavigationController: UINavigationController {
     }
 }
 
+class HostingTableViewCell<Content: View>: UITableViewCell {
+    private weak var controller: UIHostingController<Content>?
 
-class PredictionNavigationController: CustomNavigationController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let hostVC = UIHostingController(rootView: PredictionNavigationView().environmentObject(self.modelData))
-        
-        self.setViewControllers([hostVC], animated: true)
-        
-        self.navigationBar.prefersLargeTitles = true
+    func setView(_ view: Content, parent: UIViewController) {
+        if let controller = controller {
+            controller.rootView = view
+            controller.view.layoutIfNeeded()
+        } else {
+            let hostVC = UIHostingController(rootView: view)
+            hostVC.view.backgroundColor = .clear
+            controller = hostVC
+
+            layoutIfNeeded()
+
+            parent.addChild(hostVC)
+  
+            contentView.addSubview(hostVC.view)
+            hostVC.view.translatesAutoresizingMaskIntoConstraints = false
+            contentView.addConstraint(NSLayoutConstraint(item: hostVC.view!, attribute: NSLayoutConstraint.Attribute.leading, relatedBy: NSLayoutConstraint.Relation.equal, toItem: contentView, attribute: NSLayoutConstraint.Attribute.leading, multiplier: 1.0, constant: 0.0))
+            contentView.addConstraint(NSLayoutConstraint(item: hostVC.view!, attribute: NSLayoutConstraint.Attribute.trailing, relatedBy: NSLayoutConstraint.Relation.equal, toItem: contentView, attribute: NSLayoutConstraint.Attribute.trailing, multiplier: 1.0, constant: 0.0))
+            contentView.addConstraint(NSLayoutConstraint(item: hostVC.view!, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: contentView, attribute: NSLayoutConstraint.Attribute.top, multiplier: 1.0, constant: 0.0))
+            contentView.addConstraint(NSLayoutConstraint(item: hostVC.view!, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: contentView, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1.0, constant: 0.0))
+
+            hostVC.didMove(toParent: parent)
+            hostVC.view.layoutIfNeeded()
+        }
     }
 }
 
-
-class HexagramNavigationController: CustomNavigationController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let hostVC = UIHostingController(rootView: HexagramNavigationView().environmentObject(self.modelData))
-        
-        let searchController: UISearchController = UISearchController(searchResultsController: nil)
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchResultsUpdater = self
-        searchController.searchBar.placeholder = "搜索"
-        searchController.searchBar.setValue("取消", forKey: "cancelButtonText")
-        hostVC.navigationItem.searchController = searchController
-        
-        self.setViewControllers([hostVC], animated: true)
-        
-        self.navigationBar.prefersLargeTitles = true
-    }
-}
-
-
-extension HexagramNavigationController: UISearchResultsUpdating {
-  func updateSearchResults(for searchController: UISearchController) {
-    if let searchBarText = searchController.searchBar.text {
-        self.modelData.searchBarText = searchBarText
-    }
-  }
-}
-
-
-class MoreViewNavigationController: CustomNavigationController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let hostVC = UIHostingController(rootView: MoreNavigationView().environmentObject(self.modelData))
-        
-        self.setViewControllers([hostVC], animated: true)
+extension UIViewController {
+    func pushOrShowDetailView(_ hostVC: UIViewController, _ title: String) {
+        if splitViewController?.isCollapsed == false {
+            splitViewController?.showDetailViewController(UINavigationController(rootViewController: hostVC), sender: self)
+        } else {
+            hostVC.navigationItem.title = title
+            hostVC.navigationItem.largeTitleDisplayMode = .never
+            navigationController?.pushViewController(hostVC, animated: true)
+        }
     }
 }
