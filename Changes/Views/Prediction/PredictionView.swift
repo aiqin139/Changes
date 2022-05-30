@@ -54,9 +54,10 @@ class PredictionTableViewController: UIViewController {
 
         self.view.addSubview(image.view)
         self.view.addSubview(tableView)
-        self.view.backgroundColor = (UITraitCollection.current.userInterfaceStyle == .dark) ? .black : .white
         self.navigationItem.title = "占卦"
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        
+        traitCollectionDidChange(nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,13 +75,19 @@ class PredictionTableViewController: UIViewController {
         let tableViewY = imageViewY + imageViewWidth
         let tableViewWidth = Int((self.parent?.view.frame.width)!)
         let tableViewHeight = Int(self.view.bounds.size.height)
-
+        
         image.view.frame = CGRect(x: imageViewX, y: imageViewY, width: imageViewWidth, height: imageViewWidth)
         tableView.frame = CGRect(x: 0, y: tableViewY, width: tableViewWidth, height: tableViewHeight)
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        self.view.backgroundColor = (UITraitCollection.current.userInterfaceStyle == .dark) ? .black : .white
+        if UITraitCollection.current.userInterfaceStyle == .dark {
+            tableView.backgroundColor = .black
+            self.view.backgroundColor = .black
+        } else {
+            tableView.backgroundColor = UIColor(red: 0.9600, green: 0.9700, blue: 0.9800, alpha: 1.0)
+            self.view.backgroundColor = .white
+        }
     }
 }
 

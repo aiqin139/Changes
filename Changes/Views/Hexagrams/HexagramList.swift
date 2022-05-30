@@ -45,6 +45,16 @@ class HexagramTableViewController: UITableViewController {
         self.navigationItem.searchController = searchController
         self.navigationItem.title = "卦象"
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        
+        traitCollectionDidChange(nil)
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if UITraitCollection.current.userInterfaceStyle == .dark {
+            tableView.backgroundColor = .black
+        } else {
+            tableView.backgroundColor = UIColor(red: 0.9600, green: 0.9700, blue: 0.9800, alpha: 1.0)
+        }
     }
 }
 
