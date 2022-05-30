@@ -42,7 +42,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //Gets the splitViewController
         if let splitController = window?.rootViewController as? UISplitViewController {
             //Gets the tabbarController
-            if let tabbarController = splitController.viewControllers[0] as?  UITabBarController {
+            if let tabbarController = splitController.viewControllers[0] as? UITabBarController {
+                //Selected first tabbar view
+                tabbarController.selectedIndex = 0
                 //Gets the navigationViewController
                 if let navController = tabbarController.viewControllers?[0] as? UINavigationController {
                     //Push DigitalPredictionView
