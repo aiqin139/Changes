@@ -20,17 +20,17 @@ struct DigitalPredictionView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            let imageWidth = geometry.size.height * 0.45
+            let imageWidth = geometry.size.width * 0.8
             let imageHeight = geometry.size.height * 0.45
-            let buttonWidth = geometry.size.height * 0.1
-            let buttonHeight = geometry.size.height * 0.1
+            let imageWidthHeight = (imageHeight > geometry.size.width) ? imageWidth : imageHeight
+            let buttonWidthHeight = geometry.size.width * 0.2
             
             ZStack {
                 VStack {
                     Spacer()
                     
                     RotateImage(image: "先天八卦图", lineWidth: 2)
-                        .frame(width: imageWidth, height: imageHeight)
+                        .frame(width: imageWidthHeight, height: imageWidthHeight)
                     
                     Spacer()
                     
@@ -56,7 +56,7 @@ struct DigitalPredictionView: View {
                             VStack {
                                 Image("占")
                                     .resizable()
-                                    .frame(width: buttonWidth, height: buttonHeight)
+                                    .frame(width: buttonWidthHeight, height: buttonWidthHeight)
                                     .clipShape(HexagramShape())
                                     .overlay(HexagramShape().stroke(accentColor, lineWidth: 2))
                             }
@@ -71,7 +71,7 @@ struct DigitalPredictionView: View {
                             VStack {
                                 Image("解")
                                     .resizable()
-                                    .frame(width: buttonWidth, height: buttonHeight)
+                                    .frame(width: buttonWidthHeight, height: buttonWidthHeight)
                                     .clipShape(HexagramShape())
                                     .overlay(HexagramShape().stroke(accentColor, lineWidth: 2))
                             }
