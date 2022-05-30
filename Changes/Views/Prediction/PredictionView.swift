@@ -74,7 +74,7 @@ class PredictionTableViewController: UIViewController {
         let imageViewWidth = Int((self.parent?.view.frame.width)! * 0.8)
         let tableViewY = imageViewY + imageViewWidth
         let tableViewWidth = Int((self.parent?.view.frame.width)!)
-        let tableViewHeight = Int(self.view.bounds.size.height)
+        let tableViewHeight = Int(self.view.bounds.size.height) - tableViewY
         
         image.view.frame = CGRect(x: imageViewX, y: imageViewY, width: imageViewWidth, height: imageViewWidth)
         tableView.frame = CGRect(x: 0, y: tableViewY, width: tableViewWidth, height: tableViewHeight)
