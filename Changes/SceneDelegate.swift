@@ -39,14 +39,35 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     // MARK: - Application Shortcut Support
     func handleShortCutItem(shortcutItem: UIApplicationShortcutItem) -> Bool {
-        /** In this sample an alert is being shown to indicate that the action has been triggered,
-            but in real code the functionality for the quick action would be triggered.
-        */
-        if shortcutItem.type == "Digital" {
-            self.modelData.isDigitalPresented = true
-        }
-        else if  shortcutItem.type ==  "Dayan" {
-            self.modelData.isDayanPresented = true
+        //Gets the splitViewController
+        if let splitController = window?.rootViewController as? UISplitViewController {
+            //Gets the tabbarController
+            if let tabbarController = splitController.viewControllers[0] as?  UITabBarController {
+                //Gets the navigationViewController
+                if let navController = tabbarController.viewControllers?[0] as? UINavigationController {
+                    //Push DigitalPredictionView
+                    if shortcutItem.type == "Digital" {
+                        let view = DigitalPredictionView().environmentObject(modelData)
+                        let hostVC = UIHostingController(rootView: view)
+                        if splitController.isCollapsed == false {
+                            splitController.showDetailViewController(UINavigationController(rootViewController: hostVC), sender: self)
+                        } else {
+                            navController.popViewController(animated: true)
+                            navController.pushViewController(hostVC, animated: true)
+                        }
+                    //Push DayanPredictionView
+                    } else if shortcutItem.type ==  "Dayan" {
+                        let view = DayanPredictionView().environmentObject(modelData)
+                        let hostVC = UIHostingController(rootView: view)
+                        if splitController.isCollapsed == false {
+                            splitController.showDetailViewController(UINavigationController(rootViewController: hostVC), sender: self)
+                        } else {
+                            navController.popViewController(animated: true)
+                            navController.pushViewController(hostVC, animated: true)
+                        }
+                    }
+                }
+            }
         }
         return true
     }
