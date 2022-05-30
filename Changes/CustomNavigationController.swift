@@ -78,6 +78,7 @@ extension UIViewController {
         } else {
             hostVC.navigationItem.title = title
             hostVC.navigationItem.largeTitleDisplayMode = .never
+            navigationController?.popViewController(animated: true)
             navigationController?.pushViewController(hostVC, animated: true)
         }
     }
