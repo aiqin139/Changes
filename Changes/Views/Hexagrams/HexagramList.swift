@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-class HexagramTableViewController: UITableViewController {
+// MARK: Hexagram view controller
+
+class HexagramViewController: UIViewController {
     var modelData: ModelData
 
     var headers = ["基本八卦", "六十四卦"]
@@ -22,9 +24,11 @@ class HexagramTableViewController: UITableViewController {
         }
     }
 
+    var tableView = UITableView(frame: CGRect(), style: .insetGrouped)
+    
     init(_ modelData: ModelData) {
         self.modelData = modelData
-        super.init(style: .insetGrouped)
+        super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder: NSCoder) {
@@ -36,17 +40,35 @@ class HexagramTableViewController: UITableViewController {
 
         tableView.register(HostingTableViewCell<HexagramRow>.self, forCellReuseIdentifier: "rowViewCell")
         tableView.separatorStyle = .singleLine
+        tableView.dataSource = self
+        tableView.delegate = self
         
         let searchController: UISearchController = UISearchController(searchResultsController: nil)
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "搜索"
         searchController.searchBar.setValue("取消", forKey: "cancelButtonText")
+        
+        self.view.addSubview(tableView)
         self.navigationItem.searchController = searchController
         self.navigationItem.title = "卦象"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
         traitCollectionDidChange(nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let selectedRow: IndexPath? = tableView.indexPathForSelectedRow
+        if let selectedRowNotNill = selectedRow {
+            tableView.deselectRow(at: selectedRowNotNill, animated: animated)
+        }
+    }
+    
+    override func viewWillLayoutSubviews() {
+        let tableViewWidth = Int((self.parent?.view.frame.width)!)
+        let tableViewHeight = Int(self.view.bounds.size.height)
+        tableView.frame = CGRect(x: 0, y: 0, width: tableViewWidth, height: tableViewHeight)
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -58,23 +80,25 @@ class HexagramTableViewController: UITableViewController {
     }
 }
 
-extension HexagramTableViewController {
-    override func numberOfSections(in tableView: UITableView) -> Int {
+// MARK: - Hexagram view controller data source and delegate
+
+extension HexagramViewController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return data.count
     }
 
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else { return }
         header.textLabel?.font = UIFont.systemFont(ofSize: 20)
         header.textLabel?.frame = header.bounds
         header.textLabel?.textAlignment = .left
     }
 
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 35
     }
 
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if modelData.searchBarText.isEmpty {
             return headers[section]
         } else {
@@ -82,15 +106,15 @@ extension HexagramTableViewController {
         }
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data[section].count
     }
 
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 55
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "rowViewCell") as! HostingTableViewCell<HexagramRow>
         cell.setView(HexagramRow(hexagram: data[indexPath.section][indexPath.row]), parent: self)
         cell.accessoryType = .disclosureIndicator
@@ -98,7 +122,7 @@ extension HexagramTableViewController {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let hexagram = data[indexPath.section][indexPath.row]
         let hexagramView = HexagramDetail(hexagram: hexagram)
         let hostVC =  UIHostingController(rootView: hexagramView)
@@ -107,7 +131,9 @@ extension HexagramTableViewController {
     }
 }
 
-extension HexagramTableViewController: UISearchResultsUpdating {
+// MARK: Hexagram view controller search results updating
+
+extension HexagramViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
     if let searchBarText = searchController.searchBar.text {
         var allHexagrams: [Hexagram] { modelData.basicHexagrams + modelData.derivedHexagrams }
@@ -117,11 +143,13 @@ extension HexagramTableViewController: UISearchResultsUpdating {
   }
 }
 
+// MARK: Hexagram navigation controller
+
 class HexagramNavigationController: CustomNavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let hostVC = HexagramTableViewController(self.modelData)
+        let hostVC = HexagramViewController(self.modelData)
         
         self.setViewControllers([hostVC], animated: true)
     }

@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// MARK: - Prediction picker view
+
 struct PredictionPicker: View {
     @State var modelData: ModelData
     
@@ -25,12 +27,14 @@ struct PredictionPicker: View {
     }
 }
 
-class PredictionTableViewController: UIViewController {
+// MARK: - Prediction view controller
+
+class PredictionViewController: UIViewController {
     var modelData: ModelData
 
     var data = ["所占何事", "数字卦（占小事）", "大衍卦（占大事）"]
 
-    var tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: UITableView.Style.insetGrouped)
+    var tableView = UITableView(frame: CGRect(), style: .insetGrouped)
     var image = UIViewController()
 
     init(_ modelData: ModelData) {
@@ -91,7 +95,9 @@ class PredictionTableViewController: UIViewController {
     }
 }
 
-extension  PredictionTableViewController: UITableViewDelegate, UITableViewDataSource {
+// MARK: - Prediction view controller data source and delegate
+
+extension  PredictionViewController: UITableViewDataSource, UITableViewDelegate  {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
@@ -132,11 +138,13 @@ extension  PredictionTableViewController: UITableViewDelegate, UITableViewDataSo
     }
 }
 
+// MARK: - Prediction navigation controller
+
 class PredictionNavigationController: CustomNavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let hostVC = PredictionTableViewController(self.modelData)
+        let hostVC = PredictionViewController(self.modelData)
 
         self.setViewControllers([hostVC], animated: true)
     }

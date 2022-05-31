@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-class MoreTableViewController: UIViewController {
+// MARK: More view controller
+
+class MoreViewController: UIViewController {
     var modelData: ModelData
     
     var data = [["占卦记录"],
@@ -16,7 +18,7 @@ class MoreTableViewController: UIViewController {
                 ["元亨之意", "利贞之意"],
                 ["关于软件"]]
 
-    var tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: UITableView.Style.insetGrouped)
+    var tableView = UITableView(frame: CGRect(), style: .insetGrouped)
     var logo = UIViewController()
 
     init(_ modelData: ModelData) {
@@ -79,7 +81,9 @@ class MoreTableViewController: UIViewController {
     }
 }
 
-extension MoreTableViewController: UITableViewDelegate, UITableViewDataSource {
+// MARK: - More view controller data source and delegate
+
+extension MoreViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return data.count
     }
@@ -115,11 +119,13 @@ extension MoreTableViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK: More view navigation controller
+
 class MoreViewNavigationController: CustomNavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let hostVC = MoreTableViewController(self.modelData)
+        let hostVC = MoreViewController(self.modelData)
         
         self.setViewControllers([hostVC], animated: true)
     }
