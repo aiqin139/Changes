@@ -56,23 +56,25 @@ class MoreTableViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         let logoViewY = Int((self.navigationController?.navigationBar.frame.height)!)
-        let logoViewWidth = Int((self.parent?.view.frame.width)!)
+        let logoViewWidth = Int((self.parent?.view.frame.width)!) - 10
         let logoViewHeight = 100
         let tableViewY = logoViewY + logoViewHeight
         let tableViewWidth = Int((self.parent?.view.frame.width)!)
         let tableViewHeight = Int(self.view.bounds.size.height) - tableViewY
         
-        logo.view.frame = CGRect(x: 0, y: logoViewY, width: logoViewWidth, height: logoViewHeight)
+        logo.view.frame = CGRect(x: 10, y: logoViewY, width: logoViewWidth, height: logoViewHeight)
         tableView.frame = CGRect(x: 0, y: tableViewY, width: tableViewWidth, height: tableViewHeight)
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         if UITraitCollection.current.userInterfaceStyle == .dark {
             tableView.backgroundColor = .black
+            logo.view.backgroundColor = .black
             self.view.backgroundColor = .black
         } else {
             tableView.backgroundColor = UIColor(red: 0.9600, green: 0.9700, blue: 0.9800, alpha: 1.0)
-            self.view.backgroundColor = .white
+            logo.view.backgroundColor = tableView.backgroundColor
+            self.view.backgroundColor = tableView.backgroundColor
         }
     }
 }
