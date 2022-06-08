@@ -94,7 +94,12 @@ extension DigitalPredictionView {
                 }
                 .opacity(self.opcity)
                 .onTapGesture { self.opcity = 0.8 }
-                .onLongPressGesture { self.DigitPrediction() }
+                .onLongPressGesture { Task {
+                    for _ in 1..<50 {
+                        self.DigitPrediction()
+                        try await Task.sleep(nanoseconds: 50_000_000)
+                    }
+                } }
             }
             
             Spacer()
