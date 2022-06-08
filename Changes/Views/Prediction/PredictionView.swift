@@ -73,9 +73,12 @@ class PredictionViewController: UIViewController {
     }
     
     override func viewWillLayoutSubviews() {
+        let imageWidth = (self.parent?.view.frame.width)! * 0.8
+        let imageHeight = (self.parent?.view.frame.height)! * 0.4
+        let imageViewWidth = Int((imageHeight > (self.parent?.view.frame.width)!) ? imageWidth : imageHeight)
         let imageViewY = Int((self.navigationController?.navigationBar.frame.height)!)
-        let imageViewX = Int((self.parent?.view.frame.width)! * 0.1)
-        let imageViewWidth = Int((self.parent?.view.frame.width)! * 0.8)
+        let imageViewX = (Int((self.parent?.view.frame.width)!) - imageViewWidth) / 2
+        
         let tableViewY = imageViewY + imageViewWidth
         let tableViewWidth = Int((self.parent?.view.frame.width)!)
         let tableViewHeight = Int(self.view.bounds.size.height) - tableViewY

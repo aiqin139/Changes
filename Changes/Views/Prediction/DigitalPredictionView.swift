@@ -23,7 +23,7 @@ struct DigitalPredictionView: View {
     var body: some View {
         GeometryReader { geometry in
             let imageWidth = geometry.size.width * 0.8
-            let imageHeight = geometry.size.height * 0.45
+            let imageHeight = geometry.size.height * 0.5
             let width = (imageHeight > geometry.size.width) ? imageWidth : imageHeight
             
             ZStack {
@@ -61,7 +61,7 @@ struct DigitalPredictionView: View {
 extension DigitalPredictionView {
     func ImageView(_ width: CGFloat) -> some View {
         RotateImage(image: "先天八卦图", lineWidth: 2)
-            .frame(width: width * 0.8, height: width * 0.8, alignment: .center)
+            .frame(width: width * 0.9, height: width * 0.9, alignment: .center)
     }
     
     func PickerView(_ width: CGFloat) -> some View {
