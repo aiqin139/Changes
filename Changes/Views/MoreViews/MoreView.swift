@@ -11,7 +11,7 @@ import SwiftUI
 
 class MoreViewController: UIViewController {
     var modelData: ModelData
-    
+
     var data = [["占卦记录"],
                 ["占卦须知", "大衍占法", "数字占法", "念念有词"],
                 ["占卦三不", "不诚不占", "不义不占", "不疑不占"],
@@ -34,40 +34,41 @@ class MoreViewController: UIViewController {
         super.viewDidLoad()
 
         logo = UIHostingController(rootView: LogoView())
+        tableView.contentInset = UIEdgeInsets(top: 80, left: 0, bottom: 0, right: 0)
+        tableView.contentOffset = CGPoint(x: 0, y: -80)
+        tableView.addSubview(logo.view)
         
-        tableView.register(HostingTableViewCell<LogoView>.self, forCellReuseIdentifier: "rowViewCell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "rowViewCell")
         tableView.separatorStyle = .singleLine
         tableView.dataSource = self
         tableView.delegate = self
 
-        self.view.addSubview(logo.view)
         self.view.addSubview(tableView)
-        self.navigationItem.title = ""
+        self.navigationItem.title = "更多"
         self.navigationController?.navigationBar.prefersLargeTitles = false
-        
+
         traitCollectionDidChange(nil)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let selectedRow: IndexPath? = tableView.indexPathForSelectedRow
         if let selectedRowNotNill = selectedRow {
             tableView.deselectRow(at: selectedRowNotNill, animated: animated)
         }
+        self.navigationController?.navigationBar.isHidden = true
     }
-    
+
     override func viewWillLayoutSubviews() {
-        let logoViewY = Int((self.navigationController?.navigationBar.frame.height)!)
         let logoViewWidth = Int((self.parent?.view.frame.width)!) - 10
         let logoViewHeight = 100
-        let tableViewY = logoViewY + logoViewHeight
         let tableViewWidth = Int((self.parent?.view.frame.width)!)
-        let tableViewHeight = Int(self.view.bounds.size.height) - tableViewY
-        
-        logo.view.frame = CGRect(x: 10, y: logoViewY, width: logoViewWidth, height: logoViewHeight)
-        tableView.frame = CGRect(x: 0, y: tableViewY, width: tableViewWidth, height: tableViewHeight)
+        let tableViewHeight = Int(self.view.bounds.size.height)
+
+        logo.view.frame = CGRect(x: 10, y: -80, width: logoViewWidth, height: logoViewHeight)
+        tableView.frame = CGRect(x: 0, y: 0, width: tableViewWidth, height: tableViewHeight)
     }
-    
+
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         if UITraitCollection.current.userInterfaceStyle == .dark {
             tableView.backgroundColor = .black
@@ -97,7 +98,7 @@ extension MoreViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "rowViewCell") as! HostingTableViewCell<LogoView>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "rowViewCell")!
 
         cell.textLabel?.text = data[indexPath.section][indexPath.row]
         cell.accessoryType = .disclosureIndicator
