@@ -49,7 +49,6 @@
 		149539E325C2F01100F05BA1 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149539E225C2F01100F05BA1 /* CircleImage.swift */; };
 		149FEB5E2621EA2D00AE6380 /* RecordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149FEB5D2621EA2D00AE6380 /* RecordData.swift */; };
 		14BCD62D283B75110003BDD6 /* HexagramSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BCD62C283B75110003BDD6 /* HexagramSymbol.swift */; };
-		14CC3E5E25FE3CB9004106FF /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CC3E5D25FE3CB9004106FF /* SearchBar.swift */; };
 		14CC3E6425FE438C004106FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CC3E6225FE438C004106FF /* AppDelegate.swift */; };
 		14CC3E6525FE438C004106FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CC3E6325FE438C004106FF /* SceneDelegate.swift */; };
 		14F63FDF25DE65C800C76246 /* NumberPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F63FDE25DE65C800C76246 /* NumberPicker.swift */; };
@@ -114,7 +113,6 @@
 		149FEB5D2621EA2D00AE6380 /* RecordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordData.swift; sourceTree = "<group>"; };
 		14B10B6F27352CFC0036F3FF /* Changes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Changes.entitlements; sourceTree = "<group>"; };
 		14BCD62C283B75110003BDD6 /* HexagramSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramSymbol.swift; sourceTree = "<group>"; };
-		14CC3E5D25FE3CB9004106FF /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		14CC3E6225FE438C004106FF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14CC3E6325FE438C004106FF /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		14F63FDE25DE65C800C76246 /* NumberPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPicker.swift; sourceTree = "<group>"; };
@@ -260,7 +258,6 @@
 				140557A825DD567F004681EE /* RotateImage.swift */,
 				140557AC25DD580B004681EE /* LocationProvider.swift */,
 				14F63FDE25DE65C800C76246 /* NumberPicker.swift */,
-				14CC3E5D25FE3CB9004106FF /* SearchBar.swift */,
 				1441B23E26022FFA00833DEC /* RTFReader.swift */,
 			);
 			path = Helpers;
@@ -377,7 +374,6 @@
 				1441B23F26022FFA00833DEC /* RTFReader.swift in Sources */,
 				1476168025F901F7009F7578 /* RecordView.swift in Sources */,
 				149539A225C2795A00F05BA1 /* PredictionView.swift in Sources */,
-				14CC3E5E25FE3CB9004106FF /* SearchBar.swift in Sources */,
 				140CE46D25C4617500984B9D /* HexagramList.swift in Sources */,
 				147D0B0D25C84D950069C826 /* DayanExplanationView.swift in Sources */,
 				148BC39026A423A100E83678 /* CustomTabBarController.swift in Sources */,
