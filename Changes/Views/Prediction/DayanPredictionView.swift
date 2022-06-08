@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// MARK: DayanPredictionView
+
 struct DayanPredictionView: View {
     @EnvironmentObject var modelData: ModelData
     @Environment(\.colorScheme) var colorScheme
@@ -23,110 +25,24 @@ struct DayanPredictionView: View {
         GeometryReader { geometry in
             let imageWidth = geometry.size.width * 0.8
             let imageHeight = geometry.size.height * 0.45
-            let imageWidthHeight = (imageHeight > geometry.size.width) ? imageWidth : imageHeight
-            let buttonWidthHeight = geometry.size.width * 0.2
+            let width = (imageHeight > geometry.size.width) ? imageWidth : imageHeight
             
             ZStack {
                 VStack {
                     Spacer()
-                    
-                    RotateImage(image: "先天八卦图", lineWidth: 2)
-                        .frame(width: imageWidthHeight, height: imageWidthHeight)
-                    
+                    ImageView(width)
                     Spacer()
-                    
-                    HStack {
-                        ForEach(0...5, id: \.self) { index in
-                            VStack {
-                                let name = (((modelData.dayanPrediction.data.result[index] % 2) == 0) ? "六" : "九")
-                                if (index == 0 || index == 5) {
-                                    Text(yao[index] + name)
-                                }
-                                else {
-                                    Text(name + yao[index])
-                                }
-                                NumberPicker(start: 6, end: 9, value: $modelData.dayanPrediction.data.result[index])
-                                    .font(.title)
-                                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(accentColor, lineWidth: 2))
-                            }
-                        }
-                    }
-                    .padding(.horizontal, 5.0)
-                    
+                    PickerView(width)
                     Spacer()
-                    
-                    HStack {
-                        Spacer()
-                        
-                        Button(action: {}) {
-                            VStack {
-                                Image("占")
-                                    .resizable()
-                                    .frame(width: buttonWidthHeight, height: buttonWidthHeight)
-                                    .clipShape(HexagramShape())
-                                    .overlay(HexagramShape().stroke(accentColor, lineWidth: 2))
-                            }
-                            .opacity(self.opcity)
-                            .onTapGesture { opcity = 0.8 }
-                            .onLongPressGesture { DayanPrediction() }
-                        }
-                        
-                        Spacer()
-                        
-                        Button(action: {}) {
-                            VStack {
-                                Image("解")
-                                    .resizable()
-                                    .frame(width: buttonWidthHeight, height: buttonWidthHeight)
-                                    .clipShape(HexagramShape())
-                                    .overlay(HexagramShape().stroke(accentColor, lineWidth: 2))
-                            }
-                            .opacity(self.opcity)
-                            .onTapGesture { opcity = 0.8 }
-                            .onLongPressGesture { DayanParser() }
-                        }
-                        
-                        Spacer()
-                    }
-                    
+                    ButtonView(width)
                     Spacer()
                 }
                 .blur(radius: (isParser || isQuestion) ? 10 : 0)
                 .disabled((isParser || isQuestion) ? true : false)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 
-                if $isParser.wrappedValue {
-                    VStack {
-                        DayanExplanationView(dayanData: modelData.dayanPrediction.data)
-                            .cornerRadius(10).shadow(radius: 20)
-
-                        Button(action: {
-                            self.isParser = false
-                        }) {
-                            Image(systemName: "xmark.seal")
-                                .resizable()
-                                .foregroundColor(accentColor)
-                                .frame(width: 50, height: 50)
-                        }
-                    }
-                    .padding(.bottom, 15.0)
-                }
-                
-                if $isQuestion.wrappedValue {
-                    VStack {
-                        RTFReader(fileName: "大衍占法")
-                        
-                        Button(action: {
-                            self.isQuestion = false
-                        }) {
-                            Image(systemName: "xmark.seal")
-                                .resizable()
-                                .foregroundColor(accentColor)
-                                .frame(width: 50, height: 50)
-                        }
-                    }
-                    .padding(.bottom, 15.0)
-                }
+                if $isParser.wrappedValue { ParserView() }
+                if $isQuestion.wrappedValue { QuestionView() }
             }
             .shadow(radius: 20)
             .navigationTitle("大衍卦")
@@ -139,7 +55,112 @@ struct DayanPredictionView: View {
             })
         }
     }
+}
+
+// MARK: DayanPredictionView views
+
+extension DayanPredictionView {
+    func ImageView(_ width: CGFloat) -> some View {
+        RotateImage(image: "先天八卦图", lineWidth: 2)
+            .frame(width: width * 0.8, height: width * 0.8, alignment: .center)
+    }
     
+    func PickerView(_ width: CGFloat) -> some View {
+        HStack {
+            ForEach(0...5, id: \.self) { index in
+                VStack {
+                    let name = (((modelData.dayanPrediction.data.result[index] % 2) == 0) ? "六" : "九")
+                    if (index == 0 || index == 5) {
+                        Text(yao[index] + name)
+                    }
+                    else {
+                        Text(name + yao[index])
+                    }
+                    NumberPicker(start: 6, end: 9, value: $modelData.dayanPrediction.data.result[index])
+                        .font(.title)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(accentColor, lineWidth: 2))
+                }
+            }
+        }
+        .padding(.horizontal, 5.0)
+        .frame(width: width)
+    }
+    
+    func ButtonView(_ width: CGFloat) -> some View {
+        HStack {
+            Spacer()
+            
+            Button(action: {}) {
+                VStack {
+                    Image("占")
+                        .resizable()
+                        .frame(width: width * 0.2, height: width * 0.2)
+                        .clipShape(HexagramShape())
+                        .overlay(HexagramShape().stroke(accentColor, lineWidth: 2))
+                }
+                .opacity(self.opcity)
+                .onTapGesture { opcity = 0.8 }
+                .onLongPressGesture { DayanPrediction() }
+            }
+            
+            Spacer()
+            
+            Button(action: {}) {
+                VStack {
+                    Image("解")
+                        .resizable()
+                        .frame(width: width * 0.2, height: width * 0.2)
+                        .clipShape(HexagramShape())
+                        .overlay(HexagramShape().stroke(accentColor, lineWidth: 2))
+                }
+                .opacity(self.opcity)
+                .onTapGesture { opcity = 0.8 }
+                .onLongPressGesture { DayanParser() }
+            }
+            
+            Spacer()
+        }
+        .frame(width: width)
+    }
+        
+    func ParserView() -> some View {
+        VStack {
+            DayanExplanationView(dayanData: modelData.dayanPrediction.data)
+                .cornerRadius(10).shadow(radius: 20)
+
+            Button(action: {
+                self.isParser = false
+            }) {
+                Image(systemName: "xmark.seal")
+                    .resizable()
+                    .foregroundColor(accentColor)
+                    .frame(width: 50, height: 50)
+            }
+        }
+        .padding(.bottom, 15.0)
+    }
+    
+    func QuestionView() -> some View {
+        VStack {
+            RTFReader(fileName: "大衍占法")
+            
+            Button(action: {
+                self.isQuestion = false
+            }) {
+                Image(systemName: "xmark.seal")
+                    .resizable()
+                    .foregroundColor(accentColor)
+                    .frame(width: 50, height: 50)
+            }
+        }
+        .padding(.bottom, 15.0)
+    }
+}
+
+// MARK: DayanPredictionView methods
+
+extension DayanPredictionView {
     func Notifiy() {
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
@@ -169,6 +190,8 @@ struct DayanPredictionView: View {
         Notifiy()
     }
 }
+
+// MARK: Swiftui Preview
 
 struct DayanPredictionView_Previews: PreviewProvider {
     static var previews: some View {
