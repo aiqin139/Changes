@@ -71,6 +71,37 @@ class HostingTableViewCell<Content: View>: UITableViewCell {
     }
 }
 
+
+class HostingCollectionViewCell<Content: View>: UICollectionViewCell {
+    private weak var controller: UIHostingController<Content>?
+
+    func setView(_ view: Content, parent: UIViewController) {
+        if let controller = controller {
+            controller.rootView = view
+            controller.view.layoutIfNeeded()
+        } else {
+            let hostVC = UIHostingController(rootView: view)
+            hostVC.view.backgroundColor = .clear
+            controller = hostVC
+
+            layoutIfNeeded()
+
+            parent.addChild(hostVC)
+  
+            contentView.addSubview(hostVC.view)
+            hostVC.view.translatesAutoresizingMaskIntoConstraints = false
+            contentView.addConstraint(NSLayoutConstraint(item: hostVC.view!, attribute: NSLayoutConstraint.Attribute.leading, relatedBy: NSLayoutConstraint.Relation.equal, toItem: contentView, attribute: NSLayoutConstraint.Attribute.leading, multiplier: 1.0, constant: 0.0))
+            contentView.addConstraint(NSLayoutConstraint(item: hostVC.view!, attribute: NSLayoutConstraint.Attribute.trailing, relatedBy: NSLayoutConstraint.Relation.equal, toItem: contentView, attribute: NSLayoutConstraint.Attribute.trailing, multiplier: 1.0, constant: 0.0))
+            contentView.addConstraint(NSLayoutConstraint(item: hostVC.view!, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: contentView, attribute: NSLayoutConstraint.Attribute.top, multiplier: 1.0, constant: 0.0))
+            contentView.addConstraint(NSLayoutConstraint(item: hostVC.view!, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: contentView, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1.0, constant: 0.0))
+
+            hostVC.didMove(toParent: parent)
+            hostVC.view.layoutIfNeeded()
+        }
+    }
+}
+
+
 extension UIViewController {
     func pushOrShowDetailView(_ hostVC: UIViewController, _ title: String) {
         if splitViewController?.isCollapsed == false {
@@ -78,6 +109,7 @@ extension UIViewController {
         } else {
             hostVC.navigationItem.title = title
             hostVC.navigationItem.largeTitleDisplayMode = .never
+            navigationController?.navigationBar.isHidden = false
             navigationController?.popViewController(animated: true)
             navigationController?.pushViewController(hostVC, animated: true)
         }
