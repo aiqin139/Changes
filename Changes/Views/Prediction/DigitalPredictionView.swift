@@ -12,6 +12,7 @@ import SwiftUI
 struct DigitalPredictionView: View {
     @EnvironmentObject var modelData: ModelData
     @Environment(\.colorScheme) var colorScheme
+    @State private var isStart = false
     @State private var isParser = false
     @State private var isQuestion = false
     @State private var opcity: Double = 1
@@ -37,7 +38,7 @@ struct DigitalPredictionView: View {
                     Spacer()
                 }
                 .blur(radius: (isParser || isQuestion) ? 10 : 0)
-                .disabled((isParser || isQuestion) ? true : false)
+                .disabled((isParser || isQuestion || isStart) ? true : false)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 
                 if $isParser.wrappedValue { ParserView() }
@@ -95,10 +96,12 @@ extension DigitalPredictionView {
                 .opacity(self.opcity)
                 .onTapGesture { self.opcity = 0.8 }
                 .onLongPressGesture { Task {
+                    self.isStart = true
                     for _ in 1..<50 {
                         self.DigitPrediction()
                         try await Task.sleep(nanoseconds: 50_000_000)
                     }
+                    self.isStart = false
                 } }
             }
             

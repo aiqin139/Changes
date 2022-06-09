@@ -76,6 +76,24 @@ struct DayanPrediction {
         return d - c
     }
     
+    mutating func Execute(_ step: Int) {
+        if step >= 0 && step < 6 {
+            var d = 50 - 1
+            
+            //three steps
+            for _ in 0..<3 {
+                var s = 0
+                while s == 0 {
+                    s = Int(arc4random()) % d
+                }
+                d = BaseCalculate(d: d, s: s)
+            }
+            
+            //store results
+            data.result[step] = d / 4
+        }
+    }
+    
     mutating func Execute() {
         //six steps
         for i in 0..<6 {

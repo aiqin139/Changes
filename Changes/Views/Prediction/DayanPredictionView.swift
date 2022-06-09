@@ -12,6 +12,7 @@ import SwiftUI
 struct DayanPredictionView: View {
     @EnvironmentObject var modelData: ModelData
     @Environment(\.colorScheme) var colorScheme
+    @State private var isStart = false
     @State private var isParser = false
     @State private var isQuestion = false
     @State private var opcity: Double = 1
@@ -38,7 +39,7 @@ struct DayanPredictionView: View {
                     Spacer()
                 }
                 .blur(radius: (isParser || isQuestion) ? 10 : 0)
-                .disabled((isParser || isQuestion) ? true : false)
+                .disabled((isParser || isQuestion || isStart) ? true : false)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 
                 if $isParser.wrappedValue { ParserView() }
@@ -101,7 +102,14 @@ extension DayanPredictionView {
                 }
                 .opacity(self.opcity)
                 .onTapGesture { opcity = 0.8 }
-                .onLongPressGesture { DayanPrediction() }
+                .onLongPressGesture { Task {
+                    self.isStart = true
+                    for step in 0..<6 {
+                        self.DayanPrediction(step)
+                        try await Task.sleep(nanoseconds: 1000_000_000)
+                    }
+                    self.isStart = false
+                } }
             }
             
             Spacer()
@@ -164,6 +172,11 @@ extension DayanPredictionView {
     func Notifiy() {
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
+    }
+    
+    func DayanPrediction(_ step: Int) {
+        modelData.dayanPrediction.Execute(step)
+        Notifiy()
     }
     
     func DayanPrediction() {
