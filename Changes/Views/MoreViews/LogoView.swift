@@ -10,8 +10,7 @@ import SwiftUI
 struct LogoView: View {
     var body: some View {
         HStack(alignment: .center) {
-            Image("先天八卦图")
-                .resizable()
+            EightTrigramsSymbol()
                 .clipShape(HexagramShape())
                 .frame(width: 80, height: 80)
             
