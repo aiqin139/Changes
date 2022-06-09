@@ -49,8 +49,8 @@ class PredictionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        image = UIHostingController(rootView: RotateImage(image: "先天八卦图"))
-
+        image = UIHostingController(rootView: RotateEightTrigrams())
+        
         tableView.register(HostingTableViewCell<PredictionPicker>.self, forCellReuseIdentifier: "rowViewCell")
         tableView.separatorStyle = .singleLine
         tableView.dataSource = self

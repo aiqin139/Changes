@@ -60,7 +60,7 @@ struct DigitalPredictionView: View {
 
 extension DigitalPredictionView {
     func ImageView(_ width: CGFloat) -> some View {
-        RotateImage(image: "先天八卦图", lineWidth: 2)
+        RotateEightTrigrams(lineWidth: 2, lineColor: accentColor)
             .frame(width: width * 0.9, height: width * 0.9, alignment: .center)
     }
     

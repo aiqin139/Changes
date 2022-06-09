@@ -27,8 +27,7 @@ struct HexagramShape: Shape {
     }
 }
 
-struct RotateImage: View {
-    var image: String
+struct RotateEightTrigrams: View {
     var lineWidth: CGFloat = 0
     var lineColor: Color = Color.black
     var locationManager = CLLocationManager()
@@ -38,10 +37,8 @@ struct RotateImage: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                Image(image)
-                    .resizable()
-                    .clipShape(HexagramShape())
-                    .overlay(HexagramShape().stroke(Color.black, lineWidth: lineWidth))
+                EightTrigramsSymbol()
+                    .overlay(HexagramShape().stroke(lineColor, lineWidth: lineWidth))
                     .animation(.linear)
                     .onReceive(self.location.heading) { heading in
                         withAnimation(.easeInOut(duration: 0.2)) {
@@ -103,7 +100,7 @@ public extension CGFloat {
 
 struct RotateImage_Previews: PreviewProvider {
     static var previews: some View {
-        RotateImage(image: "先天八卦图")
+        RotateEightTrigrams()
             .frame(width: 350, height: 350)
             .shadow(radius: 10)
     }
