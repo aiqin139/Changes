@@ -43,7 +43,7 @@ struct DigitalPredictionView: View {
                 if $isParser.wrappedValue { ParserView() }
                 if $isQuestion.wrappedValue { QuestionView() }
             }
-            .shadow(radius: 20)
+            .shadow(radius: 100)
             .navigationTitle("数字卦")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing: Button(action: {
@@ -86,11 +86,11 @@ extension DigitalPredictionView {
             
             Button(action: {}) {
                 VStack {
-                    Image("占")
-                        .resizable()
+                    Text("占")
+                        .font(.system(size: 40, weight: .semibold, design: .rounded))
                         .frame(width: width * 0.2, height: width * 0.2)
-                        .clipShape(HexagramShape())
                         .overlay(HexagramShape().stroke(self.accentColor, lineWidth: 2))
+                        .foregroundColor(self.accentColor)
                 }
                 .opacity(self.opcity)
                 .onTapGesture { self.opcity = 0.8 }
@@ -106,11 +106,11 @@ extension DigitalPredictionView {
             
             Button(action: {}) {
                 VStack {
-                    Image("解")
-                        .resizable()
+                    Text("解")
+                        .font(.system(size: 40, weight: .semibold, design: .rounded))
                         .frame(width: width * 0.2, height: width * 0.2)
-                        .clipShape(HexagramShape())
                         .overlay(HexagramShape().stroke(self.accentColor, lineWidth: 2))
+                        .foregroundColor(self.accentColor)
                 }
                 .opacity(self.opcity)
                 .onTapGesture { self.opcity = 0.8 }

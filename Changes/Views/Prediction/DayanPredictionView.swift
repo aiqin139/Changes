@@ -44,7 +44,7 @@ struct DayanPredictionView: View {
                 if $isParser.wrappedValue { ParserView() }
                 if $isQuestion.wrappedValue { QuestionView() }
             }
-            .shadow(radius: 20)
+            .shadow(radius: 100)
             .navigationTitle("大衍卦")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing: Button(action: {
@@ -93,11 +93,11 @@ extension DayanPredictionView {
             
             Button(action: {}) {
                 VStack {
-                    Image("占")
-                        .resizable()
+                    Text("占")
+                        .font(.system(size: 40, weight: .semibold, design: .rounded))
                         .frame(width: width * 0.2, height: width * 0.2)
-                        .clipShape(HexagramShape())
-                        .overlay(HexagramShape().stroke(accentColor, lineWidth: 2))
+                        .overlay(HexagramShape().stroke(self.accentColor, lineWidth: 2))
+                        .foregroundColor(self.accentColor)
                 }
                 .opacity(self.opcity)
                 .onTapGesture { opcity = 0.8 }
@@ -108,11 +108,11 @@ extension DayanPredictionView {
             
             Button(action: {}) {
                 VStack {
-                    Image("解")
-                        .resizable()
+                    Text("解")
+                        .font(.system(size: 40, weight: .semibold, design: .rounded))
                         .frame(width: width * 0.2, height: width * 0.2)
-                        .clipShape(HexagramShape())
-                        .overlay(HexagramShape().stroke(accentColor, lineWidth: 2))
+                        .overlay(HexagramShape().stroke(self.accentColor, lineWidth: 2))
+                        .foregroundColor(self.accentColor)
                 }
                 .opacity(self.opcity)
                 .onTapGesture { opcity = 0.8 }
