@@ -1,5 +1,5 @@
 //
-//  RotateImage.swift
+//  RotateEightTrigrams.swift
 //  Changes
 //
 //  Created by aiqin139 on 2021/2/17.

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		140557A925DD567F004681EE /* RotateImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140557A825DD567F004681EE /* RotateImage.swift */; };
+		140557A925DD567F004681EE /* RotateEightTrigrams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140557A825DD567F004681EE /* RotateEightTrigrams.swift */; };
 		140557AD25DD580B004681EE /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140557AC25DD580B004681EE /* LocationProvider.swift */; };
 		140CE46025C45AE600984B9D /* HexagramRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE45F25C45AE600984B9D /* HexagramRow.swift */; };
 		140CE46D25C4617500984B9D /* HexagramList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE46C25C4617500984B9D /* HexagramList.swift */; };
@@ -69,7 +69,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		140557A825DD567F004681EE /* RotateImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateImage.swift; sourceTree = "<group>"; };
+		140557A825DD567F004681EE /* RotateEightTrigrams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateEightTrigrams.swift; sourceTree = "<group>"; };
 		140557AC25DD580B004681EE /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
 		140CE45F25C45AE600984B9D /* HexagramRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramRow.swift; sourceTree = "<group>"; };
 		140CE46C25C4617500984B9D /* HexagramList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagramList.swift; sourceTree = "<group>"; };
@@ -257,7 +257,6 @@
 			children = (
 				149539E225C2F01100F05BA1 /* CircleImage.swift */,
 				147D0AF125C7C2050069C826 /* NumberInput.swift */,
-				140557A825DD567F004681EE /* RotateImage.swift */,
 				140557AC25DD580B004681EE /* LocationProvider.swift */,
 				14F63FDE25DE65C800C76246 /* NumberPicker.swift */,
 				1441B23E26022FFA00833DEC /* RTFReader.swift */,
@@ -270,6 +269,7 @@
 			children = (
 				14BCD62C283B75110003BDD6 /* HexagramSymbol.swift */,
 				14684CC628518DC8002A2628 /* EightTrigramsSymbol.swift */,
+				140557A825DD567F004681EE /* RotateEightTrigrams.swift */,
 			);
 			path = Symbols;
 			sourceTree = "<group>";
@@ -371,7 +371,7 @@
 				149539D625C2DB8400F05BA1 /* ModelData.swift in Sources */,
 				140557AD25DD580B004681EE /* LocationProvider.swift in Sources */,
 				147D0AF225C7C2050069C826 /* NumberInput.swift in Sources */,
-				140557A925DD567F004681EE /* RotateImage.swift in Sources */,
+				140557A925DD567F004681EE /* RotateEightTrigrams.swift in Sources */,
 				140CE46025C45AE600984B9D /* HexagramRow.swift in Sources */,
 				148BC39126A423A100E83678 /* CustomNavigationController.swift in Sources */,
 				149FEB5E2621EA2D00AE6380 /* RecordData.swift in Sources */,
