@@ -17,21 +17,21 @@ struct TaiChiSymbol: View {
             let smallRadius = bigRadius * 0.15
             
             Path { path in
-                //左半圆
+                //big circle
                 path.move(to: CGPoint(x: midX, y: minY + bigRadius))
                 path.addArc(center: CGPoint(x: midX, y: minY), radius: bigRadius, startAngle: .degrees(90), endAngle: .degrees(630), clockwise: false)
 
-                //上半圆
+                //upper half circle
                 path.addArc(center: CGPoint(x: midX, y: minY - mediumRadius), radius: mediumRadius, startAngle: .degrees(270), endAngle: .degrees(90), clockwise: false)
 
-                //下半圆
+                //bottom half circle
                 path.addArc(center: CGPoint(x: midX, y: minY + mediumRadius), radius: mediumRadius, startAngle: .degrees(270), endAngle: .degrees(90), clockwise: true)
                 
-                //上圆
+                //upper circle
                 path.move(to: CGPoint(x: midX + smallRadius, y: minY - mediumRadius))
                 path.addArc(center: CGPoint(x: midX, y: minY - mediumRadius), radius: smallRadius, startAngle: .degrees(0), endAngle: .degrees(360), clockwise: false)
                 
-                //下圆
+                //bottom circle
                 path.move(to: CGPoint(x: midX + smallRadius, y: minY + mediumRadius))
                 path.addArc(center: CGPoint(x: midX, y: minY + mediumRadius), radius: smallRadius, startAngle: .degrees(0), endAngle: .degrees(360), clockwise: false)
             }
