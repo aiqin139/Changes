@@ -43,7 +43,7 @@ class HexagramViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        let searchController: UISearchController = UISearchController(searchResultsController: nil)
+        let searchController = UISearchController(searchResultsController: nil)
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "搜索"
