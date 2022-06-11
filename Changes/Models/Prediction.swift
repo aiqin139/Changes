@@ -37,6 +37,15 @@ struct DayanData : Hashable, Codable {
 }
 
 
+struct DayanProcessData : Hashable, Codable {
+    var partA: Int = 0
+    var partB: Int = 0
+    var modA: Int = 0
+    var modB: Int = 0
+    var remain: Int = 0
+}
+
+
 struct DigitalPrediction {
     var data: DigitalData = DigitalData()
     
@@ -69,61 +78,56 @@ struct DigitalPrediction {
 struct DayanPrediction {
     var data: DayanData = DayanData()
     
-    private func BaseCalculate(d: Int, s: Int) -> [Int] {
-        let a = s - 1
-        let b = d - s
-        let a1 = ((a % 4) != 0) ? (a % 4) : 4
-        let b1 = ((b % 4) != 0) ? (b % 4) : 4
-        let d1 = d - a1 - b1 + 1
-        return [a, b, a1, b1, d1]
+    private func BaseCalculate(remain: Int, random: Int) -> DayanProcessData {
+        var res = DayanProcessData()
+        res.partA = random - 1
+        res.partB = remain - random
+        res.modA = ((res.partA % 4) != 0) ? (res.partA % 4) : 4
+        res.modB = ((res.partB % 4) != 0) ? (res.partB % 4) : 4
+        res.remain = remain - res.modA - res.modB - 1
+        return res
     }
     
-    mutating func Execute(_ part: Int, _ step: Int, _ remain: Int) -> [Int] {
-        var res = [0, 0, 0, 0, remain]
+    mutating func Execute(_ part: Int, _ step: Int, _ remain: Int) -> DayanProcessData {
+        //initial
+        var res = DayanProcessData(partA: 0, partB: 0, modA: 0, modB: 0, remain: remain)
         
         //six parts
         if part >= 0 && part < 6 {
 
             //three steps
             if step >= 0 && step < 3 {
-                var s = 0
-                while s <= 1 {
-                    s = Int(arc4random()) % res[4]
+                var random = 0
+                while random <= 1 {
+                    random = Int(arc4random()) % res.remain
                 }
                 
-                res = BaseCalculate(d: res[4], s: s)
+                res = BaseCalculate(remain: res.remain, random: random)
             }
 
             //store results
-            if step == 2 { data.result[part] = res[4] / 4 }
+            if step == 2 { data.result[part] = res.remain / 4 }
         }
         
         return res
     }
     
-    private func BaseCalculate(d: Int, s: Int) -> Int {
-        let a = s - 1
-        let b = d - s
-        let c = 1 + ((a % 4) != 0 ? (a % 4) : 4) + ((b % 4) != 0 ? (b % 4) : 4)
-        return d - c
-    }
-    
     mutating func Execute() {
         //six parts
         for i in 0..<6 {
-            var d = 50 - 1
+            var remain = 50 - 1
             
             //three steps
             for _ in 0..<3 {
-                var s = 0
-                while s <= 1 {
-                    s = Int(arc4random()) % d
+                var random = 0
+                while random <= 1 {
+                    random = Int(arc4random()) % remain
                 }
-                d = BaseCalculate(d: d, s: s)
+                remain = BaseCalculate(remain: remain, random: random).remain
             }
             
             //store results
-            data.result[i] = d / 4
+            data.result[i] = remain / 4
         }
     }
     

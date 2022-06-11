@@ -7,6 +7,18 @@
 
 import SwiftUI
 
+// MARK: DayanPredictingData
+
+struct DayanPredictingData {
+    var partA: Int = 0
+    var partB: Int = 0
+    var modA: [Int] = [Int](repeating: 0, count: 3)
+    var modB: [Int] = [Int](repeating: 0, count: 3)
+    var head: [Int] = [Int](repeating: 0, count: 3)
+    var count: [Int] = [Int](repeating: 0, count: 3)
+    var remains: [Int] = [Int](repeating: 0, count: 18)
+}
+
 // MARK: DayanPredictionView
 
 struct DayanPredictionView: View {
@@ -16,14 +28,8 @@ struct DayanPredictionView: View {
     @State private var isParser = false
     @State private var isQuestion = false
     @State private var opcity: Double = 1
+    @State private var dydat = DayanPredictingData()
     private var yao: [String] = ["初", "二", "三", "四", "五", "上"]
-    @State var remains: [Int] = [0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0]
-    @State var a: Int = 0
-    @State var b: Int = 0
-    @State var d: [Int] = [0,0,0]
-    @State var h: [Int] = [0,0,0]
-    @State var a1: [Int] = [0,0,0]
-    @State var b1: [Int] = [0,0,0]
     
     var accentColor: Color {
         return (colorScheme == .dark) ? .white : .black
@@ -96,56 +102,47 @@ extension DayanPredictionView {
         .frame(width: width)
     }
     
+    func ButtonWithFunc(_ width: CGFloat, _ text: String, _ function : @escaping () -> Void ) -> some View{
+        Button(action: {}) {
+            VStack {
+                Text(text)
+                    .font(.system(size: 40, weight: .semibold, design: .rounded))
+                    .frame(width: width * 0.2, height: width * 0.2)
+                    .overlay(HexagramShape().stroke(self.accentColor, lineWidth: 2))
+                    .foregroundColor(self.accentColor)
+            }
+            .opacity(self.opcity)
+            .onTapGesture { opcity = 0.8 }
+            .onLongPressGesture { function() }
+        }
+    }
+    
     func ButtonView(_ width: CGFloat) -> some View {
         HStack {
             Spacer()
-            
-            Button(action: {}) {
-                VStack {
-                    Text("占")
-                        .font(.system(size: 40, weight: .semibold, design: .rounded))
-                        .frame(width: width * 0.2, height: width * 0.2)
-                        .overlay(HexagramShape().stroke(self.accentColor, lineWidth: 2))
-                        .foregroundColor(self.accentColor)
-                }
-                .opacity(self.opcity)
-                .onTapGesture { opcity = 0.8 }
-                .onLongPressGesture { self.DayanPredictionTask() }
-            }
-            
+            ButtonWithFunc(width, "占", self.DayanPredictionTask)
             Spacer()
-            
-            Button(action: {}) {
-                VStack {
-                    Text("解")
-                        .font(.system(size: 40, weight: .semibold, design: .rounded))
-                        .frame(width: width * 0.2, height: width * 0.2)
-                        .overlay(HexagramShape().stroke(self.accentColor, lineWidth: 2))
-                        .foregroundColor(self.accentColor)
-                }
-                .opacity(self.opcity)
-                .onTapGesture { opcity = 0.8 }
-                .onLongPressGesture { DayanParser() }
-            }
-            
+            ButtonWithFunc(width, "解", self.DayanParser)
             Spacer()
         }
         .frame(width: width)
     }
-        
+    
+    func CancelButton(action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Image(systemName: "xmark.seal")
+                .resizable()
+                .foregroundColor(accentColor)
+                .frame(width: 50, height: 50)
+        }
+    }
+    
     func ParserView() -> some View {
         VStack {
             DayanExplanationView(dayanData: modelData.dayanPrediction.data)
                 .cornerRadius(10).shadow(radius: 20)
 
-            Button(action: {
-                self.isParser = false
-            }) {
-                Image(systemName: "xmark.seal")
-                    .resizable()
-                    .foregroundColor(accentColor)
-                    .frame(width: 50, height: 50)
-            }
+            CancelButton(action: { self.isParser = false } )
         }
         .padding(.bottom, 15.0)
     }
@@ -154,14 +151,7 @@ extension DayanPredictionView {
         VStack {
             RTFReader(fileName: "大衍占法")
             
-            Button(action: {
-                self.isQuestion = false
-            }) {
-                Image(systemName: "xmark.seal")
-                    .resizable()
-                    .foregroundColor(accentColor)
-                    .frame(width: 50, height: 50)
-            }
+            CancelButton(action: { self.isQuestion = false } )
         }
         .padding(.bottom, 15.0)
     }
@@ -180,15 +170,15 @@ extension DayanPredictionView {
                 HStack {
                     ForEach(0..<3, id: \.self) { i in
                         VStack {
-                            Text(String(d[i])).foregroundColor(.red)
-                            Text((h[i] == 1) ? "★" : " ")
+                            Text(String(dydat.count[i])).foregroundColor(.red)
+                            Text((dydat.head[i] == 1) ? "★" : " ")
                             Text(" ")
                             ForEach(0..<4, id: \.self) { j in
-                                Text((j < a1[i]) ? "★" : " ")
+                                Text((j < dydat.modA[i]) ? "★" : " ")
                             }
                             Text(" ")
                             ForEach(0..<4, id: \.self) { j in
-                                Text((j < b1[i]) ? "★" : " ")
+                                Text((j < dydat.modB[i]) ? "★" : " ")
                             }
                         }
                     }
@@ -197,13 +187,13 @@ extension DayanPredictionView {
                 Divider()
                 
                 VStack {
-                    Text(String(a)).foregroundColor(.red)
+                    Text(String(dydat.partA)).foregroundColor(.red)
                     VStack(alignment: .leading) {
                         ForEach(0..<6, id: \.self) { i in
                             HStack {
                                 ForEach(0..<8, id: \.self) { j in
                                     if j == 4 { Text(" ") }
-                                    Text(((i * 8 + j) < a) ? "★" : " ")
+                                    Text(((i * 8 + j) < dydat.partA) ? "★" : " ")
                                 }
                             }
                         }
@@ -211,13 +201,13 @@ extension DayanPredictionView {
                     
                     Divider()
                     
-                    Text(String(b)).foregroundColor(.red)
+                    Text(String(dydat.partB)).foregroundColor(.red)
                     VStack(alignment: .leading) {
                         ForEach(0..<6, id: \.self) { i in
                             HStack {
                                 ForEach(0..<8, id: \.self) { j in
                                     if j == 4 { Text(" ") }
-                                    Text(((i * 8 + j) < b) ? "★" : " ")
+                                    Text(((i * 8 + j) < dydat.partB) ? "★" : " ")
                                 }
                             }
                         }
@@ -233,7 +223,7 @@ extension DayanPredictionView {
                 ForEach(0..<6, id: \.self) { i in
                     VStack {
                         ForEach(0..<3, id: \.self) { j in
-                            Text(String(remains[(i * 3) + j]))
+                            Text(String(dydat.remains[(i * 3) + j]))
                         }
                     }
                     .font(.title)
@@ -258,47 +248,43 @@ extension DayanPredictionView {
     
     func DayanPredictionTask() {
         Task {
-            for i in 0..<18  {
-                self.remains[i] = 0
-            }
-            
             self.isStart = true
+            dydat.remains = [Int](repeating: 0, count: 18)
+            
             for part in 0..<6 {
-                
-                for i in 0..<3 {
-                    self.h[i] = 0
-                    self.a1[i] = 0
-                    self.b1[i] = 0
-                    self.d[i] = 0
-                }
+                dydat.count = [Int](repeating: 0, count: 3)
+                dydat.head = [Int](repeating: 0, count: 3)
+                dydat.modA = [Int](repeating: 0, count: 3)
+                dydat.modB = [Int](repeating: 0, count: 3)
                 
                 var remain = 50 - 1
                 for step in 0..<3 {
                     Notifiy()
-                    self.a = 0
-                    self.b = 0
+                    dydat.partA = 0
+                    dydat.partB = 0
+                    try await Task.sleep(nanoseconds: 1_000_000_000)
                     let res = modelData.dayanPrediction.Execute(part, step, remain)
-                    try await Task.sleep(nanoseconds: 1000_000_000)
-                    a = res[0] + 1
-                    b = res[1]
-                    try await Task.sleep(nanoseconds: 1000_000_000)
-                    h[step] = 1
-                    d[step] = h[step]
-                    a = res[0]
-                    try await Task.sleep(nanoseconds: 1000_000_000)
-                    a = res[0] - res[2]
-                    a1[step] = res[2]
-                    d[step] = d[step] + a1[step]
-                    try await Task.sleep(nanoseconds: 1000_000_000)
-                    b = res[1] - res[3]
-                    b1[step] = res[3]
-                    d[step] = d[step] + b1[step]
-                    try await Task.sleep(nanoseconds: 1000_000_000)
-                    remain = res[4]
-                    self.remains[(part * 3) + step] = remain
-                    try await Task.sleep(nanoseconds: 1000_000_000)
+                    dydat.partA = res.partA + 1
+                    dydat.partB = res.partB
+                    try await Task.sleep(nanoseconds: 1_000_000_000)
+                    dydat.head[step] = 1
+                    dydat.count[step] = 1
+                    dydat.partA = res.partA
+                    try await Task.sleep(nanoseconds: 1_000_000_000)
+                    dydat.modA[step] = res.modA
+                    dydat.partA = res.partA - res.modA
+                    dydat.count[step] += res.modA
+                    try await Task.sleep(nanoseconds: 1_000_000_000)
+                    dydat.modB[step] = res.modB
+                    dydat.partB = res.partB - res.modB
+                    dydat.count[step] += res.modB
+                    try await Task.sleep(nanoseconds: 1_000_000_000)
+                    remain = res.remain
+                    dydat.remains[(part * 3) + step] = remain
+                    try await Task.sleep(nanoseconds: 1_000_000_000)
                 }
             }
+            
             self.isStart = false
         }
     }
