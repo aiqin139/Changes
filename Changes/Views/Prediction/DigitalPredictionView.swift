@@ -44,7 +44,6 @@ struct DigitalPredictionView: View {
                 if $isParser.wrappedValue { ParserView() }
                 if $isQuestion.wrappedValue { QuestionView() }
             }
-            .shadow(radius: 100)
             .navigationTitle("数字卦")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing: Button(action: {
