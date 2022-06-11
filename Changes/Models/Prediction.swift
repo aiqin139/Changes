@@ -69,40 +69,54 @@ struct DigitalPrediction {
 struct DayanPrediction {
     var data: DayanData = DayanData()
     
-    private func BaseCalculate(d: Int, s: Int) ->Int {
-        let a = s
-        let b = d - a
-        let c = 1 + (((a - 1) % 4) != 0 ? ((a - 1) % 4) : 4) + ((b % 4) != 0 ? (b % 4) : 4)
+    private func BaseCalculate(d: Int, s: Int) -> [Int] {
+        let a = s - 1
+        let b = d - s
+        let a1 = ((a % 4) != 0) ? (a % 4) : 4
+        let b1 = ((b % 4) != 0) ? (b % 4) : 4
+        let d1 = d - a1 - b1 + 1
+        return [a, b, a1, b1, d1]
+    }
+    
+    mutating func Execute(_ part: Int, _ step: Int, _ remain: Int) -> [Int] {
+        var res = [0, 0, 0, 0, remain]
+        
+        //six parts
+        if part >= 0 && part < 6 {
+
+            //three steps
+            if step >= 0 && step < 3 {
+                var s = 0
+                while s <= 1 {
+                    s = Int(arc4random()) % res[4]
+                }
+                
+                res = BaseCalculate(d: res[4], s: s)
+            }
+
+            //store results
+            if step == 2 { data.result[part] = res[4] / 4 }
+        }
+        
+        return res
+    }
+    
+    private func BaseCalculate(d: Int, s: Int) -> Int {
+        let a = s - 1
+        let b = d - s
+        let c = 1 + ((a % 4) != 0 ? (a % 4) : 4) + ((b % 4) != 0 ? (b % 4) : 4)
         return d - c
     }
     
-    mutating func Execute(_ step: Int) {
-        if step >= 0 && step < 6 {
-            var d = 50 - 1
-            
-            //three steps
-            for _ in 0..<3 {
-                var s = 0
-                while s == 0 {
-                    s = Int(arc4random()) % d
-                }
-                d = BaseCalculate(d: d, s: s)
-            }
-            
-            //store results
-            data.result[step] = d / 4
-        }
-    }
-    
     mutating func Execute() {
-        //six steps
+        //six parts
         for i in 0..<6 {
             var d = 50 - 1
             
             //three steps
             for _ in 0..<3 {
                 var s = 0
-                while s == 0 {
+                while s <= 1 {
                     s = Int(arc4random()) % d
                 }
                 d = BaseCalculate(d: d, s: s)
