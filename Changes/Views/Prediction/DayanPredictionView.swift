@@ -17,6 +17,7 @@ struct DayanPredictingData {
     var head: [Int] = [Int](repeating: 0, count: 3)
     var count: [Int] = [Int](repeating: 0, count: 3)
     var remains: [Int] = [Int](repeating: 0, count: 18)
+    var result: [Int] = [Int](repeating: 0, count: 6)
 }
 
 // MARK: DayanPredictionView
@@ -24,7 +25,8 @@ struct DayanPredictingData {
 struct DayanPredictionView: View {
     @EnvironmentObject var modelData: ModelData
     @Environment(\.colorScheme) var colorScheme
-    @State private var isStart = false
+    @State private var isPredicting = false
+    @State private var isShowing = false
     @State private var isParser = false
     @State private var isQuestion = false
     @State private var opcity: Double = 1
@@ -51,19 +53,18 @@ struct DayanPredictionView: View {
                     ButtonView(width)
                     Spacer()
                 }
-                .blur(radius: (isParser || isQuestion || isStart) ? 10 : 0)
-                .disabled((isParser || isQuestion || isStart) ? true : false)
+                .blur(radius: (isParser || isQuestion || isShowing) ? 10 : 0)
+                .disabled((isParser || isQuestion || isShowing) ? true : false)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 
+                if $isShowing.wrappedValue { PredictingView(width) }
+                else if $isQuestion.wrappedValue { QuestionView() }
                 if $isParser.wrappedValue { ParserView() }
-                if $isQuestion.wrappedValue { QuestionView() }
-                if $isStart.wrappedValue { PredictingView() }
             }
-            .shadow(radius: 100)
             .navigationTitle("大衍卦")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing: Button(action: {
-                self.isQuestion = true
+                if self.isShowing == false { self.isQuestion = true }
             }) {
                     Image(systemName: "questionmark.circle")
                         .foregroundColor(accentColor)
@@ -85,12 +86,8 @@ extension DayanPredictionView {
             ForEach(0...5, id: \.self) { index in
                 VStack {
                     let name = (((modelData.dayanPrediction.data.result[index] % 2) == 0) ? "六" : "九")
-                    if (index == 0 || index == 5) {
-                        Text(yao[index] + name)
-                    }
-                    else {
-                        Text(name + yao[index])
-                    }
+                    Text((index == 0 || index == 5) ? (yao[index] + name) : (name + yao[index]))
+       
                     NumberPicker(start: 6, end: 9, value: $modelData.dayanPrediction.data.result[index])
                         .font(.title)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -102,7 +99,7 @@ extension DayanPredictionView {
         .frame(width: width)
     }
     
-    func ButtonWithFunc(_ width: CGFloat, _ text: String, _ function : @escaping () -> Void ) -> some View{
+    func LongPressButton(_ width: CGFloat, _ text: String, _ function : @escaping () -> Void ) -> some View{
         Button(action: {}) {
             VStack {
                 Text(text)
@@ -120,9 +117,9 @@ extension DayanPredictionView {
     func ButtonView(_ width: CGFloat) -> some View {
         HStack {
             Spacer()
-            ButtonWithFunc(width, "占", self.DayanPredictionTask)
+            LongPressButton(width, "占", self.DayanPredictionTask)
             Spacer()
-            ButtonWithFunc(width, "解", self.DayanParser)
+            LongPressButton(width, "解", self.DayanParser)
             Spacer()
         }
         .frame(width: width)
@@ -156,85 +153,100 @@ extension DayanPredictionView {
         .padding(.bottom, 15.0)
     }
     
-    func PredictingView() -> some View {
+    func PredictingView(_ width: CGFloat) -> some View {
         VStack {
-            Divider()
-            
-            Text("★")
-            
-            Divider()
-            
-            HStack {
-                Divider()
+            VStack(spacing: 0) {
+                Text("★").frame(minHeight: 20)
                 
-                HStack {
-                    ForEach(0..<3, id: \.self) { i in
-                        VStack {
-                            Text(String(dydat.count[i])).foregroundColor(.red)
-                            Text((dydat.head[i] == 1) ? "★" : " ")
-                            Text(" ")
-                            ForEach(0..<4, id: \.self) { j in
-                                Text((j < dydat.modA[i]) ? "★" : " ")
+                Divider().frame(height: 2).background(accentColor)
+                
+                HStack(spacing: 0) {
+                    HStack {
+                        ForEach(0..<3, id: \.self) { i in
+                            VStack {
+                                Text(String(dydat.count[i])).foregroundColor(.red)
+                                Text(" ")
+                                Text((dydat.head[i] == 1) ? "★" : " ")
+                                Text(" ")
+                                ForEach(0..<4, id: \.self) { j in
+                                    Text((j < dydat.modA[i]) ? "★" : " ")
+                                }
+                                Text(" ")
+                                ForEach(0..<4, id: \.self) { j in
+                                    Text((j < dydat.modB[i]) ? "★" : " ")
+                                }
                             }
-                            Text(" ")
-                            ForEach(0..<4, id: \.self) { j in
-                                Text((j < dydat.modB[i]) ? "★" : " ")
-                            }
+                            .frame(minWidth: 20)
                         }
                     }
-                }
-                
-                Divider()
-                
-                VStack {
-                    Text(String(dydat.partA)).foregroundColor(.red)
-                    VStack(alignment: .leading) {
-                        ForEach(0..<6, id: \.self) { i in
-                            HStack {
-                                ForEach(0..<8, id: \.self) { j in
-                                    if j == 4 { Text(" ") }
-                                    Text(((i * 8 + j) < dydat.partA) ? "★" : " ")
+                    
+                    Divider().frame(width: 2).background(accentColor)
+                    
+                    VStack {
+                        Text(String(dydat.partA)).foregroundColor(.red)
+                        VStack(alignment: .leading) {
+                            ForEach(0..<6, id: \.self) { i in
+                                HStack {
+                                    ForEach(0..<8, id: \.self) { j in
+                                        if j == 4 { Text(" ") }
+                                        Text(((i * 8 + j) < dydat.partA) ? "★" : "    ")
+                                    }
+                                }
+                            }
+                        }
+                        
+                        Divider().frame(height: 2).background(accentColor)
+                        
+                        Text(String(dydat.partB)).foregroundColor(.red)
+                        VStack(alignment: .leading) {
+                            ForEach(0..<6, id: \.self) { i in
+                                HStack {
+                                    ForEach(0..<8, id: \.self) { j in
+                                        if j == 4 { Text(" ") }
+                                        Text(((i * 8 + j) < dydat.partB) ? "★" : "    ")
+                                    }
                                 }
                             }
                         }
                     }
-                    
-                    Divider()
-                    
-                    Text(String(dydat.partB)).foregroundColor(.red)
-                    VStack(alignment: .leading) {
-                        ForEach(0..<6, id: \.self) { i in
-                            HStack {
-                                ForEach(0..<8, id: \.self) { j in
-                                    if j == 4 { Text(" ") }
-                                    Text(((i * 8 + j) < dydat.partB) ? "★" : " ")
-                                }
-                            }
-                        }
-                    }
                 }
-                
-                Divider()
             }
-            
-            Divider()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .overlay(RoundedRectangle(cornerRadius: 10).stroke(accentColor, lineWidth: 2))
             
             HStack {
                 ForEach(0..<6, id: \.self) { i in
                     VStack {
-                        ForEach(0..<3, id: \.self) { j in
-                            Text(String(dydat.remains[(i * 3) + j]))
+                        Text(yao[i])
+                        
+                        VStack {
+                            ForEach(0..<3, id: \.self) { j in
+                                Text(String(dydat.remains[(i * 3) + j]))
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            }
                         }
+                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(accentColor, lineWidth: 2))
+                        
+                        Text(dydat.result[i] != 0 ? (((dydat.result[i] % 2) == 0) ? "六" : "九"): " ")
+                        
+                        Text(String(dydat.result[i]))
+                            .frame(maxWidth: .infinity, minHeight: 50)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(accentColor, lineWidth: 2))
                     }
-                    .font(.title)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(accentColor, lineWidth: 2))
                 }
             }
             
             Divider()
+            
+            VStack(alignment: .center) {
+                Text("注意：")
+                Text("\t在占卦完成之后，点击任意界面返回大衍卦界面。大衍卦占卦值会更新为此次占卦的结果。解卦请长按<解>。")
+            }
         }
-        .frame(height: 400)
+        .padding(.bottom, 15.0)
+        .frame(width: width)
+        .onTapGesture { if self.isPredicting == false { self.isShowing = false } }
     }
 }
 
@@ -248,8 +260,10 @@ extension DayanPredictionView {
     
     func DayanPredictionTask() {
         Task {
-            self.isStart = true
+            self.isPredicting = true
+            self.isShowing = true
             dydat.remains = [Int](repeating: 0, count: 18)
+            dydat.result = [Int](repeating: 0, count: 6)
             
             for part in 0..<6 {
                 dydat.count = [Int](repeating: 0, count: 3)
@@ -283,9 +297,11 @@ extension DayanPredictionView {
                     dydat.remains[(part * 3) + step] = remain
                     try await Task.sleep(nanoseconds: 1_000_000_000)
                 }
+                
+                dydat.result[part] = modelData.dayanPrediction.data.result[part]
             }
             
-            self.isStart = false
+            self.isPredicting = false
         }
     }
     
