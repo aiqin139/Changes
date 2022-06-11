@@ -125,34 +125,28 @@ extension DayanPredictionView {
         .frame(width: width)
     }
     
-    func CancelButton(action: @escaping () -> Void) -> some View {
-        Button(action: action) {
-            Image(systemName: "xmark.seal")
-                .resizable()
-                .foregroundColor(accentColor)
-                .frame(width: 50, height: 50)
-        }
-    }
-    
     func ParserView() -> some View {
         VStack {
             DayanExplanationView(dayanData: modelData.dayanPrediction.data)
-                .cornerRadius(10).shadow(radius: 20)
-
-            CancelButton(action: { self.isParser = false } )
+            
+            Text("点击任意位置返回")
         }
-        .padding(.bottom, 15.0)
+        .onTapGesture { self.isParser = false }
     }
     
     func QuestionView() -> some View {
         VStack {
             RTFReader(fileName: "大衍占法")
             
-            CancelButton(action: { self.isQuestion = false } )
+            Text("点击任意位置返回")
         }
-        .padding(.bottom, 15.0)
+        .onTapGesture { self.isQuestion = false }
     }
-    
+}
+
+// MARK: DayanPredictionView predicting views
+
+extension DayanPredictionView {
     func PredictingView(_ width: CGFloat) -> some View {
         VStack {
             VStack(spacing: 0) {
@@ -164,7 +158,7 @@ extension DayanPredictionView {
                     HStack {
                         ForEach(0..<3, id: \.self) { i in
                             VStack {
-                                Text(String(dydat.count[i])).foregroundColor(.red)
+                                Text(String(dydat.count[i]))
                                 Text(" ")
                                 Text((dydat.head[i] == 1) ? "★" : " ")
                                 Text(" ")
@@ -183,7 +177,7 @@ extension DayanPredictionView {
                     Divider().frame(width: 2).background(accentColor)
                     
                     VStack {
-                        Text(String(dydat.partA)).foregroundColor(.red)
+                        Text(String(dydat.partA))
                         VStack(alignment: .leading) {
                             ForEach(0..<6, id: \.self) { i in
                                 HStack {
@@ -197,7 +191,7 @@ extension DayanPredictionView {
                         
                         Divider().frame(height: 2).background(accentColor)
                         
-                        Text(String(dydat.partB)).foregroundColor(.red)
+                        Text(String(dydat.partB))
                         VStack(alignment: .leading) {
                             ForEach(0..<6, id: \.self) { i in
                                 HStack {
@@ -211,6 +205,7 @@ extension DayanPredictionView {
                     }
                 }
             }
+            .font(.system(size: 18))
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .overlay(RoundedRectangle(cornerRadius: 10).stroke(accentColor, lineWidth: 2))
             
@@ -240,13 +235,17 @@ extension DayanPredictionView {
             Divider()
             
             VStack(alignment: .center) {
-                Text("注意：")
-                Text("\t在占卦完成之后，点击任意界面返回大衍卦界面。大衍卦占卦值会更新为此次占卦的结果。解卦请长按<解>。")
+                Text("注意：占卦完成之后")
+                Text("大衍卦占卦值会更新为此次占卦的结果。")
+                Text("点击任意位置返回；长按任意位置解卦。")
+                Text("在大衍卦界面，长按<解>也可以解卦。")
             }
         }
         .padding(.bottom, 15.0)
         .frame(width: width)
+        .blur(radius: self.isParser ? 10 : 0)
         .onTapGesture { if self.isPredicting == false { self.isShowing = false } }
+        .onLongPressGesture { if self.isPredicting == false { self.DayanParser() } }
     }
 }
 
