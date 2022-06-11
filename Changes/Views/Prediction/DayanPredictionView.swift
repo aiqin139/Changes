@@ -58,8 +58,8 @@ struct DayanPredictionView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 
                 if $isShowing.wrappedValue { PredictingView(width) }
-                else if $isQuestion.wrappedValue { QuestionView() }
                 if $isParser.wrappedValue { ParserView() }
+                if $isQuestion.wrappedValue { QuestionView() }
             }
             .navigationTitle("大衍卦")
             .navigationBarTitleDisplayMode(.inline)
@@ -131,6 +131,7 @@ extension DayanPredictionView {
             
             Text("点击任意位置返回")
         }
+        .blur(radius: self.isQuestion ? 10 : 0)
         .onTapGesture { self.isParser = false }
     }
     

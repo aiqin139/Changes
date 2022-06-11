@@ -12,7 +12,7 @@ import SwiftUI
 struct DigitalPredictionView: View {
     @EnvironmentObject var modelData: ModelData
     @Environment(\.colorScheme) var colorScheme
-    @State private var isStart = false
+    @State private var isPredicting = false
     @State private var isParser = false
     @State private var isQuestion = false
     @State private var opcity: Double = 1
@@ -38,7 +38,7 @@ struct DigitalPredictionView: View {
                     Spacer()
                 }
                 .blur(radius: (isParser || isQuestion) ? 10 : 0)
-                .disabled((isParser || isQuestion || isStart) ? true : false)
+                .disabled((isParser || isQuestion || isPredicting) ? true : false)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 
                 if $isParser.wrappedValue { ParserView() }
@@ -80,45 +80,27 @@ extension DigitalPredictionView {
         .frame(width: width)
     }
     
+    func LongPressButton(_ width: CGFloat, _ text: String, _ function : @escaping () -> Void ) -> some View{
+        Button(action: {}) {
+            VStack {
+                Text(text)
+                    .font(.system(size: 40, weight: .semibold, design: .rounded))
+                    .frame(width: width * 0.2, height: width * 0.2)
+                    .overlay(HexagramShape().stroke(self.accentColor, lineWidth: 2))
+                    .foregroundColor(self.accentColor)
+            }
+            .opacity(self.opcity)
+            .onTapGesture { opcity = 0.8 }
+            .onLongPressGesture { function() }
+        }
+    }
+    
     func ButtonView(_ width: CGFloat) -> some View {
-        HStack{
+        HStack {
             Spacer()
-            
-            Button(action: {}) {
-                VStack {
-                    Text("占")
-                        .font(.system(size: 40, weight: .semibold, design: .rounded))
-                        .frame(width: width * 0.2, height: width * 0.2)
-                        .overlay(HexagramShape().stroke(self.accentColor, lineWidth: 2))
-                        .foregroundColor(self.accentColor)
-                }
-                .opacity(self.opcity)
-                .onTapGesture { self.opcity = 0.8 }
-                .onLongPressGesture { Task {
-                    self.isStart = true
-                    for _ in 1..<50 {
-                        self.DigitPrediction()
-                        try await Task.sleep(nanoseconds: 50_000_000)
-                    }
-                    self.isStart = false
-                } }
-            }
-            
+            LongPressButton(width, "占", self.DigitPredictionTask)
             Spacer()
-            
-            Button(action: {}) {
-                VStack {
-                    Text("解")
-                        .font(.system(size: 40, weight: .semibold, design: .rounded))
-                        .frame(width: width * 0.2, height: width * 0.2)
-                        .overlay(HexagramShape().stroke(self.accentColor, lineWidth: 2))
-                        .foregroundColor(self.accentColor)
-                }
-                .opacity(self.opcity)
-                .onTapGesture { self.opcity = 0.8 }
-                .onLongPressGesture { self.DigitParser() }
-            }
-
+            LongPressButton(width, "解", self.DigitParser)
             Spacer()
         }
         .frame(width: width)
@@ -129,32 +111,19 @@ extension DigitalPredictionView {
             DigitalExplanationView(digitalData: modelData.digitalPrediction.data)
                 .cornerRadius(10).shadow(radius: 20)
 
-            Button(action: {
-                self.isParser = false
-            }) {
-                Image(systemName: "xmark.seal")
-                    .resizable()
-                    .foregroundColor(accentColor)
-                    .frame(width: 50, height: 50)
-            }
+            Text("点击任意位置返回")
         }
-        .padding(.bottom, 15.0)
+        .blur(radius: self.isQuestion ? 10 : 0)
+        .onTapGesture { self.isParser = false }
     }
     
     func QuestionView() -> some View {
         VStack {
             RTFReader(fileName: "数字占法")
             
-            Button(action: {
-                self.isQuestion = false
-            }) {
-                Image(systemName: "xmark.seal")
-                    .resizable()
-                    .foregroundColor(accentColor)
-                    .frame(width: 50, height: 50)
-            }
+            Text("点击任意位置返回")
         }
-        .padding(.bottom, 15.0)
+        .onTapGesture { self.isQuestion = false }
     }
 }
 
@@ -164,6 +133,17 @@ extension DigitalPredictionView {
     func Notifiy() {
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
+    }
+    
+    func DigitPredictionTask() {
+        Task {
+            self.isPredicting = true
+            for _ in 1..<50 {
+                self.DigitPrediction()
+                try await Task.sleep(nanoseconds: 50_000_000)
+            }
+            self.isPredicting = false
+        }
     }
     
     func DigitPrediction() {

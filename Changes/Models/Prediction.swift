@@ -30,6 +30,8 @@ struct DayanData : Hashable, Codable {
     var benPinyin: String = ""
     var zhiName: String = ""
     var zhiPinyin: String = ""
+    var explanation1Name: String = ""
+    var explanation2Name: String = ""
     var explanation1: [String] = [""]
     var explanation2: [String] = [""]
     var result: [Int] = [6, 6, 7, 8, 9, 9]
@@ -181,10 +183,12 @@ struct DayanPrediction {
         //gets the explanations
         switch change {
             case 0:
+                data.explanation1Name = benHexagram.name
                 data.explanation1 = benHexagram.explanations[0]
             case 1:
                 for i in 0..<6 {
                     if data.result[i] == 9 || data.result[i] == 6 {
+                        data.explanation1Name = benHexagram.name
                         data.explanation1 = benHexagram.explanations[i + 1]
                         break
                     }
@@ -193,21 +197,27 @@ struct DayanPrediction {
                 for i in 0..<6 {
                     if data.result[i] == 9 || data.result[i] == 6 {
                         if data.explanation2 == [""] {
+                            data.explanation2Name = benHexagram.name
                             data.explanation2 = benHexagram.explanations[i + 1]
                         } else {
+                            data.explanation1Name = benHexagram.name
                             data.explanation1 = benHexagram.explanations[i + 1]
                         }
                     }
                 }
             case 3:
+                data.explanation1Name = benHexagram.name
+                data.explanation2Name = zhiHexagram.name
                 data.explanation1 = benHexagram.explanations[0]
                 data.explanation2 = zhiHexagram.explanations[0]
             case 4:
                 for i in 0..<6 {
                     if data.result[i] == 7 || data.result[i] == 8 {
                         if data.explanation1 == [""] {
+                            data.explanation1Name = zhiHexagram.name
                             data.explanation1 = zhiHexagram.explanations[i + 1]
                         } else {
+                            data.explanation2Name = zhiHexagram.name
                             data.explanation2 = zhiHexagram.explanations[i + 1]
                         }
                     }
@@ -215,11 +225,13 @@ struct DayanPrediction {
             case 5:
                 for i in 0..<6 {
                     if data.result[i] == 7 || data.result[i] == 8 {
-                        data.explanation1 = benHexagram.explanations[i + 1]
+                        data.explanation1Name = zhiHexagram.name
+                        data.explanation1 = zhiHexagram.explanations[i + 1]
                         break
                     }
                 }
             case 6:
+                data.explanation1Name = zhiHexagram.name
                 data.explanation1 = zhiHexagram.explanations[0]
             default:
                 data.explanation1 = ["error"]
