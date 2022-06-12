@@ -53,7 +53,7 @@ struct DigitalExplanationView: View {
             .frame(maxWidth: .infinity)
             .overlay(RoundedRectangle(cornerRadius: 10).stroke(strokeColor, lineWidth: 2))
             
-            ScrollView(showsIndicators: false) {
+            VStack(alignment: .center) {
                 VStack(alignment: .leading) {
                     ForEach(digitalData.explanation, id: \.self) { content in
                         Text(content)

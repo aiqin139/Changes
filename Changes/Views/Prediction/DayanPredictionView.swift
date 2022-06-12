@@ -128,10 +128,12 @@ extension DayanPredictionView {
     }
     
     func ParserView() -> some View {
-        VStack {
-            DayanExplanationView(dayanData: modelData.dayanPrediction.data)
-            
-            Text("点击任意位置返回")
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack {
+                DayanExplanationView(dayanData: modelData.dayanPrediction.data)
+                
+                Text("点击任意位置返回")
+            }
         }
         .onTapGesture { popPages.removeLast() }
     }

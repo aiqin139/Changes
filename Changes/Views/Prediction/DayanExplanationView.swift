@@ -67,7 +67,7 @@ struct DayanExplanationView: View {
             .frame(maxWidth: .infinity)
             .overlay(RoundedRectangle(cornerRadius: 10).stroke(strokeColor, lineWidth: 2))
             
-            ScrollView {
+            VStack {
                 VStack(alignment: .center) {
                     Text(dayanData.explanation1Name)
                     
