@@ -38,11 +38,12 @@ struct HexagramDetail: View {
                         Divider()
                         ForEach(contents, id: \.self) { content in
                             Text(content)
-                                .padding(.horizontal, 10.0)
                                 .minimumScaleFactor(0.1)
                         }
                     }
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .padding()
             }
         }
         .background(backgroundColor)
