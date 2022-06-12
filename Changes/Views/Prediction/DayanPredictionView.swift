@@ -7,36 +7,35 @@
 
 import SwiftUI
 
-// MARK: DayanPredictingData
-
-struct DayanPredictingData {
-    var partA: Int = 0
-    var partB: Int = 0
-    var modA: [Int] = [Int](repeating: 0, count: 3)
-    var modB: [Int] = [Int](repeating: 0, count: 3)
-    var head: [Int] = [Int](repeating: 0, count: 3)
-    var count: [Int] = [Int](repeating: 0, count: 3)
-    var remains: [Int] = [Int](repeating: 0, count: 18)
-    var result: [Int] = [Int](repeating: 0, count: 6)
-}
-
 // MARK: DayanPredictionView
 
 struct DayanPredictionView: View {
     @EnvironmentObject var modelData: ModelData
     @Environment(\.colorScheme) var colorScheme
-    @State private var isPredicting = false
-    @State private var isShowing = false
-    @State private var isParser = false
-    @State private var isQuestion = false
-    @State private var opcity: Double = 1
-    @State private var dydat = DayanPredictingData()
-    private var yao: [String] = ["初", "二", "三", "四", "五", "上"]
     
-    var accentColor: Color {
-        return (colorScheme == .dark) ? .white : .black
+    enum PageType: Int {
+        case predictingView, parserView, questionView
     }
-        
+    
+    struct PredictingData {
+        var partA: Int = 0
+        var partB: Int = 0
+        var modA: [Int] = [Int](repeating: 0, count: 3)
+        var modB: [Int] = [Int](repeating: 0, count: 3)
+        var head: [Int] = [Int](repeating: 0, count: 3)
+        var count: [Int] = [Int](repeating: 0, count: 3)
+        var remains: [Int] = [Int](repeating: 0, count: 18)
+        var result: [Int] = [Int](repeating: 0, count: 6)
+    }
+    
+    @State private var isPredicting = false
+    @State private var popPages: [PageType] = []
+    @State private var dydat = PredictingData()
+    @State private var opcity: Double = 1
+    
+    private var yao: [String] = ["初", "二", "三", "四", "五", "上"]
+    private var accentColor: Color { return (colorScheme == .dark) ? .white : .black }
+    
     var body: some View {
         GeometryReader { geometry in
             let imageWidth = geometry.size.width * 0.8
@@ -53,18 +52,21 @@ struct DayanPredictionView: View {
                     ButtonView(width)
                     Spacer()
                 }
-                .blur(radius: (isParser || isQuestion || isShowing) ? 10 : 0)
-                .disabled((isParser || isQuestion || isShowing) ? true : false)
+                .blur(radius: (popPages.count != 0) ? 20 : 0)
+                .disabled((popPages.count != 0) ? true : false)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 
-                if $isShowing.wrappedValue { PredictingView(width) }
-                if $isParser.wrappedValue { ParserView() }
-                if $isQuestion.wrappedValue { QuestionView() }
+                switch popPages.last {
+                    case .predictingView: PredictingView()
+                    case .parserView: ParserView()
+                    case .questionView: QuestionView()
+                    case .none: EmptyView()
+                }
             }
             .navigationTitle("大衍卦")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing: Button(action: {
-                if self.isShowing == false { self.isQuestion = true }
+                popPages.append(PageType.questionView)
             }) {
                     Image(systemName: "questionmark.circle")
                         .foregroundColor(accentColor)
@@ -105,8 +107,8 @@ extension DayanPredictionView {
                 Text(text)
                     .font(.system(size: 40, weight: .semibold, design: .rounded))
                     .frame(width: width * 0.2, height: width * 0.2)
-                    .overlay(HexagramShape().stroke(self.accentColor, lineWidth: 2))
-                    .foregroundColor(self.accentColor)
+                    .overlay(HexagramShape().stroke(accentColor, lineWidth: 2))
+                    .foregroundColor(accentColor)
             }
             .opacity(self.opcity)
             .onTapGesture { opcity = 0.8 }
@@ -131,8 +133,7 @@ extension DayanPredictionView {
             
             Text("点击任意位置返回")
         }
-        .blur(radius: self.isQuestion ? 10 : 0)
-        .onTapGesture { self.isParser = false }
+        .onTapGesture { popPages.removeLast() }
     }
     
     func QuestionView() -> some View {
@@ -141,14 +142,14 @@ extension DayanPredictionView {
             
             Text("点击任意位置返回")
         }
-        .onTapGesture { self.isQuestion = false }
+        .onTapGesture { popPages.removeLast() }
     }
 }
 
 // MARK: DayanPredictionView predicting views
 
 extension DayanPredictionView {
-    func PredictingView(_ width: CGFloat) -> some View {
+    func PredictingView() -> some View {
         VStack {
             VStack(spacing: 0) {
                 Text("★").frame(minHeight: 20)
@@ -242,11 +243,10 @@ extension DayanPredictionView {
                 Text("在大衍卦界面，长按<解>也可以解卦。")
             }
         }
-        .padding(.bottom, 15.0)
-        .frame(width: width)
-        .blur(radius: self.isParser ? 10 : 0)
-        .onTapGesture { if self.isPredicting == false { self.isShowing = false } }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .onTapGesture { if self.isPredicting == false { self.popPages.removeLast() } }
         .onLongPressGesture { if self.isPredicting == false { self.DayanParser() } }
+        .padding()
     }
 }
 
@@ -260,8 +260,7 @@ extension DayanPredictionView {
     
     func DayanPredictionTask() {
         Task {
-            self.isPredicting = true
-            self.isShowing = true
+            isPredicting = true
             dydat.remains = [Int](repeating: 0, count: 18)
             dydat.result = [Int](repeating: 0, count: 6)
             
@@ -301,8 +300,10 @@ extension DayanPredictionView {
                 dydat.result[part] = modelData.dayanPrediction.data.result[part]
             }
             
-            self.isPredicting = false
+            isPredicting = false
         }
+        
+        popPages.append(.predictingView)
     }
     
     func DayanPrediction() {
@@ -324,7 +325,7 @@ extension DayanPredictionView {
             saveRecord(modelData.hexagramRecord)
         }
         
-        self.isParser = true
+        popPages.append(.parserView)
         
         Notifiy()
     }

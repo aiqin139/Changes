@@ -12,14 +12,16 @@ import SwiftUI
 struct DigitalPredictionView: View {
     @EnvironmentObject var modelData: ModelData
     @Environment(\.colorScheme) var colorScheme
+    
+    enum PageType: Int {
+        case parserView, questionView
+    }
+    
     @State private var isPredicting = false
-    @State private var isParser = false
-    @State private var isQuestion = false
+    @State private var popPages: [PageType] = []
     @State private var opcity: Double = 1
     
-    var accentColor: Color {
-        return (colorScheme == .dark) ? .white : .black
-    }
+    private var accentColor: Color { return (colorScheme == .dark) ? .white : .black }
     
     var body: some View {
         GeometryReader { geometry in
@@ -37,17 +39,20 @@ struct DigitalPredictionView: View {
                     ButtonView(width)
                     Spacer()
                 }
-                .blur(radius: (isParser || isQuestion) ? 10 : 0)
-                .disabled((isParser || isQuestion || isPredicting) ? true : false)
+                .blur(radius: (popPages.count != 0) ? 20 : 0)
+                .disabled((popPages.count != 0) ? true : false)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 
-                if $isParser.wrappedValue { ParserView() }
-                if $isQuestion.wrappedValue { QuestionView() }
+                switch popPages.last {
+                    case .parserView: ParserView()
+                    case .questionView: QuestionView()
+                    case .none: EmptyView()
+                }
             }
             .navigationTitle("数字卦")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing: Button(action: {
-                self.isQuestion = true
+                popPages.append(PageType.questionView)
             }) {
                 Image(systemName: "questionmark.circle")
                     .foregroundColor(accentColor)
@@ -113,8 +118,7 @@ extension DigitalPredictionView {
 
             Text("点击任意位置返回")
         }
-        .blur(radius: self.isQuestion ? 10 : 0)
-        .onTapGesture { self.isParser = false }
+        .onTapGesture { popPages.removeLast() }
     }
     
     func QuestionView() -> some View {
@@ -123,7 +127,7 @@ extension DigitalPredictionView {
             
             Text("点击任意位置返回")
         }
-        .onTapGesture { self.isQuestion = false }
+        .onTapGesture { popPages.removeLast() }
     }
 }
 
@@ -165,7 +169,7 @@ extension DigitalPredictionView {
             saveRecord(modelData.hexagramRecord)
         }
         
-        self.isParser = true
+        popPages.append(.parserView)
         
         Notifiy()
     }
