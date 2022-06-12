@@ -347,5 +347,7 @@ struct DayanPredictionView_Previews: PreviewProvider {
     static var previews: some View {
         DayanPredictionView()
             .environmentObject(ModelData())
+        DayanPredictionView().PredictingView()
+            .environmentObject(ModelData())
     }
 }
