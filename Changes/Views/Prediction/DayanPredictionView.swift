@@ -29,6 +29,7 @@ struct DayanPredictionView: View {
     }
     
     @State private var isPredicting = false
+    @State private var predictingTask: Task<Void, Error>?
     @State private var popPages: [PageType] = []
     @State private var dydat = PredictingData()
     @State private var opcity: Double = 1
@@ -52,7 +53,7 @@ struct DayanPredictionView: View {
                     ButtonView(width)
                     Spacer()
                 }
-                .blur(radius: (popPages.count != 0) ? 20 : 0)
+                .blur(radius: (popPages.count != 0) ? 10 : 0)
                 .disabled((popPages.count != 0) ? true : false)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 
@@ -71,6 +72,7 @@ struct DayanPredictionView: View {
                     Image(systemName: "questionmark.circle")
                         .foregroundColor(accentColor)
             })
+            .onDisappear() { self.CancelPredictionTask() }
         }
     }
 }
@@ -128,12 +130,12 @@ extension DayanPredictionView {
     }
     
     func ParserView() -> some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack {
+        VStack(spacing: 0) {
+            ScrollView(.vertical, showsIndicators: false) {
                 DayanExplanationView(dayanData: modelData.dayanPrediction.data)
-                
-                Text("点击任意位置返回")
             }
+            Divider()
+            Text("点击任意位置返回").padding(.top)
         }
         .onTapGesture { popPages.removeLast() }
     }
@@ -261,17 +263,17 @@ extension DayanPredictionView {
     }
     
     func DayanPredictionTask() {
-        Task {
+        predictingTask = Task {
             isPredicting = true
             dydat.remains = [Int](repeating: 0, count: 18)
             dydat.result = [Int](repeating: 0, count: 6)
-            
+
             for part in 0..<6 {
                 dydat.count = [Int](repeating: 0, count: 3)
                 dydat.head = [Int](repeating: 0, count: 3)
                 dydat.modA = [Int](repeating: 0, count: 3)
                 dydat.modB = [Int](repeating: 0, count: 3)
-                
+
                 var remain = 50 - 1
                 for step in 0..<3 {
                     Notifiy()
@@ -298,14 +300,20 @@ extension DayanPredictionView {
                     dydat.remains[(part * 3) + step] = remain
                     try await Task.sleep(nanoseconds: 1_000_000_000)
                 }
-                
+
                 dydat.result[part] = modelData.dayanPrediction.data.result[part]
             }
-            
+
             isPredicting = false
         }
         
         popPages.append(.predictingView)
+    }
+    
+    func CancelPredictionTask() {
+        if let t = predictingTask {
+            t.cancel()
+        }
     }
     
     func DayanPrediction() {
