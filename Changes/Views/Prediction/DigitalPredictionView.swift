@@ -112,11 +112,13 @@ extension DigitalPredictionView {
     }
         
     func ParserView() -> some View {
-        VStack {
-            DigitalExplanationView(digitalData: modelData.digitalPrediction.data)
-                .cornerRadius(10).shadow(radius: 20)
-
-            Text("点击任意位置返回")
+        VStack(spacing: 0) {
+            ScrollView {
+                DigitalExplanationView(digitalData: modelData.digitalPrediction.data)
+                    .cornerRadius(10).shadow(radius: 20)
+            }
+            Divider()
+            Text("点击任意位置返回").padding(.top)
         }
         .onTapGesture { popPages.removeLast() }
     }
