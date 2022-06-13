@@ -36,44 +36,26 @@ struct DayanPredictionView: View {
     
     private var yao: [String] = ["初", "二", "三", "四", "五", "上"]
     private var accentColor: Color { return (colorScheme == .dark) ? .white : .black }
-    
+
     var body: some View {
-        GeometryReader { geometry in
-            let imageWidth = geometry.size.width * 0.8
-            let imageHeight = geometry.size.height * 0.5
-            let width = (imageHeight > geometry.size.width) ? imageWidth : imageHeight
-            
-            ZStack {
-                VStack {
-                    Spacer()
-                    ImageView(width)
-                    Spacer()
-                    PickerView(width)
-                    Spacer()
-                    ButtonView(width)
-                    Spacer()
-                }
-                .blur(radius: (popPages.count != 0) ? 10 : 0)
-                .disabled((popPages.count != 0) ? true : false)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                
-                switch popPages.last {
-                    case .predictingView: PredictingView()
-                    case .parserView: ParserView()
-                    case .questionView: QuestionView()
-                    case .none: EmptyView()
-                }
+        ZStack {
+            PredictionView()
+
+            switch popPages.last {
+                case .predictingView: PredictingView()
+                case .parserView: ParserView()
+                case .questionView: QuestionView()
+                case .none: EmptyView()
             }
-            .navigationTitle("大衍卦")
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(trailing: Button(action: {
-                popPages.append(PageType.questionView)
-            }) {
-                    Image(systemName: "questionmark.circle")
-                        .foregroundColor(accentColor)
-            })
-            .onDisappear() { self.CancelPredictionTask() }
         }
+        .navigationTitle("大衍卦")
+        .navigationBarItems(trailing: Button(action: {
+            popPages.append(PageType.questionView)
+        }) {
+                Image(systemName: "questionmark.circle")
+                    .foregroundColor(accentColor)
+        })
+        .onDisappear() { self.CancelPredictionTask() }
     }
 }
 
@@ -94,7 +76,6 @@ extension DayanPredictionView {
        
                     NumberPicker(start: 6, end: 9, value: $modelData.dayanPrediction.data.result[index])
                         .font(.title)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
                         .overlay(RoundedRectangle(cornerRadius: 10).stroke(accentColor, lineWidth: 2))
                 }
             }
@@ -148,6 +129,27 @@ extension DayanPredictionView {
         }
         .onTapGesture { popPages.removeLast() }
     }
+    
+    func PredictionView() -> some View {
+        GeometryReader { geometry in
+            let imageWidth = geometry.size.width * 0.8
+            let imageHeight = geometry.size.height * 0.5
+            let width = (imageHeight > geometry.size.width) ? imageWidth : imageHeight
+            
+            VStack {
+                Spacer()
+                ImageView(width)
+                Spacer()
+                PickerView(width)
+                Spacer()
+                ButtonView(width)
+                Spacer()
+            }
+            .blur(radius: (popPages.count != 0) ? 10 : 0)
+            .disabled((popPages.count != 0) ? true : false)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+    }
 }
 
 // MARK: DayanPredictionView predicting views
@@ -155,12 +157,12 @@ extension DayanPredictionView {
 extension DayanPredictionView {
     func PredictingView() -> some View {
         VStack {
-            VStack(spacing: 0) {
-                Text("★").frame(minHeight: 20)
+            VStack {
+                Text("★")
+                    .frame(maxWidth: .infinity, minHeight: 30)
+                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(accentColor, lineWidth: 2))
                 
-                Divider().frame(height: 2).background(accentColor)
-                
-                HStack(spacing: 0) {
+                HStack() {
                     HStack {
                         ForEach(0..<3, id: \.self) { i in
                             VStack {
@@ -175,45 +177,50 @@ extension DayanPredictionView {
                                 ForEach(0..<4, id: \.self) { j in
                                     Text((j < dydat.modB[i]) ? "★" : " ")
                                 }
+                                Text(" ")
                             }
                             .frame(minWidth: 20)
                         }
                     }
-                    
-                    Divider().frame(width: 2).background(accentColor)
+                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(accentColor, lineWidth: 2))
                     
                     VStack {
                         Text(String(dydat.partA))
-                        VStack(alignment: .leading) {
-                            ForEach(0..<6, id: \.self) { i in
-                                HStack {
-                                    ForEach(0..<8, id: \.self) { j in
-                                        if j == 4 { Text(" ") }
-                                        Text(((i * 8 + j) < dydat.partA) ? "★" : "    ")
+                        Spacer()
+                        ForEach(0..<12) { i in
+                            HStack {
+                                ForEach(0..<4, id: \.self) { j in
+                                    if ((i * 4 + j) < dydat.partA) {
+                                        Text("★")
                                     }
                                 }
                             }
                         }
-                        
-                        Divider().frame(height: 2).background(accentColor)
-                        
-                        Text(String(dydat.partB))
-                        VStack(alignment: .leading) {
-                            ForEach(0..<6, id: \.self) { i in
-                                HStack {
-                                    ForEach(0..<8, id: \.self) { j in
-                                        if j == 4 { Text(" ") }
-                                        Text(((i * 8 + j) < dydat.partB) ? "★" : "    ")
-                                    }
-                                }
-                            }
-                        }
+                        Spacer()
                     }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(accentColor, lineWidth: 2))
+                    
+                    VStack {
+                        Text(String(dydat.partB))
+                        Spacer()
+                        ForEach(0..<12) { i in
+                            HStack {
+                                ForEach(0..<4, id: \.self) { j in
+                                    if ((i * 4 + j) < dydat.partB) {
+                                        Text("★")
+                                    }
+                                }
+                            }
+                        }
+                        Spacer()
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(accentColor, lineWidth: 2))
                 }
             }
             .font(.system(size: 18))
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .overlay(RoundedRectangle(cornerRadius: 10).stroke(accentColor, lineWidth: 2))
             
             HStack {
                 ForEach(0..<6, id: \.self) { i in
@@ -232,18 +239,18 @@ extension DayanPredictionView {
                         
                         Text(String(dydat.result[i]))
                             .frame(maxWidth: .infinity, minHeight: 50)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
                             .overlay(RoundedRectangle(cornerRadius: 10).stroke(accentColor, lineWidth: 2))
                     }
                 }
             }
+            .font(.system(size: 18))
             
             Divider()
             
             VStack(alignment: .center) {
                 Text("注意：占卦完成之后")
-                Text("大衍卦占卦值会更新为此次占卦的结果。")
                 Text("点击任意位置返回；长按任意位置解卦。")
+                Text("大衍卦占卦值会更新为此次占卦的结果。")
                 Text("在大衍卦界面，长按<解>也可以解卦。")
             }
         }
