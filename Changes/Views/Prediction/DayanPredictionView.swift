@@ -49,6 +49,7 @@ struct DayanPredictionView: View {
             }
         }
         .navigationTitle("大衍卦")
+        .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing: Button(action: {
             popPages.append(PageType.questionView)
         }) {
