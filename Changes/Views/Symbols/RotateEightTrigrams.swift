@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CoreLocation
 
 struct HexagramShape: Shape {
     var scale1: CGFloat = 0.2929
@@ -30,10 +29,9 @@ struct HexagramShape: Shape {
 struct RotateEightTrigrams: View {
     var lineWidth: CGFloat = 0
     var lineColor: Color = Color.black
-    var locationManager = CLLocationManager()
     @ObservedObject var location: LocationProvider = LocationProvider()
     @State var angle: CGFloat = 0
-
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -100,8 +98,7 @@ public extension CGFloat {
 
 struct RotateImage_Previews: PreviewProvider {
     static var previews: some View {
-        RotateEightTrigrams()
+        RotateEightTrigrams(lineWidth: 2.0)
             .frame(width: 350, height: 350)
-            .shadow(radius: 10)
     }
 }
