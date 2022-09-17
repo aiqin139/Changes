@@ -69,7 +69,7 @@ struct DayanExplanationView: View {
             
             VStack {
                 VStack(alignment: .center) {
-                    Text(dayanData.explanation1Name)
+                    Text(dayanData.explanation1Name + "(主参)")
                     
                     Divider()
                     
@@ -83,7 +83,7 @@ struct DayanExplanationView: View {
                     if dayanData.explanation2[0] != "" {
                         Divider()
                         
-                        Text(dayanData.explanation2Name)
+                        Text(dayanData.explanation2Name + "(次参)")
                         
                         Divider()
                         
@@ -113,6 +113,8 @@ struct DayanExplanationView_Previews: PreviewProvider {
             benPinyin: ModelData().derivedHexagrams[0].pinyin,
             zhiName: ModelData().derivedHexagrams[1].name,
             zhiPinyin: ModelData().derivedHexagrams[1].pinyin,
+            explanation1Name: ModelData().derivedHexagrams[0].name,
+            explanation2Name: ModelData().derivedHexagrams[1].name,
             explanation1: ModelData().derivedHexagrams[0].explanations[0],
             explanation2: ModelData().derivedHexagrams[1].explanations[1]
         ))
