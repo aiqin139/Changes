@@ -51,7 +51,9 @@ struct DayanPredictionView: View {
         .navigationTitle("大衍卦")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing: Button(action: {
-            popPages.append(PageType.questionView)
+            if popPages.last != .questionView {
+                popPages.append(PageType.questionView)
+            }
         }) {
                 Image(systemName: "questionmark.circle")
                     .foregroundColor(accentColor)
@@ -315,7 +317,9 @@ extension DayanPredictionView {
             isPredicting = false
         }
         
-        popPages.append(.predictingView)
+        if popPages.last != .predictingView{
+            popPages.append(.predictingView)
+        }
     }
     
     func CancelPredictionTask() {
@@ -343,7 +347,9 @@ extension DayanPredictionView {
             saveRecord(modelData.hexagramRecord)
         }
         
-        popPages.append(.parserView)
+        if popPages.last != .parserView {
+            popPages.append(.parserView)
+        }
         
         Notifiy()
     }

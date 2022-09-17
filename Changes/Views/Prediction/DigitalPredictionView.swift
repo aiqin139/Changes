@@ -52,7 +52,9 @@ struct DigitalPredictionView: View {
             .navigationTitle("数字卦")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing: Button(action: {
-                popPages.append(PageType.questionView)
+                if popPages.last != .questionView {
+                    popPages.append(PageType.questionView)
+                }
             }) {
                 Image(systemName: "questionmark.circle")
                     .foregroundColor(accentColor)
@@ -171,7 +173,9 @@ extension DigitalPredictionView {
             saveRecord(modelData.hexagramRecord)
         }
         
-        popPages.append(.parserView)
+        if popPages.last != .parserView {
+            popPages.append(.parserView)
+        }
         
         Notifiy()
     }
