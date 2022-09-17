@@ -15,7 +15,6 @@ final class ModelData: ObservableObject {
     @Published var derivedHexagrams: [Hexagram] = load("六十四卦.json")
     @Published var hexagramRecord: [RecordData] = loadRecord()
     @Published var fortuneTellingPurpose: String = "时运"
-    @Published var searchBarText: String = ""
     
     init() {
         digitalPrediction.data = hexagramRecord.filter{ $0.type == RecordType.Digital.rawValue }.last?.digit ?? DigitalData()

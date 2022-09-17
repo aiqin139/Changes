@@ -10,14 +10,16 @@ import SwiftUI
 // MARK: Hexagram view controller
 
 class HexagramViewController: UIViewController {
-    var modelData: ModelData
+    private var modelData: ModelData
 
-    var headers = ["基本八卦", "六十四卦"]
+    private var headers = ["基本八卦", "六十四卦"]
 
-    var filteredHexagrams: [Hexagram] = [Hexagram]()
+    private var filteredText = ""
     
-    var data: [[Hexagram]] {
-        if modelData.searchBarText.isEmpty {
+    private var filteredHexagrams: [Hexagram] = [Hexagram]()
+    
+    private var data: [[Hexagram]] {
+        if filteredText.isEmpty {
             return [modelData.basicHexagrams, modelData.derivedHexagrams]
         } else {
             return [filteredHexagrams]
@@ -48,7 +50,7 @@ class HexagramViewController: UIViewController {
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "搜索"
         searchController.searchBar.setValue("取消", forKey: "cancelButtonText")
-        
+
         self.view.addSubview(tableView)
         self.navigationItem.searchController = searchController
         self.navigationItem.title = "卦象"
@@ -99,7 +101,7 @@ extension HexagramViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if modelData.searchBarText.isEmpty {
+        if filteredText.isEmpty {
             return headers[section]
         } else {
             return ""
@@ -138,6 +140,7 @@ extension HexagramViewController: UISearchResultsUpdating {
     if let searchBarText = searchController.searchBar.text {
         var allHexagrams: [Hexagram] { modelData.basicHexagrams + modelData.derivedHexagrams }
         filteredHexagrams = allHexagrams.filter { $0.name.hasPrefix(searchBarText) }
+        filteredText = searchBarText
         tableView.reloadData()
     }
   }
