@@ -10,7 +10,7 @@ import SwiftUI
 // MARK: - Prediction picker view
 
 struct PredictionPicker: View {
-    @State var modelData: ModelData
+    @ObservedObject var modelData: ModelData
     
     var body: some View {
         VStack(alignment: .center) {
