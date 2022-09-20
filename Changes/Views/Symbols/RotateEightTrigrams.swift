@@ -6,30 +6,13 @@
 //
 
 import SwiftUI
-
-struct HexagramShape: Shape {
-    var scale1: CGFloat = 0.2929
-    var scale2: CGFloat = 0.7071
-    
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-        path.move(to: CGPoint(x: rect.width * scale1, y: 0))
-        path.addLine(to: CGPoint(x: rect.width * scale2, y: 0))
-        path.addLine(to: CGPoint(x: rect.width, y: rect.height * scale1))
-        path.addLine(to: CGPoint(x: rect.width, y: rect.height * scale2))
-        path.addLine(to: CGPoint(x: rect.width * scale2, y: rect.height))
-        path.addLine(to: CGPoint(x: rect.width * scale1, y: rect.height))
-        path.addLine(to: CGPoint(x: 0, y: rect.height * scale2))
-        path.addLine(to: CGPoint(x: 0, y: rect.height * scale1))
-        path.closeSubpath()
-        return path
-    }
-}
+import CoreMotion
+import Combine
 
 struct RotateEightTrigrams: View {
     var lineWidth: CGFloat = 0
     var lineColor: Color = Color.black
-    @ObservedObject var location: LocationProvider = LocationProvider()
+    @ObservedObject var motion: MotionManger = MotionManger()
     @State var angle: CGFloat = 0
     
     var body: some View {
@@ -38,9 +21,9 @@ struct RotateEightTrigrams: View {
                 EightTrigramsSymbol()
                     .overlay(HexagramShape().stroke(lineColor, lineWidth: lineWidth))
                     .animation(.linear)
-                    .onReceive(self.location.heading) { heading in
+                    .onReceive(self.motion.yaw) { yaw in
                         withAnimation(.easeInOut(duration: 0.2)) {
-                            self.angle += self.angleDiff(to: heading)
+                            self.angle += self.angleDiff(to: yaw)
                         }
                     }
                     .modifier(RotationEffect(
@@ -83,16 +66,39 @@ struct RotationEffect: GeometryEffect {
     func effectValue(size: CGSize) -> ProjectionTransform {
         return ProjectionTransform(
           CGAffineTransform(translationX: -x, y: -y)
-            .concatenating(CGAffineTransform(rotationAngle: -CGFloat(angle.degreesToRadians)))
+            .concatenating(CGAffineTransform(rotationAngle: CGFloat(angle * .pi / 180)))
             .concatenating(CGAffineTransform(translationX: x, y: y))
         )
     }
 }
 
 
-public extension CGFloat {
-    var degreesToRadians: CGFloat { return self * .pi / 180 }
-    var radiansToDegrees: CGFloat { return self * 180 / .pi }
+class MotionManger: ObservableObject {
+    private var manager: CMMotionManager
+    
+    public let yaw = PassthroughSubject<CGFloat, Never>()
+    
+    @Published var currentYaw: CGFloat {
+        willSet {
+            yaw.send(newValue)
+        }
+    }
+    
+    init() {
+        currentYaw = 0
+        self.manager = CMMotionManager()
+        self.manager.deviceMotionUpdateInterval = 1 / 20
+        self.manager.startDeviceMotionUpdates(to: .main) { (motionData, error) in
+            guard error == nil else {
+                print(error!)
+                return
+            }
+            
+            if let motionData = motionData {
+                self.currentYaw = CGFloat(motionData.attitude.yaw * 180 / .pi)
+            }
+        }
+    }
 }
 
 

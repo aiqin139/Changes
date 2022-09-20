@@ -7,6 +7,25 @@
 
 import SwiftUI
 
+struct HexagramShape: Shape {
+    var scale1: CGFloat = 0.2929
+    var scale2: CGFloat = 0.7071
+    
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        path.move(to: CGPoint(x: rect.width * scale1, y: 0))
+        path.addLine(to: CGPoint(x: rect.width * scale2, y: 0))
+        path.addLine(to: CGPoint(x: rect.width, y: rect.height * scale1))
+        path.addLine(to: CGPoint(x: rect.width, y: rect.height * scale2))
+        path.addLine(to: CGPoint(x: rect.width * scale2, y: rect.height))
+        path.addLine(to: CGPoint(x: rect.width * scale1, y: rect.height))
+        path.addLine(to: CGPoint(x: 0, y: rect.height * scale2))
+        path.addLine(to: CGPoint(x: 0, y: rect.height * scale1))
+        path.closeSubpath()
+        return path
+    }
+}
+
 struct TaiChiSymbol: View {
     var body: some View {
         GeometryReader { geometry in
@@ -78,5 +97,6 @@ struct EightTrigramsSymbol_Previews: PreviewProvider {
     static var previews: some View {
         EightTrigramsSymbol()
             .frame(width: 250, height: 250, alignment: .center)
+            .overlay(HexagramShape().stroke())
     }
 }
