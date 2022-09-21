@@ -16,11 +16,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     /// - Tag: willConnectTo
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        /** Process the quick action if the user selected one to launch the app.
-            Grab a reference to the shortcutItem to use in the scene.
-        */
+        // Process the quick action if the user selected one to launch the app.
+        // Grab a reference to the shortcutItem to use in the scene.
+        // Save it off for later when we become active.
         if let shortcutItem = connectionOptions.shortcutItem {
-            // Save it off for later when we become active.
             savedShortCutItem = shortcutItem
         }
         
